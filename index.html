@@ -10,10 +10,10 @@
   <meta name="description" content="AG Auto-Tech Tadley – professional car service, diagnostics, MOT preparation, tyres, brakes & DPF cleaning in Tadley, Hampshire. Call 07920 778 706.">
   <meta name="keywords" content="car service Tadley, mechanic Tadley, MOT prep Tadley, DPF cleaning Tadley, tyres Tadley">
 
-  <!-- Open Graph (Facebook / WhatsApp) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="AG Auto-Tech Tadley">
   <meta property="og:description" content="Professional car service, diagnostics & MOT preparation in Tadley, Hampshire.">
-  <meta property="og:image" content="AG_BANNER.jpg">
+  <meta property="og:image" content="ag_banner.jpg">
   <meta property="og:type" content="website">
 
   <style>
@@ -26,18 +26,16 @@
 
     /* HERO HEADER */
     header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      width: 100%;
       background: #000;
-      padding: 20px;
+      padding: 0;
     }
 
     header img {
-      max-width: 1100px;
       width: 100%;
-      height: auto;
-      border-radius: 12px;
+      max-height: 400px;
+      object-fit: cover; /* 🔥 najlepsze proporcje */
+      display: block;
     }
 
     section {
@@ -58,8 +56,8 @@
 
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
       margin-top: 20px;
     }
 
@@ -68,6 +66,7 @@
       padding: 15px;
       border-radius: 8px;
       text-align: center;
+      font-size: 15px;
     }
 
     form {
@@ -80,9 +79,9 @@
 
     input, textarea, button {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin-top: 10px;
-      border-radius: 5px;
+      border-radius: 6px;
       border: none;
       font-size: 14px;
     }
@@ -94,6 +93,7 @@
       color: #fff;
       font-weight: bold;
       cursor: pointer;
+      font-size: 16px;
     }
 
     button:hover { background: #ff1c1c; }
@@ -105,18 +105,19 @@
       color: #aaa;
     }
 
-    /* Sticky Call Button (mobile) */
+    /* Sticky Call Button */
     .call-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
       background: #e10600;
       color: #fff;
-      padding: 15px 22px;
+      padding: 14px 20px;
       border-radius: 50px;
       font-weight: bold;
       text-decoration: none;
       z-index: 999;
+      font-size: 16px;
     }
 
     .call-btn:hover {
@@ -153,19 +154,19 @@
 <section>
   <h2>Our Services</h2>
   <div class="services">
-    <div>Air Conditioning (Service & Repair)</div>
+    <div>Air Conditioning Service & Repair</div>
     <div>DPF Cleaning</div>
-    <div>Tyres (Sales, Repairs & Balancing)</div>
+    <div>Tyres Sales & Repairs</div>
     <div>Wheel Alignment</div>
     <div>Diagnostics</div>
     <div>MOT Preparation</div>
     <div>General Repairs</div>
     <div>Brakes</div>
-    <div>Re-maps</div>
-    <div>Clutch</div>
+    <div>ECU Re-maps</div>
+    <div>Clutch Replacement</div>
     <div>Gearbox Service</div>
     <div>Mileage Correction</div>
-    <div>Electronics</div>
+    <div>Auto Electronics</div>
   </div>
 
   <p style="font-size:13px;color:#aaa;text-align:center;margin-top:20px;">
@@ -178,13 +179,12 @@
 
   <div style="text-align:center; margin-bottom:20px;">
     <a href="https://wa.me/447920778706" target="_blank"
-       style="display:inline-block; background:#25D366; color:#fff; padding:12px 20px;
+       style="display:inline-block; background:#25D366; color:#fff; padding:12px 22px;
        border-radius:30px; text-decoration:none; font-weight:bold;">
       💬 Contact us on WhatsApp
     </a>
   </div>
 
-  <!-- TEMP mailto (możemy zmienić na backend) -->
   <form action="mailto:agautotechtadley@email.com" method="post" enctype="text/plain">
     <input type="text" name="name" placeholder="Full name" required>
     <input type="email" name="email" placeholder="Email address" required>
@@ -199,7 +199,7 @@
   <div style="max-width:900px; margin:20px auto; border-radius:12px; overflow:hidden;">
     <iframe
       src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%2C%20Little%20London%2C%20Tadley%20RG26%205FL&output=embed"
-      width="100%" height="400" style="border:0;" loading="lazy">
+      width="100%" height="380" style="border:0;" loading="lazy">
     </iframe>
   </div>
 </section>
@@ -208,9 +208,7 @@
   © AG Auto-Tech Tadley
 </footer>
 
-<!-- Sticky Call -->
 <a href="tel:07920778706" class="call-btn">📞 Call Now</a>
 
 </body>
 </html>
-
