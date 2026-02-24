@@ -9,7 +9,7 @@
 <!-- SEO TITLE -->
 <title>AG Auto-Tech Tadley | Car Service, MOT & Tyres Tadley</title>
 
-<!-- SEO DESCRIPTION (max ~160 chars) -->
+<!-- SEO DESCRIPTION -->
 <meta name="description" content="AG Auto-Tech Tadley garage for car service, MOT prep, diagnostics, tyres and repairs in Tadley RG26. Call 07920 778 706.">
 
 <!-- SEO KEYWORDS -->
@@ -31,7 +31,7 @@
 <!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-<!-- LOCAL BUSINESS SCHEMA (VERY IMPORTANT) -->
+<!-- LOCAL BUSINESS SCHEMA -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -167,6 +167,17 @@ footer {
   .hero img{max-height:200px;}
   h1{font-size:22px;}
 }
+
+/* BOOKING FORM */
+input, select, textarea {
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:8px;
+  border:none;
+  font-size:15px;
+}
+textarea { height:90px; }
 </style>
 </head>
 
@@ -192,6 +203,7 @@ Ash Park Business Centre, Tadley RG26 5FL<br>
 <a href="tel:07920778706" class="btn">📞 Call Now</a>
 <a href="https://wa.me/447920778706" class="btn">💬 WhatsApp</a>
 <a href="https://share.google/4CVhYSfMTdeLGBDPG" target="_blank" class="btn">⭐ Google Reviews</a>
+<a href="#booking" class="btn">📅 Book Appointment</a>
 </div>
 </section>
 
@@ -233,6 +245,47 @@ Ash Park Business Centre, Tadley RG26 5FL<br>
 </div>
 </section>
 
+<!-- BOOKING SYSTEM -->
+<section id="booking">
+<h2>Book Appointment Online</h2>
+
+<div style="max-width:700px;margin:auto;">
+<form id="bookingForm">
+
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="text" id="phone" placeholder="Phone Number" required>
+
+<select id="service">
+<option>Car Service</option>
+<option>MOT Preparation</option>
+<option>Diagnostics</option>
+<option>DPF Cleaning</option>
+<option>Tyres</option>
+<option>Brakes / Repairs</option>
+</select>
+
+<input type="text" id="tyresize" placeholder="Tyre Size (optional)">
+<select id="qty">
+<option>1 Tyre</option>
+<option>2 Tyres</option>
+<option>3 Tyres</option>
+<option>4 Tyres</option>
+</select>
+
+<label>Preferred Date</label>
+<input type="date" id="date" required>
+
+<label>Preferred Time</label>
+<input type="time" id="time" required>
+
+<textarea id="message" placeholder="Extra message"></textarea>
+
+<button type="button" class="btn" onclick="sendBooking()">📅 Book Now</button>
+
+</form>
+</div>
+</section>
+
 <section>
 <h2>Find Our Garage</h2>
 <div class="map-box">
@@ -248,6 +301,31 @@ Ash Park Business Centre, Tadley RG26 5FL<br>
 </footer>
 
 <a href="tel:07920778706" class="call-float">📞 Call Now</a>
+
+<script>
+function sendBooking() {
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let service = document.getElementById("service").value;
+  let tyre = document.getElementById("tyresize").value;
+  let qty = document.getElementById("qty").value;
+  let date = document.getElementById("date").value;
+  let time = document.getElementById("time").value;
+  let msg = document.getElementById("message").value;
+
+  let text = "NEW BOOKING REQUEST%0A" +
+             "Name: " + name + "%0A" +
+             "Phone: " + phone + "%0A" +
+             "Service: " + service + "%0A" +
+             "Tyre Size: " + tyre + "%0A" +
+             "Qty: " + qty + "%0A" +
+             "Date: " + date + "%0A" +
+             "Time: " + time + "%0A" +
+             "Message: " + msg;
+
+  window.open("https://wa.me/447920778706?text=" + text, "_blank");
+}
+</script>
 
 </body>
 </html>
