@@ -1,17 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<!-- BASIC -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AG Auto-Tech Tadley | Car Service & Repairs</title>
-<meta name="description" content="AG Auto-Tech Tadley – professional car service, diagnostics, MOT prep, tyres & DPF cleaning in Tadley. Call 07920 778 706.">
+<!-- SEO TITLE -->
+<title>AG Auto-Tech Tadley | Car Service, MOT & Tyres Tadley</title>
 
+<!-- SEO DESCRIPTION (max ~160 chars) -->
+<meta name="description" content="AG Auto-Tech Tadley garage for car service, MOT prep, diagnostics, tyres and repairs in Tadley RG26. Call 07920 778 706.">
+
+<!-- SEO KEYWORDS -->
+<meta name="keywords" content="car service Tadley, garage Tadley, MOT Tadley, tyre fitting Tadley, diagnostics Tadley, car repairs RG26">
+
+<!-- GOOGLE BUSINESS LOCATION -->
+<meta name="geo.region" content="GB-HAM">
+<meta name="geo.placename" content="Tadley, Hampshire">
+<meta name="geo.position" content="51.345;-1.129">
+<meta name="ICBM" content="51.345, -1.129">
+
+<!-- SOCIAL MEDIA PREVIEW -->
+<meta property="og:title" content="AG Auto-Tech Tadley | Car Service & Repairs">
+<meta property="og:description" content="Professional car service, MOT, tyres and diagnostics in Tadley. Call 07920 778 706.">
+<meta property="og:image" content="https://agautotechtadley.co.uk/banner.jpg">
+<meta property="og:url" content="https://agautotechtadley.co.uk">
+<meta property="og:type" content="business.business">
+
+<!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- LOCAL BUSINESS SCHEMA (VERY IMPORTANT) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "AG Auto-Tech Tadley",
+  "image": "https://agautotechtadley.co.uk/banner.jpg",
+  "telephone": "+447920778706",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Ash Park Business Centre, Little London",
+    "addressLocality": "Tadley",
+    "postalCode": "RG26 5FL",
+    "addressCountry": "GB"
+  },
+  "url": "https://agautotechtadley.co.uk",
+  "openingHours": "Mo-Sa 08:00-18:00",
+  "sameAs": [
+    "https://share.google/4CVhYSfMTdeLGBDPG"
+  ]
+}
+</script>
 
 <style>
 * { box-sizing:border-box; }
-
 body {
   margin:0;
   font-family:Poppins, Arial, sans-serif;
@@ -19,7 +63,7 @@ body {
   color:#ffffff;
 }
 
-/* TOP INFO BAR */
+/* TOP BAR */
 .top-bar {
   background:#e10600;
   color:white;
@@ -29,15 +73,14 @@ body {
   font-weight:600;
 }
 
-/* HERO BANNER */
+/* HERO */
 .hero {
   background:black;
   text-align:center;
 }
-
 .hero img {
   width:100%;
-  max-height:320px;
+  max-height:300px;
   object-fit:contain;
   display:block;
 }
@@ -49,10 +92,10 @@ section {
   margin:auto;
 }
 
-h1, h2 {
+h1,h2 {
   color:#e10600;
   text-align:center;
-  margin-bottom:15px;
+  margin-bottom:12px;
 }
 
 p {
@@ -73,25 +116,20 @@ p {
   margin:6px;
   transition:0.2s;
 }
+.btn:hover { background:#ff1c1c; }
 
-.btn:hover {
-  background:#ff1c1c;
-}
-
-/* GRID BOXES */
+/* GRID */
 .grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
   gap:15px;
   margin-top:25px;
 }
-
 .grid div {
   background:#151515;
   padding:18px;
   border-radius:12px;
   text-align:center;
-  font-size:15px;
   border:1px solid #222;
 }
 
@@ -99,7 +137,6 @@ p {
 .map-box {
   border-radius:14px;
   overflow:hidden;
-  margin-top:25px;
   border:1px solid #222;
 }
 
@@ -112,7 +149,7 @@ footer {
   border-top:1px solid #222;
 }
 
-/* FLOAT CALL BUTTON (MOBILE ONLY) */
+/* MOBILE CALL BUTTON */
 .call-float {
   position:fixed;
   bottom:15px;
@@ -125,38 +162,29 @@ footer {
   text-decoration:none;
   z-index:9999;
 }
-
-/* Hide floating button on desktop */
-@media (min-width:900px) {
-  .call-float { display:none; }
-}
-
-/* Mobile adjustments */
-@media (max-width:600px) {
-  .hero img { max-height:200px; }
-  h1 { font-size:22px; }
-  h2 { font-size:20px; }
+@media(min-width:900px){ .call-float{display:none;} }
+@media(max-width:600px){
+  .hero img{max-height:200px;}
+  h1{font-size:22px;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
 <div class="top-bar">
 Open Mon–Sat • Tadley • Call 07920 778 706
 </div>
 
-<!-- HERO BANNER -->
 <div class="hero">
-  <img src="banner.jpg" alt="AG Auto-Tech Tadley Garage">
+<img src="banner.jpg" alt="AG Auto-Tech Tadley Car Garage">
 </div>
 
-<!-- INTRO -->
 <section>
-<h1>AG Auto-Tech Tadley</h1>
+<h1>Car Service & Repairs in Tadley</h1>
 <p>
-Ash Park Business Centre, Little London, Tadley RG26 5FL<br>
+AG Auto-Tech Tadley provides professional car servicing, MOT preparation, diagnostics, tyres and repairs.<br>
+Ash Park Business Centre, Tadley RG26 5FL<br>
 <strong>Phone:</strong> 07920 778 706
 </p>
 
@@ -167,7 +195,6 @@ Ash Park Business Centre, Little London, Tadley RG26 5FL<br>
 </div>
 </section>
 
-<!-- SERVICES -->
 <section>
 <h2>Our Services</h2>
 <div class="grid">
@@ -184,56 +211,42 @@ Ash Park Business Centre, Little London, Tadley RG26 5FL<br>
 </div>
 </section>
 
-<!-- WHY CHOOSE US -->
 <section>
-<h2>Why Choose AG Auto-Tech</h2>
+<h2>Why Choose AG Auto-Tech Tadley</h2>
 <div class="grid">
-<div>✔ Fast & Reliable Local Garage</div>
+<div>✔ Local Trusted Garage</div>
 <div>✔ Competitive Prices</div>
 <div>✔ Professional Diagnostics Equipment</div>
-<div>✔ Honest Friendly Service</div>
+<div>✔ Friendly & Honest Service</div>
 </div>
 </section>
 
-<!-- REVIEWS PREVIEW -->
 <section>
 <h2>Customer Reviews</h2>
 <div class="grid">
-<div>⭐️⭐️⭐️⭐️⭐️ Great service, honest mechanic.</div>
-<div>⭐️⭐️⭐️⭐️⭐️ Best garage in Tadley, highly recommended.</div>
-<div>⭐️⭐️⭐️⭐️⭐️ Fast repair and good price.</div>
+<div>⭐⭐⭐⭐⭐ Great service, honest mechanic.</div>
+<div>⭐⭐⭐⭐⭐ Best garage in Tadley.</div>
+<div>⭐⭐⭐⭐⭐ Fast repair and good price.</div>
 </div>
-
-<div style="text-align:center; margin-top:15px;">
-<a href="https://share.google/4CVhYSfMTdeLGBDPG" target="_blank" class="btn">
-Read All Google Reviews
-</a>
+<div style="text-align:center;margin-top:15px;">
+<a href="https://share.google/4CVhYSfMTdeLGBDPG" target="_blank" class="btn">Read All Google Reviews</a>
 </div>
 </section>
 
-<!-- MAP -->
 <section>
-<h2>Find Us</h2>
+<h2>Find Our Garage</h2>
 <div class="map-box">
-<iframe 
-src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%2C%20Tadley&output=embed"
-width="100%" height="350" style="border:0;" loading="lazy">
-</iframe>
+<iframe src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%20Tadley&output=embed" width="100%" height="350" style="border:0;" loading="lazy"></iframe>
 </div>
-
-<div style="text-align:center; margin-top:15px;">
-<a href="https://maps.google.com/?q=Ash+Park+Business+Centre+Tadley" target="_blank" class="btn">
-📍 Get Directions
-</a>
+<div style="text-align:center;margin-top:15px;">
+<a href="https://maps.google.com/?q=Ash+Park+Business+Centre+Tadley" target="_blank" class="btn">📍 Get Directions</a>
 </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-© AG Auto-Tech Tadley | Professional Car Service & Repairs
+© 2026 AG Auto-Tech Tadley – Car Service, MOT & Tyres in Tadley
 </footer>
 
-<!-- FLOAT MOBILE CALL BUTTON -->
 <a href="tel:07920778706" class="call-float">📞 Call Now</a>
 
 </body>
