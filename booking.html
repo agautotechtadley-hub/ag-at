@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Book Appointment | AG Auto-Tech Tadley</title>
+<meta name="description" content="Book tyre fitting, MOT prep, diagnostics and repairs online at AG Auto-Tech Tadley.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body { margin:0; font-family:Poppins; background:#0b0b0b; color:white; }
+section { max-width:700px; margin:auto; padding:40px 20px; }
+h1 { text-align:center; color:#e10600; }
+
+input, select, textarea, button {
+  width:100%;
+  padding:12px;
+  margin-top:12px;
+  border-radius:8px;
+  border:none;
+  font-size:15px;
+}
+
+button {
+  background:#e10600;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover { background:#ff1c1c; }
+</style>
+</head>
+
+<body>
+
+<section>
+<h1>Book Appointment</h1>
+
+<form id="bookingForm">
+
+<label>Your Name</label>
+<input type="text" id="name" required>
+
+<label>Phone Number</label>
+<input type="text" id="phone" required>
+
+<label>Service Type</label>
+<select id="service">
+<option>Tyre Fitting</option>
+<option>MOT Preparation</option>
+<option>Diagnostics</option>
+<option>DPF Cleaning</option>
+<option>Car Service</option>
+<option>Brakes / Repairs</option>
+</select>
+
+<label>Tyre Size (optional)</label>
+<input type="text" id="tyresize" placeholder="e.g. 205/55R16">
+
+<label>Quantity</label>
+<select id="qty">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+
+<label>Preferred Date</label>
+<input type="date" id="date" required>
+
+<label>Preferred Time</label>
+<input type="time" id="time" required>
+
+<label>Extra Message</label>
+<textarea id="message"></textarea>
+
+<button type="button" onclick="sendBooking()">Book Now</button>
+
+</form>
+</section>
+
+<script>
+function sendBooking() {
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let service = document.getElementById("service").value;
+  let tyresize = document.getElementById("tyresize").value;
+  let qty = document.getElementById("qty").value;
+  let date = document.getElementById("date").value;
+  let time = document.getElementById("time").value;
+  let message = document.getElementById("message").value;
+
+  let text = `Booking Request:%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Service: ${service}%0A
+Tyre Size: ${tyresize}%0A
+Quantity: ${qty}%0A
+Date: ${date}%0A
+Time: ${time}%0A
+Message: ${message}`;
+
+  window.open("https://wa.me/447920778706?text=" + text, "_blank");
+}
+</script>
+
+</body>
+</html>
