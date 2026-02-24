@@ -7,33 +7,105 @@
 
 <title>AG Auto-Tech Tadley | Car Service, MOT & Tyres Tadley</title>
 <meta name="description" content="AG Auto-Tech Tadley garage for car service, MOT prep, diagnostics, tyres and repairs in Tadley RG26. Call 07920 778 706.">
-<meta name="keywords" content="car service Tadley, garage Tadley, MOT Tadley, tyre fitting Tadley, diagnostics Tadley, car repairs RG26">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;}
-body{margin:0;font-family:Poppins,Arial;background:#0b0b0b;color:#fff;}
-.top-bar{background:#e10600;text-align:center;padding:6px;font-weight:600;}
-.hero{text-align:center;background:black;}
-.hero img{width:100%;max-height:300px;object-fit:contain;}
-section{padding:50px 20px;max-width:1100px;margin:auto;}
-h1,h2{color:#e10600;text-align:center;}
-p{text-align:center;}
-.btn{padding:12px 28px;background:#e10600;color:#fff;text-decoration:none;border-radius:30px;font-weight:700;margin:6px;display:inline-block;}
-.btn:hover{background:#ff1c1c;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px;}
-.grid div{background:#151515;padding:18px;border-radius:12px;border:1px solid #222;text-align:center;}
-.map-box{border-radius:14px;overflow:hidden;border:1px solid #222;}
-footer{text-align:center;padding:25px;color:#999;border-top:1px solid #222;}
-.call-float{position:fixed;bottom:15px;right:15px;background:#e10600;color:white;padding:14px 22px;border-radius:50px;font-weight:700;text-decoration:none;}
-@media(min-width:900px){.call-float{display:none;}}
-input,select,textarea{width:100%;padding:12px;margin-top:10px;border-radius:8px;border:none;font-size:15px;}
-textarea{height:90px;}
-.hidden{display:none;}
-</style>
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:Poppins, Arial, sans-serif;
+  background:#0b0b0b;
+  color:#ffffff;
+}
 
+.top-bar {
+  background:#e10600;
+  text-align:center;
+  padding:6px;
+  font-weight:600;
+}
+
+.hero img {
+  width:100%;
+  max-height:300px;
+  object-fit:contain;
+  display:block;
+}
+
+section {
+  padding:50px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+h1,h2 { color:#e10600; text-align:center; }
+
+p { text-align:center; }
+
+.btn {
+  display:inline-block;
+  padding:12px 28px;
+  background:#e10600;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+  border-radius:30px;
+  margin:6px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:15px;
+  margin-top:25px;
+}
+.grid div {
+  background:#151515;
+  padding:18px;
+  border-radius:12px;
+  text-align:center;
+}
+
+.map-box {
+  border-radius:14px;
+  overflow:hidden;
+}
+
+footer {
+  text-align:center;
+  padding:20px;
+  color:#999;
+}
+
+.call-float {
+  position:fixed;
+  bottom:15px;
+  right:15px;
+  background:#e10600;
+  padding:14px 22px;
+  border-radius:50px;
+  font-weight:700;
+  color:white;
+  text-decoration:none;
+  z-index:9999;
+}
+
+@media(min-width:900px){ .call-float{display:none;} }
+
+/* BOOKING FORM */
+input, select, textarea {
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:8px;
+  border:none;
+  font-size:15px;
+}
+textarea { height:90px; }
+</style>
 </head>
+
 <body>
 
 <div class="top-bar">Open Mon–Sat • Tadley • Call 07920 778 706</div>
@@ -45,10 +117,11 @@ textarea{height:90px;}
 <section>
 <h1>Car Service & Repairs in Tadley</h1>
 <p>Ash Park Business Centre, Tadley RG26 5FL<br>📞 07920 778 706</p>
+
 <div style="text-align:center;">
 <a href="tel:07920778706" class="btn">Call Now</a>
 <a href="https://wa.me/447920778706" class="btn">WhatsApp</a>
-<a href="#booking" class="btn">Book Appointment</a>
+<a href="#booking" class="btn">Book Online</a>
 </div>
 </section>
 
@@ -59,30 +132,28 @@ textarea{height:90px;}
 <div>MOT Preparation</div>
 <div>Diagnostics</div>
 <div>DPF Cleaning</div>
-<div>Tyres & Alignment</div>
+<div>Tyres & Wheel Alignment</div>
 <div>Brakes</div>
 <div>Clutch</div>
 <div>Gearbox</div>
-<div>ECU Remapping</div>
+<div>ECU Remap</div>
 </div>
 </section>
 
-<!-- BOOKING -->
+<!-- BOOKING SYSTEM -->
 <section id="booking">
 <h2>Book Appointment Online</h2>
 
 <div style="max-width:700px;margin:auto;">
-<form>
+<form onsubmit="return false;" id="bookingForm">
 
 <input id="name" placeholder="Your Name" required>
 <input id="phone" placeholder="Phone Number" required>
 
-<!-- REG NUMBER -->
-<input id="reg" placeholder="Registration Number (optional)">
-<button type="button" class="btn" onclick="lookupCar()">Check Vehicle</button>
-<p id="carResult" style="font-weight:bold;text-align:center;"></p>
+<!-- REG LOOKUP -->
+<input id="reg" placeholder="Vehicle Registration (e.g AB12CDE)" onkeyup="lookupCar()">
+<div id="carResult" style="margin-top:5px;font-size:14px;color:#0f0;"></div>
 
-<!-- SERVICE SELECT -->
 <select id="service" onchange="checkService()">
 <option>Car Service</option>
 <option>MOT Preparation</option>
@@ -92,9 +163,9 @@ textarea{height:90px;}
 <option>Brakes / Repairs</option>
 </select>
 
-<!-- TYRES ONLY -->
-<div id="tyreBox" class="hidden">
-<input id="tyresize" placeholder="Tyre Size (e.g. 225/45R17)">
+<!-- TYRES BOX -->
+<div id="tyreBox" style="display:none;">
+<input id="tyresize" placeholder="Tyre Size (e.g 225/40R18)">
 <select id="qty">
 <option>1 Tyre</option>
 <option>2 Tyres</option>
@@ -111,22 +182,23 @@ textarea{height:90px;}
 
 <textarea id="message" placeholder="Extra message"></textarea>
 
-<button type="button" class="btn" onclick="sendBooking()">Book Now</button>
+<button class="btn" onclick="sendBooking()">📅 Book Now</button>
 
 </form>
 </div>
 </section>
 
 <section>
-<h2>Find Our Garage</h2>
+<h2>Find Us</h2>
 <div class="map-box">
-<iframe src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%20Tadley&output=embed" width="100%" height="350" style="border:0;" loading="lazy"></iframe>
+<iframe src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%20Tadley&output=embed"
+width="100%" height="350" style="border:0;"></iframe>
 </div>
 </section>
 
 <footer>© AG Auto-Tech Tadley</footer>
 
-<a href="tel:07920778706" class="call-float">Call Now</a>
+<a href="tel:07920778706" class="call-float">📞 Call Now</a>
 
 <script>
 // SHOW TYRES ONLY IF TYRES SELECTED
@@ -135,7 +207,7 @@ function checkService() {
   document.getElementById("tyreBox").style.display = (s=="Tyres") ? "block" : "none";
 }
 
-// FAKE CAR LOOKUP DEMO
+// DEMO REG LOOKUP (FAKE DATABASE)
 function lookupCar() {
   let reg = document.getElementById("reg").value.toUpperCase();
   let db = {
@@ -143,12 +215,12 @@ function lookupCar() {
     "AA11AAA":"Audi A4 2019",
     "XY99ZZZ":"BMW 320d 2020"
   };
-  document.getElementById("carResult").innerHTML = db[reg] || "Vehicle found (live DVLA coming soon)";
+  document.getElementById("carResult").innerHTML = db[reg] || "";
 }
 
-// SEND BOOKING VIA WHATSAPP
+// SEND BOOKING TO WHATSAPP
 function sendBooking() {
-  let name = name = document.getElementById("name").value;
+  let name = document.getElementById("name").value;
   let phone = document.getElementById("phone").value;
   let reg = document.getElementById("reg").value;
   let service = document.getElementById("service").value;
@@ -158,7 +230,13 @@ function sendBooking() {
   let time = document.getElementById("time").value;
   let msg = document.getElementById("message").value;
 
-  let text = "BOOKING REQUEST%0A"+
+  if(name=="" || phone=="") {
+    alert("Please enter name and phone");
+    return;
+  }
+
+  let text =
+  "BOOKING REQUEST%0A"+
   "Name: "+name+"%0A"+
   "Phone: "+phone+"%0A"+
   "Reg: "+reg+"%0A"+
@@ -169,7 +247,7 @@ function sendBooking() {
   "Time: "+time+"%0A"+
   "Message: "+msg;
 
-  window.open("https://wa.me/447920778706?text="+text);
+  window.open("https://wa.me/447920778706?text="+text, "_blank");
 }
 </script>
 
