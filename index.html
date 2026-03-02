@@ -5,80 +5,194 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AG Auto-Tech Tadley | Car Service, MOT & Tyres Tadley</title>
+<title>AG Auto-Tech Tadley | Car Service, MOT & Tyres</title>
 <meta name="description" content="AG Auto-Tech Tadley garage for car service, MOT prep, diagnostics, tyres and repairs in Tadley RG26. Call 07920 778 706.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-* { box-sizing:border-box; }
-body {
+*{box-sizing:border-box}
+body{
   margin:0;
-  font-family:Poppins, Arial, sans-serif;
+  font-family:Poppins,Arial,sans-serif;
   background:#0b0b0b;
-  color:#ffffff;
+  color:#fff;
 }
 
-.top-bar {
+.top-bar{
   background:#e10600;
   text-align:center;
   padding:6px;
   font-weight:600;
 }
 
-.hero img {
+.hero img{
   width:100%;
-  max-height:300px;
+  max-height:280px;
   object-fit:contain;
   display:block;
 }
 
-section {
-  padding:50px 20px;
+section{
+  padding:60px 20px;
   max-width:1100px;
   margin:auto;
 }
 
-h1,h2 { color:#e10600; text-align:center; }
+h1,h2{color:#e10600;text-align:center}
+p{text-align:center}
 
-p { text-align:center; }
-
-.btn {
+.btn{
   display:inline-block;
   padding:12px 28px;
   background:#e10600;
-  color:white;
+  color:#fff;
   text-decoration:none;
   font-weight:700;
   border-radius:30px;
   margin:6px;
 }
 
-.grid {
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:15px;
   margin-top:25px;
 }
-.grid div {
+.grid div{
   background:#151515;
   padding:18px;
   border-radius:12px;
   text-align:center;
 }
 
-.map-box {
+/* ================= BMW ULTRA PREMIUM SLIDER ================= */
+
+.bmw-gallery{
+  max-width:100%;
+  padding:0;
+  margin-top:60px;
+}
+
+.bmw-gallery h2{
+  margin-bottom:30px;
+}
+
+.bmw-slider{
+  position:relative;
+  width:100%;
+  height:520px;
+  overflow:hidden;
+}
+
+.bmw-track{
+  display:flex;
+  height:100%;
+  transition:transform 1s ease-in-out;
+}
+
+.bmw-slide{
+  min-width:100%;
+  height:100%;
+  position:relative;
+}
+
+.bmw-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  animation:kenburns 12s ease-in-out infinite;
+  cursor:pointer;
+}
+
+@keyframes kenburns{
+  0%{transform:scale(1)}
+  100%{transform:scale(1.08)}
+}
+
+.bmw-slide::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.7),rgba(0,0,0,.1));
+}
+
+.bmw-caption{
+  position:absolute;
+  bottom:40px;
+  left:40px;
+  z-index:2;
+}
+
+.bmw-caption h3{
+  font-size:28px;
+  font-weight:700;
+  margin:0;
+}
+
+/* arrows */
+.bmw-prev,.bmw-next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,.5);
+  border:none;
+  color:#fff;
+  font-size:28px;
+  padding:14px 20px;
+  cursor:pointer;
+  border-radius:50%;
+  z-index:10;
+}
+.bmw-prev{left:20px}
+.bmw-next{right:20px}
+.bmw-prev:hover,.bmw-next:hover{background:#e10600}
+
+/* ================= LIGHTBOX ================= */
+
+#lightbox{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.95);
+  justify-content:center;
+  align-items:center;
+  z-index:99999;
+}
+
+#lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:16px;
+}
+
+/* ================= FORM ================= */
+
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:8px;
+  border:none;
+}
+textarea{height:90px}
+
+/* ================= MAP ================= */
+
+.map-box{
   border-radius:14px;
   overflow:hidden;
 }
 
-footer {
+/* ================= FOOTER ================= */
+
+footer{
   text-align:center;
   padding:20px;
   color:#999;
 }
 
-.call-float {
+.call-float{
   position:fixed;
   bottom:15px;
   right:15px;
@@ -86,23 +200,11 @@ footer {
   padding:14px 22px;
   border-radius:50px;
   font-weight:700;
-  color:white;
+  color:#fff;
   text-decoration:none;
   z-index:9999;
 }
-
-@media(min-width:900px){ .call-float{display:none;} }
-
-/* BOOKING FORM */
-input, select, textarea {
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border-radius:8px;
-  border:none;
-  font-size:15px;
-}
-textarea { height:90px; }
+@media(min-width:900px){.call-float{display:none}}
 </style>
 </head>
 
@@ -111,14 +213,14 @@ textarea { height:90px; }
 <div class="top-bar">Open Mon–Sat • Tadley • Call 07920 778 706</div>
 
 <div class="hero">
-<img src="banner.jpg" alt="AG Auto-Tech Tadley Garage">
+<img src="banner.jpg" alt="AG Auto-Tech Tadley">
 </div>
 
 <section>
 <h1>Car Service & Repairs in Tadley</h1>
 <p>Ash Park Business Centre, Tadley RG26 5FL<br>📞 07920 778 706</p>
 
-<div style="text-align:center;">
+<div style="text-align:center">
 <a href="tel:07920778706" class="btn">Call Now</a>
 <a href="https://wa.me/447920778706" class="btn">WhatsApp</a>
 <a href="#booking" class="btn">Book Online</a>
@@ -132,7 +234,7 @@ textarea { height:90px; }
 <div>MOT Preparation</div>
 <div>Diagnostics</div>
 <div>DPF Cleaning</div>
-<div>Tyres & Wheel Alignment</div>
+<div>Tyres & Alignment</div>
 <div>Brakes</div>
 <div>Clutch</div>
 <div>Gearbox</div>
@@ -140,50 +242,60 @@ textarea { height:90px; }
 </div>
 </section>
 
-<!-- BOOKING SYSTEM -->
+<!-- ULTRA PREMIUM BMW STYLE GALLERY -->
+<section class="bmw-gallery">
+<h2>Inside Our Garage</h2>
+
+<div class="bmw-slider" id="bmwSlider">
+  <div class="bmw-track" id="bmwTrack">
+
+    <div class="bmw-slide">
+      <img src="garage1.jpg" onclick="openLightbox(this.src)">
+      <div class="bmw-caption"><h3>Precision Engineering</h3></div>
+    </div>
+
+    <div class="bmw-slide">
+      <img src="garage2.jpg" onclick="openLightbox(this.src)">
+      <div class="bmw-caption"><h3>Professional Diagnostics</h3></div>
+    </div>
+
+    <div class="bmw-slide">
+      <img src="garage3.jpg" onclick="openLightbox(this.src)">
+      <div class="bmw-caption"><h3>Modern Workshop</h3></div>
+    </div>
+
+    <div class="bmw-slide">
+      <img src="garage4.jpg" onclick="openLightbox(this.src)">
+      <div class="bmw-caption"><h3>Trusted Expertise</h3></div>
+    </div>
+
+  </div>
+
+  <button class="bmw-prev" onclick="moveSlide(-1)">❮</button>
+  <button class="bmw-next" onclick="moveSlide(1)">❯</button>
+</div>
+</section>
+
+<!-- BOOKING -->
 <section id="booking">
 <h2>Book Appointment Online</h2>
-
-<div style="max-width:700px;margin:auto;">
-<form onsubmit="return false;" id="bookingForm">
-
+<div style="max-width:700px;margin:auto">
+<form onsubmit="return false">
 <input id="name" placeholder="Your Name" required>
 <input id="phone" placeholder="Phone Number" required>
-
-<!-- REG LOOKUP -->
-<input id="reg" placeholder="Vehicle Registration (e.g AB12CDE)" onkeyup="lookupCar()">
-<div id="carResult" style="margin-top:5px;font-size:14px;color:#0f0;"></div>
-
-<select id="service" onchange="checkService()">
+<input id="reg" placeholder="Vehicle Registration">
+<select id="service">
 <option>Car Service</option>
 <option>MOT Preparation</option>
 <option>Diagnostics</option>
 <option>DPF Cleaning</option>
 <option>Tyres</option>
-<option>Brakes / Repairs</option>
+<option>Repairs</option>
 </select>
-
-<!-- TYRES BOX -->
-<div id="tyreBox" style="display:none;">
-<input id="tyresize" placeholder="Tyre Size (e.g 225/40R18)">
-<select id="qty">
-<option>1 Tyre</option>
-<option>2 Tyres</option>
-<option>3 Tyres</option>
-<option>4 Tyres</option>
-</select>
-</div>
-
-<label>Date</label>
 <input type="date" id="date">
-
-<label>Time</label>
 <input type="time" id="time">
-
 <textarea id="message" placeholder="Extra message"></textarea>
-
 <button class="btn" onclick="sendBooking()">📅 Book Now</button>
-
 </form>
 </div>
 </section>
@@ -192,62 +304,51 @@ textarea { height:90px; }
 <h2>Find Us</h2>
 <div class="map-box">
 <iframe src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%20Tadley&output=embed"
-width="100%" height="350" style="border:0;"></iframe>
+width="100%" height="350" style="border:0"></iframe>
 </div>
 </section>
 
 <footer>© AG Auto-Tech Tadley</footer>
-
 <a href="tel:07920778706" class="call-float">📞 Call Now</a>
 
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="this.style.display='none'">
+<img id="lightbox-img">
+</div>
+
 <script>
-// SHOW TYRES ONLY IF TYRES SELECTED
-function checkService() {
-  let s = document.getElementById("service").value;
-  document.getElementById("tyreBox").style.display = (s=="Tyres") ? "block" : "none";
+let index=0;
+const track=document.getElementById("bmwTrack");
+const slides=document.querySelectorAll(".bmw-slide");
+
+function moveSlide(dir){
+  index+=dir;
+  if(index<0)index=slides.length-1;
+  if(index>=slides.length)index=0;
+  track.style.transform="translateX("+(-index*100)+"%)";
 }
 
-// DEMO REG LOOKUP (FAKE DATABASE)
-function lookupCar() {
-  let reg = document.getElementById("reg").value.toUpperCase();
-  let db = {
-    "AB12CDE":"Ford Focus 2018",
-    "AA11AAA":"Audi A4 2019",
-    "XY99ZZZ":"BMW 320d 2020"
-  };
-  document.getElementById("carResult").innerHTML = db[reg] || "";
+setInterval(()=>moveSlide(1),6000);
+
+// swipe
+let startX=0;
+track.addEventListener("touchstart",e=>startX=e.touches[0].clientX);
+track.addEventListener("touchend",e=>{
+  let endX=e.changedTouches[0].clientX;
+  if(startX-endX>50)moveSlide(1);
+  if(endX-startX>50)moveSlide(-1);
+});
+
+function openLightbox(src){
+  document.getElementById("lightbox").style.display="flex";
+  document.getElementById("lightbox-img").src=src;
 }
 
-// SEND BOOKING TO WHATSAPP
-function sendBooking() {
-  let name = document.getElementById("name").value;
-  let phone = document.getElementById("phone").value;
-  let reg = document.getElementById("reg").value;
-  let service = document.getElementById("service").value;
-  let tyre = document.getElementById("tyresize").value;
-  let qty = document.getElementById("qty").value;
-  let date = document.getElementById("date").value;
-  let time = document.getElementById("time").value;
-  let msg = document.getElementById("message").value;
-
-  if(name=="" || phone=="") {
-    alert("Please enter name and phone");
-    return;
-  }
-
-  let text =
-  "BOOKING REQUEST%0A"+
-  "Name: "+name+"%0A"+
-  "Phone: "+phone+"%0A"+
-  "Reg: "+reg+"%0A"+
-  "Service: "+service+"%0A"+
-  "Tyre Size: "+tyre+"%0A"+
-  "Qty: "+qty+"%0A"+
-  "Date: "+date+"%0A"+
-  "Time: "+time+"%0A"+
-  "Message: "+msg;
-
-  window.open("https://wa.me/447920778706?text="+text, "_blank");
+function sendBooking(){
+  let t="BOOKING%0AName:"+name.value+"%0APhone:"+phone.value+"%0AReg:"+reg.value+
+  "%0AService:"+service.value+"%0ADate:"+date.value+"%0ATime:"+time.value+
+  "%0AMessage:"+message.value;
+  window.open("https://wa.me/447920778706?text="+t,"_blank");
 }
 </script>
 
