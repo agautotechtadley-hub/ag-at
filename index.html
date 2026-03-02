@@ -7,35 +7,34 @@
 
 <title>AG Auto-Tech Tadley | Car Service, MOT & Tyres in Tadley RG26</title>
 <meta name="description" content="AG Auto-Tech Tadley – Professional car service, MOT preparation, diagnostics, tyres and repairs in Tadley RG26. Call 07920 778 706.">
-
-<meta name="keywords" content="car service Tadley, MOT Tadley, garage Tadley, tyres Tadley, mechanic RG26">
-<meta name="author" content="AG Auto-Tech Tadley">
+<meta name="keywords" content="car service Tadley, MOT Tadley, tyres Tadley, garage RG26">
 <meta name="robots" content="index, follow">
 
-<!-- Open Graph -->
 <meta property="og:title" content="AG Auto-Tech Tadley | Car Service & MOT">
-<meta property="og:description" content="Professional garage in Tadley. Car service, diagnostics, tyres and repairs.">
+<meta property="og:description" content="Professional garage in Tadley. Service, diagnostics, tyres and repairs.">
 <meta property="og:image" content="banner.jpg">
 <meta property="og:type" content="website">
 
-<link rel="canonical" href="https://yourdomain.co.uk/">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Poppins,Arial,sans-serif;background:#0b0b0b;color:#fff}
 .top-bar{background:#e10600;text-align:center;padding:6px;font-weight:600}
-.hero img{width:100%;max-height:300px;object-fit:contain;display:block}
+.hero img{width:100%;max-height:320px;object-fit:contain;display:block}
 section{padding:60px 20px;max-width:1100px;margin:auto}
 h1,h2{color:#e10600;text-align:center}
 p{text-align:center}
-.btn{display:inline-block;padding:12px 28px;background:#e10600;color:#fff;text-decoration:none;font-weight:700;border-radius:30px;margin:6px;transition:.3s}
+.btn{display:inline-block;padding:12px 28px;background:#e10600;color:#fff;text-decoration:none;font-weight:700;border-radius:30px;margin:6px;transition:.3s;border:none;cursor:pointer}
 .btn:hover{background:#b30500}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:25px}
 .grid div{background:#151515;padding:18px;border-radius:12px;text-align:center}
 footer{text-align:center;padding:20px;color:#999}
+
+/* FORM */
+form{background:#151515;padding:30px;border-radius:15px}
+input,select,textarea{width:100%;padding:12px;margin-top:12px;border-radius:8px;border:none;font-size:15px}
+label{margin-top:15px;display:block;font-weight:600}
 
 /* SLIDER */
 .slider{position:relative;overflow:hidden;border-radius:16px}
@@ -59,19 +58,17 @@ footer{text-align:center;padding:20px;color:#999}
 <!-- Structured Data -->
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "AutoRepair",
- "name": "AG Auto-Tech Tadley",
- "image": "banner.jpg",
- "address": {
-   "@type": "PostalAddress",
-   "streetAddress": "Ash Park Business Centre",
-   "addressLocality": "Tadley",
-   "postalCode": "RG26 5FL",
-   "addressCountry": "UK"
+ "@context":"https://schema.org",
+ "@type":"AutoRepair",
+ "name":"AG Auto-Tech Tadley",
+ "address":{
+   "@type":"PostalAddress",
+   "streetAddress":"Ash Park Business Centre",
+   "addressLocality":"Tadley",
+   "postalCode":"RG26 5FL",
+   "addressCountry":"UK"
  },
- "telephone": "+447920778706",
- "openingHours": "Mo-Sa 08:00-18:00"
+ "telephone":"+447920778706"
 }
 </script>
 
@@ -81,7 +78,7 @@ footer{text-align:center;padding:20px;color:#999}
 <div class="top-bar">Open Mon–Sat • Tadley • Call 07920 778 706</div>
 
 <header class="hero">
-<img src="banner.jpg" alt="AG Auto-Tech Tadley Garage Exterior" loading="lazy">
+<img src="banner.jpg" alt="AG Auto-Tech Tadley Garage" loading="lazy">
 </header>
 
 <section>
@@ -89,45 +86,72 @@ footer{text-align:center;padding:20px;color:#999}
 <p>Ash Park Business Centre, Tadley RG26 5FL<br>📞 07920 778 706</p>
 <div style="text-align:center">
 <a href="tel:07920778706" class="btn">Call Now</a>
-<a href="https://wa.me/447920778706" class="btn">WhatsApp</a>
 <a href="#booking" class="btn">Book Online</a>
 </div>
 </section>
 
+<!-- GALLERY -->
 <section>
 <h2>Garage Gallery</h2>
-
 <div class="slider">
-<div class="slides" id="slides">
-
-<!-- 13 zdjęć -->
-<script>
-for(let i=1;i<=13;i++){
- document.write('<img src="garage'+i+'.jpg" alt="AG Auto-Tech Tadley garage photo '+i+'" loading="lazy" onclick="openLightbox(this.src)">');
-}
-</script>
-
-</div>
+<div class="slides" id="slides"></div>
 <button class="prev" onclick="moveSlide(-1)">❮</button>
 <button class="next" onclick="moveSlide(1)">❯</button>
 </div>
 <div class="dots" id="dots"></div>
-
 </section>
 
-<section>
-<h2>Our Services</h2>
-<div class="grid">
-<div>Car Service</div>
-<div>MOT Preparation</div>
-<div>Diagnostics</div>
-<div>DPF Cleaning</div>
-<div>Tyres & Wheel Alignment</div>
-<div>Brakes</div>
-<div>Clutch</div>
-<div>Gearbox</div>
-<div>ECU Remap</div>
+<!-- BOOKING -->
+<section id="booking">
+<h2>Book Appointment Online</h2>
+
+<form onsubmit="return false;">
+<label>1. Full Name</label>
+<input id="fullname" placeholder="Your Full Name" required>
+
+<label>2. Vehicle Registration</label>
+<input id="reg" placeholder="e.g. AB12CDE" required>
+
+<label>3. Select Service</label>
+<select id="service" onchange="toggleTyres()">
+<option value="Car Service">Car Service</option>
+<option value="MOT Preparation">MOT Preparation</option>
+<option value="Diagnostics">Diagnostics</option>
+<option value="Brakes / Repairs">Brakes / Repairs</option>
+<option value="Tyres">Tyres</option>
+</select>
+
+<div id="tyreOptions" style="display:none;">
+<label>Tyre Size</label>
+<input id="tyreSize" placeholder="e.g. 225/40R18">
+
+<label>Number of Tyres</label>
+<select id="tyreQty">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+
+<label>Tyre Quality</label>
+<select id="tyreType">
+<option>Premium</option>
+<option>Mid-Range</option>
+<option>Budget</option>
+</select>
 </div>
+
+<label>Preferred Date</label>
+<input type="date" id="date">
+
+<label>Preferred Time</label>
+<input type="time" id="time">
+
+<label>Additional Notes</label>
+<textarea id="message"></textarea>
+
+<button class="btn" onclick="sendBooking()">📅 Submit Booking</button>
+</form>
 </section>
 
 <footer>© 2026 AG Auto-Tech Tadley</footer>
@@ -139,8 +163,18 @@ for(let i=1;i<=13;i++){
 </div>
 
 <script>
-let index=0;
+/* GENERATE 13 IMAGES */
 const slides=document.getElementById("slides");
+for(let i=1;i<=13;i++){
+ let img=document.createElement("img");
+ img.src="garage"+i+".jpg";
+ img.alt="AG Auto-Tech Tadley garage photo "+i;
+ img.loading="lazy";
+ img.onclick=function(){openLightbox(this.src);}
+ slides.appendChild(img);
+}
+
+let index=0;
 const totalSlides=slides.children.length;
 const dotsContainer=document.getElementById("dots");
 
@@ -156,14 +190,12 @@ function updateSlider(){
  document.querySelectorAll(".dot").forEach(d=>d.classList.remove("active-dot"));
  document.querySelectorAll(".dot")[index].classList.add("active-dot");
 }
-
 function moveSlide(step){
  index+=step;
  if(index>=totalSlides)index=0;
  if(index<0)index=totalSlides-1;
  updateSlider();
 }
-
 function goToSlide(i){index=i;updateSlider();}
 setInterval(()=>{moveSlide(1)},4000);
 updateSlider();
@@ -175,6 +207,47 @@ function openLightbox(src){
 }
 function closeLightbox(){
  document.getElementById("lightbox").style.display="none";
+}
+
+/* TYRE OPTIONS */
+function toggleTyres(){
+ let service=document.getElementById("service").value;
+ document.getElementById("tyreOptions").style.display=(service==="Tyres")?"block":"none";
+}
+
+/* SEND TO WHATSAPP */
+function sendBooking(){
+ let name=document.getElementById("fullname").value;
+ let reg=document.getElementById("reg").value;
+ let service=document.getElementById("service").value;
+ let tyreSize=document.getElementById("tyreSize").value;
+ let tyreQty=document.getElementById("tyreQty").value;
+ let tyreType=document.getElementById("tyreType").value;
+ let date=document.getElementById("date").value;
+ let time=document.getElementById("time").value;
+ let msg=document.getElementById("message").value;
+
+ if(name===""||reg===""){
+   alert("Please complete required fields");
+   return;
+ }
+
+ let text="BOOKING REQUEST%0A"+
+ "Name: "+name+"%0A"+
+ "Reg: "+reg+"%0A"+
+ "Service: "+service+"%0A";
+
+ if(service==="Tyres"){
+   text+="Tyre Size: "+tyreSize+"%0A"+
+   "Quantity: "+tyreQty+"%0A"+
+   "Type: "+tyreType+"%0A";
+ }
+
+ text+="Date: "+date+"%0A"+
+ "Time: "+time+"%0A"+
+ "Notes: "+msg;
+
+ window.open("https://wa.me/447920778706?text="+text,"_blank");
 }
 </script>
 
