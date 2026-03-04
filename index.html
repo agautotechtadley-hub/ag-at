@@ -11,75 +11,204 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-* { box-sizing:border-box; }
-body {
+*{box-sizing:border-box}
+body{
   margin:0;
-  font-family:Poppins, Arial, sans-serif;
+  font-family:Poppins,Arial,sans-serif;
   background:#0b0b0b;
-  color:#ffffff;
+  color:#fff;
 }
 
-.top-bar {
+.top-bar{
   background:#e10600;
   text-align:center;
   padding:6px;
   font-weight:600;
 }
 
-.hero img {
+.hero img{
   width:100%;
   max-height:300px;
   object-fit:contain;
   display:block;
 }
 
-section {
-  padding:50px 20px;
+section{
+  padding:60px 20px;
   max-width:1100px;
   margin:auto;
 }
 
-h1,h2 { color:#e10600; text-align:center; }
-p { text-align:center; }
+h1,h2{
+  color:#e10600;
+  text-align:center;
+}
 
-.btn {
+p{text-align:center}
+
+.btn{
   display:inline-block;
   padding:12px 28px;
   background:#e10600;
-  color:white;
+  color:#fff;
   text-decoration:none;
   font-weight:700;
   border-radius:30px;
   margin:6px;
   border:none;
   cursor:pointer;
+  transition:0.3s;
 }
 
-.grid {
+.btn:hover{
+  background:#b00500;
+}
+
+/* SERVICES GRID */
+
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:15px;
   margin-top:25px;
 }
-.grid div {
+
+.grid div{
   background:#151515;
   padding:18px;
   border-radius:12px;
   text-align:center;
 }
 
-.map-box {
+/* ===== CINEMATIC DEALERSHIP SLIDER ===== */
+
+.cinematic-section{
+  max-width:100%;
+  padding:0;
+  margin:80px 0;
+}
+
+.cinematic-section h2{
+  margin-bottom:30px;
+}
+
+.cinematic-wrapper{
+  position:relative;
+  width:100%;
+  height:550px;
+  overflow:hidden;
+  background:#000;
+}
+
+.cinematic-track{
+  display:flex;
+  height:100%;
+  transition:transform 1s ease-in-out;
+}
+
+.cinematic-slide{
+  min-width:100%;
+  height:100%;
+  position:relative;
+}
+
+.cinematic-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  cursor:pointer;
+  animation:zoomEffect 14s ease-in-out infinite alternate;
+}
+
+@keyframes zoomEffect{
+  from{transform:scale(1)}
+  to{transform:scale(1.08)}
+}
+
+.cinematic-slide::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.7),rgba(0,0,0,0.1));
+}
+
+/* arrows */
+.cinematic-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.5);
+  border:none;
+  color:white;
+  font-size:30px;
+  padding:14px 20px;
+  cursor:pointer;
+  border-radius:50%;
+  z-index:10;
+  transition:0.3s;
+}
+
+.cinematic-prev{left:20px}
+.cinematic-next{right:20px}
+
+.cinematic-btn:hover{
+  background:#e10600;
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.95);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+}
+
+.lightbox span{
+  position:absolute;
+  top:20px;
+  right:40px;
+  font-size:40px;
+  cursor:pointer;
+}
+
+/* BOOKING FORM */
+
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:8px;
+  border:none;
+  font-size:15px;
+}
+
+textarea{height:90px}
+
+/* MAP */
+
+.map-box{
   border-radius:14px;
   overflow:hidden;
 }
 
-footer {
+/* FOOTER */
+
+footer{
   text-align:center;
   padding:20px;
   color:#999;
 }
 
-.call-float {
+.call-float{
   position:fixed;
   bottom:15px;
   right:15px;
@@ -92,80 +221,8 @@ footer {
   z-index:9999;
 }
 
-@media(min-width:900px){ .call-float{display:none;} }
-
-/* BOOKING FORM */
-input, select, textarea {
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border-radius:8px;
-  border:none;
-  font-size:15px;
-}
-textarea { height:90px; }
-
-/* GALLERY */
-.gallery-wrapper {
-  position:relative;
-  overflow:hidden;
-}
-
-.gallery-track {
-  display:flex;
-  transition:transform 0.4s ease;
-}
-
-.gallery-track img {
-  width:200px;
-  height:140px;
-  object-fit:contain;
-  margin-right:15px;
-  background:#111;
-  padding:10px;
-  border-radius:10px;
-  cursor:pointer;
-}
-
-.gallery-btn {
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:#e10600;
-  border:none;
-  color:white;
-  padding:8px 12px;
-  cursor:pointer;
-  border-radius:50%;
-}
-
-.gallery-prev { left:-10px; }
-.gallery-next { right:-10px; }
-
-/* LIGHTBOX */
-.lightbox {
-  display:none;
-  position:fixed;
-  z-index:9999;
-  left:0; top:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.95);
-  justify-content:center;
-  align-items:center;
-}
-
-.lightbox img {
-  max-width:90%;
-  max-height:90%;
-  object-fit:contain;
-}
-
-.lightbox span {
-  position:absolute;
-  top:20px;
-  right:40px;
-  font-size:40px;
-  cursor:pointer;
+@media(min-width:900px){
+  .call-float{display:none;}
 }
 </style>
 </head>
@@ -189,15 +246,17 @@ textarea { height:90px; }
 </div>
 </section>
 
-<section>
-<h2>Garage Gallery</h2>
+<!-- CINEMATIC GALLERY -->
 
-<div class="gallery-wrapper">
-<button class="gallery-btn gallery-prev" onclick="moveGallery(-1)">❮</button>
-<div class="gallery-track" id="galleryTrack"></div>
-<button class="gallery-btn gallery-next" onclick="moveGallery(1)">❯</button>
+<section class="cinematic-section">
+<h2>Inside Our Garage</h2>
+
+<div class="cinematic-wrapper">
+  <div class="cinematic-track" id="cinematicTrack"></div>
+
+  <button class="cinematic-btn cinematic-prev" onclick="moveSlide(-1)">❮</button>
+  <button class="cinematic-btn cinematic-next" onclick="moveSlide(1)">❯</button>
 </div>
-
 </section>
 
 <section>
@@ -217,15 +276,13 @@ textarea { height:90px; }
 
 <section id="booking">
 <h2>Book Appointment Online</h2>
-
 <div style="max-width:700px;margin:auto;">
 <form onsubmit="return false;">
-
 <input id="name" placeholder="Full Name" required>
 <input id="phone" placeholder="Phone Number" required>
 <input id="reg" placeholder="Vehicle Registration" required>
 
-<select id="service" onchange="checkService()">
+<select id="service">
 <option>Car Service</option>
 <option>MOT Preparation</option>
 <option>Diagnostics</option>
@@ -233,21 +290,6 @@ textarea { height:90px; }
 <option>Tyres</option>
 <option>Brakes / Repairs</option>
 </select>
-
-<div id="tyreBox" style="display:none;">
-<input id="tyresize" placeholder="Tyre Size (e.g 225/40R18)">
-<select id="qty">
-<option>1 Tyre</option>
-<option>2 Tyres</option>
-<option>3 Tyres</option>
-<option>4 Tyres</option>
-</select>
-<select id="tyreType">
-<option>Premium</option>
-<option>Mid-Range</option>
-<option>Budget</option>
-</select>
-</div>
 
 <label>Date</label>
 <input type="date" id="date">
@@ -258,7 +300,6 @@ textarea { height:90px; }
 <textarea id="message" placeholder="Extra message"></textarea>
 
 <button class="btn" onclick="sendBooking()">📅 Book Now</button>
-
 </form>
 </div>
 </section>
@@ -282,20 +323,42 @@ width="100%" height="350" style="border:0;"></iframe>
 
 <script>
 
-/* GALLERY GENERATION */
-const track=document.getElementById("galleryTrack");
-for(let i=1;i<=13;i++){
+/* GENERATE 19 SLIDES */
+const track=document.getElementById("cinematicTrack");
+for(let i=1;i<=19;i++){
+ let slide=document.createElement("div");
+ slide.className="cinematic-slide";
+
  let img=document.createElement("img");
  img.src="garage"+i+".jpg";
- img.onclick=function(){openLightbox(this.src)};
- track.appendChild(img);
+ img.onclick=function(){openLightbox(this.src);};
+
+ slide.appendChild(img);
+ track.appendChild(slide);
 }
 
-let scrollPosition=0;
-function moveGallery(direction){
- scrollPosition += direction * 220;
- track.style.transform="translateX(-"+scrollPosition+"px)";
+let currentIndex=0;
+const totalSlides=19;
+
+function moveSlide(direction){
+ currentIndex+=direction;
+ if(currentIndex<0) currentIndex=totalSlides-1;
+ if(currentIndex>=totalSlides) currentIndex=0;
+ track.style.transform="translateX("+(-currentIndex*100)+"%)";
 }
+
+setInterval(()=>{moveSlide(1)},6000);
+
+/* SWIPE */
+let startX=0;
+track.addEventListener("touchstart",e=>{
+ startX=e.touches[0].clientX;
+});
+track.addEventListener("touchend",e=>{
+ let endX=e.changedTouches[0].clientX;
+ if(startX-endX>50) moveSlide(1);
+ if(endX-startX>50) moveSlide(-1);
+});
 
 /* LIGHTBOX */
 function openLightbox(src){
@@ -307,43 +370,18 @@ function closeLightbox(){
 }
 
 /* BOOKING */
-function checkService(){
- let s=document.getElementById("service").value;
- document.getElementById("tyreBox").style.display=(s=="Tyres")?"block":"none";
-}
-
 function sendBooking(){
- let name=document.getElementById("name").value;
- let phone=document.getElementById("phone").value;
- let reg=document.getElementById("reg").value;
- let service=document.getElementById("service").value;
- let tyre=document.getElementById("tyresize").value;
- let qty=document.getElementById("qty").value;
- let tyreType=document.getElementById("tyreType").value;
- let date=document.getElementById("date").value;
- let time=document.getElementById("time").value;
- let msg=document.getElementById("message").value;
-
- if(name==""||phone==""||reg==""){
-   alert("Please complete required fields");
-   return;
- }
-
  let text="BOOKING REQUEST%0A"+
- "Name: "+name+"%0A"+
- "Phone: "+phone+"%0A"+
- "Reg: "+reg+"%0A"+
- "Service: "+service+"%0A";
-
- if(service=="Tyres"){
-   text+="Tyre Size: "+tyre+"%0AQty: "+qty+"%0AType: "+tyreType+"%0A";
- }
-
- text+="Date: "+date+"%0ATime: "+time+"%0AMessage: "+msg;
+ "Name: "+name.value+"%0A"+
+ "Phone: "+phone.value+"%0A"+
+ "Reg: "+reg.value+"%0A"+
+ "Service: "+service.value+"%0A"+
+ "Date: "+date.value+"%0A"+
+ "Time: "+time.value+"%0A"+
+ "Message: "+message.value;
 
  window.open("https://wa.me/447920778706?text="+text,"_blank");
 }
-
 </script>
 
 </body>
