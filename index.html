@@ -34,7 +34,7 @@ body{
 }
 
 section{
-  padding:60px 20px;
+  padding:50px 20px;
   max-width:1100px;
   margin:auto;
 }
@@ -57,53 +57,29 @@ p{text-align:center}
   margin:6px;
   border:none;
   cursor:pointer;
-  transition:0.3s;
 }
 
-.btn:hover{
-  background:#b00500;
-}
-
-/* SERVICES GRID */
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-  margin-top:25px;
-}
-
-.grid div{
-  background:#151515;
-  padding:18px;
-  border-radius:12px;
-  text-align:center;
-}
-
-/* ===== CINEMATIC DEALERSHIP SLIDER ===== */
+/* ===== SMALLER CINEMATIC SLIDER ===== */
 
 .cinematic-section{
   max-width:100%;
   padding:0;
-  margin:80px 0;
-}
-
-.cinematic-section h2{
-  margin-bottom:30px;
+  margin:60px 0;
 }
 
 .cinematic-wrapper{
   position:relative;
   width:100%;
-  height:550px;
+  height:190px;   /* BYŁO 550px – teraz 3x mniejsze */
   overflow:hidden;
   background:#000;
+  border-radius:10px;
 }
 
 .cinematic-track{
   display:flex;
   height:100%;
-  transition:transform 1s ease-in-out;
+  transition:transform 0.8s ease-in-out;
 }
 
 .cinematic-slide{
@@ -117,22 +93,8 @@ p{text-align:center}
   height:100%;
   object-fit:cover;
   cursor:pointer;
-  animation:zoomEffect 14s ease-in-out infinite alternate;
 }
 
-@keyframes zoomEffect{
-  from{transform:scale(1)}
-  to{transform:scale(1.08)}
-}
-
-.cinematic-slide::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,0.7),rgba(0,0,0,0.1));
-}
-
-/* arrows */
 .cinematic-btn{
   position:absolute;
   top:50%;
@@ -140,20 +102,14 @@ p{text-align:center}
   background:rgba(0,0,0,0.5);
   border:none;
   color:white;
-  font-size:30px;
-  padding:14px 20px;
+  font-size:20px;
+  padding:8px 12px;
   cursor:pointer;
   border-radius:50%;
-  z-index:10;
-  transition:0.3s;
 }
 
-.cinematic-prev{left:20px}
-.cinematic-next{right:20px}
-
-.cinematic-btn:hover{
-  background:#e10600;
-}
+.cinematic-prev{left:10px}
+.cinematic-next{right:10px}
 
 /* LIGHTBOX */
 
@@ -172,15 +128,23 @@ p{text-align:center}
   max-height:90%;
 }
 
-.lightbox span{
-  position:absolute;
-  top:20px;
-  right:40px;
-  font-size:40px;
-  cursor:pointer;
+/* SERVICES */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+  margin-top:25px;
 }
 
-/* BOOKING FORM */
+.grid div{
+  background:#151515;
+  padding:18px;
+  border-radius:12px;
+  text-align:center;
+}
+
+/* FORM */
 
 input,select,textarea{
   width:100%;
@@ -188,7 +152,6 @@ input,select,textarea{
   margin-top:10px;
   border-radius:8px;
   border:none;
-  font-size:15px;
 }
 
 textarea{height:90px}
@@ -218,7 +181,6 @@ footer{
   font-weight:700;
   color:white;
   text-decoration:none;
-  z-index:9999;
 }
 
 @media(min-width:900px){
@@ -238,15 +200,12 @@ footer{
 <section>
 <h1>Car Service & Repairs in Tadley</h1>
 <p>Ash Park Business Centre, Tadley RG26 5FL<br>📞 07920 778 706</p>
-
 <div style="text-align:center;">
 <a href="tel:07920778706" class="btn">Call Now</a>
 <a href="https://wa.me/447920778706" class="btn">WhatsApp</a>
 <a href="#booking" class="btn">Book Online</a>
 </div>
 </section>
-
-<!-- CINEMATIC GALLERY -->
 
 <section class="cinematic-section">
 <h2>Inside Our Garage</h2>
@@ -281,7 +240,6 @@ footer{
 <input id="name" placeholder="Full Name" required>
 <input id="phone" placeholder="Phone Number" required>
 <input id="reg" placeholder="Vehicle Registration" required>
-
 <select id="service">
 <option>Car Service</option>
 <option>MOT Preparation</option>
@@ -290,15 +248,9 @@ footer{
 <option>Tyres</option>
 <option>Brakes / Repairs</option>
 </select>
-
-<label>Date</label>
 <input type="date" id="date">
-
-<label>Time</label>
 <input type="time" id="time">
-
 <textarea id="message" placeholder="Extra message"></textarea>
-
 <button class="btn" onclick="sendBooking()">📅 Book Now</button>
 </form>
 </div>
@@ -308,16 +260,14 @@ footer{
 <h2>Find Us</h2>
 <div class="map-box">
 <iframe src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%20Tadley&output=embed"
-width="100%" height="350" style="border:0;"></iframe>
+width="100%" height="300" style="border:0;"></iframe>
 </div>
 </section>
 
 <footer>© AG Auto-Tech Tadley</footer>
 <a href="tel:07920778706" class="call-float">📞 Call Now</a>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-<span>&times;</span>
 <img id="lightboxImg">
 </div>
 
@@ -347,20 +297,8 @@ function moveSlide(direction){
  track.style.transform="translateX("+(-currentIndex*100)+"%)";
 }
 
-setInterval(()=>{moveSlide(1)},6000);
+setInterval(()=>{moveSlide(1)},5000);
 
-/* SWIPE */
-let startX=0;
-track.addEventListener("touchstart",e=>{
- startX=e.touches[0].clientX;
-});
-track.addEventListener("touchend",e=>{
- let endX=e.changedTouches[0].clientX;
- if(startX-endX>50) moveSlide(1);
- if(endX-startX>50) moveSlide(-1);
-});
-
-/* LIGHTBOX */
 function openLightbox(src){
  document.getElementById("lightbox").style.display="flex";
  document.getElementById("lightboxImg").src=src;
@@ -369,16 +307,14 @@ function closeLightbox(){
  document.getElementById("lightbox").style.display="none";
 }
 
-/* BOOKING */
 function sendBooking(){
  let text="BOOKING REQUEST%0A"+
  "Name: "+name.value+"%0A"+
  "Phone: "+phone.value+"%0A"+
  "Reg: "+reg.value+"%0A"+
  "Service: "+service.value+"%0A"+
- "Date: "+date.value+"%0A"+
- "Time: "+time.value+"%0A"+
- "Message: "+message.value;
+ "Date: "+date.value+"%0ATime: "+time.value+
+ "%0AMessage: "+message.value;
 
  window.open("https://wa.me/447920778706?text="+text,"_blank");
 }
