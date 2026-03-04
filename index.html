@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -28,7 +27,7 @@ body{
 
 .hero img{
   width:100%;
-  max-height:300px;
+  max-height:280px;
   object-fit:contain;
   display:block;
 }
@@ -59,57 +58,63 @@ p{text-align:center}
   cursor:pointer;
 }
 
-/* ===== SMALLER CINEMATIC SLIDER ===== */
+/* ===== NEW SMALL SQUARE GALLERY ===== */
 
-.cinematic-section{
-  max-width:100%;
-  padding:0;
-  margin:60px 0;
+.gallery-container{
+  position:relative;
+  margin-top:30px;
 }
 
-.cinematic-wrapper{
-  position:relative;
-  width:100%;
-  height:190px;   /* BYŁO 550px – teraz 3x mniejsze */
-  overflow:hidden;
-  background:#000;
+.gallery-track{
+  display:flex;
+  gap:15px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  padding:10px 0;
+}
+
+.gallery-track::-webkit-scrollbar{
+  height:6px;
+}
+.gallery-track::-webkit-scrollbar-thumb{
+  background:#e10600;
   border-radius:10px;
 }
 
-.cinematic-track{
-  display:flex;
-  height:100%;
-  transition:transform 0.8s ease-in-out;
+.gallery-item{
+  flex:0 0 120px;        /* SIZE OF SQUARE */
+  height:120px;
+  background:#111;
+  border-radius:14px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:transform 0.3s ease;
 }
 
-.cinematic-slide{
-  min-width:100%;
-  height:100%;
-  position:relative;
+.gallery-item:hover{
+  transform:scale(1.05);
 }
 
-.cinematic-slide img{
+.gallery-item img{
   width:100%;
   height:100%;
   object-fit:cover;
-  cursor:pointer;
 }
 
-.cinematic-btn{
+.gallery-btn{
   position:absolute;
   top:50%;
   transform:translateY(-50%);
-  background:rgba(0,0,0,0.5);
+  background:#e10600;
   border:none;
-  color:white;
-  font-size:20px;
+  color:#fff;
   padding:8px 12px;
   cursor:pointer;
   border-radius:50%;
 }
 
-.cinematic-prev{left:10px}
-.cinematic-next{right:10px}
+.gallery-prev{left:-10px}
+.gallery-next{right:-10px}
 
 /* LIGHTBOX */
 
@@ -156,14 +161,10 @@ input,select,textarea{
 
 textarea{height:90px}
 
-/* MAP */
-
 .map-box{
   border-radius:14px;
   overflow:hidden;
 }
-
-/* FOOTER */
 
 footer{
   text-align:center;
@@ -200,6 +201,7 @@ footer{
 <section>
 <h1>Car Service & Repairs in Tadley</h1>
 <p>Ash Park Business Centre, Tadley RG26 5FL<br>📞 07920 778 706</p>
+
 <div style="text-align:center;">
 <a href="tel:07920778706" class="btn">Call Now</a>
 <a href="https://wa.me/447920778706" class="btn">WhatsApp</a>
@@ -207,15 +209,17 @@ footer{
 </div>
 </section>
 
-<section class="cinematic-section">
-<h2>Inside Our Garage</h2>
+<section>
+<h2>Garage Gallery</h2>
 
-<div class="cinematic-wrapper">
-  <div class="cinematic-track" id="cinematicTrack"></div>
+<div class="gallery-container">
+<button class="gallery-btn gallery-prev" onclick="scrollGallery(-1)">❮</button>
 
-  <button class="cinematic-btn cinematic-prev" onclick="moveSlide(-1)">❮</button>
-  <button class="cinematic-btn cinematic-next" onclick="moveSlide(1)">❯</button>
+<div class="gallery-track" id="galleryTrack"></div>
+
+<button class="gallery-btn gallery-next" onclick="scrollGallery(1)">❯</button>
 </div>
+
 </section>
 
 <section>
@@ -273,51 +277,51 @@ width="100%" height="300" style="border:0;"></iframe>
 
 <script>
 
-/* GENERATE 19 SLIDES */
-const track=document.getElementById("cinematicTrack");
+/* GENERATE 19 IMAGES */
+const track=document.getElementById("galleryTrack");
+
 for(let i=1;i<=19;i++){
- let slide=document.createElement("div");
- slide.className="cinematic-slide";
+  let div=document.createElement("div");
+  div.className="gallery-item";
 
- let img=document.createElement("img");
- img.src="garage"+i+".jpg";
- img.onclick=function(){openLightbox(this.src);};
+  let img=document.createElement("img");
+  img.src="garage"+i+".jpg";
+  img.onclick=function(){openLightbox(this.src);};
 
- slide.appendChild(img);
- track.appendChild(slide);
+  div.appendChild(img);
+  track.appendChild(div);
 }
 
-let currentIndex=0;
-const totalSlides=19;
-
-function moveSlide(direction){
- currentIndex+=direction;
- if(currentIndex<0) currentIndex=totalSlides-1;
- if(currentIndex>=totalSlides) currentIndex=0;
- track.style.transform="translateX("+(-currentIndex*100)+"%)";
+/* SCROLL */
+function scrollGallery(direction){
+  track.scrollBy({
+    left: direction * 300,
+    behavior: 'smooth'
+  });
 }
 
-setInterval(()=>{moveSlide(1)},5000);
-
+/* LIGHTBOX */
 function openLightbox(src){
- document.getElementById("lightbox").style.display="flex";
- document.getElementById("lightboxImg").src=src;
+  document.getElementById("lightbox").style.display="flex";
+  document.getElementById("lightboxImg").src=src;
 }
 function closeLightbox(){
- document.getElementById("lightbox").style.display="none";
+  document.getElementById("lightbox").style.display="none";
 }
 
+/* BOOKING */
 function sendBooking(){
- let text="BOOKING REQUEST%0A"+
- "Name: "+name.value+"%0A"+
- "Phone: "+phone.value+"%0A"+
- "Reg: "+reg.value+"%0A"+
- "Service: "+service.value+"%0A"+
- "Date: "+date.value+"%0ATime: "+time.value+
- "%0AMessage: "+message.value;
+  let text="BOOKING REQUEST%0A"+
+  "Name: "+name.value+"%0A"+
+  "Phone: "+phone.value+"%0A"+
+  "Reg: "+reg.value+"%0A"+
+  "Service: "+service.value+"%0A"+
+  "Date: "+date.value+"%0ATime: "+time.value+
+  "%0AMessage: "+message.value;
 
- window.open("https://wa.me/447920778706?text="+text,"_blank");
+  window.open("https://wa.me/447920778706?text="+text,"_blank");
 }
+
 </script>
 
 </body>
