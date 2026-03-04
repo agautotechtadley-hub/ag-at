@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>AG Auto-Tech Tadley | Car Service, MOT & Tyres Tadley</title>
-<meta name="description" content="AG Auto-Tech Tadley garage for car service, MOT prep, diagnostics, tyres and repairs in Tadley RG26. Call 07920 778 706.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -43,8 +42,6 @@ h1,h2{
   text-align:center;
 }
 
-p{text-align:center}
-
 .btn{
   display:inline-block;
   padding:12px 28px;
@@ -58,7 +55,7 @@ p{text-align:center}
   cursor:pointer;
 }
 
-/* ===== NEW SMALL SQUARE GALLERY ===== */
+/* ===== SMALL SQUARE GALLERY ===== */
 
 .gallery-container{
   position:relative;
@@ -82,7 +79,7 @@ p{text-align:center}
 }
 
 .gallery-item{
-  flex:0 0 120px;        /* SIZE OF SQUARE */
+  flex:0 0 120px;
   height:120px;
   background:#111;
   border-radius:14px;
@@ -92,7 +89,7 @@ p{text-align:center}
 }
 
 .gallery-item:hover{
-  transform:scale(1.05);
+  transform:scale(1.08);
 }
 
 .gallery-item img{
@@ -116,7 +113,7 @@ p{text-align:center}
 .gallery-prev{left:-10px}
 .gallery-next{right:-10px}
 
-/* LIGHTBOX */
+/* ===== LIGHTBOX WITH NAVIGATION ===== */
 
 .lightbox{
   display:none;
@@ -133,59 +130,35 @@ p{text-align:center}
   max-height:90%;
 }
 
-/* SERVICES */
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-  margin-top:25px;
-}
-
-.grid div{
-  background:#151515;
-  padding:18px;
-  border-radius:12px;
-  text-align:center;
-}
-
-/* FORM */
-
-input,select,textarea{
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border-radius:8px;
+.lightbox-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#e10600;
   border:none;
+  color:#fff;
+  font-size:22px;
+  padding:10px 14px;
+  cursor:pointer;
+  border-radius:50%;
 }
 
-textarea{height:90px}
+.lb-prev{left:30px}
+.lb-next{right:30px}
 
-.map-box{
-  border-radius:14px;
-  overflow:hidden;
+.lb-close{
+  position:absolute;
+  top:25px;
+  right:35px;
+  font-size:35px;
+  cursor:pointer;
+  color:white;
 }
 
 footer{
   text-align:center;
   padding:20px;
   color:#999;
-}
-
-.call-float{
-  position:fixed;
-  bottom:15px;
-  right:15px;
-  background:#e10600;
-  padding:14px 22px;
-  border-radius:50px;
-  font-weight:700;
-  color:white;
-  text-decoration:none;
-}
-
-@media(min-width:900px){
-  .call-float{display:none;}
 }
 </style>
 </head>
@@ -200,12 +173,9 @@ footer{
 
 <section>
 <h1>Car Service & Repairs in Tadley</h1>
-<p>Ash Park Business Centre, Tadley RG26 5FL<br>📞 07920 778 706</p>
-
 <div style="text-align:center;">
 <a href="tel:07920778706" class="btn">Call Now</a>
 <a href="https://wa.me/447920778706" class="btn">WhatsApp</a>
-<a href="#booking" class="btn">Book Online</a>
 </div>
 </section>
 
@@ -214,113 +184,88 @@ footer{
 
 <div class="gallery-container">
 <button class="gallery-btn gallery-prev" onclick="scrollGallery(-1)">❮</button>
-
 <div class="gallery-track" id="galleryTrack"></div>
-
 <button class="gallery-btn gallery-next" onclick="scrollGallery(1)">❯</button>
 </div>
 
 </section>
 
-<section>
-<h2>Our Services</h2>
-<div class="grid">
-<div>Car Service</div>
-<div>MOT Preparation</div>
-<div>Diagnostics</div>
-<div>DPF Cleaning</div>
-<div>Tyres & Wheel Alignment</div>
-<div>Brakes</div>
-<div>Clutch</div>
-<div>Gearbox</div>
-<div>ECU Remap</div>
-</div>
-</section>
-
-<section id="booking">
-<h2>Book Appointment Online</h2>
-<div style="max-width:700px;margin:auto;">
-<form onsubmit="return false;">
-<input id="name" placeholder="Full Name" required>
-<input id="phone" placeholder="Phone Number" required>
-<input id="reg" placeholder="Vehicle Registration" required>
-<select id="service">
-<option>Car Service</option>
-<option>MOT Preparation</option>
-<option>Diagnostics</option>
-<option>DPF Cleaning</option>
-<option>Tyres</option>
-<option>Brakes / Repairs</option>
-</select>
-<input type="date" id="date">
-<input type="time" id="time">
-<textarea id="message" placeholder="Extra message"></textarea>
-<button class="btn" onclick="sendBooking()">📅 Book Now</button>
-</form>
-</div>
-</section>
-
-<section>
-<h2>Find Us</h2>
-<div class="map-box">
-<iframe src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%20Tadley&output=embed"
-width="100%" height="300" style="border:0;"></iframe>
-</div>
-</section>
-
 <footer>© AG Auto-Tech Tadley</footer>
-<a href="tel:07920778706" class="call-float">📞 Call Now</a>
 
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+<span class="lb-close" onclick="closeLightbox()">×</span>
+<button class="lightbox-btn lb-prev" onclick="changeImage(-1)">❮</button>
 <img id="lightboxImg">
+<button class="lightbox-btn lb-next" onclick="changeImage(1)">❯</button>
 </div>
 
 <script>
 
-/* GENERATE 19 IMAGES */
 const track=document.getElementById("galleryTrack");
+let images=[];
+let currentIndex=0;
 
+/* GENERATE 19 IMAGES */
 for(let i=1;i<=19;i++){
   let div=document.createElement("div");
   div.className="gallery-item";
 
   let img=document.createElement("img");
   img.src="garage"+i+".jpg";
-  img.onclick=function(){openLightbox(this.src);};
+
+  images.push(img.src);
+
+  img.onclick=function(){openLightbox(i-1);};
 
   div.appendChild(img);
   track.appendChild(div);
 }
 
-/* SCROLL */
+/* SCROLL GALLERY */
 function scrollGallery(direction){
   track.scrollBy({
     left: direction * 300,
-    behavior: 'smooth'
+    behavior:'smooth'
   });
 }
 
-/* LIGHTBOX */
-function openLightbox(src){
+/* LIGHTBOX FUNCTIONS */
+
+function openLightbox(index){
+  currentIndex=index;
   document.getElementById("lightbox").style.display="flex";
-  document.getElementById("lightboxImg").src=src;
+  document.getElementById("lightboxImg").src=images[currentIndex];
 }
+
 function closeLightbox(){
   document.getElementById("lightbox").style.display="none";
 }
 
-/* BOOKING */
-function sendBooking(){
-  let text="BOOKING REQUEST%0A"+
-  "Name: "+name.value+"%0A"+
-  "Phone: "+phone.value+"%0A"+
-  "Reg: "+reg.value+"%0A"+
-  "Service: "+service.value+"%0A"+
-  "Date: "+date.value+"%0ATime: "+time.value+
-  "%0AMessage: "+message.value;
+function changeImage(direction){
+  currentIndex+=direction;
 
-  window.open("https://wa.me/447920778706?text="+text,"_blank");
+  if(currentIndex<0) currentIndex=images.length-1;
+  if(currentIndex>=images.length) currentIndex=0;
+
+  document.getElementById("lightboxImg").src=images[currentIndex];
 }
+
+/* KEYBOARD CONTROL */
+document.addEventListener("keydown",function(e){
+  if(document.getElementById("lightbox").style.display==="flex"){
+    if(e.key==="ArrowRight") changeImage(1);
+    if(e.key==="ArrowLeft") changeImage(-1);
+    if(e.key==="Escape") closeLightbox();
+  }
+});
+
+/* CLOSE ON BACKGROUND CLICK */
+document.getElementById("lightbox").addEventListener("click",function(e){
+  if(e.target.id==="lightbox"){
+    closeLightbox();
+  }
+});
 
 </script>
 
