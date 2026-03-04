@@ -5,160 +5,115 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>AG Auto-Tech Tadley | Car Service, MOT & Tyres Tadley</title>
+<meta name="description" content="AG Auto-Tech Tadley garage for car service, MOT prep, diagnostics, tyres and repairs in Tadley RG26. Call 07920 778 706.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Poppins,Arial,sans-serif;
-  background:#0b0b0b;
-  color:#fff;
+body{margin:0;font-family:Poppins,Arial,sans-serif;background:#0b0b0b;color:#fff;}
+.top-bar{background:#e10600;text-align:center;padding:6px;font-weight:600;}
+.hero img{width:100%;max-height:280px;object-fit:contain;display:block;}
+section{padding:50px 20px;max-width:1100px;margin:auto;}
+h1,h2{color:#e10600;text-align:center;}
+p{text-align:center;}
+.btn{display:inline-block;padding:12px 28px;background:#e10600;color:#fff;text-decoration:none;font-weight:700;border-radius:30px;margin:6px;border:none;cursor:pointer;}
+input,select,textarea{width:100%;padding:12px;margin-top:10px;border-radius:8px;border:none;}
+textarea{height:90px;}
+.map-box{border-radius:14px;overflow:hidden;}
+footer{text-align:center;padding:20px;color:#999;}
+
+.call-float{
+position:fixed;bottom:15px;right:15px;
+background:#e10600;padding:14px 22px;
+border-radius:50px;font-weight:700;
+color:white;text-decoration:none;
+z-index:9999;
 }
+@media(min-width:900px){.call-float{display:none;}}
 
-.top-bar{
-  background:#e10600;
-  text-align:center;
-  padding:6px;
-  font-weight:600;
-}
+/* ===== GALLERY ===== */
 
-.hero img{
-  width:100%;
-  max-height:280px;
-  object-fit:contain;
-  display:block;
-}
-
-section{
-  padding:50px 20px;
-  max-width:1100px;
-  margin:auto;
-}
-
-h1,h2{
-  color:#e10600;
-  text-align:center;
-}
-
-.btn{
-  display:inline-block;
-  padding:12px 28px;
-  background:#e10600;
-  color:#fff;
-  text-decoration:none;
-  font-weight:700;
-  border-radius:30px;
-  margin:6px;
-  border:none;
-  cursor:pointer;
-}
-
-/* ===== SMALL SQUARE GALLERY ===== */
-
-.gallery-container{
-  position:relative;
-  margin-top:30px;
-}
-
+.gallery-container{position:relative;margin-top:30px;}
 .gallery-track{
-  display:flex;
-  gap:15px;
-  overflow-x:auto;
-  scroll-behavior:smooth;
-  padding:10px 0;
+display:flex;
+gap:15px;
+overflow-x:auto;
+scroll-behavior:smooth;
+padding:10px 0;
 }
-
-.gallery-track::-webkit-scrollbar{
-  height:6px;
-}
-.gallery-track::-webkit-scrollbar-thumb{
-  background:#e10600;
-  border-radius:10px;
-}
+.gallery-track::-webkit-scrollbar{height:6px;}
+.gallery-track::-webkit-scrollbar-thumb{background:#e10600;border-radius:10px;}
 
 .gallery-item{
-  flex:0 0 120px;
-  height:120px;
-  background:#111;
-  border-radius:14px;
-  overflow:hidden;
-  cursor:pointer;
-  transition:transform 0.3s ease;
+flex:0 0 120px;
+height:120px;
+background:#111;
+border-radius:14px;
+overflow:hidden;
+cursor:pointer;
+transition:transform 0.3s ease;
 }
-
-.gallery-item:hover{
-  transform:scale(1.08);
-}
-
+.gallery-item:hover{transform:scale(1.08);}
 .gallery-item img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
 .gallery-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:#e10600;
-  border:none;
-  color:#fff;
-  padding:8px 12px;
-  cursor:pointer;
-  border-radius:50%;
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:#e10600;
+border:none;
+color:#fff;
+padding:8px 12px;
+cursor:pointer;
+border-radius:50%;
 }
+.gallery-prev{left:-10px;}
+.gallery-next{right:-10px;}
 
-.gallery-prev{left:-10px}
-.gallery-next{right:-10px}
-
-/* ===== LIGHTBOX WITH NAVIGATION ===== */
+/* ===== LIGHTBOX ===== */
 
 .lightbox{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.95);
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.95);
+justify-content:center;
+align-items:center;
+z-index:9999;
 }
 
 .lightbox img{
-  max-width:90%;
-  max-height:90%;
+max-width:90%;
+max-height:90%;
 }
 
 .lightbox-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:#e10600;
-  border:none;
-  color:#fff;
-  font-size:22px;
-  padding:10px 14px;
-  cursor:pointer;
-  border-radius:50%;
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:#e10600;
+border:none;
+color:#fff;
+font-size:22px;
+padding:10px 14px;
+cursor:pointer;
+border-radius:50%;
 }
-
-.lb-prev{left:30px}
-.lb-next{right:30px}
+.lb-prev{left:30px;}
+.lb-next{right:30px;}
 
 .lb-close{
-  position:absolute;
-  top:25px;
-  right:35px;
-  font-size:35px;
-  cursor:pointer;
-  color:white;
-}
-
-footer{
-  text-align:center;
-  padding:20px;
-  color:#999;
+position:absolute;
+top:25px;
+right:35px;
+font-size:35px;
+cursor:pointer;
+color:white;
 }
 </style>
 </head>
@@ -173,24 +128,68 @@ footer{
 
 <section>
 <h1>Car Service & Repairs in Tadley</h1>
+<p>Ash Park Business Centre, Tadley RG26 5FL<br>📞 07920 778 706</p>
 <div style="text-align:center;">
 <a href="tel:07920778706" class="btn">Call Now</a>
 <a href="https://wa.me/447920778706" class="btn">WhatsApp</a>
+<a href="#booking" class="btn">Book Online</a>
 </div>
 </section>
 
 <section>
 <h2>Garage Gallery</h2>
-
 <div class="gallery-container">
 <button class="gallery-btn gallery-prev" onclick="scrollGallery(-1)">❮</button>
 <div class="gallery-track" id="galleryTrack"></div>
 <button class="gallery-btn gallery-next" onclick="scrollGallery(1)">❯</button>
 </div>
+</section>
 
+<section>
+<h2>Our Services</h2>
+<p>Car Service • MOT Preparation • Diagnostics • DPF Cleaning • Tyres • Brakes • Clutch • Gearbox • ECU Remap</p>
+</section>
+
+<section id="booking">
+<h2>Book Appointment Online</h2>
+<div style="max-width:700px;margin:auto;">
+<form onsubmit="return false;">
+<input id="name" placeholder="Full Name" required>
+<input id="phone" placeholder="Phone Number" required>
+<input id="reg" placeholder="Vehicle Registration" required>
+
+<select id="service">
+<option>Car Service</option>
+<option>MOT Preparation</option>
+<option>Diagnostics</option>
+<option>DPF Cleaning</option>
+<option>Tyres</option>
+<option>Brakes / Repairs</option>
+</select>
+
+<label>Date</label>
+<input type="date" id="date">
+
+<label>Time</label>
+<input type="time" id="time">
+
+<textarea id="message" placeholder="Extra message"></textarea>
+
+<button class="btn" onclick="sendBooking()">📅 Book Now</button>
+</form>
+</div>
+</section>
+
+<section>
+<h2>Find Us</h2>
+<div class="map-box">
+<iframe src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%20Tadley&output=embed"
+width="100%" height="320" style="border:0;"></iframe>
+</div>
 </section>
 
 <footer>© AG Auto-Tech Tadley</footer>
+<a href="tel:07920778706" class="call-float">📞 Call Now</a>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
@@ -208,64 +207,64 @@ let currentIndex=0;
 
 /* GENERATE 19 IMAGES */
 for(let i=1;i<=19;i++){
-  let div=document.createElement("div");
-  div.className="gallery-item";
-
-  let img=document.createElement("img");
-  img.src="garage"+i+".jpg";
-
-  images.push(img.src);
-
-  img.onclick=function(){openLightbox(i-1);};
-
-  div.appendChild(img);
-  track.appendChild(div);
+let div=document.createElement("div");
+div.className="gallery-item";
+let img=document.createElement("img");
+img.src="garage"+i+".jpg";
+images.push(img.src);
+img.onclick=function(){openLightbox(i-1);};
+div.appendChild(img);
+track.appendChild(div);
 }
 
-/* SCROLL GALLERY */
+/* SCROLL */
 function scrollGallery(direction){
-  track.scrollBy({
-    left: direction * 300,
-    behavior:'smooth'
-  });
+track.scrollBy({left:direction*300,behavior:'smooth'});
 }
 
-/* LIGHTBOX FUNCTIONS */
-
+/* LIGHTBOX */
 function openLightbox(index){
-  currentIndex=index;
-  document.getElementById("lightbox").style.display="flex";
-  document.getElementById("lightboxImg").src=images[currentIndex];
+currentIndex=index;
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lightboxImg").src=images[currentIndex];
 }
-
 function closeLightbox(){
-  document.getElementById("lightbox").style.display="none";
+document.getElementById("lightbox").style.display="none";
 }
-
 function changeImage(direction){
-  currentIndex+=direction;
-
-  if(currentIndex<0) currentIndex=images.length-1;
-  if(currentIndex>=images.length) currentIndex=0;
-
-  document.getElementById("lightboxImg").src=images[currentIndex];
+currentIndex+=direction;
+if(currentIndex<0) currentIndex=images.length-1;
+if(currentIndex>=images.length) currentIndex=0;
+document.getElementById("lightboxImg").src=images[currentIndex];
 }
 
-/* KEYBOARD CONTROL */
+/* KEYBOARD */
 document.addEventListener("keydown",function(e){
-  if(document.getElementById("lightbox").style.display==="flex"){
-    if(e.key==="ArrowRight") changeImage(1);
-    if(e.key==="ArrowLeft") changeImage(-1);
-    if(e.key==="Escape") closeLightbox();
-  }
+if(document.getElementById("lightbox").style.display==="flex"){
+if(e.key==="ArrowRight") changeImage(1);
+if(e.key==="ArrowLeft") changeImage(-1);
+if(e.key==="Escape") closeLightbox();
+}
 });
 
-/* CLOSE ON BACKGROUND CLICK */
-document.getElementById("lightbox").addEventListener("click",function(e){
-  if(e.target.id==="lightbox"){
-    closeLightbox();
-  }
-});
+/* BOOKING */
+function sendBooking(){
+if(!name.value || !phone.value || !reg.value){
+alert("Please complete required fields");
+return;
+}
+
+let text="BOOKING REQUEST%0A"+
+"Name: "+name.value+"%0A"+
+"Phone: "+phone.value+"%0A"+
+"Reg: "+reg.value+"%0A"+
+"Service: "+service.value+"%0A"+
+"Date: "+date.value+"%0A"+
+"Time: "+time.value+"%0A"+
+"Message: "+message.value;
+
+window.open("https://wa.me/447920778706?text="+text,"_blank");
+}
 
 </script>
 
