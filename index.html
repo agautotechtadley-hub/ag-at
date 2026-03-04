@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>AG Auto-Tech Tadley | Car Service, MOT & Tyres Tadley</title>
-<meta name="description" content="AG Auto-Tech Tadley garage for car service, MOT prep, diagnostics, tyres and repairs in Tadley RG26. Call 07920 778 706.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -22,99 +21,28 @@ input,select,textarea{width:100%;padding:12px;margin-top:10px;border-radius:8px;
 textarea{height:90px;}
 .map-box{border-radius:14px;overflow:hidden;}
 footer{text-align:center;padding:20px;color:#999;}
-
-.call-float{
-position:fixed;bottom:15px;right:15px;
-background:#e10600;padding:14px 22px;
-border-radius:50px;font-weight:700;
-color:white;text-decoration:none;
-z-index:9999;
-}
+.call-float{position:fixed;bottom:15px;right:15px;background:#e10600;padding:14px 22px;border-radius:50px;font-weight:700;color:white;text-decoration:none;z-index:9999;}
 @media(min-width:900px){.call-float{display:none;}}
 
 /* ===== GALLERY ===== */
-
 .gallery-container{position:relative;margin-top:30px;}
-.gallery-track{
-display:flex;
-gap:15px;
-overflow-x:auto;
-scroll-behavior:smooth;
-padding:10px 0;
-}
+.gallery-track{display:flex;gap:15px;overflow-x:auto;scroll-behavior:smooth;padding:10px 0;}
 .gallery-track::-webkit-scrollbar{height:6px;}
 .gallery-track::-webkit-scrollbar-thumb{background:#e10600;border-radius:10px;}
-
-.gallery-item{
-flex:0 0 120px;
-height:120px;
-background:#111;
-border-radius:14px;
-overflow:hidden;
-cursor:pointer;
-transition:transform 0.3s ease;
-}
+.gallery-item{flex:0 0 120px;height:120px;background:#111;border-radius:14px;overflow:hidden;cursor:pointer;transition:transform 0.3s ease;}
 .gallery-item:hover{transform:scale(1.08);}
-.gallery-item img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.gallery-btn{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:#e10600;
-border:none;
-color:#fff;
-padding:8px 12px;
-cursor:pointer;
-border-radius:50%;
-}
+.gallery-item img{width:100%;height:100%;object-fit:cover;}
+.gallery-btn{position:absolute;top:50%;transform:translateY(-50%);background:#e10600;border:none;color:#fff;padding:8px 12px;cursor:pointer;border-radius:50%;}
 .gallery-prev{left:-10px;}
 .gallery-next{right:-10px;}
 
 /* ===== LIGHTBOX ===== */
-
-.lightbox{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.95);
-justify-content:center;
-align-items:center;
-z-index:9999;
-}
-
-.lightbox img{
-max-width:90%;
-max-height:90%;
-}
-
-.lightbox-btn{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:#e10600;
-border:none;
-color:#fff;
-font-size:22px;
-padding:10px 14px;
-cursor:pointer;
-border-radius:50%;
-}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);justify-content:center;align-items:center;z-index:9999;}
+.lightbox img{max-width:90%;max-height:90%;}
+.lightbox-btn{position:absolute;top:50%;transform:translateY(-50%);background:#e10600;border:none;color:#fff;font-size:22px;padding:10px 14px;cursor:pointer;border-radius:50%;}
 .lb-prev{left:30px;}
 .lb-next{right:30px;}
-
-.lb-close{
-position:absolute;
-top:25px;
-right:35px;
-font-size:35px;
-cursor:pointer;
-color:white;
-}
+.lb-close{position:absolute;top:25px;right:35px;font-size:35px;cursor:pointer;color:white;}
 </style>
 </head>
 
@@ -128,7 +56,6 @@ color:white;
 
 <section>
 <h1>Car Service & Repairs in Tadley</h1>
-<p>Ash Park Business Centre, Tadley RG26 5FL<br>📞 07920 778 706</p>
 <div style="text-align:center;">
 <a href="tel:07920778706" class="btn">Call Now</a>
 <a href="https://wa.me/447920778706" class="btn">WhatsApp</a>
@@ -145,20 +72,16 @@ color:white;
 </div>
 </section>
 
-<section>
-<h2>Our Services</h2>
-<p>Car Service • MOT Preparation • Diagnostics • DPF Cleaning • Tyres • Brakes • Clutch • Gearbox • ECU Remap</p>
-</section>
-
 <section id="booking">
 <h2>Book Appointment Online</h2>
 <div style="max-width:700px;margin:auto;">
 <form onsubmit="return false;">
+
 <input id="name" placeholder="Full Name" required>
 <input id="phone" placeholder="Phone Number" required>
 <input id="reg" placeholder="Vehicle Registration" required>
 
-<select id="service">
+<select id="service" onchange="checkService()">
 <option>Car Service</option>
 <option>MOT Preparation</option>
 <option>Diagnostics</option>
@@ -167,15 +90,30 @@ color:white;
 <option>Brakes / Repairs</option>
 </select>
 
+<!-- TYRE OPTIONS -->
+<div id="tyreBox" style="display:none;">
+<input id="tyresize" placeholder="Tyre Size (e.g 225/40R18)">
+<select id="qty">
+<option>1 Tyre</option>
+<option>2 Tyres</option>
+<option>3 Tyres</option>
+<option>4 Tyres</option>
+</select>
+<select id="tyreType">
+<option>Premium</option>
+<option>Mid-Range</option>
+<option>Budget</option>
+</select>
+</div>
+
 <label>Date</label>
 <input type="date" id="date">
-
 <label>Time</label>
 <input type="time" id="time">
-
 <textarea id="message" placeholder="Extra message"></textarea>
 
 <button class="btn" onclick="sendBooking()">📅 Book Now</button>
+
 </form>
 </div>
 </section>
@@ -201,11 +139,11 @@ width="100%" height="320" style="border:0;"></iframe>
 
 <script>
 
+/* GALLERY */
 const track=document.getElementById("galleryTrack");
 let images=[];
 let currentIndex=0;
 
-/* GENERATE 19 IMAGES */
 for(let i=1;i<=19;i++){
 let div=document.createElement("div");
 div.className="gallery-item";
@@ -217,30 +155,25 @@ div.appendChild(img);
 track.appendChild(div);
 }
 
-/* SCROLL */
 function scrollGallery(direction){
 track.scrollBy({left:direction*300,behavior:'smooth'});
 }
 
-/* LIGHTBOX */
 function openLightbox(index){
 currentIndex=index;
-document.getElementById("lightbox").style.display="flex";
-document.getElementById("lightboxImg").src=images[currentIndex];
+lightbox.style.display="flex";
+lightboxImg.src=images[currentIndex];
 }
-function closeLightbox(){
-document.getElementById("lightbox").style.display="none";
-}
+function closeLightbox(){lightbox.style.display="none";}
 function changeImage(direction){
 currentIndex+=direction;
 if(currentIndex<0) currentIndex=images.length-1;
 if(currentIndex>=images.length) currentIndex=0;
-document.getElementById("lightboxImg").src=images[currentIndex];
+lightboxImg.src=images[currentIndex];
 }
 
-/* KEYBOARD */
 document.addEventListener("keydown",function(e){
-if(document.getElementById("lightbox").style.display==="flex"){
+if(lightbox.style.display==="flex"){
 if(e.key==="ArrowRight") changeImage(1);
 if(e.key==="ArrowLeft") changeImage(-1);
 if(e.key==="Escape") closeLightbox();
@@ -248,6 +181,11 @@ if(e.key==="Escape") closeLightbox();
 });
 
 /* BOOKING */
+function checkService(){
+let s=document.getElementById("service").value;
+document.getElementById("tyreBox").style.display=(s==="Tyres")?"block":"none";
+}
+
 function sendBooking(){
 if(!name.value || !phone.value || !reg.value){
 alert("Please complete required fields");
@@ -258,8 +196,15 @@ let text="BOOKING REQUEST%0A"+
 "Name: "+name.value+"%0A"+
 "Phone: "+phone.value+"%0A"+
 "Reg: "+reg.value+"%0A"+
-"Service: "+service.value+"%0A"+
-"Date: "+date.value+"%0A"+
+"Service: "+service.value+"%0A";
+
+if(service.value==="Tyres"){
+text+="Tyre Size: "+tyresize.value+"%0A"+
+"Quantity: "+qty.value+"%0A"+
+"Type: "+tyreType.value+"%0A";
+}
+
+text+="Date: "+date.value+"%0A"+
 "Time: "+time.value+"%0A"+
 "Message: "+message.value;
 
