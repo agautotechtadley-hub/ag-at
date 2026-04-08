@@ -1,217 +1,1261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AG Auto-Tech Tadley | Gearbox Service, DPF Cleaning & Engine Care</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<title>AG Auto-Tech Tadley | Car Service, MOT & Tyres Tadley</title>
+  <style>
+    :root{
+      --bg:#eef1f5;
+      --surface:#ffffff;
+      --text:#122033;
+      --muted:#66758a;
+      --line:#d9e1ea;
+      --blue:#123c73;
+      --blue-dark:#0b2d58;
+      --red:#d63a35;
+      --red-dark:#b52d29;
+      --shadow:0 20px 60px rgba(16,35,62,.10);
+      --radius:22px;
+      --radius-sm:14px;
+      --max:1180px;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,Arial,sans-serif;
+      background:linear-gradient(180deg,#e9edf2 0%,#f6f7f9 100%);
+      color:var(--text);
+    }
 
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Poppins,Arial,sans-serif;background:#0b0b0b;color:#fff;}
-.top-bar{background:#e10600;text-align:center;padding:6px;font-weight:600;}
-.hero img{width:100%;max-height:280px;object-fit:contain;display:block;}
-section{padding:50px 20px;max-width:1100px;margin:auto;}
-h1,h2{color:#e10600;text-align:center;}
-p{text-align:center;}
-.btn{display:inline-block;padding:12px 28px;background:#e10600;color:#fff;text-decoration:none;font-weight:700;border-radius:30px;margin:6px;border:none;cursor:pointer;}
-input,select,textarea{width:100%;padding:12px;margin-top:10px;border-radius:8px;border:none;}
-textarea{height:90px;}
-.map-box{border-radius:14px;overflow:hidden;}
-footer{text-align:center;padding:20px;color:#999;}
-.call-float{position:fixed;bottom:15px;right:15px;background:#e10600;padding:14px 22px;border-radius:50px;font-weight:700;color:white;text-decoration:none;z-index:9999;}
-@media(min-width:900px){.call-float{display:none;}}
+    img{max-width:100%;display:block}
+    a{text-decoration:none}
 
-/* ===== GALLERY ===== */
-.gallery-container{position:relative;margin-top:30px;}
-.gallery-track{display:flex;gap:15px;overflow-x:auto;scroll-behavior:smooth;padding:10px 0;}
-.gallery-track::-webkit-scrollbar{height:6px;}
-.gallery-track::-webkit-scrollbar-thumb{background:#e10600;border-radius:10px;}
-.gallery-item{flex:0 0 120px;height:120px;background:#111;border-radius:14px;overflow:hidden;cursor:pointer;transition:transform 0.3s ease;}
-.gallery-item:hover{transform:scale(1.08);}
-.gallery-item img{width:100%;height:100%;object-fit:cover;}
-.gallery-btn{position:absolute;top:50%;transform:translateY(-50%);background:#e10600;border:none;color:#fff;padding:8px 12px;cursor:pointer;border-radius:50%;}
-.gallery-prev{left:-10px;}
-.gallery-next{right:-10px;}
+    .top-bar{
+      background:linear-gradient(90deg,var(--blue-dark),var(--blue));
+      color:#fff;
+      text-align:center;
+      padding:10px 16px;
+      font-size:14px;
+      font-weight:600;
+      letter-spacing:.02em;
+    }
 
-/* ===== LIGHTBOX ===== */
-.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);justify-content:center;align-items:center;z-index:9999;}
-.lightbox img{max-width:90%;max-height:90%;}
-.lightbox-btn{position:absolute;top:50%;transform:translateY(-50%);background:#e10600;border:none;color:#fff;font-size:22px;padding:10px 14px;cursor:pointer;border-radius:50%;}
-.lb-prev{left:30px;}
-.lb-next{right:30px;}
-.lb-close{position:absolute;top:25px;right:35px;font-size:35px;cursor:pointer;color:white;}
-</style>
+    .page-shell{
+      max-width:1260px;
+      margin:26px auto;
+      padding:0 18px 40px;
+    }
+
+    .card-page{
+      background:var(--surface);
+      border:1px solid rgba(18,60,115,.08);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .hero{
+      position:relative;
+      min-height:600px;
+      display:grid;
+      align-items:center;
+      overflow:hidden;
+      isolation:isolate;
+      background:
+        linear-gradient(90deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.88) 42%,rgba(255,255,255,.48) 72%,rgba(255,255,255,.18) 100%),
+        url('banner.jpg') center/cover no-repeat;
+      border-bottom:1px solid var(--line);
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,rgba(255,255,255,0) 65%,rgba(255,255,255,.66) 100%);
+      z-index:-1;
+    }
+
+    .hero-inner{
+      width:min(var(--max),100% - 40px);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:36px;
+      align-items:center;
+      padding:56px 0;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      font-family:Oswald,Arial,sans-serif;
+      font-size:20px;
+      line-height:1;
+      letter-spacing:.06em;
+      color:var(--blue);
+      text-transform:uppercase;
+      margin-bottom:16px;
+      position:relative;
+      padding-bottom:10px;
+    }
+
+    .eyebrow::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:78px;
+      height:3px;
+      background:var(--red);
+      border-radius:999px;
+    }
+
+    h1,h2,h3{
+      margin:0;
+      font-family:Oswald,Arial,sans-serif;
+      letter-spacing:.01em;
+      text-transform:uppercase;
+      color:var(--blue);
+    }
+
+    h1{
+      font-size:clamp(2.5rem,4.8vw,4.65rem);
+      line-height:.95;
+      margin-bottom:12px;
+      max-width:760px;
+    }
+
+    .hero-sub{
+      font-family:Oswald,Arial,sans-serif;
+      color:var(--blue);
+      font-size:clamp(1.2rem,2vw,1.9rem);
+      text-transform:uppercase;
+      margin-bottom:22px;
+      letter-spacing:.03em;
+    }
+
+    .price-line{
+      display:flex;
+      align-items:flex-end;
+      gap:10px;
+      margin:10px 0 26px;
+      flex-wrap:wrap;
+    }
+
+    .price{
+      font-family:Oswald,Arial,sans-serif;
+      color:var(--blue-dark);
+      font-size:clamp(3.2rem,7vw,5.4rem);
+      line-height:.9;
+    }
+
+    .price-note{
+      font-size:1.3rem;
+      font-weight:700;
+      color:#33455c;
+      margin-bottom:10px;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:24px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:54px;
+      padding:14px 28px;
+      border:none;
+      border-radius:12px;
+      font-weight:800;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      font-size:15px;
+      cursor:pointer;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+      box-shadow:0 10px 24px rgba(18,60,115,.15);
+    }
+
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:linear-gradient(180deg,var(--red),var(--red-dark));color:#fff}
+    .btn-secondary{background:linear-gradient(180deg,var(--blue),var(--blue-dark));color:#fff}
+    .btn-outline{background:#fff;border:1px solid var(--line);color:var(--blue)}
+    .btn-wide{min-width:180px}
+
+    .hero-badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .hero-badge{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(18,60,115,.07);
+      border:1px solid rgba(18,60,115,.10);
+      font-size:14px;
+      font-weight:700;
+      color:var(--blue);
+    }
+
+    .hero-side-card{
+      justify-self:end;
+      width:min(100%,420px);
+      background:rgba(255,255,255,.82);
+      backdrop-filter:blur(8px);
+      border:1px solid rgba(18,60,115,.10);
+      border-radius:24px;
+      padding:24px;
+      box-shadow:0 20px 50px rgba(14,34,63,.12);
+    }
+
+    .side-card-title{
+      font-size:2rem;
+      margin-bottom:8px;
+      text-align:left;
+    }
+
+    .side-card-text{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.65;
+      margin:0 0 18px;
+    }
+
+    .side-list{
+      display:grid;
+      gap:10px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+
+    .side-list li{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      color:var(--text);
+      font-weight:600;
+      font-size:14px;
+    }
+
+    .tick{color:var(--red);font-weight:900}
+
+    .section-wrap{
+      width:min(var(--max),100% - 40px);
+      margin:0 auto;
+      padding:42px 0;
+    }
+
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+      margin-top:-34px;
+      position:relative;
+      z-index:2;
+    }
+
+    .service-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 14px 35px rgba(18,44,77,.08);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+
+    .service-card:hover{transform:translateY(-4px);box-shadow:0 20px 42px rgba(18,44,77,.12)}
+
+    .service-card img{
+      width:100%;
+      height:170px;
+      object-fit:cover;
+      background:#e8edf4;
+    }
+
+    .service-card-body{padding:18px}
+
+    .service-card h3{
+      font-size:1.5rem;
+      line-height:1;
+      margin-bottom:8px;
+      min-height:52px;
+    }
+
+    .service-card .mini-price{
+      font-family:Oswald,Arial,sans-serif;
+      font-size:2rem;
+      color:var(--red);
+      line-height:1;
+      margin-bottom:10px;
+    }
+
+    .service-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:14px;
+    }
+
+    .feature-banner{
+      margin-top:26px;
+      border:1px solid var(--line);
+      border-radius:26px;
+      overflow:hidden;
+      background:
+        linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.93) 50%,rgba(255,255,255,.58) 72%,rgba(255,255,255,.16) 100%),
+        url('banner.jpg') center/cover no-repeat;
+      min-height:370px;
+      display:grid;
+      align-items:center;
+    }
+
+    .feature-banner-inner{
+      width:min(100% - 40px,1040px);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:center;
+      padding:34px 0;
+    }
+
+    .feature-copy h2,
+    .split-copy h2,
+    .section-head h2,
+    .gallery-section h2,
+    .booking-panel h2,
+    .contact-strip h2{
+      font-size:clamp(2rem,3vw,3rem);
+      text-align:left;
+      margin-bottom:8px;
+    }
+
+    .section-kicker{
+      font-family:Oswald,Arial,sans-serif;
+      color:var(--blue);
+      font-size:1.05rem;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    .check-list{
+      list-style:none;
+      padding:0;
+      margin:0 0 24px;
+      display:grid;
+      gap:12px;
+    }
+
+    .check-list li{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      font-size:1rem;
+      font-weight:600;
+      color:var(--text);
+    }
+
+    .check-list li::before{
+      content:"✓";
+      color:var(--red);
+      font-weight:900;
+      margin-top:1px;
+    }
+
+    .banner-price-box{
+      display:inline-flex;
+      align-items:flex-end;
+      gap:8px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
+    }
+
+    .banner-price-label{
+      font-family:Oswald,Arial,sans-serif;
+      color:var(--blue);
+      font-size:2.1rem;
+      line-height:1;
+    }
+
+    .banner-price-value{
+      font-family:Oswald,Arial,sans-serif;
+      color:var(--red);
+      font-size:4.1rem;
+      line-height:.9;
+    }
+
+    .banner-price-small{font-size:1.05rem;color:#4d5f76;font-weight:700;margin-bottom:7px}
+
+    .feature-visual{
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      min-height:280px;
+    }
+
+    .feature-visual img{
+      max-width:100%;
+      width:480px;
+      object-fit:contain;
+      filter:drop-shadow(0 16px 30px rgba(18,44,77,.12));
+      border-radius:18px;
+    }
+
+    .split-services{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:26px;
+    }
+
+    .split-panel{
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      min-height:340px;
+      background:#fff;
+      display:grid;
+      align-items:stretch;
+      box-shadow:0 14px 35px rgba(18,44,77,.07);
+    }
+
+    .split-inner{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      min-height:340px;
+    }
+
+    .split-copy{padding:28px 28px 26px}
+
+    .split-copy p{
+      margin:0 0 18px;
+      color:var(--muted);
+      line-height:1.65;
+      text-align:left;
+    }
+
+    .split-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:22px;
+    }
+
+    .section-head p{
+      max-width:650px;
+      text-align:left;
+      color:var(--muted);
+      margin:0;
+      line-height:1.7;
+    }
+
+    .gallery-section{
+      background:linear-gradient(180deg,#f7f9fb 0%,#eff3f7 100%);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+
+    .gallery-container{position:relative;margin-top:18px}
+    .gallery-track{
+      display:grid;
+      grid-auto-flow:column;
+      grid-auto-columns:260px;
+      gap:18px;
+      overflow-x:auto;
+      scroll-behavior:smooth;
+      padding:10px 52px 10px 0;
+      scrollbar-width:thin;
+      scrollbar-color:var(--blue) transparent;
+    }
+
+    .gallery-track::-webkit-scrollbar{height:8px}
+    .gallery-track::-webkit-scrollbar-thumb{background:var(--blue);border-radius:999px}
+
+    .gallery-item{
+      position:relative;
+      height:220px;
+      border-radius:22px;
+      overflow:hidden;
+      background:#dce3ec;
+      cursor:pointer;
+      box-shadow:0 12px 30px rgba(18,44,77,.08);
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+
+    .gallery-item:hover{transform:translateY(-4px);box-shadow:0 18px 35px rgba(18,44,77,.14)}
+    .gallery-item img{width:100%;height:100%;object-fit:cover}
+    .gallery-item::after{
+      content:"View image";
+      position:absolute;
+      inset:auto 14px 14px 14px;
+      background:rgba(11,45,88,.78);
+      color:#fff;
+      font-size:13px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+      text-align:center;
+      padding:10px 12px;
+      border-radius:12px;
+      opacity:0;
+      transform:translateY(10px);
+      transition:.25s ease;
+    }
+    .gallery-item:hover::after{opacity:1;transform:translateY(0)}
+
+    .gallery-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      border:none;
+      background:linear-gradient(180deg,var(--red),var(--red-dark));
+      color:#fff;
+      font-size:18px;
+      font-weight:900;
+      cursor:pointer;
+      z-index:2;
+      box-shadow:0 12px 22px rgba(214,58,53,.28);
+    }
+
+    .gallery-prev{left:-8px}
+    .gallery-next{right:-8px}
+
+    .booking-grid{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:22px;
+      align-items:start;
+      margin-top:18px;
+    }
+
+    .booking-panel,
+    .contact-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:0 14px 35px rgba(18,44,77,.07);
+    }
+
+    .contact-card{
+      padding:28px;
+      background:linear-gradient(180deg,#f9fbfd 0%,#eff4f8 100%);
+    }
+
+    .contact-card p,
+    .booking-panel p{
+      text-align:left;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .contact-list{
+      list-style:none;
+      padding:0;
+      margin:18px 0 0;
+      display:grid;
+      gap:14px;
+    }
+
+    .contact-list li{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:15px 16px;
+      font-weight:700;
+      color:var(--blue);
+    }
+
+    .booking-panel{padding:28px}
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+
+    .field{display:flex;flex-direction:column;gap:8px}
+    .field.full{grid-column:1 / -1}
+
+    label{
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      color:var(--blue);
+    }
+
+    input,select,textarea{
+      width:100%;
+      border:1px solid #d8e0ea;
+      border-radius:14px;
+      padding:14px 16px;
+      font:inherit;
+      color:var(--text);
+      background:#fdfefe;
+      transition:border-color .2s ease, box-shadow .2s ease;
+      outline:none;
+    }
+
+    input:focus,select:focus,textarea:focus{
+      border-color:rgba(18,60,115,.42);
+      box-shadow:0 0 0 4px rgba(18,60,115,.08);
+    }
+
+    textarea{min-height:120px;resize:vertical}
+
+    #tyreBox{
+      grid-column:1 / -1;
+      display:none;
+      margin-top:4px;
+      padding:16px;
+      border:1px dashed rgba(18,60,115,.22);
+      border-radius:18px;
+      background:#f7fafc;
+    }
+
+    #tyreBox .tyre-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .submit-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-top:18px;
+      flex-wrap:wrap;
+    }
+
+    .submit-note{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .contact-strip{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:22px;
+      align-items:stretch;
+      margin-top:26px;
+    }
+
+    .map-box{
+      min-height:360px;
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow:0 14px 35px rgba(18,44,77,.07);
+    }
+
+    .map-box iframe{width:100%;height:100%;border:0}
+
+    .brand-strip{
+      border-top:1px solid var(--line);
+      margin-top:32px;
+      background:#fff;
+    }
+
+    .brand-inner{
+      width:min(var(--max),100% - 40px);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:20px;
+      align-items:center;
+      padding:28px 0;
+    }
+
+    .brand-copy h2{margin-bottom:10px}
+    .brand-copy p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      text-align:left;
+    }
+
+    .brand-bullets{
+      list-style:none;
+      padding:0;
+      margin:18px 0 0;
+      display:grid;
+      gap:10px;
+    }
+
+    .brand-bullets li{
+      display:flex;
+      gap:12px;
+      font-weight:600;
+      color:var(--text);
+    }
+
+    .brand-logo{
+      padding:18px 22px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      font-family:Oswald,Arial,sans-serif;
+      font-size:2.4rem;
+      line-height:.9;
+      text-align:center;
+      color:var(--blue);
+      background:linear-gradient(180deg,#fff 0%,#f3f6fa 100%);
+      box-shadow:0 10px 24px rgba(18,44,77,.05);
+    }
+
+    .brand-logo span{display:block;color:var(--red)}
+
+    footer{
+      text-align:center;
+      padding:24px 16px 10px;
+      color:#56667b;
+      font-size:14px;
+    }
+
+    .call-float{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      z-index:999;
+      background:linear-gradient(180deg,var(--red),var(--red-dark));
+      color:#fff;
+      padding:16px 22px;
+      border-radius:999px;
+      font-weight:800;
+      box-shadow:0 16px 28px rgba(214,58,53,.35);
+    }
+
+    .lightbox{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(6,13,24,.92);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      padding:30px;
+    }
+
+    .lightbox img{
+      max-width:min(1200px,92vw);
+      max-height:88vh;
+      border-radius:20px;
+      box-shadow:0 20px 60px rgba(0,0,0,.45);
+    }
+
+    .lightbox-btn,
+    .lb-close{
+      position:absolute;
+      border:none;
+      cursor:pointer;
+      color:#fff;
+      background:rgba(255,255,255,.10);
+      backdrop-filter:blur(6px);
+    }
+
+    .lightbox-btn{
+      top:50%;
+      transform:translateY(-50%);
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      font-size:24px;
+    }
+
+    .lb-prev{left:26px}
+    .lb-next{right:26px}
+    .lb-close{
+      top:24px;
+      right:24px;
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      font-size:30px;
+      line-height:1;
+    }
+
+    @media (max-width: 1080px){
+      .hero-inner,
+      .feature-banner-inner,
+      .booking-grid,
+      .contact-strip,
+      .split-services,
+      .brand-inner{grid-template-columns:1fr}
+      .hero{min-height:auto}
+      .hero-side-card{justify-self:start;width:100%}
+      .service-grid{grid-template-columns:repeat(2,1fr);margin-top:24px}
+      .feature-visual{justify-content:center}
+      .feature-copy h2,.split-copy h2,.section-head h2,.gallery-section h2,.booking-panel h2,.contact-strip h2,.brand-copy h2{text-align:left}
+      .split-inner{grid-template-columns:1fr}
+      .split-image{min-height:240px}
+      .brand-logo{justify-self:start}
+    }
+
+    @media (max-width: 760px){
+      .page-shell{padding:0 12px 26px;margin:12px auto}
+      .card-page{border-radius:20px}
+      .hero-inner,.section-wrap,.brand-inner{width:min(100% - 26px, var(--max))}
+      h1{font-size:2.55rem}
+      .hero-sub{font-size:1.15rem}
+      .price{font-size:3.75rem}
+      .service-grid{grid-template-columns:1fr}
+      .gallery-track{grid-auto-columns:82%}
+      .gallery-btn{display:none}
+      .form-grid{grid-template-columns:1fr}
+      #tyreBox .tyre-grid{grid-template-columns:1fr}
+      .submit-row{align-items:flex-start}
+      .lightbox-btn{display:none}
+      .call-float{display:inline-flex}
+    }
+
+    @media (min-width: 900px){
+      .call-float{display:none}
+    }
+  </style>
 </head>
-
 <body>
+  <div class="top-bar">AG AUTO-TECH TADLEY • DPF • GEARBOX • ENGINE SPECIALIST • CALL 07920 778 706</div>
 
-<div class="top-bar">Open Mon–Sat • Tadley • Call 07920 778 706</div>
+  <div class="page-shell">
+    <div class="card-page">
+      <header class="hero">
+        <div class="hero-inner">
+          <div>
+            <div class="eyebrow">AG Auto-Tech Tadley</div>
+            <h1>Automatic Gearbox Service</h1>
+            <div class="hero-sub">Full Dynamic Oil Change</div>
 
-<div class="hero">
-<img src="banner.jpg" alt="AG Auto-Tech Tadley Garage">
-</div>
+            <div class="price-line">
+              <div class="price">£299</div>
+              <div class="price-note">inc VAT</div>
+            </div>
 
-<section>
-<h1>Car Service & Repairs in Tadley</h1>
-<div style="text-align:center;">
-<a href="tel:07920778706" class="btn">Call Now</a>
-<a href="https://wa.me/447920778706" class="btn">WhatsApp</a>
-<a href="#booking" class="btn">Book Online</a>
-</div>
-</section>
+            <div class="cta-row">
+              <a href="tel:07920778706" class="btn btn-primary btn-wide">Call Now</a>
+              <a href="#booking" class="btn btn-secondary btn-wide">Book Service</a>
+              <a href="https://wa.me/447920778706" class="btn btn-outline btn-wide">WhatsApp</a>
+            </div>
 
-<section>
-<h2>Garage Gallery</h2>
-<div class="gallery-container">
-<button class="gallery-btn gallery-prev" onclick="scrollGallery(-1)">❮</button>
-<div class="gallery-track" id="galleryTrack"></div>
-<button class="gallery-btn gallery-next" onclick="scrollGallery(1)">❯</button>
-</div>
-</section>
+            <div class="hero-badges">
+              <span class="hero-badge">Up to 95% fluid replaced</span>
+              <span class="hero-badge">Smoother gear changes</span>
+              <span class="hero-badge">Extends gearbox life</span>
+            </div>
+          </div>
 
-<section id="booking">
-<h2>Book Appointment Online</h2>
-<div style="max-width:700px;margin:auto;">
-<form onsubmit="return false;">
+          <aside class="hero-side-card">
+            <h2 class="side-card-title">Why customers choose us</h2>
+            <p class="side-card-text">A cleaner, more premium workshop-style design focused on high-value services, stronger calls to action, and a clear garage-specialist feel.</p>
+            <ul class="side-list">
+              <li><span class="tick">✓</span><span>Automatic gearbox service and dynamic oil change</span></li>
+              <li><span class="tick">✓</span><span>DPF cleaning and carbon build-up solutions</span></li>
+              <li><span class="tick">✓</span><span>Engine service and protection options</span></li>
+              <li><span class="tick">✓</span><span>Fast WhatsApp booking for customers</span></li>
+            </ul>
+          </aside>
+        </div>
+      </header>
 
-<input id="name" placeholder="Full Name" required>
-<input id="phone" placeholder="Phone Number" required>
-<input id="reg" placeholder="Vehicle Registration" required>
+      <section class="section-wrap">
+        <div class="service-grid">
+          <article class="service-card">
+            <img src="garage1.jpg" alt="DPF cleaning service">
+            <div class="service-card-body">
+              <h3>DPF Cleaning</h3>
+              <div class="mini-price">from £180 + VAT</div>
+              <p>Restores performance, improves economy, and helps reduce emissions.</p>
+            </div>
+          </article>
 
-<select id="service" onchange="checkService()">
-<option>Car Service</option>
-<option>MOT Preparation</option>
-<option>Diagnostics</option>
-<option>DPF Cleaning</option>
-<option>Tyres</option>
-<option>Brakes / Repairs</option>
-</select>
+          <article class="service-card">
+            <img src="garage2.jpg" alt="Automatic gearbox service">
+            <div class="service-card-body">
+              <h3>Automatic Gearbox Service</h3>
+              <div class="mini-price">£299 inc VAT</div>
+              <p>Dynamic oil change service designed for smoother shifting and longer gearbox life.</p>
+            </div>
+          </article>
 
-<!-- TYRE OPTIONS -->
-<div id="tyreBox" style="display:none;">
-<input id="tyresize" placeholder="Tyre Size (e.g 225/40R18)">
-<select id="qty">
-<option>1 Tyre</option>
-<option>2 Tyres</option>
-<option>3 Tyres</option>
-<option>4 Tyres</option>
-</select>
-<select id="tyreType">
-<option>Premium</option>
-<option>Mid-Range</option>
-<option>Budget</option>
-</select>
-</div>
+          <article class="service-card">
+            <img src="garage3.jpg" alt="Inlet and valve cleaning">
+            <div class="service-card-body">
+              <h3>Inlet & Valve Cleaning</h3>
+              <div class="mini-price">Ask for quote</div>
+              <p>Walnut blasting and cleaning solutions to remove carbon build-up and restore performance.</p>
+            </div>
+          </article>
 
-<label>Date</label>
-<input type="date" id="date">
-<label>Time</label>
-<input type="time" id="time">
-<textarea id="message" placeholder="Extra message"></textarea>
+          <article class="service-card">
+            <img src="garage4.jpg" alt="Engine servicing and protection">
+            <div class="service-card-body">
+              <h3>Engine Service & Protection</h3>
+              <div class="mini-price">Ask for quote</div>
+              <p>Oil service, internal engine cleaning and long-life protection packages.</p>
+            </div>
+          </article>
+        </div>
 
-<button class="btn" onclick="sendBooking()">📅 Book Now</button>
+        <div class="feature-banner">
+          <div class="feature-banner-inner">
+            <div class="feature-copy">
+              <h2>Automatic Gearbox Service</h2>
+              <div class="section-kicker">Full Dynamic Oil Change</div>
+              <ul class="check-list">
+                <li>Up to 95% fluid replaced</li>
+                <li>Smoother gear changes</li>
+                <li>Extends gearbox life</li>
+              </ul>
 
-</form>
-</div>
-</section>
+              <div class="banner-price-box">
+                <span class="banner-price-label">Only</span>
+                <span class="banner-price-value">£299</span>
+                <span class="banner-price-small">inc VAT</span>
+              </div>
 
-<section>
-<h2>Find Us</h2>
-<div class="map-box">
-<iframe src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%20Tadley&output=embed"
-width="100%" height="320" style="border:0;"></iframe>
-</div>
-</section>
+              <div class="cta-row">
+                <a href="#booking" class="btn btn-primary">Book Now</a>
+                <a href="tel:07920778706" class="btn btn-secondary">Call Garage</a>
+              </div>
+            </div>
 
-<footer>© AG Auto-Tech Tadley</footer>
-<a href="tel:07920778706" class="call-float">📞 Call Now</a>
+            <div class="feature-visual">
+              <img src="garage5.jpg" alt="Gearbox service visual">
+            </div>
+          </div>
+        </div>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-<span class="lb-close" onclick="closeLightbox()">×</span>
-<button class="lightbox-btn lb-prev" onclick="changeImage(-1)">❮</button>
-<img id="lightboxImg">
-<button class="lightbox-btn lb-next" onclick="changeImage(1)">❯</button>
-</div>
+        <div class="split-services">
+          <article class="split-panel">
+            <div class="split-inner">
+              <div class="split-copy">
+                <h2>Inlet & Valve Cleaning</h2>
+                <div class="section-kicker">Carbon build-up removal</div>
+                <p>Professional intake and valve cleaning services to improve airflow, restore response, and help the engine perform more efficiently.</p>
+                <ul class="check-list">
+                  <li>Removes carbon build-up</li>
+                  <li>Improves performance</li>
+                </ul>
+                <a href="#booking" class="btn btn-secondary">Ask for details</a>
+              </div>
+              <div class="split-image">
+                <img src="garage6.jpg" alt="Inlet and valve cleaning">
+              </div>
+            </div>
+          </article>
 
-<script>
+          <article class="split-panel">
+            <div class="split-inner">
+              <div class="split-copy">
+                <h2>Engine Service & Protection</h2>
+                <div class="section-kicker">Premium maintenance</div>
+                <p>Oil service, engine flush, and premium additive support to help protect internal components and reduce wear over time.</p>
+                <ul class="check-list">
+                  <li>Professional oil service</li>
+                  <li>Internal engine cleaning</li>
+                  <li>Long-life protection</li>
+                </ul>
+                <a href="#booking" class="btn btn-primary">Ask for details</a>
+              </div>
+              <div class="split-image">
+                <img src="garage7.jpg" alt="Engine service and protection">
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
 
-/* GALLERY */
-const track=document.getElementById("galleryTrack");
-let images=[];
-let currentIndex=0;
+      <section class="gallery-section">
+        <div class="section-wrap">
+          <div class="section-head">
+            <div>
+              <h2>Garage Gallery</h2>
+              <div class="section-kicker">Workshop, equipment and completed jobs</div>
+            </div>
+            <p>Scroll through the gallery to showcase your garage, workshop quality, and specialist equipment in a way that matches the premium service style.</p>
+          </div>
 
-for(let i=1;i<=19;i++){
-let div=document.createElement("div");
-div.className="gallery-item";
-let img=document.createElement("img");
-img.src="garage"+i+".jpg";
-images.push(img.src);
-img.onclick=function(){openLightbox(i-1);};
-div.appendChild(img);
-track.appendChild(div);
-}
+          <div class="gallery-container">
+            <button class="gallery-btn gallery-prev" onclick="scrollGallery(-1)" aria-label="Previous images">❮</button>
+            <div class="gallery-track" id="galleryTrack"></div>
+            <button class="gallery-btn gallery-next" onclick="scrollGallery(1)" aria-label="Next images">❯</button>
+          </div>
+        </div>
+      </section>
 
-function scrollGallery(direction){
-track.scrollBy({left:direction*300,behavior:'smooth'});
-}
+      <section class="section-wrap" id="booking">
+        <div class="booking-grid">
+          <aside class="contact-card">
+            <h2>Book Appointment</h2>
+            <div class="section-kicker">Fast online request</div>
+            <p>Customers fill in the form and the booking request opens directly in WhatsApp, keeping your current workflow while making the whole page look much more premium.</p>
 
-function openLightbox(index){
-currentIndex=index;
-lightbox.style.display="flex";
-lightboxImg.src=images[currentIndex];
-}
-function closeLightbox(){lightbox.style.display="none";}
-function changeImage(direction){
-currentIndex+=direction;
-if(currentIndex<0) currentIndex=images.length-1;
-if(currentIndex>=images.length) currentIndex=0;
-lightboxImg.src=images[currentIndex];
-}
+            <ul class="contact-list">
+              <li>Phone: 07920 778 706</li>
+              <li>Location: Ash Park Business Centre, Tadley</li>
+              <li>Hours: Monday to Saturday</li>
+              <li>Booking route: WhatsApp message</li>
+            </ul>
+          </aside>
 
-document.addEventListener("keydown",function(e){
-if(lightbox.style.display==="flex"){
-if(e.key==="ArrowRight") changeImage(1);
-if(e.key==="ArrowLeft") changeImage(-1);
-if(e.key==="Escape") closeLightbox();
-}
-});
+          <div class="booking-panel">
+            <h2>Send a Booking Request</h2>
+            <p>Fill in the details below and we will prepare your service enquiry.</p>
 
-/* BOOKING */
-function checkService(){
-let s=document.getElementById("service").value;
-document.getElementById("tyreBox").style.display=(s==="Tyres")?"block":"none";
-}
+            <form onsubmit="return false;">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="name">Full name</label>
+                  <input id="name" placeholder="Customer full name" required>
+                </div>
 
-function sendBooking(){
-if(!name.value || !phone.value || !reg.value){
-alert("Please complete required fields");
-return;
-}
+                <div class="field">
+                  <label for="phone">Phone number</label>
+                  <input id="phone" placeholder="Customer contact number" required>
+                </div>
 
-let text="BOOKING REQUEST%0A"+
-"Name: "+name.value+"%0A"+
-"Phone: "+phone.value+"%0A"+
-"Reg: "+reg.value+"%0A"+
-"Service: "+service.value+"%0A";
+                <div class="field">
+                  <label for="reg">Vehicle registration</label>
+                  <input id="reg" placeholder="Vehicle registration" required>
+                </div>
 
-if(service.value==="Tyres"){
-text+="Tyre Size: "+tyresize.value+"%0A"+
-"Quantity: "+qty.value+"%0A"+
-"Type: "+tyreType.value+"%0A";
-}
+                <div class="field">
+                  <label for="service">Service</label>
+                  <select id="service" onchange="checkService()">
+                    <option>Automatic Gearbox Service</option>
+                    <option>Car Service</option>
+                    <option>MOT Preparation</option>
+                    <option>Diagnostics</option>
+                    <option>DPF Cleaning</option>
+                    <option>Tyres</option>
+                    <option>Brakes / Repairs</option>
+                    <option>Inlet & Valve Cleaning</option>
+                    <option>Engine Service & Protection</option>
+                  </select>
+                </div>
 
-text+="Date: "+date.value+"%0A"+
-"Time: "+time.value+"%0A"+
-"Message: "+message.value;
+                <div id="tyreBox">
+                  <div class="tyre-grid">
+                    <div class="field">
+                      <label for="tyresize">Tyre size</label>
+                      <input id="tyresize" placeholder="e.g. 225/40R18">
+                    </div>
+                    <div class="field">
+                      <label for="qty">Quantity</label>
+                      <select id="qty">
+                        <option>1 Tyre</option>
+                        <option>2 Tyres</option>
+                        <option>3 Tyres</option>
+                        <option>4 Tyres</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="tyreType">Tyre type</label>
+                      <select id="tyreType">
+                        <option>Premium</option>
+                        <option>Mid-Range</option>
+                        <option>Budget</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
 
-window.open("https://wa.me/447920778706?text="+text,"_blank");
-}
+                <div class="field">
+                  <label for="date">Preferred date</label>
+                  <input type="date" id="date">
+                </div>
 
-</script>
+                <div class="field">
+                  <label for="time">Preferred time</label>
+                  <input type="time" id="time">
+                </div>
 
+                <div class="field full">
+                  <label for="message">Extra message</label>
+                  <textarea id="message" placeholder="Add extra information about the vehicle or the job"></textarea>
+                </div>
+              </div>
+
+              <div class="submit-row">
+                <div class="submit-note">Booking requests are sent directly to your WhatsApp number with all selected details.</div>
+                <button class="btn btn-primary" onclick="sendBooking()">Book Now</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="contact-strip">
+          <div class="map-box">
+            <iframe src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%20Tadley&output=embed" loading="lazy" allowfullscreen></iframe>
+          </div>
+
+          <div class="contact-card">
+            <h2>Find Us</h2>
+            <div class="section-kicker">AG Auto-Tech Tadley</div>
+            <p>Use this section to reinforce trust with address details, quick contact actions and location visibility near the bottom of the page.</p>
+            <ul class="contact-list">
+              <li>Tadley, RG26 5FL</li>
+              <li><a href="tel:07920778706" style="color:inherit">07920 778 706</a></li>
+              <li><a href="https://wa.me/447920778706" style="color:inherit">WhatsApp booking</a></li>
+            </ul>
+            <div class="cta-row" style="margin-top:18px">
+              <a href="tel:07920778706" class="btn btn-primary">Call Now</a>
+              <a href="#booking" class="btn btn-secondary">Book Service</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="brand-strip">
+        <div class="brand-inner">
+          <div class="brand-copy">
+            <h2>Why Use Liqui Moly</h2>
+            <p>A premium aftercare section inspired by the brochure style. This is ideal for building authority and showing the products and standards behind your services.</p>
+            <ul class="brand-bullets">
+              <li><span class="tick">✓</span><span>Premium German quality</span></li>
+              <li><span class="tick">✓</span><span>Proven engine protection</span></li>
+              <li><span class="tick">✓</span><span>Used in our workshop services</span></li>
+            </ul>
+          </div>
+          <div class="brand-logo">LIQUI <span>MOLY</span></div>
+        </div>
+      </section>
+
+      <footer>© AG Auto-Tech Tadley</footer>
+    </div>
+  </div>
+
+  <a href="tel:07920778706" class="call-float">📞 Call Now</a>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" onclick="closeLightbox()" aria-label="Close gallery">×</button>
+    <button class="lightbox-btn lb-prev" onclick="changeImage(-1)" aria-label="Previous image">❮</button>
+    <img id="lightboxImg" alt="Garage gallery image">
+    <button class="lightbox-btn lb-next" onclick="changeImage(1)" aria-label="Next image">❯</button>
+  </div>
+
+  <script>
+    const track = document.getElementById('galleryTrack');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const images = [];
+    let currentIndex = 0;
+
+    for (let i = 1; i <= 19; i++) {
+      const div = document.createElement('div');
+      div.className = 'gallery-item';
+
+      const img = document.createElement('img');
+      img.src = 'garage' + i + '.jpg';
+      img.alt = 'AG Auto-Tech garage image ' + i;
+      images.push(img.src);
+
+      img.onclick = function () {
+        openLightbox(i - 1);
+      };
+
+      div.appendChild(img);
+      track.appendChild(div);
+    }
+
+    function scrollGallery(direction) {
+      track.scrollBy({ left: direction * 320, behavior: 'smooth' });
+    }
+
+    function openLightbox(index) {
+      currentIndex = index;
+      lightbox.style.display = 'flex';
+      lightboxImg.src = images[currentIndex];
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    function changeImage(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = images.length - 1;
+      if (currentIndex >= images.length) currentIndex = 0;
+      lightboxImg.src = images[currentIndex];
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (lightbox.style.display === 'flex') {
+        if (e.key === 'ArrowRight') changeImage(1);
+        if (e.key === 'ArrowLeft') changeImage(-1);
+        if (e.key === 'Escape') closeLightbox();
+      }
+    });
+
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    function checkService() {
+      const s = document.getElementById('service').value;
+      document.getElementById('tyreBox').style.display = s === 'Tyres' ? 'block' : 'none';
+    }
+
+    function sendBooking() {
+      const name = document.getElementById('name');
+      const phone = document.getElementById('phone');
+      const reg = document.getElementById('reg');
+      const service = document.getElementById('service');
+      const tyresize = document.getElementById('tyresize');
+      const qty = document.getElementById('qty');
+      const tyreType = document.getElementById('tyreType');
+      const date = document.getElementById('date');
+      const time = document.getElementById('time');
+      const message = document.getElementById('message');
+
+      if (!name.value || !phone.value || !reg.value) {
+        alert('Please complete required fields');
+        return;
+      }
+
+      let text = 'BOOKING REQUEST%0A' +
+        'Name: ' + encodeURIComponent(name.value) + '%0A' +
+        'Phone: ' + encodeURIComponent(phone.value) + '%0A' +
+        'Reg: ' + encodeURIComponent(reg.value) + '%0A' +
+        'Service: ' + encodeURIComponent(service.value) + '%0A';
+
+      if (service.value === 'Tyres') {
+        text += 'Tyre Size: ' + encodeURIComponent(tyresize.value) + '%0A' +
+          'Quantity: ' + encodeURIComponent(qty.value) + '%0A' +
+          'Type: ' + encodeURIComponent(tyreType.value) + '%0A';
+      }
+
+      text += 'Date: ' + encodeURIComponent(date.value) + '%0A' +
+        'Time: ' + encodeURIComponent(time.value) + '%0A' +
+        'Message: ' + encodeURIComponent(message.value);
+
+      window.open('https://wa.me/447920778706?text=' + text, '_blank');
+    }
+  </script>
 </body>
 </html>
