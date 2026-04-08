@@ -861,10 +861,34 @@
             </div>
 
             <div class="hero-badges">
-              <span class="hero-badge">Up to 95% fluid replaced</span>
-              <span class="hero-badge">Smoother gear changes</span>
-              <span class="hero-badge">Extends gearbox life</span>
+              <span class="hero-badge">Automatic Gearbox Service</span>
+              <span class="hero-badge">DPF Cleaning</span>
+              <span class="hero-badge">Engine Service</span>
+              <span class="hero-badge">Diagnostics</span>
+              <span class="hero-badge">Brakes & Repairs</span>
             </div>
+
+            <!-- SERVICES SLIDER TEXT -->
+            <div id="serviceSlider" style="margin-top:18px;font-weight:700;color:#123c73;font-size:16px;">
+              All our services: Automatic Gearbox • DPF • Engine • Diagnostics • Tyres • Brakes
+            </div>
+
+            <script>
+              const services = [
+                "Automatic Gearbox Service",
+                "DPF Cleaning",
+                "Engine Service & Protection",
+                "Diagnostics",
+                "Tyres",
+                "Brakes & Repairs"
+              ];
+
+              let sIndex = 0;
+              setInterval(() => {
+                sIndex = (sIndex + 1) % services.length;
+                document.getElementById("serviceSlider").innerText = "All our services: " + services[sIndex];
+              }, 2500);
+            </script>
           </div>
 
           <aside class="hero-side-card">
@@ -883,38 +907,38 @@
       <section class="section-wrap">
         <div class="service-grid">
           <article class="service-card">
-            <img src="garage1.jpg" alt="DPF cleaning service">
+            <img src="garage191.jpg" alt="DPF cleaning specialist equipment at AG Auto-Tech Tadley">
             <div class="service-card-body">
               <h3>DPF Cleaning</h3>
-              <div class="mini-price">from £180 + VAT</div>
-              <p>Restores performance, improves economy, and helps reduce emissions.</p>
+              <div class="mini-price">Specialist service</div>
+              <p>Professional DPF fault diagnosis, deep cleaning, and flow restoration to help recover performance and reduce warning light issues.</p>
             </div>
           </article>
 
           <article class="service-card">
-            <img src="garage2.jpg" alt="Automatic gearbox service">
+            <img src="garage194.jpg" alt="Automatic gearbox service equipment at AG Auto-Tech Tadley">
             <div class="service-card-body">
               <h3>Automatic Gearbox Service</h3>
               <div class="mini-price">£299 inc VAT</div>
-              <p>Dynamic oil change service designed for smoother shifting and longer gearbox life.</p>
+              <p>Dynamic gearbox oil service designed to improve shift quality, protect internal components, and support long-term gearbox health.</p>
             </div>
           </article>
 
           <article class="service-card">
-            <img src="garage3.jpg" alt="Inlet and valve cleaning">
+            <img src="garage201.jpg" alt="Engine service and repair work at AG Auto-Tech Tadley">
             <div class="service-card-body">
-              <h3>Inlet & Valve Cleaning</h3>
-              <div class="mini-price">Ask for quote</div>
-              <p>Walnut blasting and cleaning solutions to remove carbon build-up and restore performance.</p>
+              <h3>Engine Service</h3>
+              <div class="mini-price">Advanced care</div>
+              <p>Engine servicing, diagnosis, and repair work carried out with care, precision, and a focus on performance and reliability.</p>
             </div>
           </article>
 
           <article class="service-card">
-            <img src="garage4.jpg" alt="Engine servicing and protection">
+            <img src="garage39.jpg" alt="Vehicle coding and diagnostics using advanced workshop equipment">
             <div class="service-card-body">
-              <h3>Engine Service & Protection</h3>
-              <div class="mini-price">Ask for quote</div>
-              <p>Oil service, internal engine cleaning and long-life protection packages.</p>
+              <h3>Coding & Diagnostics</h3>
+              <div class="mini-price">Top-level equipment</div>
+              <p>Vehicle coding and diagnostics using high-end equipment to identify faults accurately and support modern vehicle systems.</p>
             </div>
           </article>
         </div>
@@ -923,11 +947,11 @@
           <div class="feature-banner-inner">
             <div class="feature-copy">
               <h2>Automatic Gearbox Service</h2>
-              <div class="section-kicker">Full Dynamic Oil Change</div>
+              <div class="section-kicker">Full dynamic oil change</div>
               <ul class="check-list">
                 <li>Up to 95% fluid replaced</li>
-                <li>Smoother gear changes</li>
-                <li>Extends gearbox life</li>
+                <li>Smoother and cleaner gear changes</li>
+                <li>Helps extend gearbox life</li>
               </ul>
 
               <div class="banner-price-box">
@@ -943,7 +967,7 @@
             </div>
 
             <div class="feature-visual">
-              <img src="garage5.jpg" alt="Gearbox service visual">
+              <img src="garage211.jpg" alt="Automatic gearbox dynamic oil change service">
             </div>
           </div>
         </div>
@@ -952,17 +976,18 @@
           <article class="split-panel">
             <div class="split-inner">
               <div class="split-copy">
-                <h2>Inlet & Valve Cleaning</h2>
-                <div class="section-kicker">Carbon build-up removal</div>
-                <p>Professional intake and valve cleaning services to improve airflow, restore response, and help the engine perform more efficiently.</p>
+                <h2>DPF Cleaning</h2>
+                <div class="section-kicker">Specialist restoration service</div>
+                <p>We handle DPF-related issues with the right process, the right equipment, and the right diagnosis to help restore flow and drivability.</p>
                 <ul class="check-list">
-                  <li>Removes carbon build-up</li>
-                  <li>Improves performance</li>
+                  <li>DPF fault investigation</li>
+                  <li>Cleaning and regeneration support</li>
+                  <li>Performance-focused approach</li>
                 </ul>
                 <a href="#booking" class="btn btn-secondary">Ask for details</a>
               </div>
               <div class="split-image">
-                <img src="garage6.jpg" alt="Inlet and valve cleaning">
+                <img src="garage193.jpg" alt="DPF cleaning equipment and process">
               </div>
             </div>
           </article>
@@ -970,18 +995,58 @@
           <article class="split-panel">
             <div class="split-inner">
               <div class="split-copy">
-                <h2>Engine Service & Protection</h2>
-                <div class="section-kicker">Premium maintenance</div>
-                <p>Oil service, engine flush, and premium additive support to help protect internal components and reduce wear over time.</p>
+                <h2>Engine Service & Repair</h2>
+                <div class="section-kicker">Power, precision, reliability</div>
+                <p>From routine engine servicing to deeper fault diagnosis and repair work, we focus on quality workmanship and dependable results.</p>
                 <ul class="check-list">
-                  <li>Professional oil service</li>
-                  <li>Internal engine cleaning</li>
-                  <li>Long-life protection</li>
+                  <li>Engine health checks</li>
+                  <li>Servicing and repair support</li>
+                  <li>Clean, professional workmanship</li>
                 </ul>
                 <a href="#booking" class="btn btn-primary">Ask for details</a>
               </div>
               <div class="split-image">
-                <img src="garage7.jpg" alt="Engine service and protection">
+                <img src="garage202.jpg" alt="Engine servicing at AG Auto-Tech Tadley">
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="split-services" style="margin-top:20px;">
+          <article class="split-panel">
+            <div class="split-inner">
+              <div class="split-copy">
+                <h2>Tyres & Wheel Alignment</h2>
+                <div class="section-kicker">Grip, safety, precision</div>
+                <p>Tyre replacement and wheel alignment services to keep your vehicle driving straight, wearing tyres evenly, and performing safely on the road.</p>
+                <ul class="check-list">
+                  <li>Tyre supply and fitting</li>
+                  <li>Wheel alignment service</li>
+                  <li>Balanced road handling</li>
+                </ul>
+                <a href="#booking" class="btn btn-secondary">Book tyres</a>
+              </div>
+              <div class="split-image">
+                <img src="garage221.jpg" alt="Tyres and wheel alignment service">
+              </div>
+            </div>
+          </article>
+
+          <article class="split-panel">
+            <div class="split-inner">
+              <div class="split-copy">
+                <h2>Coding & Advanced Diagnostics</h2>
+                <div class="section-kicker">High-end diagnostic capability</div>
+                <p>Modern coding and diagnostics carried out using some of the best available equipment, helping us read faults correctly and work with confidence on newer vehicles.</p>
+                <ul class="check-list">
+                  <li>Professional diagnostic workflow</li>
+                  <li>Advanced coding support</li>
+                  <li>Accurate fault detection</li>
+                </ul>
+                <a href="#booking" class="btn btn-primary">Book diagnostics</a>
+              </div>
+              <div class="split-image">
+                <img src="garage39.jpg" alt="Advanced coding and diagnostics equipment">
               </div>
             </div>
           </article>
