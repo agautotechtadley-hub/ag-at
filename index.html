@@ -845,6 +845,36 @@
       color:var(--red);
     }
 
+    .liqui-block{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:18px 22px;
+      border-radius:20px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,#fff 0%,#f3f6fa 100%);
+      box-shadow:0 10px 24px rgba(18,44,77,.05);
+      min-width:220px;
+    }
+
+    .liqui-label{
+      font-family:Oswald,Arial,sans-serif;
+      font-size:1.2rem;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+      color:var(--blue);
+      text-align:center;
+    }
+
+    .liqui-logo{
+      width:150px;
+      max-width:100%;
+      height:auto;
+      object-fit:contain;
+    }
+
     footer{
       text-align:center;
       padding:24px 16px 10px;
@@ -1005,6 +1035,7 @@
       .split-inner{grid-template-columns:1fr}
       .feature-visual{justify-content:center}
       .brand-logo{justify-self:start}
+      .liqui-block{justify-self:start}
       .service-modal-image img{min-height:260px}
     }
 
@@ -1420,7 +1451,11 @@
               <li><span class="tick">✓</span><span>Fast booking by phone or WhatsApp</span></li>
             </ul>
           </div>
-          <div class="brand-logo">AG AUTO<span>TECH</span></div>
+
+          <div class="liqui-block">
+            <div class="liqui-label">Powered by</div>
+            <img src="liquimoly.jpg" alt="Powered by Liqui Moly" class="liqui-logo">
+          </div>
         </div>
       </section>
 
@@ -1430,7 +1465,6 @@
 
   <a href="tel:07920778706" class="call-float">📞 Call Now</a>
 
-  <!-- GALLERY LIGHTBOX -->
   <div class="lightbox" id="lightbox">
     <button class="lb-close" onclick="closeLightbox()" aria-label="Close gallery">×</button>
     <button class="lightbox-btn lb-prev" onclick="changeImage(-1)" aria-label="Previous image">❮</button>
@@ -1438,7 +1472,6 @@
     <button class="lightbox-btn lb-next" onclick="changeImage(1)" aria-label="Next image">❯</button>
   </div>
 
-  <!-- SERVICE MODAL -->
   <div class="service-modal" id="serviceModal">
     <button class="modal-close" onclick="closeServiceModal()" aria-label="Close service popup">×</button>
     <div class="service-modal-card">
