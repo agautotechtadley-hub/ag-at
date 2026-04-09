@@ -13,7 +13,7 @@
     :root{
       --bg:#eef2f6;
       --white:#ffffff;
-      --text:#142236;
+      --text:#122033;
       --muted:#66758a;
       --line:#dbe3ec;
       --blue:#123c73;
@@ -31,7 +31,7 @@
       margin:0;
       font-family:Inter,Arial,sans-serif;
       color:var(--text);
-      background:linear-gradient(180deg,#e8edf3 0%,#f7f8fa 100%);
+      background:linear-gradient(180deg,#e9edf2 0%,#f7f8fa 100%);
     }
 
     img{display:block;max-width:100%}
@@ -44,7 +44,7 @@
       text-align:center;
       padding:10px 16px;
       font-size:14px;
-      font-weight:800;
+      font-weight:700;
       letter-spacing:.03em;
     }
 
@@ -79,21 +79,35 @@
 
     .hero{
       position:relative;
-      min-height:640px;
+      min-height:680px;
       display:grid;
       align-items:center;
       background:
-        linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.90) 42%, rgba(255,255,255,.45) 72%, rgba(255,255,255,.12) 100%),
+        linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.90) 40%, rgba(255,255,255,.45) 72%, rgba(255,255,255,.10) 100%),
         url("banner.jpg") center/cover no-repeat;
       border-bottom:1px solid var(--line);
     }
 
+    .hero::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:170px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(7,14,27,.56) 100%);
+      pointer-events:none;
+    }
+
     .hero-inner{
+      position:relative;
+      z-index:1;
       display:grid;
       grid-template-columns:1.08fr .92fr;
       gap:34px;
       align-items:center;
-      padding:56px 0;
+      padding:56px 0 36px;
     }
 
     .eyebrow{
@@ -120,7 +134,7 @@
     }
 
     h1{
-      font-size:clamp(2.7rem, 5vw, 5rem);
+      font-size:clamp(2.6rem, 5vw, 4.9rem);
       line-height:.95;
       margin-bottom:12px;
       max-width:760px;
@@ -161,7 +175,7 @@
       display:flex;
       gap:14px;
       flex-wrap:wrap;
-      margin-bottom:22px;
+      margin-bottom:18px;
     }
 
     .btn{
@@ -177,7 +191,7 @@
       text-transform:uppercase;
       font-size:15px;
       cursor:pointer;
-      transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+      transition:transform .2s ease, box-shadow .2s ease;
       box-shadow:0 10px 24px rgba(18,60,115,.14);
     }
 
@@ -185,7 +199,6 @@
     .btn-primary{background:linear-gradient(180deg,var(--red),var(--red-dark));color:#fff}
     .btn-secondary{background:linear-gradient(180deg,var(--blue),var(--blue-dark));color:#fff}
     .btn-outline{background:#fff;color:var(--blue);border:1px solid var(--line)}
-    .btn:active{transform:translateY(0)}
 
     .hero-badges{
       display:flex;
@@ -204,23 +217,64 @@
       font-weight:800;
     }
 
-    .services-slider{
+    .services-strip{
+      position:relative;
+      z-index:1;
+      width:min(var(--max), calc(100% - 40px));
+      margin:0 auto 26px;
+      color:#fff;
+      padding:0 0 10px;
+    }
+
+    .services-strip-inner{
+      border-top:1px solid rgba(255,255,255,.18);
+      padding-top:14px;
       display:flex;
-      align-items:center;
-      gap:12px;
-      min-height:28px;
-      color:var(--blue);
-      font-weight:800;
-      font-size:16px;
+      gap:14px;
+      align-items:flex-start;
       flex-wrap:wrap;
     }
 
-    .services-slider-label{
-      color:var(--red);
-      text-transform:uppercase;
-      letter-spacing:.05em;
+    .services-icon{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background:linear-gradient(180deg,var(--red),var(--red-dark));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:18px;
+      box-shadow:0 10px 22px rgba(214,58,53,.24);
+      flex:0 0 auto;
+    }
+
+    .services-strip-copy{
+      flex:1;
+      min-width:260px;
+    }
+
+    .services-strip-title{
+      color:#fff;
       font-size:13px;
       font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:6px;
+    }
+
+    .services-strip-list{
+      color:#fff;
+      font-size:17px;
+      line-height:1.5;
+      letter-spacing:.03em;
+      text-transform:uppercase;
+      opacity:.98;
+    }
+
+    .dot{
+      color:var(--red);
+      font-weight:900;
+      padding:0 8px;
     }
 
     .hero-card{
@@ -309,38 +363,11 @@
       box-shadow:0 14px 35px rgba(18,44,77,.08);
       transition:transform .25s ease, box-shadow .25s ease;
       cursor:pointer;
-      position:relative;
     }
 
     .service-card:hover{
       transform:translateY(-4px);
       box-shadow:0 22px 44px rgba(18,44,77,.12);
-    }
-
-    .service-card::after{
-      content:"Click for details";
-      position:absolute;
-      left:14px;
-      right:14px;
-      bottom:14px;
-      background:rgba(11,45,88,.84);
-      color:#fff;
-      text-align:center;
-      padding:10px 12px;
-      border-radius:12px;
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.05em;
-      text-transform:uppercase;
-      opacity:0;
-      transform:translateY(10px);
-      transition:.25s ease;
-      pointer-events:none;
-    }
-
-    .service-card:hover::after{
-      opacity:1;
-      transform:translateY(0);
     }
 
     .service-card img{
@@ -371,6 +398,15 @@
       color:var(--muted);
       font-size:14px;
       line-height:1.65;
+    }
+
+    .card-link-note{
+      margin-top:12px;
+      color:var(--blue);
+      font-size:13px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.05em;
     }
 
     .feature-banner{
@@ -539,6 +575,7 @@
       padding:10px 54px 12px 0;
       scrollbar-width:thin;
       scrollbar-color:var(--blue) transparent;
+      min-height:240px;
     }
 
     .gallery-track::-webkit-scrollbar{height:8px}
@@ -833,11 +870,11 @@
       display:none;
       position:fixed;
       inset:0;
-      z-index:9999;
-      align-items:center;
+      background:rgba(6,13,24,.92);
       justify-content:center;
-      background:rgba(6,13,24,.90);
-      padding:24px;
+      align-items:center;
+      z-index:9999;
+      padding:30px;
     }
 
     .lightbox img{
@@ -847,7 +884,7 @@
       box-shadow:0 20px 60px rgba(0,0,0,.45);
     }
 
-    .lightbox-btn,.lb-close,.service-modal-close{
+    .lightbox-btn,.lb-close,.modal-close{
       position:absolute;
       border:none;
       color:#fff;
@@ -869,7 +906,7 @@
     .lb-next{right:26px}
 
     .lb-close,
-    .service-modal-close{
+    .modal-close{
       top:24px;
       right:24px;
       width:54px;
@@ -880,76 +917,68 @@
     }
 
     .service-modal-card{
-      width:min(1080px, 100%);
-      max-height:90vh;
-      overflow:auto;
+      width:min(980px, 96vw);
       background:#fff;
       border-radius:28px;
-      border:1px solid rgba(18,60,115,.10);
-      box-shadow:0 25px 70px rgba(0,0,0,.30);
-    }
-
-    .service-modal-inner{
+      overflow:hidden;
       display:grid;
-      grid-template-columns:1fr 1fr;
-      min-height:540px;
+      grid-template-columns:1.02fr .98fr;
+      box-shadow:0 25px 80px rgba(0,0,0,.35);
+      position:relative;
     }
 
     .service-modal-image img{
       width:100%;
       height:100%;
+      min-height:460px;
       object-fit:cover;
       background:#e6ebf2;
     }
 
-    .service-modal-content{
-      padding:34px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
+    .service-modal-copy{
+      padding:34px 30px;
     }
 
     .service-modal-kicker{
-      font-family:Oswald,Arial,sans-serif;
       color:var(--red);
-      letter-spacing:.06em;
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.08em;
       text-transform:uppercase;
-      font-size:1rem;
       margin-bottom:10px;
     }
 
-    .service-modal-content h2{
-      font-size:clamp(2.1rem, 3vw, 3.2rem);
+    .service-modal-copy h2{
+      font-size:2.55rem;
+      line-height:.95;
       margin-bottom:14px;
-      line-height:1;
     }
 
-    .service-modal-text{
+    .service-modal-copy p{
       color:var(--muted);
-      line-height:1.8;
-      font-size:16px;
-      margin-bottom:20px;
+      line-height:1.75;
+      margin-bottom:18px;
+      font-size:15px;
       text-align:left;
     }
 
-    .service-modal-list{
+    .modal-list{
       list-style:none;
       padding:0;
-      margin:0 0 26px;
+      margin:0 0 24px;
       display:grid;
       gap:12px;
     }
 
-    .service-modal-list li{
+    .modal-list li{
       display:flex;
       gap:12px;
-      align-items:flex-start;
-      font-weight:700;
-      line-height:1.6;
       color:var(--text);
+      font-weight:700;
+      line-height:1.5;
     }
 
-    .service-modal-list li::before{
+    .modal-list li::before{
       content:"✓";
       color:var(--red);
       font-weight:900;
@@ -962,7 +991,7 @@
       .booking-grid,
       .contact-strip,
       .brand-inner,
-      .service-modal-inner{
+      .service-modal-card{
         grid-template-columns:1fr;
       }
 
@@ -976,7 +1005,7 @@
       .split-inner{grid-template-columns:1fr}
       .feature-visual{justify-content:center}
       .brand-logo{justify-self:start}
-      .service-modal-image{max-height:360px}
+      .service-modal-image img{min-height:260px}
     }
 
     @media (max-width:760px){
@@ -996,8 +1025,8 @@
       .gallery-track{grid-auto-columns:82%}
       .gallery-btn{display:none}
       .lightbox-btn{display:none}
-      .service-modal-content{padding:24px}
-      .service-modal-close{top:12px;right:12px}
+      .services-strip-list{font-size:15px}
+      .service-modal-copy h2{font-size:2rem}
     }
 
     @media (min-width:900px){
@@ -1036,11 +1065,6 @@
               <span class="hero-badge">Tyres & Alignment</span>
               <span class="hero-badge">Coding & Diagnostics</span>
             </div>
-
-            <div class="services-slider">
-              <span class="services-slider-label">All our services</span>
-              <span id="serviceSliderText">Automatic Gearbox Service</span>
-            </div>
           </div>
 
           <aside class="hero-card">
@@ -1054,6 +1078,30 @@
             </ul>
           </aside>
         </div>
+
+        <div class="services-strip">
+          <div class="services-strip-inner">
+            <div class="services-icon">🛠</div>
+            <div class="services-strip-copy">
+              <div class="services-strip-title">All of our services</div>
+              <div class="services-strip-list">
+                Air Conditioning <span class="dot">•</span>
+                DPF Cleaning <span class="dot">•</span>
+                Tyres <span class="dot">•</span>
+                Wheel Alignment <span class="dot">•</span>
+                Diagnostics <span class="dot">•</span>
+                MOT Preparation <span class="dot">•</span>
+                General Repairs <span class="dot">•</span>
+                Brakes <span class="dot">•</span>
+                Re-Maps <span class="dot">•</span>
+                Clutch <span class="dot">•</span>
+                Gearbox Service <span class="dot">•</span>
+                Mileage Correction <span class="dot">•</span>
+                Electronics
+              </div>
+            </div>
+          </div>
+        </div>
       </header>
 
       <section class="section wrap">
@@ -1064,6 +1112,7 @@
               <h3>DPF Cleaning</h3>
               <div class="mini-price">Specialist service</div>
               <p>Professional DPF diagnosis and cleaning to help restore flow, reduce warning light issues and improve drivability.</p>
+              <div class="card-link-note">Click to learn more</div>
             </div>
           </article>
 
@@ -1073,6 +1122,7 @@
               <h3>Automatic Gearbox Service</h3>
               <div class="mini-price">£299 inc VAT</div>
               <p>Dynamic gearbox oil service to improve shift quality, protect internal components and support long-term gearbox life.</p>
+              <div class="card-link-note">Click to learn more</div>
             </div>
           </article>
 
@@ -1082,6 +1132,7 @@
               <h3>Engine Service</h3>
               <div class="mini-price">Advanced care</div>
               <p>Engine servicing, diagnosis and repair work carried out with precision, attention to detail and reliable results.</p>
+              <div class="card-link-note">Click to learn more</div>
             </div>
           </article>
 
@@ -1091,6 +1142,7 @@
               <h3>Coding & Diagnostics</h3>
               <div class="mini-price">Top-level equipment</div>
               <p>Modern coding and diagnostics using high-end workshop equipment for accurate fault detection on today’s vehicles.</p>
+              <div class="card-link-note">Click to learn more</div>
             </div>
           </article>
         </div>
@@ -1212,7 +1264,7 @@
               <div class="gallery-title">Garage Gallery</div>
               <div class="section-kicker">Workshop, equipment and specialist services</div>
             </div>
-            <p>Showcasing real workshop photos builds trust fast and gives the whole site a stronger, more professional garage identity.</p>
+            <p>Real workshop images build trust quickly and show customers the quality of your garage, your equipment and the type of work you carry out every day.</p>
           </div>
 
           <div class="gallery-container">
@@ -1267,9 +1319,15 @@
                     <option>Engine Service</option>
                     <option>Tyres</option>
                     <option>Coding & Diagnostics</option>
-                    <option>Car Service</option>
+                    <option>Air Conditioning</option>
                     <option>MOT Preparation</option>
                     <option>Brakes / Repairs</option>
+                    <option>General Repairs</option>
+                    <option>Wheel Alignment</option>
+                    <option>Re-Maps</option>
+                    <option>Clutch</option>
+                    <option>Mileage Correction</option>
+                    <option>Electronics</option>
                   </select>
                 </div>
 
@@ -1372,6 +1430,7 @@
 
   <a href="tel:07920778706" class="call-float">📞 Call Now</a>
 
+  <!-- GALLERY LIGHTBOX -->
   <div class="lightbox" id="lightbox">
     <button class="lb-close" onclick="closeLightbox()" aria-label="Close gallery">×</button>
     <button class="lightbox-btn lb-prev" onclick="changeImage(-1)" aria-label="Previous image">❮</button>
@@ -1379,51 +1438,35 @@
     <button class="lightbox-btn lb-next" onclick="changeImage(1)" aria-label="Next image">❯</button>
   </div>
 
+  <!-- SERVICE MODAL -->
   <div class="service-modal" id="serviceModal">
-    <button class="service-modal-close" onclick="closeServiceModal()" aria-label="Close service details">×</button>
+    <button class="modal-close" onclick="closeServiceModal()" aria-label="Close service popup">×</button>
     <div class="service-modal-card">
-      <div class="service-modal-inner">
-        <div class="service-modal-image">
-          <img id="serviceModalImg" src="" alt="Service detail image">
-        </div>
-        <div class="service-modal-content">
-          <div class="service-modal-kicker" id="serviceModalKicker"></div>
-          <h2 id="serviceModalTitle"></h2>
-          <p class="service-modal-text" id="serviceModalText"></p>
-          <ul class="service-modal-list" id="serviceModalList"></ul>
-          <div class="cta-row" style="margin-bottom:0;">
-            <a href="#booking" class="btn btn-primary" onclick="closeServiceModal()">Book Now</a>
-            <a href="tel:07920778706" class="btn btn-secondary">Call Now</a>
-          </div>
+      <div class="service-modal-image">
+        <img id="serviceModalImg" src="" alt="Service image">
+      </div>
+      <div class="service-modal-copy">
+        <div class="service-modal-kicker" id="serviceModalKicker">Service details</div>
+        <h2 id="serviceModalTitle">Service</h2>
+        <p id="serviceModalText">Description</p>
+        <ul class="modal-list" id="serviceModalList"></ul>
+        <div class="cta-row" style="margin-bottom:0;">
+          <a href="#booking" class="btn btn-primary" onclick="closeServiceModal()">Book Service</a>
+          <a href="tel:07920778706" class="btn btn-secondary">Call Now</a>
         </div>
       </div>
     </div>
   </div>
 
   <script>
-    const serviceItems = [
-      "Automatic Gearbox Service",
-      "DPF Cleaning",
-      "Engine Service",
-      "Tyres & Wheel Alignment",
-      "Coding & Diagnostics",
-      "Brakes & Repairs",
-      "Car Service",
-      "MOT Preparation"
+    const galleryImages = [
+      "garage23.jpg","garage24.jpg","garage25.jpg","garage26.jpg","garage27.jpg",
+      "garage28.jpg","garage29.jpg","garage30.jpg","garage31.jpg","garage32.jpg",
+      "garage33.jpg","garage34.jpg","garage35.jpg","garage36.jpg","garage37.jpg",
+      "garage38.jpg","garage39.jpg","garage40.jpg","garage41.jpg",
+      "garage191.jpg","garage192.jpg","garage193.jpg","garage194.jpg",
+      "garage201.jpg","garage202.jpg","garage211.jpg","garage221.jpg"
     ];
-
-    let serviceIndex = 0;
-    const serviceSliderText = document.getElementById("serviceSliderText");
-
-    setInterval(() => {
-      serviceIndex = (serviceIndex + 1) % serviceItems.length;
-      serviceSliderText.textContent = serviceItems[serviceIndex];
-    }, 2200);
-
-    const galleryImages = [];
-    for (let i = 23; i <= 41; i++) {
-      galleryImages.push(`garage${i}.jpg`);
-    }
 
     const galleryTrack = document.getElementById("galleryTrack");
     const lightbox = document.getElementById("lightbox");
@@ -1476,6 +1519,108 @@
       }
     });
 
+    const serviceModal = document.getElementById("serviceModal");
+    const serviceModalImg = document.getElementById("serviceModalImg");
+    const serviceModalKicker = document.getElementById("serviceModalKicker");
+    const serviceModalTitle = document.getElementById("serviceModalTitle");
+    const serviceModalText = document.getElementById("serviceModalText");
+    const serviceModalList = document.getElementById("serviceModalList");
+
+    const serviceData = {
+      gearbox: {
+        kicker: "Automatic transmission care",
+        title: "Automatic Gearbox Service",
+        image: "garage211.jpg",
+        text: "Our automatic gearbox service is a full dynamic oil change designed to refresh gearbox fluid properly, improve shift quality and help protect internal gearbox components over time.",
+        bullets: [
+          "Up to 95% of old transmission fluid replaced",
+          "Smoother gear changes and better driving feel",
+          "Helps reduce wear inside the gearbox",
+          "Recommended preventative maintenance for long-term reliability"
+        ]
+      },
+      dpf: {
+        kicker: "Diesel emission system support",
+        title: "DPF Cleaning",
+        image: "garage192.jpg",
+        text: "DPF cleaning is focused on diagnosing restricted filters, restoring flow and helping reduce issues such as warning lights, poor performance and regeneration problems.",
+        bullets: [
+          "DPF blockage diagnosis and inspection",
+          "Cleaning support to improve filter flow",
+          "Helps restore performance and drivability",
+          "Suitable for vehicles showing DPF-related faults"
+        ]
+      },
+      engine: {
+        kicker: "Power, reliability and maintenance",
+        title: "Engine Service & Repair",
+        image: "garage202.jpg",
+        text: "Engine servicing and repair work is carried out with a focus on performance, reliability and correct diagnosis, whether the job is routine maintenance or a deeper mechanical issue.",
+        bullets: [
+          "Routine servicing and engine health checks",
+          "Diagnosis of engine-related faults",
+          "Repair work with professional workshop standards",
+          "Focused on dependable long-term results"
+        ]
+      },
+      tyres: {
+        kicker: "Grip, safety and road handling",
+        title: "Tyres & Wheel Alignment",
+        image: "garage38.jpg",
+        text: "Tyre and wheel alignment services help keep your vehicle safe, stable and efficient by improving tyre wear, straight-line tracking and overall handling.",
+        bullets: [
+          "Tyre supply and fitting options",
+          "Wheel alignment to improve steering accuracy",
+          "Helps reduce uneven tyre wear",
+          "Improves safety, comfort and road behaviour"
+        ]
+      },
+      diagnostics: {
+        kicker: "Modern fault finding technology",
+        title: "Coding & Advanced Diagnostics",
+        image: "garage39.jpg",
+        text: "We use advanced workshop equipment for diagnostics and coding, helping identify faults accurately and work more effectively on modern vehicle systems.",
+        bullets: [
+          "Advanced diagnostic scanning",
+          "Accurate fault code reading and investigation",
+          "Coding support for selected vehicle systems",
+          "Professional high-end workshop equipment"
+        ]
+      }
+    };
+
+    function openServiceModal(key){
+      const service = serviceData[key];
+      if(!service) return;
+
+      serviceModalKicker.textContent = service.kicker;
+      serviceModalTitle.textContent = service.title;
+      serviceModalImg.src = service.image;
+      serviceModalImg.alt = service.title;
+      serviceModalText.textContent = service.text;
+
+      serviceModalList.innerHTML = "";
+      service.bullets.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        serviceModalList.appendChild(li);
+      });
+
+      serviceModal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeServiceModal(){
+      serviceModal.style.display = "none";
+      document.body.style.overflow = "";
+    }
+
+    serviceModal.addEventListener("click", function(e){
+      if(e.target === serviceModal){
+        closeServiceModal();
+      }
+    });
+
     document.addEventListener("keydown", function(e){
       if(lightbox.style.display === "flex"){
         if(e.key === "ArrowRight") changeImage(1);
@@ -1483,7 +1628,7 @@
         if(e.key === "Escape") closeLightbox();
       }
 
-      if(document.getElementById("serviceModal").style.display === "flex" && e.key === "Escape"){
+      if(serviceModal.style.display === "flex" && e.key === "Escape"){
         closeServiceModal();
       }
     });
@@ -1531,75 +1676,6 @@
 
       window.open("https://wa.me/447920778706?text=" + encodeURIComponent(text), "_blank");
     }
-
-    const servicesData = {
-      gearbox: {
-        kicker: "Automatic transmission specialist",
-        title: "Automatic Gearbox Service",
-        image: "garage211.jpg",
-        text: "Our automatic gearbox service is designed to keep the transmission working smoothly and help protect it from premature wear. Using the correct process and dedicated service equipment, we replace a large percentage of the old transmission fluid and help improve shift quality.",
-        bullets: [
-          "Full dynamic oil change process",
-          "Helps improve smooth gear changes",
-          "Supports gearbox performance and longevity",
-          "Ideal preventative maintenance for automatic vehicles"
-        ]
-      },
-      dpf: {
-        kicker: "DPF fault finding and cleaning",
-        title: "DPF Cleaning",
-        image: "garage193.jpg",
-        text: "DPF problems can lead to warning lights, poor performance and repeated regeneration issues. Our DPF service focuses on proper diagnosis and cleaning support to help restore flow, improve drivability and reduce ongoing soot-related problems.",
-        bullets: [
-          "Diagnosis of DPF-related faults",
-          "Cleaning support to restore filter efficiency",
-          "Helps reduce warning light issues",
-          "Focused on performance and drivability"
-        ]
-      },
-      engine: {
-        kicker: "Servicing, diagnosis and repair",
-        title: "Engine Service & Repair",
-        image: "garage202.jpg",
-        text: "We carry out engine servicing and repair work with a focus on reliability, clean workmanship and accurate diagnosis. Whether the vehicle needs regular maintenance or deeper investigation, we aim to find the issue correctly and resolve it properly.",
-        bullets: [
-          "Routine engine servicing",
-          "Engine fault diagnosis and repair support",
-          "Professional maintenance standards",
-          "Focused on performance and long-term reliability"
-        ]
-      },
-      tyres: {
-        kicker: "Tyres, grip and alignment",
-        title: "Tyres & Wheel Alignment",
-        image: "garage221.jpg",
-        text: "Tyres and wheel alignment play a major role in safety, handling and tyre life. We provide tyre fitting support and alignment-related service to help your vehicle drive straight, feel stable and wear tyres more evenly.",
-        bullets: [
-          "Tyre replacement and fitting support",
-          "Wheel alignment service",
-          "Helps improve road handling",
-          "Supports even tyre wear and safer driving"
-        ]
-      },
-      diagnostics: {
-        kicker: "Modern systems and precise testing",
-        title: "Coding & Advanced Diagnostics",
-        image: "garage39.jpg",
-        text: "Modern vehicles need modern equipment. We use advanced diagnostic and coding equipment to read systems correctly, identify faults more accurately and work confidently on newer cars and vans with complex electronics.",
-        bullets: [
-          "Advanced fault code reading",
-          "Professional coding support",
-          "Modern workshop-grade diagnostic equipment",
-          "More accurate testing for modern vehicles"
-        ]
-      }
-    };
-
-    const serviceModal = document.getElementById("serviceModal");
-    const serviceModalKicker = document.getElementById("serviceModalKicker");
-    const serviceModalTitle = document.getElementById("serviceModalTitle");
-    const serviceModalText = document.getElementById("serviceModalText");
-    const serviceModalImg = document.getElementById("serviceModalImg");
-    const serviceModalList = document.getElementById("serviceModalList");
-
-    function openServiceModal
+  </script>
+</body>
+</html>
