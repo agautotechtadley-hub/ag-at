@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AG Auto-Tech Tadley | Gearbox, DPF, Diagnostics, Tyres & Repairs</title>
+  <title>AG Auto-Tech Tadley | Gearbox, DPF, Tyres, Diagnostics & Repairs</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
     :root{
       --bg:#eef2f6;
       --white:#ffffff;
-      --text:#122033;
+      --text:#142236;
       --muted:#66758a;
       --line:#dbe3ec;
       --blue:#123c73;
@@ -31,7 +31,7 @@
       margin:0;
       font-family:Inter,Arial,sans-serif;
       color:var(--text);
-      background:linear-gradient(180deg,#e9edf2 0%,#f7f8fa 100%);
+      background:linear-gradient(180deg,#e8edf3 0%,#f7f8fa 100%);
     }
 
     img{display:block;max-width:100%}
@@ -120,7 +120,7 @@
     }
 
     h1{
-      font-size:clamp(2.6rem, 5vw, 4.9rem);
+      font-size:clamp(2.7rem, 5vw, 5rem);
       line-height:.95;
       margin-bottom:12px;
       max-width:760px;
@@ -185,6 +185,7 @@
     .btn-primary{background:linear-gradient(180deg,var(--red),var(--red-dark));color:#fff}
     .btn-secondary{background:linear-gradient(180deg,var(--blue),var(--blue-dark));color:#fff}
     .btn-outline{background:#fff;color:var(--blue);border:1px solid var(--line)}
+    .btn:active{transform:translateY(0)}
 
     .hero-badges{
       display:flex;
@@ -265,9 +266,7 @@
 
     .tick{color:var(--red);font-weight:900}
 
-    .section{
-      padding:42px 0;
-    }
+    .section{padding:42px 0}
 
     .section-head{
       display:flex;
@@ -295,7 +294,7 @@
 
     .service-grid{
       display:grid;
-      grid-template-columns:repeat(5,1fr);
+      grid-template-columns:repeat(4,1fr);
       gap:18px;
       margin-top:-36px;
       position:relative;
@@ -314,45 +313,47 @@
     }
 
     .service-card:hover{
-      transform:translateY(-5px);
+      transform:translateY(-4px);
       box-shadow:0 22px 44px rgba(18,44,77,.12);
     }
 
     .service-card::after{
       content:"Click for details";
       position:absolute;
+      left:14px;
       right:14px;
       bottom:14px;
-      padding:8px 10px;
-      border-radius:10px;
-      background:rgba(11,45,88,.85);
+      background:rgba(11,45,88,.84);
       color:#fff;
-      font-size:11px;
+      text-align:center;
+      padding:10px 12px;
+      border-radius:12px;
+      font-size:12px;
       font-weight:800;
-      text-transform:uppercase;
       letter-spacing:.05em;
+      text-transform:uppercase;
       opacity:0;
-      transition:.2s ease;
+      transform:translateY(10px);
+      transition:.25s ease;
       pointer-events:none;
     }
 
     .service-card:hover::after{
       opacity:1;
+      transform:translateY(0);
     }
 
     .service-card img{
       width:100%;
-      height:190px;
+      height:210px;
       object-fit:cover;
       background:#e6ebf2;
     }
 
-    .service-card-body{
-      padding:18px;
-    }
+    .service-card-body{padding:18px}
 
     .service-card h3{
-      font-size:1.38rem;
+      font-size:1.45rem;
       line-height:1;
       margin-bottom:8px;
       min-height:52px;
@@ -360,7 +361,7 @@
 
     .mini-price{
       font-family:Oswald,Arial,sans-serif;
-      font-size:1.9rem;
+      font-size:1.95rem;
       line-height:1;
       color:var(--red);
       margin-bottom:10px;
@@ -397,6 +398,7 @@
     }
 
     .feature-copy h2,
+    .split-copy h2,
     .booking-panel h2,
     .contact-card h2,
     .gallery-title{
@@ -470,6 +472,43 @@
       object-fit:cover;
       border-radius:22px;
       box-shadow:0 18px 35px rgba(18,44,77,.16);
+      background:#e6ebf2;
+    }
+
+    .split-services{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:22px;
+    }
+
+    .split-panel{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 14px 35px rgba(18,44,77,.07);
+    }
+
+    .split-inner{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      min-height:350px;
+    }
+
+    .split-copy{padding:28px}
+
+    .split-copy p{
+      color:var(--muted);
+      line-height:1.7;
+      margin-bottom:18px;
+      text-align:left;
+    }
+
+    .split-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
       background:#e6ebf2;
     }
 
@@ -617,9 +656,7 @@
       color:var(--blue);
     }
 
-    .booking-panel{
-      padding:28px;
-    }
+    .booking-panel{padding:28px}
 
     .form-grid{
       display:grid;
@@ -634,9 +671,7 @@
       gap:8px;
     }
 
-    .field.full{
-      grid-column:1 / -1;
-    }
+    .field.full{grid-column:1 / -1}
 
     label{
       font-size:13px;
@@ -798,11 +833,11 @@
       display:none;
       position:fixed;
       inset:0;
-      background:rgba(6,13,24,.92);
-      justify-content:center;
-      align-items:center;
       z-index:9999;
-      padding:30px;
+      align-items:center;
+      justify-content:center;
+      background:rgba(6,13,24,.90);
+      padding:24px;
     }
 
     .lightbox img{
@@ -812,7 +847,7 @@
       box-shadow:0 20px 60px rgba(0,0,0,.45);
     }
 
-    .lightbox-btn,.lb-close,.service-close{
+    .lightbox-btn,.lb-close,.service-modal-close{
       position:absolute;
       border:none;
       color:#fff;
@@ -834,7 +869,7 @@
     .lb-next{right:26px}
 
     .lb-close,
-    .service-close{
+    .service-modal-close{
       top:24px;
       right:24px;
       width:54px;
@@ -845,29 +880,30 @@
     }
 
     .service-modal-card{
-      width:min(1040px, 100%);
+      width:min(1080px, 100%);
+      max-height:90vh;
+      overflow:auto;
       background:#fff;
       border-radius:28px;
-      overflow:hidden;
-      box-shadow:0 30px 80px rgba(0,0,0,.28);
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      position:relative;
+      border:1px solid rgba(18,60,115,.10);
+      box-shadow:0 25px 70px rgba(0,0,0,.30);
     }
 
-    .service-modal-image{
-      min-height:520px;
-      background:#dfe6ee;
+    .service-modal-inner{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      min-height:540px;
     }
 
     .service-modal-image img{
       width:100%;
       height:100%;
       object-fit:cover;
+      background:#e6ebf2;
     }
 
     .service-modal-content{
-      padding:34px 30px 30px;
+      padding:34px;
       display:flex;
       flex-direction:column;
       justify-content:center;
@@ -876,29 +912,30 @@
     .service-modal-kicker{
       font-family:Oswald,Arial,sans-serif;
       color:var(--red);
-      font-size:1rem;
-      letter-spacing:.05em;
+      letter-spacing:.06em;
       text-transform:uppercase;
+      font-size:1rem;
       margin-bottom:10px;
     }
 
     .service-modal-content h2{
-      font-size:clamp(2rem, 3vw, 3.1rem);
-      line-height:.95;
+      font-size:clamp(2.1rem, 3vw, 3.2rem);
       margin-bottom:14px;
+      line-height:1;
     }
 
     .service-modal-text{
       color:var(--muted);
+      line-height:1.8;
       font-size:16px;
-      line-height:1.75;
-      margin-bottom:18px;
+      margin-bottom:20px;
+      text-align:left;
     }
 
     .service-modal-list{
       list-style:none;
       padding:0;
-      margin:0 0 24px;
+      margin:0 0 26px;
       display:grid;
       gap:12px;
     }
@@ -908,8 +945,8 @@
       gap:12px;
       align-items:flex-start;
       font-weight:700;
+      line-height:1.6;
       color:var(--text);
-      line-height:1.5;
     }
 
     .service-modal-list li::before{
@@ -918,34 +955,28 @@
       font-weight:900;
     }
 
-    @media (max-width:1180px){
-      .service-grid{
-        grid-template-columns:repeat(3,1fr);
-      }
-    }
-
     @media (max-width:1080px){
       .hero-inner,
       .feature-inner,
+      .split-services,
       .booking-grid,
       .contact-strip,
       .brand-inner,
-      .service-modal-card{
+      .service-modal-inner{
         grid-template-columns:1fr;
       }
 
       .hero{min-height:auto}
       .hero-card{justify-self:start;width:100%}
-      .feature-visual{justify-content:center}
-      .brand-logo{justify-self:start}
-      .service-modal-image{min-height:280px}
-    }
-
-    @media (max-width:860px){
       .service-grid{
         grid-template-columns:repeat(2,1fr);
         margin-top:24px;
       }
+
+      .split-inner{grid-template-columns:1fr}
+      .feature-visual{justify-content:center}
+      .brand-logo{justify-self:start}
+      .service-modal-image{max-height:360px}
     }
 
     @media (max-width:760px){
@@ -965,9 +996,8 @@
       .gallery-track{grid-auto-columns:82%}
       .gallery-btn{display:none}
       .lightbox-btn{display:none}
-      .service-modal-content{padding:26px 20px 22px}
-      .service-modal, .lightbox{padding:16px}
-      .lb-close, .service-close{top:12px; right:12px}
+      .service-modal-content{padding:24px}
+      .service-modal-close{top:12px;right:12px}
     }
 
     @media (min-width:900px){
@@ -1018,7 +1048,7 @@
             <p>Professional car and van workshop in Tadley offering automatic gearbox service, DPF cleaning, tyres, engine work, coding, diagnostics and repairs with a premium workshop feel.</p>
             <ul class="side-list">
               <li><span class="tick">✓</span><span>Automatic gearbox dynamic oil service</span></li>
-              <li><span class="tick">✓</span><span>DPF cleaning and fault diagnosis</span></li>
+              <li><span class="tick">✓</span><span>DPF cleaning and fault finding</span></li>
               <li><span class="tick">✓</span><span>Engine service and repair work</span></li>
               <li><span class="tick">✓</span><span>Tyres, wheel alignment and diagnostics</span></li>
             </ul>
@@ -1028,13 +1058,7 @@
 
       <section class="section wrap">
         <div class="service-grid">
-
-          <article class="service-card service-open"
-            data-title="DPF Cleaning"
-            data-kicker="Specialist DPF service"
-            data-image="garage191.jpg"
-            data-text="Our DPF cleaning service is designed to tackle blocked filters, warning lights, reduced performance and poor regeneration. We use the correct diagnostic approach to identify the issue and help restore proper flow and drivability."
-            data-points="DPF fault diagnosis|Cleaning and regeneration support|Improved exhaust flow and performance">
+          <article class="service-card" onclick="openServiceModal('dpf')">
             <img src="garage191.jpg" alt="DPF cleaning service at AG Auto-Tech Tadley">
             <div class="service-card-body">
               <h3>DPF Cleaning</h3>
@@ -1043,12 +1067,7 @@
             </div>
           </article>
 
-          <article class="service-card service-open"
-            data-title="Automatic Gearbox Service"
-            data-kicker="Full dynamic oil change"
-            data-image="garage194.jpg"
-            data-text="Our automatic gearbox service includes a dynamic oil change designed to replace as much used fluid as possible, improve shift quality and help protect the gearbox from unnecessary wear. It is ideal for customers who want smoother performance and better long-term gearbox health."
-            data-points="Up to 95% fluid replaced|Smoother gear changes|Helps extend gearbox life">
+          <article class="service-card" onclick="openServiceModal('gearbox')">
             <img src="garage194.jpg" alt="Automatic gearbox service equipment">
             <div class="service-card-body">
               <h3>Automatic Gearbox Service</h3>
@@ -1057,40 +1076,16 @@
             </div>
           </article>
 
-          <article class="service-card service-open"
-            data-title="Engine Service & Repairs"
-            data-kicker="Power, precision, reliability"
-            data-image="garage201.jpg"
-            data-text="We carry out engine servicing, diagnosis and repair work with a strong focus on quality workmanship and dependable results. Whether your vehicle needs routine maintenance or deeper engine-related fault finding, we approach every job carefully and professionally."
-            data-points="Engine health checks|Servicing and repair support|Clean, professional workmanship">
+          <article class="service-card" onclick="openServiceModal('engine')">
             <img src="garage201.jpg" alt="Engine service and repair work">
             <div class="service-card-body">
-              <h3>Engine Service & Repairs</h3>
+              <h3>Engine Service</h3>
               <div class="mini-price">Advanced care</div>
               <p>Engine servicing, diagnosis and repair work carried out with precision, attention to detail and reliable results.</p>
             </div>
           </article>
 
-          <article class="service-card service-open"
-            data-title="Tyres & Wheel Alignment"
-            data-kicker="Grip, safety, precision"
-            data-image="garage221.jpg"
-            data-text="We offer tyre supply, fitting and wheel alignment services to keep your vehicle driving straight, wearing tyres evenly and staying safe on the road. Proper alignment and tyre condition improve handling, comfort and long-term tyre life."
-            data-points="Tyre supply and fitting|Wheel alignment service|Balanced road handling and even tyre wear">
-            <img src="garage221.jpg" alt="Tyres and wheel alignment service">
-            <div class="service-card-body">
-              <h3>Tyres & Alignment</h3>
-              <div class="mini-price">Safety first</div>
-              <p>Tyre replacement and alignment services to improve grip, handling, tyre wear and on-road safety.</p>
-            </div>
-          </article>
-
-          <article class="service-card service-open"
-            data-title="Coding & Advanced Diagnostics"
-            data-kicker="High-end diagnostic capability"
-            data-image="garage39.jpg"
-            data-text="Our coding and advanced diagnostics service uses high-level workshop equipment to communicate properly with modern vehicles, read faults accurately and support system setup or coding functions when required. This gives customers a clearer picture of what is wrong and how to fix it properly."
-            data-points="Professional diagnostic workflow|Advanced coding support|Accurate fault detection using premium equipment">
+          <article class="service-card" onclick="openServiceModal('diagnostics')">
             <img src="garage39.jpg" alt="Advanced vehicle coding and diagnostics">
             <div class="service-card-body">
               <h3>Coding & Diagnostics</h3>
@@ -1098,7 +1093,6 @@
               <p>Modern coding and diagnostics using high-end workshop equipment for accurate fault detection on today’s vehicles.</p>
             </div>
           </article>
-
         </div>
 
         <div class="feature-banner">
@@ -1129,6 +1123,86 @@
             </div>
           </div>
         </div>
+
+        <div class="split-services">
+          <article class="split-panel">
+            <div class="split-inner">
+              <div class="split-copy">
+                <h2>DPF Cleaning</h2>
+                <div class="section-kicker">Specialist restoration service</div>
+                <p>We handle DPF-related issues with the right process, the right equipment and the right diagnosis to help restore performance and reduce ongoing problems.</p>
+                <ul class="check-list">
+                  <li>DPF fault investigation</li>
+                  <li>Cleaning and regeneration support</li>
+                  <li>Performance-focused approach</li>
+                </ul>
+                <button class="btn btn-secondary" onclick="openServiceModal('dpf')">Ask for details</button>
+              </div>
+              <div class="split-image">
+                <img src="garage193.jpg" alt="DPF cleaning equipment and process">
+              </div>
+            </div>
+          </article>
+
+          <article class="split-panel">
+            <div class="split-inner">
+              <div class="split-copy">
+                <h2>Engine Service & Repair</h2>
+                <div class="section-kicker">Power, precision, reliability</div>
+                <p>From routine engine servicing to deeper fault diagnosis and repair work, we focus on quality workmanship and dependable results.</p>
+                <ul class="check-list">
+                  <li>Engine health checks</li>
+                  <li>Servicing and repair support</li>
+                  <li>Clean, professional workmanship</li>
+                </ul>
+                <button class="btn btn-primary" onclick="openServiceModal('engine')">Ask for details</button>
+              </div>
+              <div class="split-image">
+                <img src="garage202.jpg" alt="Engine service and repair in workshop">
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="split-services">
+          <article class="split-panel">
+            <div class="split-inner">
+              <div class="split-copy">
+                <h2>Tyres & Wheel Alignment</h2>
+                <div class="section-kicker">Grip, safety, precision</div>
+                <p>Tyre replacement and wheel alignment services to keep your vehicle driving straight, wearing tyres evenly and staying safe on the road.</p>
+                <ul class="check-list">
+                  <li>Tyre supply and fitting</li>
+                  <li>Wheel alignment service</li>
+                  <li>Balanced road handling</li>
+                </ul>
+                <button class="btn btn-secondary" onclick="openServiceModal('tyres')">Book tyres</button>
+              </div>
+              <div class="split-image">
+                <img src="garage221.jpg" alt="Tyres and wheel alignment service">
+              </div>
+            </div>
+          </article>
+
+          <article class="split-panel">
+            <div class="split-inner">
+              <div class="split-copy">
+                <h2>Coding & Advanced Diagnostics</h2>
+                <div class="section-kicker">High-end diagnostic capability</div>
+                <p>Modern coding and diagnostics carried out using some of the best available equipment to read faults correctly and work confidently on modern vehicles.</p>
+                <ul class="check-list">
+                  <li>Professional diagnostic workflow</li>
+                  <li>Advanced coding support</li>
+                  <li>Accurate fault detection</li>
+                </ul>
+                <button class="btn btn-primary" onclick="openServiceModal('diagnostics')">Book diagnostics</button>
+              </div>
+              <div class="split-image">
+                <img src="garage39.jpg" alt="Advanced vehicle coding and diagnostics equipment">
+              </div>
+            </div>
+          </article>
+        </div>
       </section>
 
       <section class="gallery-section">
@@ -1138,7 +1212,7 @@
               <div class="gallery-title">Garage Gallery</div>
               <div class="section-kicker">Workshop, equipment and specialist services</div>
             </div>
-            <p>Real workshop photos help customers see the standard of the garage, the equipment used and the type of work carried out every day.</p>
+            <p>Showcasing real workshop photos builds trust fast and gives the whole site a stronger, more professional garage identity.</p>
           </div>
 
           <div class="gallery-container">
@@ -1190,7 +1264,7 @@
                   <select id="service" onchange="checkService()">
                     <option>Automatic Gearbox Service</option>
                     <option>DPF Cleaning</option>
-                    <option>Engine Service & Repairs</option>
+                    <option>Engine Service</option>
                     <option>Tyres</option>
                     <option>Coding & Diagnostics</option>
                     <option>Car Service</option>
@@ -1298,7 +1372,6 @@
 
   <a href="tel:07920778706" class="call-float">📞 Call Now</a>
 
-  <!-- GALLERY LIGHTBOX -->
   <div class="lightbox" id="lightbox">
     <button class="lb-close" onclick="closeLightbox()" aria-label="Close gallery">×</button>
     <button class="lightbox-btn lb-prev" onclick="changeImage(-1)" aria-label="Previous image">❮</button>
@@ -1306,24 +1379,22 @@
     <button class="lightbox-btn lb-next" onclick="changeImage(1)" aria-label="Next image">❯</button>
   </div>
 
-  <!-- SERVICE MODAL -->
   <div class="service-modal" id="serviceModal">
-    <button class="service-close" onclick="closeServiceModal()" aria-label="Close service details">×</button>
-
+    <button class="service-modal-close" onclick="closeServiceModal()" aria-label="Close service details">×</button>
     <div class="service-modal-card">
-      <div class="service-modal-image">
-        <img id="serviceModalImg" src="" alt="Service image">
-      </div>
-
-      <div class="service-modal-content">
-        <div class="service-modal-kicker" id="serviceModalKicker"></div>
-        <h2 id="serviceModalTitle"></h2>
-        <p class="service-modal-text" id="serviceModalText"></p>
-        <ul class="service-modal-list" id="serviceModalList"></ul>
-
-        <div class="cta-row" style="margin-top:6px;">
-          <a href="#booking" class="btn btn-primary" onclick="closeServiceModal()">Book This Service</a>
-          <a href="tel:07920778706" class="btn btn-secondary">Call Now</a>
+      <div class="service-modal-inner">
+        <div class="service-modal-image">
+          <img id="serviceModalImg" src="" alt="Service detail image">
+        </div>
+        <div class="service-modal-content">
+          <div class="service-modal-kicker" id="serviceModalKicker"></div>
+          <h2 id="serviceModalTitle"></h2>
+          <p class="service-modal-text" id="serviceModalText"></p>
+          <ul class="service-modal-list" id="serviceModalList"></ul>
+          <div class="cta-row" style="margin-bottom:0;">
+            <a href="#booking" class="btn btn-primary" onclick="closeServiceModal()">Book Now</a>
+            <a href="tel:07920778706" class="btn btn-secondary">Call Now</a>
+          </div>
         </div>
       </div>
     </div>
@@ -1333,9 +1404,9 @@
     const serviceItems = [
       "Automatic Gearbox Service",
       "DPF Cleaning",
-      "Engine Service & Repairs",
+      "Engine Service",
       "Tyres & Wheel Alignment",
-      "Coding & Advanced Diagnostics",
+      "Coding & Diagnostics",
       "Brakes & Repairs",
       "Car Service",
       "MOT Preparation"
@@ -1349,7 +1420,6 @@
       serviceSliderText.textContent = serviceItems[serviceIndex];
     }, 2200);
 
-    // GALLERY: garage23.jpg to garage41.jpg
     const galleryImages = [];
     for (let i = 23; i <= 41; i++) {
       galleryImages.push(`garage${i}.jpg`);
@@ -1406,51 +1476,6 @@
       }
     });
 
-    // SERVICE MODAL
-    const serviceModal = document.getElementById("serviceModal");
-    const serviceModalImg = document.getElementById("serviceModalImg");
-    const serviceModalKicker = document.getElementById("serviceModalKicker");
-    const serviceModalTitle = document.getElementById("serviceModalTitle");
-    const serviceModalText = document.getElementById("serviceModalText");
-    const serviceModalList = document.getElementById("serviceModalList");
-
-    document.querySelectorAll(".service-open").forEach(card => {
-      card.addEventListener("click", () => {
-        const title = card.dataset.title || "";
-        const kicker = card.dataset.kicker || "";
-        const image = card.dataset.image || "";
-        const text = card.dataset.text || "";
-        const points = (card.dataset.points || "").split("|").filter(Boolean);
-
-        serviceModalImg.src = image;
-        serviceModalImg.alt = title;
-        serviceModalKicker.textContent = kicker;
-        serviceModalTitle.textContent = title;
-        serviceModalText.textContent = text;
-        serviceModalList.innerHTML = "";
-
-        points.forEach(point => {
-          const li = document.createElement("li");
-          li.textContent = point;
-          serviceModalList.appendChild(li);
-        });
-
-        serviceModal.style.display = "flex";
-        document.body.style.overflow = "hidden";
-      });
-    });
-
-    function closeServiceModal(){
-      serviceModal.style.display = "none";
-      document.body.style.overflow = "";
-    }
-
-    serviceModal.addEventListener("click", function(e){
-      if(e.target === serviceModal){
-        closeServiceModal();
-      }
-    });
-
     document.addEventListener("keydown", function(e){
       if(lightbox.style.display === "flex"){
         if(e.key === "ArrowRight") changeImage(1);
@@ -1458,7 +1483,7 @@
         if(e.key === "Escape") closeLightbox();
       }
 
-      if(serviceModal.style.display === "flex" && e.key === "Escape"){
+      if(document.getElementById("serviceModal").style.display === "flex" && e.key === "Escape"){
         closeServiceModal();
       }
     });
@@ -1498,3 +1523,83 @@
           "Quantity: " + qty + "\n" +
           "Type: " + tyreType + "\n";
       }
+
+      text +=
+        "Date: " + date + "\n" +
+        "Time: " + time + "\n" +
+        "Message: " + message;
+
+      window.open("https://wa.me/447920778706?text=" + encodeURIComponent(text), "_blank");
+    }
+
+    const servicesData = {
+      gearbox: {
+        kicker: "Automatic transmission specialist",
+        title: "Automatic Gearbox Service",
+        image: "garage211.jpg",
+        text: "Our automatic gearbox service is designed to keep the transmission working smoothly and help protect it from premature wear. Using the correct process and dedicated service equipment, we replace a large percentage of the old transmission fluid and help improve shift quality.",
+        bullets: [
+          "Full dynamic oil change process",
+          "Helps improve smooth gear changes",
+          "Supports gearbox performance and longevity",
+          "Ideal preventative maintenance for automatic vehicles"
+        ]
+      },
+      dpf: {
+        kicker: "DPF fault finding and cleaning",
+        title: "DPF Cleaning",
+        image: "garage193.jpg",
+        text: "DPF problems can lead to warning lights, poor performance and repeated regeneration issues. Our DPF service focuses on proper diagnosis and cleaning support to help restore flow, improve drivability and reduce ongoing soot-related problems.",
+        bullets: [
+          "Diagnosis of DPF-related faults",
+          "Cleaning support to restore filter efficiency",
+          "Helps reduce warning light issues",
+          "Focused on performance and drivability"
+        ]
+      },
+      engine: {
+        kicker: "Servicing, diagnosis and repair",
+        title: "Engine Service & Repair",
+        image: "garage202.jpg",
+        text: "We carry out engine servicing and repair work with a focus on reliability, clean workmanship and accurate diagnosis. Whether the vehicle needs regular maintenance or deeper investigation, we aim to find the issue correctly and resolve it properly.",
+        bullets: [
+          "Routine engine servicing",
+          "Engine fault diagnosis and repair support",
+          "Professional maintenance standards",
+          "Focused on performance and long-term reliability"
+        ]
+      },
+      tyres: {
+        kicker: "Tyres, grip and alignment",
+        title: "Tyres & Wheel Alignment",
+        image: "garage221.jpg",
+        text: "Tyres and wheel alignment play a major role in safety, handling and tyre life. We provide tyre fitting support and alignment-related service to help your vehicle drive straight, feel stable and wear tyres more evenly.",
+        bullets: [
+          "Tyre replacement and fitting support",
+          "Wheel alignment service",
+          "Helps improve road handling",
+          "Supports even tyre wear and safer driving"
+        ]
+      },
+      diagnostics: {
+        kicker: "Modern systems and precise testing",
+        title: "Coding & Advanced Diagnostics",
+        image: "garage39.jpg",
+        text: "Modern vehicles need modern equipment. We use advanced diagnostic and coding equipment to read systems correctly, identify faults more accurately and work confidently on newer cars and vans with complex electronics.",
+        bullets: [
+          "Advanced fault code reading",
+          "Professional coding support",
+          "Modern workshop-grade diagnostic equipment",
+          "More accurate testing for modern vehicles"
+        ]
+      }
+    };
+
+    const serviceModal = document.getElementById("serviceModal");
+    const serviceModalKicker = document.getElementById("serviceModalKicker");
+    const serviceModalTitle = document.getElementById("serviceModalTitle");
+    const serviceModalText = document.getElementById("serviceModalText");
+    const serviceModalImg = document.getElementById("serviceModalImg");
+    const serviceModalList = document.getElementById("serviceModalList");
+
+    function openServiceModal
