@@ -104,7 +104,7 @@
     .hero-overlay{
       position:absolute;
       inset:0;
-      background:linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.18) 100%);
+      background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.3) 100%);
       pointer-events:none;
     }
 
@@ -117,7 +117,7 @@
       flex-direction:column;
       gap:6px;
       padding:14px 18px;
-      background:rgba(255,255,255,.9);
+      background:rgba(255,255,255,.92);
       border-left:5px solid var(--yellow);
       box-shadow:0 10px 24px rgba(0,0,0,.14);
       backdrop-filter:blur(4px);
@@ -231,6 +231,9 @@
       border:none;
       cursor:pointer;
       transition:transform .18s ease, opacity .18s ease, box-shadow .18s ease;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
     }
 
     .btn:hover{transform:translateY(-1px)}
@@ -441,7 +444,23 @@
       border:1px solid var(--line);
       background:linear-gradient(180deg,#ffffff 0%,#fbfbfb 100%);
       box-shadow:var(--shadow-soft);
+      overflow:hidden;
       text-align:center;
+    }
+
+    .simple-card-image{
+      height:220px;
+      background:#ddd;
+      overflow:hidden;
+    }
+
+    .simple-card-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .simple-card-body{
       padding:24px 18px;
     }
 
@@ -921,7 +940,7 @@
       </header>
 
       <div class="hero-image">
-        <img src="garage23.jpg" alt="AG Auto Tech Tadley workshop">
+        <img src="main.jpg" alt="AG Auto Tech Tadley workshop">
         <div class="hero-overlay"></div>
         <div class="hero-brand">
           <div class="hero-brand-title">AG AUTO TECH TADLEY</div>
@@ -975,7 +994,7 @@
 
           <article class="service-card" onclick="openServiceModal('walnut')">
             <div class="service-card-image">
-              <img src="garage201.jpg" alt="Walnut Blasting">
+              <img src="walnut.jpg" alt="Walnut Blasting">
               <div class="service-card-badge">Carbon Removal</div>
             </div>
             <div class="service-card-body">
@@ -990,7 +1009,7 @@
 
           <article class="service-card" onclick="openServiceModal('gearbox')">
             <div class="service-card-image">
-              <img src="garage211.jpg" alt="Automatic Gearbox">
+              <img src="liquimoly3.jpg" alt="Automatic Gearbox">
               <div class="service-card-badge">Dynamic Oil Change</div>
             </div>
             <div class="service-card-body">
@@ -1018,14 +1037,14 @@
             </div>
           </article>
 
-          <article class="service-card" onclick="openServiceModal('liqui')">
+          <article class="service-card" onclick="openServiceModal('dpfdeep')">
             <div class="service-card-image">
-              <img src="garage191.jpg" alt="Liqui Moly Gun DPF Cleaning">
+              <img src="garage194.jpg" alt="DPF Deep Clean">
               <div class="service-card-badge">Targeted Treatment</div>
             </div>
             <div class="service-card-body">
-              <div class="service-name">Liqui Moly Gun DPF Cleaning</div>
-              <div class="service-desc">A targeted specialist process using Liqui Moly products and application equipment for selected DPF issues.</div>
+              <div class="service-name">DPF Deep Clean</div>
+              <div class="service-desc">A targeted specialist DPF cleaning process using Liqui Moly products and application equipment for selected DPF issues.</div>
               <div class="service-meta">
                 <div class="service-chip">Liqui Moly Process</div>
                 <div class="service-link">Tap to view</div>
@@ -1057,13 +1076,23 @@
 
         <div class="simple-grid">
           <div class="simple-card">
-            <div class="simple-title">Wheel Alignment</div>
-            <div class="simple-desc">Front and 4 wheel alignment available</div>
+            <div class="simple-card-image">
+              <img src="garage19112.jpg" alt="Wheel Alignment">
+            </div>
+            <div class="simple-card-body">
+              <div class="simple-title">Wheel Alignment</div>
+              <div class="simple-desc">Front and 4 wheel alignment available</div>
+            </div>
           </div>
 
           <div class="simple-card">
-            <div class="simple-title">Tyres</div>
-            <div class="simple-desc">Supply & fitting</div>
+            <div class="simple-card-image">
+              <img src="garage221.jpg" alt="Tyres">
+            </div>
+            <div class="simple-card-body">
+              <div class="simple-title">Tyres</div>
+              <div class="simple-desc">Supply & fitting</div>
+            </div>
           </div>
         </div>
       </section>
@@ -1112,7 +1141,7 @@
                   <option>Walnut Blasting</option>
                   <option>Automatic Gearbox Service</option>
                   <option>ECU Remaps & Coding</option>
-                  <option>Liqui Moly Gun DPF Cleaning</option>
+                  <option>DPF Deep Clean</option>
                   <option>Wheel Alignment</option>
                   <option>Tyres</option>
                   <option>Air Conditioning</option>
@@ -1189,12 +1218,12 @@
 
   <script>
     const galleryImages = [
-      "garage23.jpg","garage24.jpg","garage25.jpg","garage26.jpg","garage27.jpg",
+      "main.jpg","garage24.jpg","garage25.jpg","garage26.jpg","garage27.jpg",
       "garage28.jpg","garage29.jpg","garage30.jpg","garage31.jpg","garage32.jpg",
       "garage33.jpg","garage34.jpg","garage35.jpg","garage36.jpg","garage37.jpg",
       "garage38.jpg","garage39.jpg","garage40.jpg","garage41.jpg",
-      "garage191.jpg","garage192.jpg","garage193.jpg","garage194.jpg",
-      "garage201.jpg","garage202.jpg","garage211.jpg","garage221.jpg"
+      "garage19111.jpg","garage192.jpg","garage193.jpg","garage194.jpg",
+      "walnut.jpg","garage202.jpg","liquimoly3.jpg","garage221.jpg","garage19112.jpg"
     ];
 
     const serviceData = {
@@ -1213,7 +1242,7 @@
       walnut: {
         kicker: "Carbon removal",
         title: "Walnut Blasting",
-        image: "garage201.jpg",
+        image: "walnut.jpg",
         text: "Walnut blasting is used to remove carbon build-up in intake-related areas, helping restore airflow and improve engine response.",
         bullets: [
           "Carbon build-up removal",
@@ -1225,7 +1254,7 @@
       gearbox: {
         kicker: "Diagnostics and service",
         title: "Automatic Gearbox Service",
-        image: "garage211.jpg",
+        image: "liquimoly3.jpg",
         text: "Automatic gearbox service is aimed at improving shift quality and supporting the long-term condition of the gearbox through the right service process.",
         bullets: [
           "Dynamic oil change process",
@@ -1246,11 +1275,11 @@
           "Modern control-system workflow"
         ]
       },
-      liqui: {
+      dpfdeep: {
         kicker: "Targeted specialist treatment",
-        title: "Liqui Moly Gun DPF Cleaning",
-        image: "garage191.jpg",
-        text: "A targeted DPF cleaning process using specialist Liqui Moly products and application equipment for selected DPF-related issues.",
+        title: "DPF Deep Clean",
+        image: "garage194.jpg",
+        text: "A targeted DPF deep cleaning process using specialist Liqui Moly products and application equipment for selected DPF-related issues.",
         bullets: [
           "Specialist product-based treatment",
           "Targeted DPF support",
