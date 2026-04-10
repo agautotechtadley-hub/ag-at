@@ -12,17 +12,19 @@
 
   <style>
     :root{
-      --bg:#f2f2f2;
+      --bg:#f3f3f3;
       --white:#ffffff;
-      --text:#1f2430;
-      --muted:#5f6470;
-      --line:#d8d8d8;
-      --blue:#1b2c4b;
+      --text:#202633;
+      --muted:#5b6370;
+      --line:#d9d9d9;
+      --blue:#1d2d4d;
+      --blue-dark:#161f2d;
       --red:#d5332f;
-      --yellow:#f5c400;
-      --yellow-dark:#ddb000;
-      --shadow:0 10px 28px rgba(0,0,0,.08);
-      --radius:14px;
+      --yellow:#f2c318;
+      --yellow-dark:#d5ab10;
+      --shadow:0 14px 32px rgba(0,0,0,.08);
+      --shadow-soft:0 8px 20px rgba(0,0,0,.06);
+      --radius:16px;
       --max:1280px;
     }
 
@@ -59,18 +61,18 @@
       align-items:center;
       justify-content:space-between;
       gap:12px;
-      padding:16px 18px;
+      padding:14px 18px;
       border-bottom:1px solid var(--line);
       background:#fff;
     }
 
     .brand{
       font-family:Oswald,Arial,sans-serif;
-      font-size:clamp(1.5rem,3vw,2.2rem);
+      font-size:clamp(1.4rem,2.3vw,2rem);
       line-height:1;
       text-transform:uppercase;
       letter-spacing:.04em;
-      color:#202633;
+      color:var(--blue-dark);
       text-align:center;
       flex:1;
     }
@@ -86,8 +88,9 @@
     }
 
     .hero-image{
+      position:relative;
       width:100%;
-      aspect-ratio: 16 / 6;
+      aspect-ratio:16 / 6;
       background:#ddd;
       overflow:hidden;
     }
@@ -98,13 +101,52 @@
       object-fit:cover;
     }
 
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.18) 100%);
+      pointer-events:none;
+    }
+
+    .hero-brand{
+      position:absolute;
+      left:26px;
+      bottom:22px;
+      z-index:2;
+      display:inline-flex;
+      flex-direction:column;
+      gap:6px;
+      padding:14px 18px;
+      background:rgba(255,255,255,.9);
+      border-left:5px solid var(--yellow);
+      box-shadow:0 10px 24px rgba(0,0,0,.14);
+      backdrop-filter:blur(4px);
+    }
+
+    .hero-brand-title{
+      font-family:Oswald,Arial,sans-serif;
+      font-size:clamp(1.4rem,2.6vw,2.2rem);
+      line-height:1;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      color:var(--blue-dark);
+    }
+
+    .hero-brand-sub{
+      font-size:clamp(.85rem,1.4vw,1rem);
+      font-weight:700;
+      color:#4a5260;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
     .section{
-      padding:22px 28px 0;
+      padding:24px 30px 0;
     }
 
     .title-block{
       text-align:center;
-      padding:14px 0 8px;
+      padding:10px 0 6px;
       max-width:980px;
       margin:0 auto;
     }
@@ -112,33 +154,52 @@
     .main-title{
       font-family:Oswald,Arial,sans-serif;
       text-transform:uppercase;
-      font-size:clamp(2rem,4vw,3.2rem);
+      font-size:clamp(1.9rem,3vw,2.8rem);
       line-height:1;
-      color:#202633;
-      margin-bottom:6px;
+      color:var(--blue-dark);
+      margin-bottom:8px;
+    }
+
+    .title-underline{
+      width:140px;
+      height:2px;
+      background:#c9ced6;
+      margin:0 auto 10px;
+      position:relative;
+    }
+
+    .title-underline::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:-1px;
+      transform:translateX(-50%);
+      width:54px;
+      height:4px;
+      background:var(--yellow);
     }
 
     .sub-locations{
-      font-size:clamp(1rem,2vw,1.35rem);
-      color:#3a404c;
+      font-size:clamp(.98rem,1.5vw,1.18rem);
+      color:#39404d;
       line-height:1.4;
       margin-bottom:18px;
     }
 
     .headline{
       text-align:center;
-      font-size:clamp(2.2rem,4.2vw,4.2rem);
+      font-size:clamp(1.95rem,3.5vw,3.5rem);
       line-height:1.2;
       font-weight:800;
       color:#202633;
-      margin:0 auto 16px;
+      margin:0 auto 14px;
       max-width:980px;
     }
 
     .lead-red{
       text-align:center;
       color:var(--red);
-      font-size:clamp(1.45rem,3vw,2.2rem);
+      font-size:clamp(1.2rem,2.2vw,1.8rem);
       font-weight:800;
       line-height:1.3;
       margin-bottom:6px;
@@ -146,10 +207,10 @@
 
     .lead-note{
       text-align:center;
-      color:#444b57;
+      color:#4a5260;
       font-style:italic;
-      font-size:clamp(1rem,2vw,1.3rem);
-      line-height:1.4;
+      font-size:clamp(.98rem,1.5vw,1.1rem);
+      line-height:1.45;
       margin-bottom:18px;
     }
 
@@ -162,25 +223,25 @@
     }
 
     .btn{
-      min-height:56px;
-      padding:14px 26px;
+      min-height:52px;
+      padding:13px 24px;
       border-radius:8px;
       font-weight:800;
-      font-size:clamp(1rem,2vw,1.25rem);
+      font-size:clamp(.98rem,1.4vw,1.08rem);
       border:none;
       cursor:pointer;
-      transition:transform .18s ease, opacity .18s ease;
+      transition:transform .18s ease, opacity .18s ease, box-shadow .18s ease;
     }
 
     .btn:hover{transform:translateY(-1px)}
     .btn-yellow{
       background:linear-gradient(180deg,var(--yellow),var(--yellow-dark));
       color:#1f2430;
-      box-shadow:0 8px 18px rgba(245,196,0,.25);
+      box-shadow:0 8px 18px rgba(242,195,24,.25);
     }
 
     .btn-dark{
-      background:linear-gradient(180deg,#2f3642,#1d2330);
+      background:linear-gradient(180deg,#313846,#1c2330);
       color:#fff;
       box-shadow:0 8px 18px rgba(0,0,0,.16);
     }
@@ -193,13 +254,13 @@
 
     .statement{
       text-align:center;
-      padding:4px 0 6px;
+      padding:6px 0 8px;
       max-width:980px;
       margin:0 auto;
     }
 
     .statement-strong{
-      font-size:clamp(1.65rem,3vw,2.6rem);
+      font-size:clamp(1.45rem,2.4vw,2.15rem);
       font-weight:800;
       line-height:1.25;
       color:#222833;
@@ -207,7 +268,7 @@
     }
 
     .statement-sub{
-      font-size:clamp(1rem,2vw,1.25rem);
+      font-size:clamp(.98rem,1.4vw,1.08rem);
       font-style:italic;
       color:#3f4652;
       line-height:1.45;
@@ -232,19 +293,21 @@
       display:grid;
       grid-template-columns:320px 1fr;
       border:1px solid var(--line);
-      background:#fafafa;
+      background:linear-gradient(180deg,#ffffff 0%,#fbfbfb 100%);
       cursor:pointer;
-      transition:box-shadow .18s ease, transform .18s ease;
+      transition:box-shadow .18s ease, transform .18s ease, border-color .18s ease;
     }
 
     .service-row:hover{
-      box-shadow:0 8px 18px rgba(0,0,0,.08);
+      box-shadow:0 10px 20px rgba(0,0,0,.07);
       transform:translateY(-1px);
+      border-color:#cfcfcf;
     }
 
     .service-thumb{
       min-height:150px;
       background:#ddd;
+      overflow:hidden;
     }
 
     .service-thumb img{
@@ -258,10 +321,19 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
+      position:relative;
+    }
+
+    .service-copy::before{
+      content:"";
+      width:42px;
+      height:4px;
+      background:var(--yellow);
+      margin-bottom:10px;
     }
 
     .service-name{
-      font-size:clamp(1.55rem,2.4vw,2.2rem);
+      font-size:clamp(1.35rem,2vw,1.8rem);
       font-weight:800;
       line-height:1.2;
       margin-bottom:4px;
@@ -269,7 +341,7 @@
     }
 
     .service-desc{
-      font-size:clamp(1rem,1.8vw,1.2rem);
+      font-size:clamp(.98rem,1.35vw,1.08rem);
       line-height:1.45;
       color:#4b5360;
       font-style:italic;
@@ -277,13 +349,13 @@
 
     .simple-block{
       text-align:center;
-      padding:8px 0;
+      padding:10px 0;
       max-width:980px;
       margin:0 auto;
     }
 
     .simple-title{
-      font-size:clamp(1.5rem,2.8vw,2.2rem);
+      font-size:clamp(1.35rem,2vw,1.85rem);
       font-weight:800;
       line-height:1.2;
       color:#202633;
@@ -291,7 +363,7 @@
     }
 
     .simple-desc{
-      font-size:clamp(1rem,1.9vw,1.22rem);
+      font-size:clamp(.98rem,1.35vw,1.08rem);
       color:#3f4652;
       line-height:1.45;
       font-style:italic;
@@ -307,7 +379,7 @@
 
     .gallery-title{
       font-family:Oswald,Arial,sans-serif;
-      font-size:clamp(1.9rem,3vw,2.8rem);
+      font-size:clamp(1.75rem,2.6vw,2.4rem);
       text-transform:uppercase;
       line-height:1;
       color:#202633;
@@ -316,7 +388,7 @@
 
     .gallery-sub{
       color:#4f5865;
-      font-size:clamp(1rem,1.8vw,1.18rem);
+      font-size:clamp(.96rem,1.3vw,1.05rem);
       line-height:1.5;
     }
 
@@ -350,6 +422,7 @@
       overflow:hidden;
       cursor:pointer;
       background:#ddd;
+      box-shadow:var(--shadow-soft);
     }
 
     .gallery-item img{
@@ -378,7 +451,7 @@
     .gallery-next{right:-2px}
 
     .booking-box{
-      padding-bottom:22px;
+      padding-bottom:24px;
     }
 
     .booking-head{
@@ -392,20 +465,25 @@
     .booking-title{
       font-family:Oswald,Arial,sans-serif;
       text-transform:uppercase;
-      font-size:clamp(1.9rem,3vw,2.8rem);
+      font-size:clamp(1.75rem,2.6vw,2.4rem);
       line-height:1;
       margin-bottom:6px;
+      color:var(--blue-dark);
     }
 
     .booking-sub{
       color:#4f5865;
-      font-size:clamp(1rem,1.8vw,1.15rem);
+      font-size:clamp(.96rem,1.3vw,1.05rem);
       line-height:1.5;
     }
 
     .booking-inner{
       max-width:980px;
       margin:0 auto;
+      background:linear-gradient(180deg,#ffffff 0%,#fbfbfb 100%);
+      border:1px solid var(--line);
+      padding:18px;
+      box-shadow:var(--shadow-soft);
     }
 
     .form-grid{
@@ -423,7 +501,7 @@
     .field.full{grid-column:1 / -1}
 
     label{
-      font-size:12px;
+      font-size:11px;
       font-weight:800;
       letter-spacing:.14em;
       text-transform:uppercase;
@@ -432,7 +510,7 @@
 
     input,select,textarea{
       width:100%;
-      padding:14px 14px;
+      padding:13px 14px;
       border:1px solid var(--line);
       background:#fff;
       color:var(--text);
@@ -461,6 +539,7 @@
       overflow:hidden;
       min-height:320px;
       margin-top:18px;
+      box-shadow:var(--shadow-soft);
     }
 
     .map-box iframe{
@@ -476,14 +555,14 @@
     }
 
     .powered-title{
-      font-size:clamp(1.2rem,2vw,1.6rem);
+      font-size:clamp(1.1rem,1.6vw,1.35rem);
       font-weight:800;
       color:#2a3140;
       margin-bottom:8px;
     }
 
     .powered-sub{
-      font-size:clamp(1rem,1.8vw,1.12rem);
+      font-size:clamp(.96rem,1.2vw,1.02rem);
       color:#444c58;
       margin-bottom:10px;
     }
@@ -495,7 +574,7 @@
       gap:10px;
       flex-wrap:wrap;
       color:#3f4652;
-      font-size:clamp(1rem,1.7vw,1.1rem);
+      font-size:clamp(.96rem,1.2vw,1rem);
     }
 
     .liqui-inline img{
@@ -594,11 +673,12 @@
 
     .service-modal-copy{
       padding:28px 26px;
+      background:linear-gradient(180deg,#ffffff 0%,#fafafa 100%);
     }
 
     .service-modal-kicker{
       color:var(--red);
-      font-size:12px;
+      font-size:11px;
       font-weight:800;
       letter-spacing:.16em;
       text-transform:uppercase;
@@ -606,16 +686,17 @@
     }
 
     .service-modal-copy h2{
-      font-size:clamp(2rem,3vw,3rem);
-      line-height:1;
+      font-size:clamp(1.8rem,2.8vw,2.5rem);
+      line-height:1.05;
       margin-bottom:12px;
       text-align:left;
+      color:var(--blue-dark);
     }
 
     .service-modal-copy p{
       color:#4b5360;
-      line-height:1.75;
-      font-size:15px;
+      line-height:1.7;
+      font-size:14px;
       margin-bottom:16px;
       text-align:left;
     }
@@ -640,7 +721,7 @@
 
     .modal-list li::before{
       content:"•";
-      color:var(--red);
+      color:var(--yellow-dark);
       font-weight:900;
       font-size:18px;
       line-height:1;
@@ -674,7 +755,14 @@
       }
 
       .brand{
-        font-size:1.8rem;
+        font-size:1.55rem;
+      }
+
+      .hero-brand{
+        left:14px;
+        right:14px;
+        bottom:14px;
+        padding:12px 14px;
       }
 
       .section{
@@ -682,11 +770,11 @@
       }
 
       .headline{
-        font-size:2.25rem;
+        font-size:2rem;
       }
 
       .statement-strong{
-        font-size:2rem;
+        font-size:1.75rem;
       }
 
       .service-row{
@@ -747,11 +835,17 @@
 
       <div class="hero-image">
         <img src="garage23.jpg" alt="AG Auto Tech Tadley workshop">
+        <div class="hero-overlay"></div>
+        <div class="hero-brand">
+          <div class="hero-brand-title">AG AUTO TECH TADLEY</div>
+          <div class="hero-brand-sub">Specialist Vehicle Services</div>
+        </div>
       </div>
 
       <section class="section">
         <div class="title-block">
           <div class="main-title">AG AUTO TECH TADLEY</div>
+          <div class="title-underline"></div>
           <div class="sub-locations">Tadley • Reading • Basingstoke</div>
           <div class="headline">DPF Diagnostics, Walnut Blasting & Automatic Gearbox Specialists</div>
           <div class="lead-red">Specialist Diagnostics & Repair</div>
