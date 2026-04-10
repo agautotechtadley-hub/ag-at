@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AG Auto Tech Tadley | DPF, Walnut Blasting & Automatic Gearbox Specialists</title>
-  <meta name="description" content="AG Auto Tech Tadley - DPF diagnostics, walnut blasting, automatic gearbox service, remaps and coding. Specialist vehicle services in Tadley.">
+  <title>AG AUTO TECH TADLEY</title>
+  <meta name="description" content="AG Auto Tech Tadley - DPF diagnostics, walnut blasting, automatic gearbox service, remaps and coding.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,17 +15,12 @@
       --bg:#efefef;
       --white:#ffffff;
       --text:#1f2430;
-      --muted:#626a78;
-      --line:#dedede;
-      --blue:#1d2d4d;
       --blue-dark:#111926;
       --red:#d5332f;
       --yellow:#f2c318;
       --yellow-dark:#d5ab10;
       --shadow:0 18px 45px rgba(0,0,0,.08);
-      --shadow-soft:0 10px 26px rgba(0,0,0,.06);
       --shadow-card:0 18px 36px rgba(0,0,0,.08);
-      --max:1280px;
     }
 
     *{box-sizing:border-box}
@@ -39,7 +34,6 @@
 
     img{display:block;max-width:100%}
     a{text-decoration:none;color:inherit}
-    button{font:inherit}
 
     .page{
       max-width:1450px;
@@ -49,7 +43,7 @@
 
     .sheet{
       width:100%;
-      max-width:var(--max);
+      max-width:1280px;
       margin:0 auto;
       background:var(--white);
       border:1px solid #e3e3e3;
@@ -61,11 +55,10 @@
     .topbar{
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:16px 20px;
+      justify-content:center;
+      padding:18px 20px;
       border-bottom:1px solid #ececec;
-      background:rgba(255,255,255,.95);
+      background:#fff;
     }
 
     .brand{
@@ -76,43 +69,29 @@
       letter-spacing:.05em;
       color:var(--blue-dark);
       text-align:center;
-      flex:1;
     }
 
-    .icon-btn{
-      width:40px;
-      height:40px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#7b808b;
-      flex:0 0 auto;
-      border-radius:50%;
-      background:#f7f7f7;
-    }
-
-    .hero-image{
+    .hero{
       position:relative;
       width:100%;
       aspect-ratio:16 / 6.4;
-      background:#ddd;
       overflow:hidden;
+      background:#ddd;
     }
 
-    .hero-image img{
+    .hero img{
       width:100%;
       height:100%;
       object-fit:cover;
-      transform:scale(1.01);
     }
 
-    .hero-overlay{
+    .hero::after{
+      content:"";
       position:absolute;
       inset:0;
       background:
         linear-gradient(90deg, rgba(8,12,18,.62) 0%, rgba(8,12,18,.3) 38%, rgba(8,12,18,.12) 70%, rgba(8,12,18,.08) 100%),
         linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.26) 100%);
-      pointer-events:none;
     }
 
     .hero-brand{
@@ -120,9 +99,6 @@
       left:32px;
       bottom:30px;
       z-index:2;
-      display:inline-flex;
-      flex-direction:column;
-      gap:10px;
       padding:18px 22px;
       background:rgba(255,255,255,.12);
       border:1px solid rgba(255,255,255,.22);
@@ -140,7 +116,7 @@
       text-transform:uppercase;
       letter-spacing:.05em;
       color:#fff;
-      text-shadow:0 2px 10px rgba(0,0,0,.25);
+      margin-bottom:8px;
     }
 
     .hero-brand-sub{
@@ -151,20 +127,12 @@
       text-transform:uppercase;
     }
 
-    .hero-brand-line{
-      width:72px;
-      height:4px;
-      background:linear-gradient(90deg,var(--yellow),#ffe17b);
-      border-radius:999px;
-    }
-
     .section{
       padding:30px 34px 0;
     }
 
     .title-block{
       text-align:center;
-      padding:8px 0 6px;
       max-width:980px;
       margin:0 auto;
     }
@@ -176,27 +144,6 @@
       line-height:1;
       color:var(--blue-dark);
       margin-bottom:10px;
-      letter-spacing:.03em;
-    }
-
-    .title-underline{
-      width:150px;
-      height:2px;
-      background:#d7dce3;
-      margin:0 auto 12px;
-      position:relative;
-    }
-
-    .title-underline::after{
-      content:"";
-      position:absolute;
-      left:50%;
-      top:-1px;
-      transform:translateX(-50%);
-      width:58px;
-      height:4px;
-      background:var(--yellow);
-      border-radius:999px;
     }
 
     .sub-locations{
@@ -215,7 +162,6 @@
       color:#1b2230;
       margin:0 auto 14px;
       max-width:1020px;
-      letter-spacing:-0.02em;
     }
 
     .lead-red{
@@ -223,7 +169,6 @@
       color:var(--red);
       font-size:clamp(1.18rem,2.1vw,1.75rem);
       font-weight:800;
-      line-height:1.3;
       margin-bottom:8px;
     }
 
@@ -250,15 +195,11 @@
       border-radius:999px;
       font-weight:800;
       font-size:clamp(.98rem,1.4vw,1.06rem);
-      border:none;
-      cursor:pointer;
-      transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
       display:inline-flex;
       align-items:center;
       justify-content:center;
     }
 
-    .btn:hover{transform:translateY(-2px)}
     .btn-yellow{
       background:linear-gradient(180deg,var(--yellow),var(--yellow-dark));
       color:#1f2430;
@@ -275,33 +216,6 @@
       height:1px;
       background:#e7e7e7;
       margin:26px 0;
-    }
-
-    .statement{
-      text-align:center;
-      max-width:980px;
-      margin:0 auto;
-    }
-
-    .statement-strong{
-      font-size:clamp(1.45rem,2.3vw,2.1rem);
-      font-weight:800;
-      line-height:1.25;
-      color:#202633;
-      margin-bottom:8px;
-    }
-
-    .statement-sub{
-      font-size:clamp(.98rem,1.35vw,1.08rem);
-      font-style:italic;
-      color:#48505d;
-      line-height:1.5;
-    }
-
-    .statement-sub .red{
-      color:var(--red);
-      font-weight:800;
-      font-style:normal;
     }
 
     .services-head{
@@ -354,42 +268,21 @@
       background:linear-gradient(180deg,#ffffff 0%,#fbfbfb 100%);
       box-shadow:var(--shadow-card);
       overflow:hidden;
-      cursor:pointer;
-      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-      position:relative;
       border-radius:20px;
-    }
-
-    .service-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 24px 42px rgba(0,0,0,.11);
-      border-color:#d7d7d7;
+      cursor:pointer;
     }
 
     .service-card-image{
       position:relative;
       height:240px;
-      background:#ddd;
       overflow:hidden;
-    }
-
-    .service-card-image::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg,rgba(0,0,0,.06) 0%,rgba(0,0,0,.18) 100%);
-      pointer-events:none;
+      background:#ddd;
     }
 
     .service-card-image img{
       width:100%;
       height:100%;
       object-fit:cover;
-      transition:transform .35s ease;
-    }
-
-    .service-card:hover .service-card-image img{
-      transform:scale(1.05);
     }
 
     .service-card-badge{
@@ -405,23 +298,11 @@
       letter-spacing:.13em;
       text-transform:uppercase;
       border-left:4px solid var(--yellow);
-      box-shadow:0 8px 18px rgba(0,0,0,.1);
       border-radius:10px;
     }
 
     .service-card-body{
       padding:20px 20px 22px;
-      position:relative;
-    }
-
-    .service-card-body::before{
-      content:"";
-      width:48px;
-      height:4px;
-      background:var(--yellow);
-      display:block;
-      margin-bottom:12px;
-      border-radius:999px;
     }
 
     .service-name{
@@ -451,7 +332,6 @@
     .service-chip{
       display:inline-flex;
       align-items:center;
-      gap:8px;
       font-size:11px;
       font-weight:800;
       letter-spacing:.12em;
@@ -491,28 +371,14 @@
 
     .simple-card-image{
       height:235px;
-      background:#ddd;
       overflow:hidden;
-      position:relative;
-    }
-
-    .simple-card-image::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.15) 100%);
-      pointer-events:none;
+      background:#ddd;
     }
 
     .simple-card-image img{
       width:100%;
       height:100%;
       object-fit:cover;
-      transition:transform .35s ease;
-    }
-
-    .simple-card:hover .simple-card-image img{
-      transform:scale(1.04);
     }
 
     .simple-card-body{
@@ -533,93 +399,6 @@
       line-height:1.5;
       font-style:italic;
     }
-
-    .gallery-head{
-      text-align:center;
-      margin-bottom:14px;
-      max-width:980px;
-      margin-left:auto;
-      margin-right:auto;
-    }
-
-    .gallery-title{
-      font-family:Oswald,Arial,sans-serif;
-      font-size:clamp(1.8rem,2.6vw,2.5rem);
-      text-transform:uppercase;
-      line-height:1;
-      color:#202633;
-      margin-bottom:8px;
-    }
-
-    .gallery-sub{
-      color:#57606d;
-      font-size:clamp(.96rem,1.3vw,1.05rem);
-      line-height:1.6;
-    }
-
-    .gallery-wrap{
-      position:relative;
-      margin-top:16px;
-    }
-
-    .gallery-track{
-      display:grid;
-      grid-auto-flow:column;
-      grid-auto-columns:320px;
-      gap:16px;
-      overflow-x:auto;
-      scroll-behavior:smooth;
-      padding:4px 56px 12px 0;
-      min-height:240px;
-      scrollbar-width:thin;
-      scrollbar-color:#1b2c4b transparent;
-    }
-
-    .gallery-track::-webkit-scrollbar{height:8px}
-    .gallery-track::-webkit-scrollbar-thumb{
-      background:#1b2c4b;
-      border-radius:999px;
-    }
-
-    .gallery-item{
-      height:230px;
-      border:1px solid #e3e3e3;
-      overflow:hidden;
-      cursor:pointer;
-      background:#ddd;
-      box-shadow:var(--shadow-soft);
-      border-radius:18px;
-    }
-
-    .gallery-item img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition:transform .35s ease;
-    }
-
-    .gallery-item:hover img{
-      transform:scale(1.05);
-    }
-
-    .gallery-btn{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      width:48px;
-      height:48px;
-      border:none;
-      border-radius:50%;
-      background:linear-gradient(180deg,var(--red),#b92b28);
-      color:#fff;
-      font-size:20px;
-      font-weight:900;
-      cursor:pointer;
-      box-shadow:0 10px 18px rgba(213,51,47,.24);
-    }
-
-    .gallery-prev{left:-4px}
-    .gallery-next{right:-4px}
 
     .booking-box{
       padding-bottom:28px;
@@ -654,7 +433,6 @@
       background:linear-gradient(180deg,#ffffff 0%,#fbfbfb 100%);
       border:1px solid #e5e5e5;
       padding:22px;
-      box-shadow:var(--shadow-soft);
       border-radius:22px;
     }
 
@@ -691,11 +469,6 @@
       border-radius:12px;
     }
 
-    input:focus,select:focus,textarea:focus{
-      border-color:#9fb0c7;
-      box-shadow:0 0 0 4px rgba(27,44,75,.06);
-    }
-
     textarea{
       min-height:110px;
       resize:vertical;
@@ -705,22 +478,6 @@
       display:flex;
       justify-content:center;
       margin-top:18px;
-    }
-
-    .map-box{
-      border:1px solid #e5e5e5;
-      overflow:hidden;
-      min-height:320px;
-      margin-top:20px;
-      box-shadow:var(--shadow-soft);
-      border-radius:18px;
-    }
-
-    .map-box iframe{
-      width:100%;
-      height:100%;
-      min-height:320px;
-      border:0;
     }
 
     .powered{
@@ -745,8 +502,6 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
     }
 
     .liqui-inline img{
@@ -760,19 +515,6 @@
       padding:0 18px 24px;
       font-size:13px;
       color:#6b7380;
-    }
-
-    .call-float{
-      position:fixed;
-      right:14px;
-      bottom:14px;
-      z-index:999;
-      padding:15px 22px;
-      border-radius:999px;
-      background:linear-gradient(180deg,#2f3642,#1d2330);
-      color:#fff;
-      font-weight:800;
-      box-shadow:0 12px 24px rgba(0,0,0,.2);
     }
 
     .lightbox,
@@ -790,17 +532,26 @@
     .lightbox img{
       max-width:min(1280px,94vw);
       max-height:88vh;
-      box-shadow:0 20px 60px rgba(0,0,0,.4);
       border-radius:16px;
     }
 
-    .lightbox-btn,.lb-close,.modal-close{
+    .lb-close,.modal-close,.lightbox-btn{
       position:absolute;
       border:none;
       color:#fff;
       background:rgba(255,255,255,.14);
       cursor:pointer;
       backdrop-filter:blur(4px);
+    }
+
+    .lb-close,.modal-close{
+      top:16px;
+      right:16px;
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      font-size:28px;
+      line-height:1;
     }
 
     .lightbox-btn{
@@ -815,28 +566,13 @@
     .lb-prev{left:18px}
     .lb-next{right:18px}
 
-    .lb-close,.modal-close{
-      top:16px;
-      right:16px;
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      font-size:28px;
-      line-height:1;
-    }
-
     .service-modal-card{
       width:min(1140px,96vw);
       display:grid;
       grid-template-columns:1fr 1fr;
       background:#fff;
       overflow:hidden;
-      box-shadow:0 26px 70px rgba(0,0,0,.3);
       border-radius:24px;
-    }
-
-    .service-modal-image{
-      background:#ddd;
     }
 
     .service-modal-image img{
@@ -864,7 +600,6 @@
       font-size:clamp(1.9rem,2.8vw,2.6rem);
       line-height:1.05;
       margin-bottom:12px;
-      text-align:left;
       color:var(--blue-dark);
     }
 
@@ -873,7 +608,6 @@
       line-height:1.7;
       font-size:14px;
       margin-bottom:18px;
-      text-align:left;
     }
 
     .modal-list{
@@ -903,108 +637,30 @@
     }
 
     @media (max-width:980px){
-      .service-grid,
-      .simple-grid{
-        grid-template-columns:1fr;
-      }
-
-      .service-modal-card{
-        grid-template-columns:1fr;
-      }
-
-      .service-modal-image img{
-        min-height:260px;
-      }
+      .service-grid,.simple-grid,.service-modal-card{grid-template-columns:1fr}
+      .service-modal-image img{min-height:260px}
     }
 
     @media (max-width:760px){
-      .page{
-        padding:10px 8px 22px;
-      }
-
-      .sheet{
-        max-width:100%;
-        border-radius:18px;
-      }
-
-      .topbar{
-        padding:14px 12px;
-      }
-
-      .brand{
-        font-size:1.55rem;
-      }
-
-      .hero-brand{
-        left:14px;
-        right:14px;
-        bottom:14px;
-        padding:14px 15px;
-        max-width:none;
-      }
-
-      .section{
-        padding:20px 14px 0;
-      }
-
-      .headline{
-        font-size:2rem;
-      }
-
-      .statement-strong{
-        font-size:1.75rem;
-      }
-
-      .gallery-track{
-        grid-auto-columns:84%;
-        padding-right:0;
-      }
-
-      .gallery-btn,
-      .lightbox-btn{
-        display:none;
-      }
-
-      .form-grid{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media (min-width:901px){
-      .call-float{
-        display:none;
-      }
+      .page{padding:10px 8px 22px}
+      .sheet{border-radius:18px}
+      .hero-brand{left:14px;right:14px;bottom:14px;max-width:none}
+      .section{padding:20px 14px 0}
+      .form-grid{grid-template-columns:1fr}
+      .lightbox-btn{display:none}
     }
   </style>
 </head>
 <body>
   <div class="page">
     <div class="sheet">
-
       <header class="topbar">
-        <div class="icon-btn" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-            <line x1="4" y1="7" x2="20" y2="7"></line>
-            <line x1="4" y1="12" x2="20" y2="12"></line>
-            <line x1="4" y1="17" x2="20" y2="17"></line>
-          </svg>
-        </div>
-
         <div class="brand">AG AUTO TECH TADLEY</div>
-
-        <a class="icon-btn" href="#booking" aria-label="Go to booking">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-            <circle cx="11" cy="11" r="7"></circle>
-            <line x1="20" y1="20" x2="16.65" y2="16.65"></line>
-          </svg>
-        </a>
       </header>
 
-      <div class="hero-image">
+      <div class="hero">
         <img src="main.jpg" alt="AG Auto Tech Tadley workshop">
-        <div class="hero-overlay"></div>
         <div class="hero-brand">
-          <div class="hero-brand-line"></div>
           <div class="hero-brand-title">AG AUTO TECH TADLEY</div>
           <div class="hero-brand-sub">Specialist Vehicle Services</div>
         </div>
@@ -1013,7 +669,6 @@
       <section class="section">
         <div class="title-block">
           <div class="main-title">AG AUTO TECH TADLEY</div>
-          <div class="title-underline"></div>
           <div class="sub-locations">Tadley • Reading • Basingstoke</div>
           <div class="headline">DPF Diagnostics, Walnut Blasting & Automatic Gearbox Specialists</div>
           <div class="lead-red">Specialist Diagnostics & Repair</div>
@@ -1027,15 +682,10 @@
 
         <div class="divider"></div>
 
-        <div class="statement">
-          <div class="statement-strong">On-car cleaning does not remove ash</div>
-          <div class="statement-sub"><span class="red">We fix the cause.</span> Prevent repeat failure.</div>
-        </div>
-
         <div class="services-head">
           <div class="services-kicker">Specialist Services</div>
           <div class="services-title">Focused Services That Solve the Real Problem</div>
-          <div class="services-sub">A cleaner, more premium layout makes every service easier to scan and gives the page a stronger specialist workshop feel.</div>
+          <div class="services-sub">Premium layout with your updated service images.</div>
         </div>
 
         <div class="service-grid">
@@ -1061,7 +711,7 @@
             </div>
             <div class="service-card-body">
               <div class="service-name">Walnut Blasting</div>
-              <div class="service-desc">A more specialist cleaning process designed to remove carbon build-up and restore airflow.</div>
+              <div class="service-desc">Specialist carbon cleaning process designed to restore airflow.</div>
               <div class="service-meta">
                 <div class="service-chip">Engine Intake Care</div>
                 <div class="service-link">Tap to view</div>
@@ -1076,7 +726,7 @@
             </div>
             <div class="service-card-body">
               <div class="service-name">Automatic Gearbox</div>
-              <div class="service-desc">Diagnostics and service-led gearbox care focused on smoother shifting and better long-term reliability.</div>
+              <div class="service-desc">Service-led gearbox care focused on smoother shifting and reliability.</div>
               <div class="service-meta">
                 <div class="service-chip">Transmission Systems</div>
                 <div class="service-link">Tap to view</div>
@@ -1091,7 +741,7 @@
             </div>
             <div class="service-card-body">
               <div class="service-name">ECU Remaps & Coding</div>
-              <div class="service-desc">Modern diagnostics, coding support and electronic control work using advanced workshop equipment.</div>
+              <div class="service-desc">Advanced diagnostics, coding and electronic control support.</div>
               <div class="service-meta">
                 <div class="service-chip">Advanced Diagnostics</div>
                 <div class="service-link">Tap to view</div>
@@ -1106,7 +756,7 @@
             </div>
             <div class="service-card-body">
               <div class="service-name">DPF Deep Clean</div>
-              <div class="service-desc">A targeted specialist DPF cleaning process using specialist equipment and products for selected DPF issues.</div>
+              <div class="service-desc">A targeted specialist DPF cleaning process using specialist equipment and products.</div>
               <div class="service-meta">
                 <div class="service-chip">Deep Clean Process</div>
                 <div class="service-link">Tap to view</div>
@@ -1114,7 +764,7 @@
             </div>
           </article>
 
-          <div class="service-card" style="cursor:default;">
+          <div class="service-card">
             <div class="service-card-image" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fffdf2,#fff7d6);">
               <div style="text-align:center;padding:24px;">
                 <div style="font-family:Oswald,Arial,sans-serif;font-size:clamp(1.7rem,2.4vw,2.4rem);line-height:1;color:#1d2d4d;text-transform:uppercase;margin-bottom:10px;">Need Advice First?</div>
@@ -1125,7 +775,7 @@
             </div>
             <div class="service-card-body">
               <div class="service-name">Talk to Us</div>
-              <div class="service-desc">Not sure which service fits the problem? Start with a diagnostic and we will point you in the right direction.</div>
+              <div class="service-desc">Start with a diagnostic and we will point you in the right direction.</div>
               <div class="service-meta">
                 <a href="#booking" class="service-chip">Book Now</a>
                 <a href="tel:07920778706" class="service-link">Call Garage</a>
@@ -1156,19 +806,6 @@
               <div class="simple-desc">Supply & fitting</div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="section gallery-section">
-        <div class="gallery-head">
-          <div class="gallery-title">Garage Gallery</div>
-          <div class="gallery-sub">Real workshop images, specialist equipment and service-related work</div>
-        </div>
-
-        <div class="gallery-wrap">
-          <button class="gallery-btn gallery-prev" onclick="scrollGallery(-1)" aria-label="Previous images">❮</button>
-          <div class="gallery-track" id="galleryTrack"></div>
-          <button class="gallery-btn gallery-next" onclick="scrollGallery(1)" aria-label="Next images">❯</button>
         </div>
       </section>
 
@@ -1206,13 +843,6 @@
                   <option>DPF Deep Clean</option>
                   <option>Wheel Alignment</option>
                   <option>Tyres</option>
-                  <option>Air Conditioning</option>
-                  <option>Diagnostics</option>
-                  <option>MOT Preparation</option>
-                  <option>General Repairs</option>
-                  <option>Brakes</option>
-                  <option>Clutch</option>
-                  <option>Electronics</option>
                 </select>
               </div>
 
@@ -1226,14 +856,6 @@
               <button type="button" class="btn btn-yellow" onclick="sendBooking()">Send Booking Request</button>
             </div>
           </form>
-
-          <div class="map-box">
-            <iframe
-              src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%20Tadley&output=embed"
-              loading="lazy"
-              allowfullscreen>
-            </iframe>
-          </div>
         </div>
       </section>
 
@@ -1249,8 +871,6 @@
       <footer>© AG AUTO TECH TADLEY</footer>
     </div>
   </div>
-
-  <a href="tel:07920778706" class="call-float">📞 Call Now</a>
 
   <div class="lightbox" id="lightbox">
     <button class="lb-close" onclick="closeLightbox()" aria-label="Close gallery">×</button>
@@ -1279,15 +899,6 @@
   </div>
 
   <script>
-    const galleryImages = [
-      "main.jpg","garage24.jpg","garage25.jpg","garage26.jpg","garage27.jpg",
-      "garage28.jpg","garage29.jpg","garage30.jpg","garage31.jpg","garage32.jpg",
-      "garage33.jpg","garage34.jpg","garage35.jpg","garage36.jpg","garage37.jpg",
-      "garage38.jpg","garage39.jpg","garage40.jpg","garage41.jpg",
-      "deepclean.jpg","garage194.jpg","garage193.jpg","walnut.jpg",
-      "garage202.jpg","liquimoly3.jpg","garage221.jpg","garage19112.jpg"
-    ];
-
     const serviceData = {
       dpf: {
         kicker: "Root cause analysis",
@@ -1317,7 +928,7 @@
         kicker: "Diagnostics and service",
         title: "Automatic Gearbox Service",
         image: "liquimoly3.jpg",
-        text: "Automatic gearbox service is aimed at improving shift quality and supporting the long-term condition of the gearbox through the right service process.",
+        text: "Automatic gearbox service is aimed at improving shift quality and supporting the long-term condition of the gearbox.",
         bullets: [
           "Dynamic oil change process",
           "Smoother shifting feel",
@@ -1329,12 +940,12 @@
         kicker: "Electronic control",
         title: "ECU Remaps & Coding",
         image: "garage39.jpg",
-        text: "Advanced remap and coding support using modern workshop equipment for diagnostics, control units and selected electronic functions.",
+        text: "Advanced remap and coding support using modern workshop equipment.",
         bullets: [
           "Electronic diagnostics",
-          "Coding support for selected systems",
+          "Coding support",
           "Sharper fault tracing",
-          "Modern control-system workflow"
+          "Modern control workflow"
         ]
       },
       dpfdeep: {
@@ -1350,57 +961,6 @@
         ]
       }
     };
-
-    const galleryTrack = document.getElementById("galleryTrack");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightboxImg");
-    let currentIndex = 0;
-
-    galleryImages.forEach((src, index) => {
-      const item = document.createElement("div");
-      item.className = "gallery-item";
-
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = "AG Auto Tech Tadley gallery image " + (index + 1);
-      img.loading = "lazy";
-
-      item.appendChild(img);
-      item.onclick = () => openLightbox(index);
-      galleryTrack.appendChild(item);
-    });
-
-    function scrollGallery(direction){
-      galleryTrack.scrollBy({
-        left: direction * 340,
-        behavior: "smooth"
-      });
-    }
-
-    function openLightbox(index){
-      currentIndex = index;
-      lightboxImg.src = galleryImages[currentIndex];
-      lightbox.style.display = "flex";
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeLightbox(){
-      lightbox.style.display = "none";
-      document.body.style.overflow = "";
-    }
-
-    function changeImage(direction){
-      currentIndex += direction;
-      if(currentIndex < 0) currentIndex = galleryImages.length - 1;
-      if(currentIndex >= galleryImages.length) currentIndex = 0;
-      lightboxImg.src = galleryImages[currentIndex];
-    }
-
-    lightbox.addEventListener("click", function(e){
-      if(e.target === lightbox){
-        closeLightbox();
-      }
-    });
 
     const serviceModal = document.getElementById("serviceModal");
     const serviceModalImg = document.getElementById("serviceModalImg");
@@ -1435,24 +995,6 @@
       document.body.style.overflow = "";
     }
 
-    serviceModal.addEventListener("click", function(e){
-      if(e.target === serviceModal){
-        closeServiceModal();
-      }
-    });
-
-    document.addEventListener("keydown", function(e){
-      if(lightbox.style.display === "flex"){
-        if(e.key === "ArrowRight") changeImage(1);
-        if(e.key === "ArrowLeft") changeImage(-1);
-        if(e.key === "Escape") closeLightbox();
-      }
-
-      if(serviceModal.style.display === "flex" && e.key === "Escape"){
-        closeServiceModal();
-      }
-    });
-
     function sendBooking(){
       const name = document.getElementById("name").value.trim();
       const phone = document.getElementById("phone").value.trim();
@@ -1475,6 +1017,18 @@
 
       window.open("https://wa.me/447920778706?text=" + encodeURIComponent(text), "_blank");
     }
+
+    serviceModal.addEventListener("click", function(e){
+      if(e.target === serviceModal){
+        closeServiceModal();
+      }
+    });
+
+    document.addEventListener("keydown", function(e){
+      if(serviceModal.style.display === "flex" && e.key === "Escape"){
+        closeServiceModal();
+      }
+    });
   </script>
 </body>
 </html>
