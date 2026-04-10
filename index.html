@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AG Auto-Tech Tadley | Specialist Vehicle Services</title>
-  <meta name="description" content="Automatic Gearbox Service, DPF Cleaning, ECU Remapping & Coding, Walnut Blasting and specialist vehicle services in Tadley.">
+  <title>AG Auto Tech Tadley | DPF, Walnut Blasting & Automatic Gearbox Specialists</title>
+  <meta name="description" content="AG Auto Tech Tadley - DPF diagnostics, walnut blasting, automatic gearbox service, remaps and coding. Specialist vehicle services in Tadley.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,617 +12,331 @@
 
   <style>
     :root{
-      --bg:#f3f6fa;
+      --bg:#f2f2f2;
       --white:#ffffff;
-      --soft:#f8fafc;
-      --soft-2:#eef3f8;
-      --text:#17283b;
-      --muted:#5f7085;
-      --line:#dbe4ee;
-      --line-2:#e5ecf3;
-      --blue:#123c73;
-      --blue-dark:#0f2f55;
-      --red:#d63a35;
-      --red-dark:#b92d29;
-      --shadow:0 28px 80px rgba(16,35,62,.08);
-      --card-shadow:0 18px 38px rgba(16,35,62,.10);
-      --radius:24px;
-      --max:1200px;
+      --text:#1f2430;
+      --muted:#5f6470;
+      --line:#d8d8d8;
+      --blue:#1b2c4b;
+      --red:#d5332f;
+      --yellow:#f5c400;
+      --yellow-dark:#ddb000;
+      --shadow:0 10px 28px rgba(0,0,0,.08);
+      --radius:14px;
+      --max:860px;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:Inter,Arial,sans-serif;
-      background:linear-gradient(180deg,#edf2f7 0%,#f7f9fb 100%);
+      background:var(--bg);
       color:var(--text);
+      font-family:Inter,Arial,sans-serif;
     }
 
     img{display:block;max-width:100%}
     a{text-decoration:none;color:inherit}
     button{font:inherit}
 
-    .topbar{
-      background:linear-gradient(90deg,var(--blue-dark),var(--blue));
-      color:#fff;
-      text-align:center;
-      padding:10px 14px;
-      font-size:13px;
-      font-weight:800;
-      letter-spacing:.05em;
-      text-transform:uppercase;
-    }
-
     .page{
-      max-width:1280px;
-      margin:22px auto;
-      padding:0 14px 36px;
+      max-width:980px;
+      margin:0 auto;
+      padding:18px 12px 40px;
     }
 
-    .shell{
+    .sheet{
+      max-width:var(--max);
+      margin:0 auto;
       background:var(--white);
       border:1px solid var(--line);
-      border-radius:30px;
-      overflow:hidden;
       box-shadow:var(--shadow);
     }
 
-    .wrap{
-      width:min(var(--max), calc(100% - 36px));
-      margin:0 auto;
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:16px 18px;
+      border-bottom:1px solid var(--line);
+      background:#fff;
     }
 
-    h1,h2,h3{
-      margin:0;
+    .brand{
       font-family:Oswald,Arial,sans-serif;
+      font-size:clamp(1.5rem,3vw,2.2rem);
+      line-height:1;
       text-transform:uppercase;
-      letter-spacing:.01em;
-      color:var(--blue-dark);
+      letter-spacing:.04em;
+      color:#202633;
+      text-align:center;
+      flex:1;
     }
 
-    p{margin:0}
-
-    .btn{
-      display:inline-flex;
+    .icon-btn{
+      width:36px;
+      height:36px;
+      display:flex;
       align-items:center;
       justify-content:center;
-      min-height:52px;
-      padding:14px 24px;
-      border-radius:14px;
-      font-size:15px;
-      font-weight:800;
-      letter-spacing:.02em;
-      text-transform:uppercase;
-      border:none;
-      cursor:pointer;
-      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
-      box-shadow:0 10px 24px rgba(18,60,115,.12);
+      color:#7b808b;
+      flex:0 0 auto;
     }
 
-    .btn:hover{transform:translateY(-2px)}
-    .btn-primary{background:linear-gradient(180deg,var(--red),var(--red-dark));color:#fff}
-    .btn-secondary{background:linear-gradient(180deg,var(--blue),var(--blue-dark));color:#fff}
-    .btn-light{background:#fff;color:var(--blue-dark);border:1px solid var(--line)}
-
-    .hero{
-      position:relative;
-      border-bottom:1px solid var(--line-2);
-      background:
-        linear-gradient(135deg,#ffffff 0%,#f7fafc 48%,#eef3f8 100%);
+    .hero-image{
+      width:100%;
+      aspect-ratio: 16 / 7;
+      background:#ddd;
       overflow:hidden;
     }
 
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      opacity:.06;
-      background-image:
-        linear-gradient(#17314c 1px, transparent 1px),
-        linear-gradient(90deg, #17314c 1px, transparent 1px);
-      background-size:36px 36px;
-      pointer-events:none;
-    }
-
-    .hero::after{
-      content:"";
-      position:absolute;
-      top:0;
-      right:0;
-      width:42%;
+    .hero-image img{
+      width:100%;
       height:100%;
-      background:radial-gradient(circle at top right, rgba(214,58,53,.16), transparent 34%);
-      pointer-events:none;
-    }
-
-    .hero-inner{
-      position:relative;
-      z-index:1;
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:28px;
-      align-items:center;
-      padding:56px 0 44px;
-    }
-
-    .eyebrow{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-bottom:18px;
-      color:#75879b;
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.28em;
-      text-transform:uppercase;
-    }
-
-    .eyebrow-line{
-      width:46px;
-      height:2px;
-      background:var(--red);
-      border-radius:999px;
-    }
-
-    .hero-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:18px;
-      padding:10px 14px;
-      border:1px solid #d9e3ec;
-      border-radius:999px;
-      background:rgba(255,255,255,.92);
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:.24em;
-      text-transform:uppercase;
-      color:#516377;
-      box-shadow:0 8px 20px rgba(16,35,62,.06);
-    }
-
-    .badge-icon{
-      width:24px;
-      height:24px;
-      border-radius:50%;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      background:var(--red);
-      color:#fff;
-      font-size:13px;
-      font-weight:900;
-    }
-
-    h1{
-      max-width:840px;
-      font-size:clamp(2.9rem,5.2vw,5.4rem);
-      line-height:.9;
-      margin-bottom:16px;
-    }
-
-    .hero-sub{
-      max-width:760px;
-      color:var(--muted);
-      font-size:clamp(1rem,1.9vw,1.18rem);
-      line-height:1.8;
-      margin-bottom:24px;
-      font-weight:600;
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom:26px;
-    }
-
-    .priority-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:12px;
-      max-width:760px;
-    }
-
-    .priority-card{
-      padding:14px;
-      border:1px solid #e2e8f0;
-      border-radius:18px;
-      background:linear-gradient(180deg,#ffffff 0%,#f7fafc 100%);
-      box-shadow:0 8px 20px rgba(16,35,62,.04);
-    }
-
-    .priority-label{
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.2em;
-      color:#94a4b6;
-      font-weight:800;
-      margin-bottom:6px;
-    }
-
-    .priority-title{
-      font-size:14px;
-      font-weight:700;
-      color:var(--blue);
-      text-transform:uppercase;
-      line-height:1.4;
-    }
-
-    .hero-panel{
-      display:grid;
-      gap:16px;
-    }
-
-    .hero-card{
-      border:1px solid #dce5ee;
-      border-radius:28px;
-      background:linear-gradient(180deg,#ffffff 0%,#f8fbfd 100%);
-      padding:24px;
-      box-shadow:0 18px 50px rgba(16,35,62,.08);
-    }
-
-    .hero-card-label{
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.24em;
-      text-transform:uppercase;
-      color:#94a4b6;
-      margin-bottom:12px;
-    }
-
-    .hero-card h2{
-      font-size:clamp(2rem,3vw,3rem);
-      line-height:.95;
-      margin-bottom:12px;
-      text-align:left;
-    }
-
-    .hero-card p{
-      color:var(--muted);
-      line-height:1.75;
-      font-size:14px;
-      margin-bottom:18px;
-      text-align:left;
-    }
-
-    .hero-list{
-      display:grid;
-      gap:10px;
-      padding:0;
-      margin:0;
-      list-style:none;
-    }
-
-    .hero-list li{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      font-size:14px;
-      font-weight:700;
-      line-height:1.55;
-      color:var(--text);
-    }
-
-    .hero-list li::before{
-      content:"●";
-      color:var(--red);
-      font-size:13px;
-      margin-top:1px;
+      object-fit:cover;
     }
 
     .section{
-      padding:46px 0;
+      padding:18px 18px 0;
     }
 
-    .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-end;
-      gap:20px;
-      margin-bottom:24px;
+    .title-block{
+      text-align:center;
+      padding:12px 0 6px;
     }
 
-    .section-head-text{
-      max-width:670px;
-      color:var(--muted);
-      line-height:1.75;
-      text-align:left;
-      font-size:15px;
-    }
-
-    .kicker{
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.28em;
+    .main-title{
+      font-family:Oswald,Arial,sans-serif;
       text-transform:uppercase;
+      font-size:clamp(2rem,4vw,3.2rem);
+      line-height:1;
+      color:#202633;
+      margin-bottom:6px;
+    }
+
+    .sub-locations{
+      font-size:clamp(1rem,2vw,1.35rem);
+      color:#3a404c;
+      line-height:1.4;
+      margin-bottom:18px;
+    }
+
+    .headline{
+      text-align:center;
+      font-size:clamp(2rem,4vw,3.25rem);
+      line-height:1.25;
+      font-weight:800;
+      color:#202633;
+      margin:0 auto 16px;
+      max-width:760px;
+    }
+
+    .lead-red{
+      text-align:center;
       color:var(--red);
-      margin-bottom:10px;
+      font-size:clamp(1.45rem,3vw,2.2rem);
+      font-weight:800;
+      line-height:1.3;
+      margin-bottom:6px;
     }
 
-    .section h2{
-      font-size:clamp(2rem,3.3vw,3.2rem);
-      line-height:.95;
+    .lead-note{
+      text-align:center;
+      color:#444b57;
+      font-style:italic;
+      font-size:clamp(1rem,2vw,1.3rem);
+      line-height:1.4;
+      margin-bottom:18px;
     }
 
-    .services-strip{
-      border-top:1px solid var(--line-2);
-      border-bottom:1px solid var(--line-2);
-      background:linear-gradient(180deg,#fbfcfd 0%,#f5f8fb 100%);
-      padding:24px 0;
-    }
-
-    .services-strip-inner{
+    .cta-row{
       display:flex;
-      gap:16px;
-      align-items:flex-start;
-    }
-
-    .strip-icon{
-      width:48px;
-      height:48px;
-      border-radius:18px;
-      background:linear-gradient(180deg,var(--red),var(--red-dark));
-      display:flex;
-      align-items:center;
+      gap:10px;
       justify-content:center;
-      color:#fff;
-      font-size:20px;
-      flex:0 0 auto;
-      box-shadow:0 12px 28px rgba(214,58,53,.2);
+      flex-wrap:wrap;
+      margin-bottom:18px;
     }
 
-    .strip-title{
-      font-size:12px;
+    .btn{
+      min-height:56px;
+      padding:14px 26px;
+      border-radius:8px;
       font-weight:800;
-      letter-spacing:.28em;
-      text-transform:uppercase;
-      color:#94a4b6;
-      margin-bottom:8px;
-    }
-
-    .strip-text{
-      color:var(--blue);
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      line-height:1.9;
-      font-size:15px;
-      font-weight:700;
-    }
-
-    .strip-dot{
-      color:var(--red);
-      font-weight:900;
-      padding:0 8px;
-    }
-
-    .special-grid{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:16px;
-    }
-
-    .service-card{
-      overflow:hidden;
-      border:1px solid #e2e8f0;
-      border-radius:24px;
-      background:linear-gradient(180deg,#ffffff 0%,#f7fafc 100%);
-      transition:transform .22s ease, box-shadow .22s ease;
-      box-shadow:0 10px 24px rgba(16,35,62,.05);
+      font-size:clamp(1rem,2vw,1.25rem);
+      border:none;
       cursor:pointer;
+      transition:transform .18s ease, opacity .18s ease;
     }
 
-    .service-card.alt{
-      background:linear-gradient(180deg,#fbfcfd 0%,#f4f7fa 100%);
+    .btn:hover{transform:translateY(-1px)}
+    .btn-yellow{
+      background:linear-gradient(180deg,var(--yellow),var(--yellow-dark));
+      color:#1f2430;
+      box-shadow:0 8px 18px rgba(245,196,0,.25);
     }
 
-    .service-card:hover{
-      transform:translateY(-4px);
-      box-shadow:var(--card-shadow);
+    .btn-dark{
+      background:linear-gradient(180deg,#2f3642,#1d2330);
+      color:#fff;
+      box-shadow:0 8px 18px rgba(0,0,0,.16);
     }
 
-    .service-top{
-      position:relative;
-      height:190px;
-      overflow:hidden;
-      border-bottom:1px solid #e7edf3;
-      background:#eef3f7;
+    .divider{
+      height:1px;
+      background:var(--line);
+      margin:18px 0;
     }
 
-    .service-top img{
+    .statement{
+      text-align:center;
+      padding:2px 0 4px;
+    }
+
+    .statement-strong{
+      font-size:clamp(1.65rem,3vw,2.6rem);
+      font-weight:800;
+      line-height:1.25;
+      color:#222833;
+      margin-bottom:6px;
+    }
+
+    .statement-sub{
+      font-size:clamp(1rem,2vw,1.25rem);
+      font-style:italic;
+      color:#3f4652;
+      line-height:1.45;
+    }
+
+    .statement-sub .red{
+      color:var(--red);
+      font-weight:800;
+      font-style:normal;
+    }
+
+    .service-list{
+      display:grid;
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .service-row{
+      display:grid;
+      grid-template-columns:230px 1fr;
+      border:1px solid var(--line);
+      background:#fafafa;
+      cursor:pointer;
+      transition:box-shadow .18s ease, transform .18s ease;
+    }
+
+    .service-row:hover{
+      box-shadow:0 8px 18px rgba(0,0,0,.08);
+      transform:translateY(-1px);
+    }
+
+    .service-thumb{
+      min-height:122px;
+      background:#ddd;
+    }
+
+    .service-thumb img{
       width:100%;
       height:100%;
       object-fit:cover;
     }
 
-    .service-top::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      opacity:.08;
-      background-image:
-        linear-gradient(#18314d 1px, transparent 1px),
-        linear-gradient(90deg, #18314d 1px, transparent 1px);
-      background-size:28px 28px;
-      pointer-events:none;
+    .service-copy{
+      padding:16px 18px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
 
-    .service-no{
-      position:absolute;
-      top:14px;
-      left:14px;
-      z-index:2;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid #d9e2ec;
-      background:rgba(255,255,255,.96);
-      font-size:11px;
+    .service-name{
+      font-size:clamp(1.35rem,2.4vw,2rem);
       font-weight:800;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      color:#65798f;
-      box-shadow:0 8px 18px rgba(16,35,62,.06);
+      line-height:1.2;
+      margin-bottom:4px;
+      color:#202633;
     }
 
-    .service-tag{
-      position:absolute;
-      left:14px;
-      right:14px;
-      bottom:14px;
-      z-index:2;
-      font-size:12px;
+    .service-desc{
+      font-size:clamp(1rem,1.8vw,1.2rem);
+      line-height:1.45;
+      color:#4b5360;
+      font-style:italic;
+    }
+
+    .simple-block{
+      text-align:center;
+      padding:6px 0;
+    }
+
+    .simple-title{
+      font-size:clamp(1.5rem,2.8vw,2.2rem);
       font-weight:800;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:#7f90a4;
+      line-height:1.2;
+      color:#202633;
+      margin-bottom:6px;
     }
 
-    .service-body{
-      padding:18px;
+    .simple-desc{
+      font-size:clamp(1rem,1.9vw,1.22rem);
+      color:#3f4652;
+      line-height:1.45;
+      font-style:italic;
     }
 
-    .service-body h3{
-      min-height:78px;
-      font-size:1.55rem;
-      line-height:.95;
-      margin-bottom:12px;
-    }
-
-    .service-body p{
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.7;
+    .gallery-head{
+      text-align:center;
       margin-bottom:14px;
     }
 
-    .service-link{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      color:var(--red);
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.24em;
-      text-transform:uppercase;
-    }
-
-    .feature-row{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:22px;
-      margin-top:26px;
-    }
-
-    .feature-box{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      min-height:360px;
-      overflow:hidden;
-      border:1px solid var(--line);
-      border-radius:28px;
-      background:linear-gradient(180deg,#ffffff 0%,#f7fafc 100%);
-      box-shadow:0 14px 35px rgba(16,35,62,.06);
-    }
-
-    .feature-copy{
-      padding:28px;
-    }
-
-    .feature-copy h2{
-      text-align:left;
-      margin-bottom:12px;
+    .gallery-title{
+      font-family:Oswald,Arial,sans-serif;
       font-size:clamp(1.9rem,3vw,2.8rem);
+      text-transform:uppercase;
+      line-height:1;
+      color:#202633;
+      margin-bottom:6px;
     }
 
-    .feature-copy p{
-      color:var(--muted);
-      line-height:1.75;
-      margin-bottom:18px;
-      font-size:15px;
-      text-align:left;
-    }
-
-    .check-list{
-      list-style:none;
-      padding:0;
-      margin:0 0 22px;
-      display:grid;
-      gap:10px;
-    }
-
-    .check-list li{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      font-weight:700;
-      line-height:1.6;
-      font-size:14px;
-    }
-
-    .check-list li::before{
-      content:"✓";
-      color:var(--red);
-      font-weight:900;
-    }
-
-    .feature-image{
-      position:relative;
-      background:#eef3f7;
-    }
-
-    .feature-image img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .feature-image::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.06) 100%);
-      pointer-events:none;
-    }
-
-    .gallery-section{
-      border-top:1px solid var(--line-2);
-      border-bottom:1px solid var(--line-2);
-      background:linear-gradient(180deg,#fbfcfd 0%,#f4f8fb 100%);
+    .gallery-sub{
+      color:#4f5865;
+      font-size:clamp(1rem,1.8vw,1.18rem);
+      line-height:1.5;
     }
 
     .gallery-wrap{
       position:relative;
-      margin-top:18px;
+      margin-top:14px;
     }
 
     .gallery-track{
       display:grid;
       grid-auto-flow:column;
       grid-auto-columns:260px;
-      gap:18px;
+      gap:14px;
       overflow-x:auto;
       scroll-behavior:smooth;
-      padding:8px 54px 12px 0;
-      min-height:236px;
+      padding:4px 52px 10px 0;
+      min-height:210px;
       scrollbar-width:thin;
-      scrollbar-color:var(--blue) transparent;
+      scrollbar-color:#1b2c4b transparent;
     }
 
     .gallery-track::-webkit-scrollbar{height:8px}
     .gallery-track::-webkit-scrollbar-thumb{
-      background:var(--blue);
+      background:#1b2c4b;
       border-radius:999px;
     }
 
     .gallery-item{
-      position:relative;
-      height:220px;
+      height:200px;
+      border:1px solid var(--line);
       overflow:hidden;
-      border-radius:22px;
-      background:#dfe6ee;
-      box-shadow:0 12px 30px rgba(16,35,62,.08);
       cursor:pointer;
+      background:#ddd;
     }
 
     .gallery-item img{
@@ -631,112 +345,52 @@
       object-fit:cover;
     }
 
-    .gallery-item::after{
-      content:"View";
-      position:absolute;
-      left:14px;
-      right:14px;
-      bottom:14px;
-      padding:10px 12px;
-      border-radius:12px;
-      background:rgba(11,45,88,.82);
-      color:#fff;
-      text-align:center;
-      text-transform:uppercase;
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.24em;
-      opacity:0;
-      transform:translateY(10px);
-      transition:.24s ease;
-    }
-
-    .gallery-item:hover::after{
-      opacity:1;
-      transform:translateY(0);
-    }
-
     .gallery-btn{
       position:absolute;
       top:50%;
       transform:translateY(-50%);
-      width:48px;
-      height:48px;
+      width:46px;
+      height:46px;
       border:none;
       border-radius:50%;
-      background:linear-gradient(180deg,var(--red),var(--red-dark));
+      background:linear-gradient(180deg,var(--red),#b92b28);
       color:#fff;
-      font-size:18px;
+      font-size:20px;
       font-weight:900;
       cursor:pointer;
-      z-index:2;
-      box-shadow:0 12px 24px rgba(214,58,53,.3);
+      box-shadow:0 10px 18px rgba(213,51,47,.24);
     }
 
-    .gallery-prev{left:-8px}
-    .gallery-next{right:-8px}
+    .gallery-prev{left:-2px}
+    .gallery-next{right:-2px}
 
-    .booking-grid{
-      display:grid;
-      grid-template-columns:.92fr 1.08fr;
-      gap:22px;
+    .booking-box{
+      padding-bottom:18px;
     }
 
-    .contact-card,
-    .booking-card{
-      border:1px solid var(--line);
-      border-radius:28px;
-      background:linear-gradient(180deg,#ffffff 0%,#f8fbfd 100%);
-      box-shadow:0 14px 35px rgba(16,35,62,.06);
+    .booking-head{
+      text-align:center;
+      margin-bottom:16px;
     }
 
-    .contact-card{
-      padding:28px;
-    }
-
-    .booking-card{
-      padding:28px;
-    }
-
-    .contact-card h2,
-    .booking-card h2{
+    .booking-title{
+      font-family:Oswald,Arial,sans-serif;
+      text-transform:uppercase;
       font-size:clamp(1.9rem,3vw,2.8rem);
-      text-align:left;
-      margin-bottom:12px;
+      line-height:1;
+      margin-bottom:6px;
     }
 
-    .contact-card p,
-    .booking-card p{
-      color:var(--muted);
-      line-height:1.75;
-      text-align:left;
-      font-size:15px;
-    }
-
-    .contact-list{
-      list-style:none;
-      padding:0;
-      margin:18px 0 0;
-      display:grid;
-      gap:12px;
-    }
-
-    .contact-list li{
-      padding:15px 16px;
-      border:1px solid #e2e8f0;
-      border-radius:16px;
-      background:#fff;
-      color:var(--blue);
-      font-weight:800;
-      font-size:14px;
-      box-shadow:0 6px 16px rgba(16,35,62,.04);
+    .booking-sub{
+      color:#4f5865;
+      font-size:clamp(1rem,1.8vw,1.15rem);
+      line-height:1.5;
     }
 
     .form-grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
-      gap:14px;
-      margin-top:16px;
+      gap:12px;
     }
 
     .field{
@@ -750,151 +404,103 @@
     label{
       font-size:12px;
       font-weight:800;
+      letter-spacing:.14em;
       text-transform:uppercase;
-      letter-spacing:.24em;
-      color:#708398;
+      color:#6a7483;
     }
 
     input,select,textarea{
       width:100%;
-      border:1px solid #d8e1eb;
-      border-radius:14px;
-      padding:14px 16px;
-      font:inherit;
+      padding:14px 14px;
+      border:1px solid var(--line);
+      background:#fff;
       color:var(--text);
-      background:#fdfefe;
+      font:inherit;
       outline:none;
-      transition:border-color .2s ease, box-shadow .2s ease;
     }
 
     input:focus,select:focus,textarea:focus{
-      border-color:rgba(18,60,115,.45);
-      box-shadow:0 0 0 4px rgba(18,60,115,.08);
+      border-color:#9fb0c7;
+      box-shadow:0 0 0 4px rgba(27,44,75,.06);
     }
 
     textarea{
-      min-height:120px;
+      min-height:110px;
       resize:vertical;
     }
 
-    .map-row{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:22px;
-      margin-top:24px;
+    .booking-actions{
+      display:flex;
+      justify-content:center;
+      margin-top:16px;
     }
 
     .map-box{
-      min-height:360px;
       border:1px solid var(--line);
-      border-radius:28px;
       overflow:hidden;
-      box-shadow:0 14px 35px rgba(16,35,62,.06);
+      min-height:300px;
+      margin-top:14px;
     }
 
     .map-box iframe{
       width:100%;
       height:100%;
+      min-height:300px;
       border:0;
     }
 
-    .brand-strip{
-      border-top:1px solid var(--line-2);
-      background:#fff;
+    .powered{
+      text-align:center;
+      padding:8px 0 24px;
     }
 
-    .brand-inner{
-      display:grid;
-      grid-template-columns:1fr auto;
-      gap:20px;
-      align-items:center;
-      padding:28px 0;
+    .powered-title{
+      font-size:clamp(1.2rem,2vw,1.6rem);
+      font-weight:800;
+      color:#2a3140;
+      margin-bottom:8px;
     }
 
-    .brand-copy h2{
-      text-align:left;
-      font-size:clamp(1.9rem,3vw,2.8rem);
-      margin-bottom:12px;
+    .powered-sub{
+      font-size:clamp(1rem,1.8vw,1.12rem);
+      color:#444c58;
+      margin-bottom:10px;
     }
 
-    .brand-copy p{
-      color:var(--muted);
-      line-height:1.75;
-      text-align:left;
-      font-size:15px;
-    }
-
-    .brand-bullets{
-      list-style:none;
-      padding:0;
-      margin:18px 0 0;
-      display:grid;
-      gap:10px;
-    }
-
-    .brand-bullets li{
+    .liqui-inline{
       display:flex;
-      gap:12px;
-      align-items:flex-start;
-      font-weight:700;
-      font-size:14px;
-      line-height:1.6;
-    }
-
-    .brand-bullets li::before{
-      content:"✓";
-      color:var(--red);
-      font-weight:900;
-    }
-
-    .liqui-block{
-      display:flex;
-      flex-direction:column;
       align-items:center;
       justify-content:center;
       gap:10px;
-      padding:20px 24px;
-      border:1px solid var(--line);
-      border-radius:24px;
-      background:linear-gradient(180deg,#ffffff 0%,#f3f7fb 100%);
-      box-shadow:0 10px 24px rgba(16,35,62,.05);
-      min-width:230px;
+      flex-wrap:wrap;
+      color:#3f4652;
+      font-size:clamp(1rem,1.7vw,1.1rem);
     }
 
-    .liqui-label{
-      font-family:Oswald,Arial,sans-serif;
-      font-size:1.2rem;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-      color:var(--blue-dark);
-      text-align:center;
-    }
-
-    .liqui-logo{
-      width:150px;
-      max-width:100%;
+    .liqui-inline img{
+      width:92px;
       height:auto;
       object-fit:contain;
     }
 
     footer{
       text-align:center;
-      padding:24px 16px 10px;
-      color:#56667b;
-      font-size:14px;
+      padding:0 18px 22px;
+      font-size:13px;
+      color:#6b7380;
     }
 
     .call-float{
       position:fixed;
-      right:16px;
-      bottom:16px;
+      right:14px;
+      bottom:14px;
       z-index:999;
-      background:linear-gradient(180deg,var(--red),var(--red-dark));
-      color:#fff;
-      padding:16px 22px;
+      padding:15px 22px;
       border-radius:999px;
-      font-weight:900;
-      box-shadow:0 16px 28px rgba(214,58,53,.35);
+      background:linear-gradient(180deg,#2f3642,#1d2330);
+      color:#fff;
+      font-weight:800;
+      box-shadow:0 12px 24px rgba(0,0,0,.2);
     }
 
     .lightbox,
@@ -902,184 +508,172 @@
       display:none;
       position:fixed;
       inset:0;
-      background:rgba(8,17,31,.88);
+      background:rgba(8,12,18,.88);
       justify-content:center;
       align-items:center;
       z-index:9999;
-      padding:24px;
+      padding:20px;
     }
 
     .lightbox img{
-      max-width:min(1200px,92vw);
+      max-width:min(1200px,94vw);
       max-height:88vh;
-      border-radius:22px;
-      box-shadow:0 24px 70px rgba(0,0,0,.4);
+      box-shadow:0 20px 60px rgba(0,0,0,.4);
     }
 
     .lightbox-btn,.lb-close,.modal-close{
       position:absolute;
       border:none;
       color:#fff;
+      background:rgba(255,255,255,.14);
       cursor:pointer;
-      background:rgba(255,255,255,.12);
-      backdrop-filter:blur(6px);
     }
 
     .lightbox-btn{
       top:50%;
       transform:translateY(-50%);
-      width:56px;
-      height:56px;
+      width:54px;
+      height:54px;
       border-radius:50%;
       font-size:24px;
     }
 
-    .lb-prev{left:24px}
-    .lb-next{right:24px}
+    .lb-prev{left:18px}
+    .lb-next{right:18px}
 
     .lb-close,.modal-close{
-      top:20px;
-      right:20px;
-      width:52px;
-      height:52px;
+      top:16px;
+      right:16px;
+      width:50px;
+      height:50px;
       border-radius:50%;
-      font-size:30px;
+      font-size:28px;
       line-height:1;
     }
 
     .service-modal-card{
-      width:min(1020px,96vw);
+      width:min(980px,96vw);
       display:grid;
       grid-template-columns:1fr 1fr;
-      overflow:hidden;
-      border-radius:28px;
       background:#fff;
-      box-shadow:0 30px 90px rgba(0,0,0,.3);
-      position:relative;
+      overflow:hidden;
+      box-shadow:0 26px 70px rgba(0,0,0,.3);
     }
 
     .service-modal-image{
-      background:#eef3f7;
-      position:relative;
+      background:#ddd;
     }
 
     .service-modal-image img{
       width:100%;
       height:100%;
-      min-height:480px;
+      min-height:460px;
       object-fit:cover;
     }
 
     .service-modal-copy{
-      padding:32px 30px;
-      background:linear-gradient(180deg,#ffffff 0%,#f8fbfd 100%);
+      padding:28px 26px;
     }
 
     .service-modal-kicker{
       color:var(--red);
       font-size:12px;
       font-weight:800;
-      letter-spacing:.28em;
+      letter-spacing:.16em;
       text-transform:uppercase;
       margin-bottom:10px;
     }
 
     .service-modal-copy h2{
+      font-size:clamp(2rem,3vw,3rem);
+      line-height:1;
+      margin-bottom:12px;
       text-align:left;
-      font-size:clamp(2.1rem,3vw,3rem);
-      line-height:.95;
-      margin-bottom:14px;
     }
 
     .service-modal-copy p{
-      color:var(--muted);
-      line-height:1.8;
+      color:#4b5360;
+      line-height:1.75;
       font-size:15px;
-      margin-bottom:18px;
+      margin-bottom:16px;
       text-align:left;
     }
 
     .modal-list{
       list-style:none;
       padding:0;
-      margin:0 0 22px;
+      margin:0 0 18px;
       display:grid;
       gap:10px;
     }
 
     .modal-list li{
       display:flex;
-      gap:12px;
+      gap:10px;
       align-items:flex-start;
-      font-weight:700;
-      line-height:1.65;
       font-size:14px;
+      font-weight:700;
+      line-height:1.6;
+      color:#2a3140;
     }
 
     .modal-list li::before{
-      content:"✓";
+      content:"•";
       color:var(--red);
       font-weight:900;
+      font-size:18px;
+      line-height:1;
     }
 
-    @media (max-width:1120px){
-      .hero-inner,
-      .booking-grid,
-      .map-row,
-      .brand-inner,
+    @media (max-width:900px){
+      .service-row{
+        grid-template-columns:180px 1fr;
+      }
+
       .service-modal-card{
         grid-template-columns:1fr;
       }
 
-      .special-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .feature-row{
-        grid-template-columns:1fr;
-      }
-
-      .feature-box{
-        grid-template-columns:1fr;
-      }
-
       .service-modal-image img{
-        min-height:260px;
-      }
-
-      .liqui-block{
-        justify-self:start;
+        min-height:240px;
       }
     }
 
-    @media (max-width:780px){
+    @media (max-width:760px){
       .page{
-        margin:10px auto;
-        padding:0 10px 22px;
+        padding:10px 8px 22px;
       }
 
-      .shell{
-        border-radius:20px;
+      .sheet{
+        max-width:100%;
       }
 
-      .wrap{
-        width:min(calc(100% - 24px), var(--max));
+      .topbar{
+        padding:14px 12px;
       }
 
-      h1{
-        font-size:2.8rem;
+      .brand{
+        font-size:1.8rem;
       }
 
-      .priority-grid{
+      .section{
+        padding:16px 12px 0;
+      }
+
+      .headline{
+        font-size:2.25rem;
+      }
+
+      .statement-strong{
+        font-size:2rem;
+      }
+
+      .service-row{
         grid-template-columns:1fr;
       }
 
-      .special-grid{
-        grid-template-columns:1fr;
-      }
-
-      .form-grid{
-        grid-template-columns:1fr;
+      .service-thumb{
+        min-height:170px;
       }
 
       .gallery-track{
@@ -1091,17 +685,16 @@
         display:none;
       }
 
+      .form-grid{
+        grid-template-columns:1fr;
+      }
+
       .lightbox-btn{
         display:none;
       }
-
-      .strip-text{
-        font-size:14px;
-        line-height:1.8;
-      }
     }
 
-    @media (min-width:900px){
+    @media (min-width:901px){
       .call-float{
         display:none;
       }
@@ -1109,358 +702,206 @@
   </style>
 </head>
 <body>
-  <div class="topbar">AG Auto-Tech Tadley • Specialist Vehicle Services • Call 07920 778 706</div>
-
   <div class="page">
-    <div class="shell">
+    <div class="sheet">
 
-      <header class="hero">
-        <div class="wrap hero-inner">
-          <div>
-            <div class="eyebrow">
-              <span class="eyebrow-line"></span>
-              AG Auto-Tech Tadley
-            </div>
-
-            <div class="hero-badge">
-              <span class="badge-icon">⚙</span>
-              Specialist Performance Workshop
-            </div>
-
-            <h1>
-              Bright.
-              <br>
-              Technical.
-              <br>
-              Premium.
-            </h1>
-
-            <p class="hero-sub">
-              A cleaner workshop identity built around specialist services, premium presentation and a subtle performance feel — designed to stand out from a typical garage website.
-            </p>
-
-            <div class="hero-actions">
-              <a href="#booking" class="btn btn-primary">Book Service</a>
-              <a href="tel:07920778706" class="btn btn-secondary">Call Now</a>
-              <a href="https://wa.me/447920778706" class="btn btn-light">WhatsApp</a>
-            </div>
-
-            <div class="priority-grid">
-              <div class="priority-card">
-                <div class="priority-label">Priority Unit</div>
-                <div class="priority-title">Automatic Gearbox Service</div>
-              </div>
-              <div class="priority-card">
-                <div class="priority-label">Priority Unit</div>
-                <div class="priority-title">DPF Cleaning</div>
-              </div>
-              <div class="priority-card">
-                <div class="priority-label">Priority Unit</div>
-                <div class="priority-title">Remaps & Coding</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-panel">
-            <div class="hero-card">
-              <div class="hero-card-label">Workshop Profile</div>
-              <h2>Modern Garage Identity</h2>
-              <p>
-                This layout blends engineering-inspired structure, premium spacing and a stronger service-led hierarchy while keeping the overall look bright, clean and mobile friendly.
-              </p>
-              <ul class="hero-list">
-                <li>Technical grid structure</li>
-                <li>Premium spacing and cleaner hierarchy</li>
-                <li>Light performance workshop feel</li>
-                <li>Stronger focus on specialist services</li>
-              </ul>
-            </div>
-          </div>
+      <header class="topbar">
+        <div class="icon-btn" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
         </div>
+
+        <div class="brand">AG AUTO TECH TADLEY</div>
+
+        <a class="icon-btn" href="#booking" aria-label="Go to booking">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="20" y1="20" x2="16.65" y2="16.65"></line>
+          </svg>
+        </a>
       </header>
 
-      <section class="services-strip">
-        <div class="wrap services-strip-inner">
-          <div class="strip-icon">🛠</div>
-          <div>
-            <div class="strip-title">All of our services</div>
-            <div class="strip-text">
-              Air Conditioning <span class="strip-dot">•</span>
-              DPF Cleaning <span class="strip-dot">•</span>
-              Tyres <span class="strip-dot">•</span>
-              Wheel Alignment <span class="strip-dot">•</span>
-              Diagnostics <span class="strip-dot">•</span>
-              MOT Preparation <span class="strip-dot">•</span>
-              General Repairs <span class="strip-dot">•</span>
-              Brakes <span class="strip-dot">•</span>
-              Re-Maps <span class="strip-dot">•</span>
-              Clutch <span class="strip-dot">•</span>
-              Gearbox Service <span class="strip-dot">•</span>
-              Electronics
-            </div>
-          </div>
-        </div>
-      </section>
+      <div class="hero-image">
+        <img src="garage23.jpg" alt="AG Auto Tech Tadley workshop">
+      </div>
 
-      <section class="section wrap">
-        <div class="section-head">
-          <div>
-            <div class="kicker">Primary Modules</div>
-            <h2>Specialist Services</h2>
-          </div>
-          <div class="section-head-text">
-            These service cards are structured more like engineered modules than generic garage tiles — numbered, cleaner, more premium and still strong enough to keep a performance-led identity.
+      <section class="section">
+        <div class="title-block">
+          <div class="main-title">AG AUTO TECH TADLEY</div>
+          <div class="sub-locations">Tadley • Reading • Basingstoke</div>
+          <div class="headline">DPF Diagnostics, Walnut Blasting & Automatic Gearbox Specialists</div>
+          <div class="lead-red">Specialist Diagnostics & Repair</div>
+          <div class="lead-note">Professional inspection, diagnosis and service-led solutions</div>
+
+          <div class="cta-row">
+            <a href="#booking" class="btn btn-yellow">Book Diagnostic</a>
+            <a href="tel:07920778706" class="btn btn-dark">Call Now</a>
           </div>
         </div>
 
-        <div class="special-grid">
-          <article class="service-card" onclick="openServiceModal('gearbox')">
-            <div class="service-top">
-              <img src="garage211.jpg" alt="Automatic Gearbox Service">
-              <div class="service-no">01</div>
-              <div class="service-tag">Transmission Systems</div>
+        <div class="divider"></div>
+
+        <div class="statement">
+          <div class="statement-strong">On-car cleaning does not remove ash</div>
+          <div class="statement-sub"><span class="red">We fix the cause.</span> Prevent repeat failure.</div>
+        </div>
+
+        <div class="service-list">
+          <article class="service-row" onclick="openServiceModal('dpf')">
+            <div class="service-thumb">
+              <img src="garage192.jpg" alt="DPF Diagnostics">
             </div>
-            <div class="service-body">
-              <h3>Automatic Gearbox Service</h3>
-              <p>Dynamic oil service presented as a premium specialist process with cleaner hierarchy and stronger workshop credibility.</p>
-              <div class="service-link">Open Service Detail ↗</div>
+            <div class="service-copy">
+              <div class="service-name">DPF Diagnostics</div>
+              <div class="service-desc">Root cause analysis</div>
             </div>
           </article>
 
-          <article class="service-card alt" onclick="openServiceModal('dpf')">
-            <div class="service-top">
-              <img src="garage192.jpg" alt="DPF Cleaning">
-              <div class="service-no">02</div>
-              <div class="service-tag">Flow Restoration</div>
+          <article class="service-row" onclick="openServiceModal('walnut')">
+            <div class="service-thumb">
+              <img src="garage201.jpg" alt="Walnut Blasting">
             </div>
-            <div class="service-body">
-              <h3>DPF Cleaning</h3>
-              <p>DPF diagnosis and cleaning with a sharper, more specialist identity and clearer communication of the process.</p>
-              <div class="service-link">Open Service Detail ↗</div>
+            <div class="service-copy">
+              <div class="service-name">Walnut Blasting</div>
+              <div class="service-desc">Carbon removal</div>
             </div>
           </article>
 
-          <article class="service-card" onclick="openServiceModal('remap')">
-            <div class="service-top">
-              <img src="garage39.jpg" alt="ECU Remaps and Coding">
-              <div class="service-no">03</div>
-              <div class="service-tag">Electronic Control</div>
+          <article class="service-row" onclick="openServiceModal('gearbox')">
+            <div class="service-thumb">
+              <img src="garage211.jpg" alt="Automatic Gearbox">
             </div>
-            <div class="service-body">
-              <h3>ECU Remaps & Coding</h3>
-              <p>Advanced electronics section with a modern technical workshop feel and stronger performance positioning.</p>
-              <div class="service-link">Open Service Detail ↗</div>
+            <div class="service-copy">
+              <div class="service-name">Automatic Gearbox</div>
+              <div class="service-desc">Diagnostics & dynamic oil change</div>
             </div>
           </article>
 
-          <article class="service-card alt" onclick="openServiceModal('walnut')">
-            <div class="service-top">
-              <img src="garage202.jpg" alt="Walnut Blasting">
-              <div class="service-no">04</div>
-              <div class="service-tag">Carbon Removal</div>
+          <article class="service-row" onclick="openServiceModal('remap')">
+            <div class="service-thumb">
+              <img src="garage39.jpg" alt="Remaps and Coding">
             </div>
-            <div class="service-body">
-              <h3>Walnut Blasting</h3>
-              <p>A cleaner premium block focused on intake carbon removal, airflow recovery and more specialist presentation.</p>
-              <div class="service-link">Open Service Detail ↗</div>
+            <div class="service-copy">
+              <div class="service-name">ECU Remaps & Coding</div>
+              <div class="service-desc">Electronic control diagnostics</div>
             </div>
           </article>
 
-          <article class="service-card" onclick="openServiceModal('liqui')">
-            <div class="service-top">
+          <article class="service-row" onclick="openServiceModal('liqui')">
+            <div class="service-thumb">
               <img src="garage191.jpg" alt="Liqui Moly Gun DPF Cleaning">
-              <div class="service-no">05</div>
-              <div class="service-tag">Targeted Treatment</div>
             </div>
-            <div class="service-body">
-              <h3>Liqui Moly Gun DPF Cleaning</h3>
-              <p>Specialist product-led DPF cleaning presented as a dedicated process with a more advanced service feel.</p>
-              <div class="service-link">Open Service Detail ↗</div>
+            <div class="service-copy">
+              <div class="service-name">Liqui Moly Gun DPF Cleaning</div>
+              <div class="service-desc">Targeted specialist treatment</div>
             </div>
           </article>
         </div>
 
-        <div class="feature-row">
-          <div class="feature-box">
-            <div class="feature-copy">
-              <div class="kicker">Feature Section</div>
-              <h2>Automatic Gearbox Service</h2>
-              <p>
-                One of the strongest services to push visually. This section gives it more authority, more clarity and a more premium process-led presentation.
-              </p>
-              <ul class="check-list">
-                <li>Dynamic oil change process</li>
-                <li>Smoother and cleaner gear changes</li>
-                <li>Supports long-term gearbox reliability</li>
-              </ul>
-              <a href="#booking" class="btn btn-primary">Book Service</a>
-            </div>
-            <div class="feature-image">
-              <img src="garage194.jpg" alt="Automatic Gearbox Service equipment">
-            </div>
-          </div>
+        <div class="divider"></div>
 
-          <div class="feature-box">
-            <div class="feature-copy">
-              <div class="kicker">Feature Section</div>
-              <h2>Walnut Blasting</h2>
-              <p>
-                A specialist service that benefits from a cleaner, more premium explanation. It instantly feels more valuable when presented as a dedicated process.
-              </p>
-              <ul class="check-list">
-                <li>Carbon build-up removal</li>
-                <li>Cleaner airflow path</li>
-                <li>Sharper technical service positioning</li>
-              </ul>
-              <a href="#booking" class="btn btn-secondary">Ask for Details</a>
-            </div>
-            <div class="feature-image">
-              <img src="garage201.jpg" alt="Walnut Blasting and intake cleaning">
-            </div>
-          </div>
+        <div class="simple-block">
+          <div class="simple-title">Wheel Alignment</div>
+          <div class="simple-desc">Front and 4 wheel alignment available</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="simple-block">
+          <div class="simple-title">Tyres</div>
+          <div class="simple-desc">Supply & fitting</div>
         </div>
       </section>
 
-      <section class="gallery-section">
-        <div class="wrap section">
-          <div class="section-head">
-            <div>
-              <div class="kicker">Real Workshop</div>
-              <h2>Garage Gallery</h2>
+      <section class="section gallery-section">
+        <div class="gallery-head">
+          <div class="gallery-title">Garage Gallery</div>
+          <div class="gallery-sub">Real workshop images, specialist equipment and service-related work</div>
+        </div>
+
+        <div class="gallery-wrap">
+          <button class="gallery-btn gallery-prev" onclick="scrollGallery(-1)" aria-label="Previous images">❮</button>
+          <div class="gallery-track" id="galleryTrack"></div>
+          <button class="gallery-btn gallery-next" onclick="scrollGallery(1)" aria-label="Next images">❯</button>
+        </div>
+      </section>
+
+      <section class="section booking-box" id="booking">
+        <div class="booking-head">
+          <div class="booking-title">Book a Diagnostic or Service</div>
+          <div class="booking-sub">Send your request directly to us on WhatsApp</div>
+        </div>
+
+        <form onsubmit="return false;">
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input id="name" placeholder="Customer full name" required>
             </div>
-            <div class="section-head-text">
-              Real workshop photos help customers trust the garage faster and show the quality of the equipment, processes and environment behind the services.
+
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input id="phone" placeholder="Customer phone number" required>
+            </div>
+
+            <div class="field">
+              <label for="reg">Vehicle Registration</label>
+              <input id="reg" placeholder="Vehicle registration" required>
+            </div>
+
+            <div class="field">
+              <label for="service">Service</label>
+              <select id="service">
+                <option>DPF Diagnostics</option>
+                <option>Walnut Blasting</option>
+                <option>Automatic Gearbox Service</option>
+                <option>ECU Remaps & Coding</option>
+                <option>Liqui Moly Gun DPF Cleaning</option>
+                <option>Wheel Alignment</option>
+                <option>Tyres</option>
+                <option>Air Conditioning</option>
+                <option>Diagnostics</option>
+                <option>MOT Preparation</option>
+                <option>General Repairs</option>
+                <option>Brakes</option>
+                <option>Clutch</option>
+                <option>Electronics</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="message">Extra Message</label>
+              <textarea id="message" placeholder="Add extra information about the vehicle or the job"></textarea>
             </div>
           </div>
 
-          <div class="gallery-wrap">
-            <button class="gallery-btn gallery-prev" onclick="scrollGallery(-1)" aria-label="Previous images">❮</button>
-            <div class="gallery-track" id="galleryTrack"></div>
-            <button class="gallery-btn gallery-next" onclick="scrollGallery(1)" aria-label="Next images">❯</button>
+          <div class="booking-actions">
+            <button class="btn btn-yellow" onclick="sendBooking()">Send Booking Request</button>
           </div>
+        </form>
+
+        <div class="map-box">
+          <iframe
+            src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%20Tadley&output=embed"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
         </div>
       </section>
 
-      <section class="section wrap" id="booking">
-        <div class="booking-grid">
-          <aside class="contact-card">
-            <div class="kicker">Fast Contact</div>
-            <h2>Book Appointment</h2>
-            <p>
-              Keep it simple. The customer selects the service, enters their details and sends the request directly to WhatsApp.
-            </p>
-
-            <ul class="contact-list">
-              <li>Phone: 07920 778 706</li>
-              <li>Location: Ash Park Business Centre, Tadley</li>
-              <li>Hours: Monday to Saturday</li>
-              <li>Booking route: WhatsApp message</li>
-            </ul>
-          </aside>
-
-          <div class="booking-card">
-            <div class="kicker">Online Booking</div>
-            <h2>Send a Booking Request</h2>
-            <p>Choose the service, add vehicle details and send the request directly to us.</p>
-
-            <form onsubmit="return false;">
-              <div class="form-grid">
-                <div class="field">
-                  <label for="name">Full Name</label>
-                  <input id="name" placeholder="Customer full name" required>
-                </div>
-
-                <div class="field">
-                  <label for="phone">Phone Number</label>
-                  <input id="phone" placeholder="Customer phone number" required>
-                </div>
-
-                <div class="field">
-                  <label for="reg">Vehicle Registration</label>
-                  <input id="reg" placeholder="Vehicle registration" required>
-                </div>
-
-                <div class="field">
-                  <label for="service">Service</label>
-                  <select id="service">
-                    <option>Automatic Gearbox Service</option>
-                    <option>DPF Cleaning</option>
-                    <option>ECU Remapping & Coding</option>
-                    <option>Walnut Blasting</option>
-                    <option>Liqui Moly Gun DPF Cleaning</option>
-                    <option>Air Conditioning</option>
-                    <option>Tyres</option>
-                    <option>Wheel Alignment</option>
-                    <option>Diagnostics</option>
-                    <option>MOT Preparation</option>
-                    <option>General Repairs</option>
-                    <option>Brakes</option>
-                    <option>Clutch</option>
-                    <option>Electronics</option>
-                  </select>
-                </div>
-
-                <div class="field full">
-                  <label for="message">Extra Message</label>
-                  <textarea id="message" placeholder="Add extra information about the vehicle or the job"></textarea>
-                </div>
-              </div>
-
-              <div style="margin-top:18px;">
-                <button class="btn btn-primary" onclick="sendBooking()">Book Now</button>
-              </div>
-            </form>
-          </div>
-        </div>
-
-        <div class="map-row">
-          <div class="map-box">
-            <iframe
-              src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%20Tadley&output=embed"
-              loading="lazy"
-              allowfullscreen>
-            </iframe>
-          </div>
-
-          <div class="contact-card">
-            <div class="kicker">Find Us</div>
-            <h2>AG Auto-Tech Tadley</h2>
-            <p>
-              Specialist car and van services in Tadley with a stronger focus on gearbox work, DPF solutions, remaps, coding and carbon cleaning.
-            </p>
-
-            <ul class="contact-list">
-              <li>Tadley, RG26 5FL</li>
-              <li><a href="tel:07920778706">07920 778 706</a></li>
-              <li><a href="https://wa.me/447920778706">WhatsApp booking</a></li>
-            </ul>
-          </div>
+      <section class="section powered">
+        <div class="divider"></div>
+        <div class="powered-title">DPF & Automatic Gearbox Specialists</div>
+        <div class="powered-sub">Powered by</div>
+        <div class="liqui-inline">
+          <img src="liquimoly.jpg" alt="Liqui Moly">
         </div>
       </section>
 
-      <section class="brand-strip">
-        <div class="wrap brand-inner">
-          <div class="brand-copy">
-            <div class="kicker">Why Customers Choose Us</div>
-            <h2>Specialist Services, Better Presentation</h2>
-            <p>
-              This concept is built to make the garage look more modern, more specialist and more premium, while keeping the user journey clear and mobile friendly.
-            </p>
-            <ul class="brand-bullets">
-              <li>Focused on specialist services first</li>
-              <li>Cleaner and more technical design language</li>
-              <li>Fast contact and WhatsApp booking flow</li>
-            </ul>
-          </div>
-
-          <div class="liqui-block">
-            <div class="liqui-label">Powered by</div>
-            <img src="liquimoly.jpg" alt="Powered by Liqui Moly" class="liqui-logo">
-          </div>
-        </div>
-      </section>
-
-      <footer>© AG Auto-Tech Tadley</footer>
+      <footer>© AG Auto Tech Tadley</footer>
     </div>
   </div>
 
@@ -1484,9 +925,9 @@
         <h2 id="serviceModalTitle">Service</h2>
         <p id="serviceModalText">Description</p>
         <ul class="modal-list" id="serviceModalList"></ul>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="#booking" class="btn btn-primary" onclick="closeServiceModal()">Book Service</a>
-          <a href="tel:07920778706" class="btn btn-secondary">Call Now</a>
+        <div class="cta-row" style="justify-content:flex-start;margin-bottom:0;">
+          <a href="#booking" class="btn btn-yellow" onclick="closeServiceModal()">Book Service</a>
+          <a href="tel:07920778706" class="btn btn-dark">Call Now</a>
         </div>
       </div>
     </div>
@@ -1503,64 +944,64 @@
     ];
 
     const serviceData = {
-      gearbox: {
-        kicker: "Transmission Systems",
-        title: "Automatic Gearbox Service",
-        image: "garage211.jpg",
-        text: "A specialist automatic gearbox service focused on refreshing transmission fluid correctly, improving shift quality and supporting long-term gearbox reliability.",
-        bullets: [
-          "Dynamic oil service process",
-          "Cleaner and smoother gear changes",
-          "Supports gearbox protection over time",
-          "A strong preventative maintenance service"
-        ]
-      },
       dpf: {
-        kicker: "Flow Restoration",
-        title: "DPF Cleaning",
+        kicker: "Root cause analysis",
+        title: "DPF Diagnostics",
         image: "garage192.jpg",
-        text: "DPF cleaning is aimed at helping vehicles with restricted filters, warning lights or regeneration-related issues by improving flow and reducing blockage problems.",
+        text: "DPF diagnostics is focused on identifying the real cause of the problem, rather than only treating the visible symptoms.",
         bullets: [
-          "DPF diagnosis and inspection",
-          "Cleaning support to restore flow",
-          "Helps improve drivability",
-          "Suitable for selected DPF-related issues"
-        ]
-      },
-      remap: {
-        kicker: "Electronic Control",
-        title: "ECU Remaps & Coding",
-        image: "garage39.jpg",
-        text: "Advanced diagnostic and coding work using quality equipment to support modern vehicle electronics, fault tracing and selected remapping services.",
-        bullets: [
-          "Advanced fault code reading",
-          "Coding support for selected systems",
-          "Modern vehicle diagnostic capability",
-          "Sharper electronics workshop positioning"
+          "DPF pressure readings checked",
+          "Regeneration behaviour reviewed",
+          "Related systems inspected",
+          "Designed to identify the true cause of failure"
         ]
       },
       walnut: {
-        kicker: "Carbon Removal",
+        kicker: "Carbon removal",
         title: "Walnut Blasting",
-        image: "garage202.jpg",
-        text: "Walnut blasting is used to remove carbon build-up in intake-related areas, helping improve airflow, response and overall running quality.",
+        image: "garage201.jpg",
+        text: "Walnut blasting is used to remove carbon build-up in intake-related areas, helping restore airflow and improve engine response.",
         bullets: [
-          "Carbon removal process",
-          "Cleaner airflow path",
-          "Supports sharper engine response",
-          "A more specialist intake cleaning service"
+          "Carbon build-up removal",
+          "Cleaner intake pathway",
+          "Helps improve airflow",
+          "More specialist cleaning approach"
+        ]
+      },
+      gearbox: {
+        kicker: "Diagnostics and service",
+        title: "Automatic Gearbox Service",
+        image: "garage211.jpg",
+        text: "Automatic gearbox service is aimed at improving shift quality and supporting the long-term condition of the gearbox through the right service process.",
+        bullets: [
+          "Dynamic oil change process",
+          "Smoother shifting feel",
+          "Supports gearbox reliability",
+          "Process-led specialist service"
+        ]
+      },
+      remap: {
+        kicker: "Electronic control",
+        title: "ECU Remaps & Coding",
+        image: "garage39.jpg",
+        text: "Advanced remap and coding support using modern workshop equipment for diagnostics, control units and selected electronic functions.",
+        bullets: [
+          "Electronic diagnostics",
+          "Coding support for selected systems",
+          "Sharper fault tracing",
+          "Modern control-system workflow"
         ]
       },
       liqui: {
-        kicker: "Targeted Treatment",
+        kicker: "Targeted specialist treatment",
         title: "Liqui Moly Gun DPF Cleaning",
         image: "garage191.jpg",
-        text: "A more targeted DPF cleaning approach using Liqui Moly products and specialist application equipment for selected DPF cleaning situations.",
+        text: "A targeted DPF cleaning process using specialist Liqui Moly products and application equipment for selected DPF-related issues.",
         bullets: [
-          "Specialist product-based cleaning",
+          "Specialist product-based treatment",
           "Targeted DPF support",
-          "Professional process and application",
-          "Suitable for selected filter-related issues"
+          "Professional application process",
+          "Used where appropriate for selected cases"
         ]
       }
     };
@@ -1576,7 +1017,7 @@
 
       const img = document.createElement("img");
       img.src = src;
-      img.alt = "AG Auto-Tech gallery image " + (index + 1);
+      img.alt = "AG Auto Tech Tadley gallery image " + (index + 1);
       img.loading = "lazy";
 
       item.appendChild(img);
