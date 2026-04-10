@@ -23,7 +23,7 @@
       --yellow-dark:#ddb000;
       --shadow:0 10px 28px rgba(0,0,0,.08);
       --radius:14px;
-      --max:860px;
+      --max:1280px;
     }
 
     *{box-sizing:border-box}
@@ -40,12 +40,13 @@
     button{font:inherit}
 
     .page{
-      max-width:980px;
+      max-width:1400px;
       margin:0 auto;
-      padding:18px 12px 40px;
+      padding:18px 18px 40px;
     }
 
     .sheet{
+      width:100%;
       max-width:var(--max);
       margin:0 auto;
       background:var(--white);
@@ -86,7 +87,7 @@
 
     .hero-image{
       width:100%;
-      aspect-ratio: 16 / 7;
+      aspect-ratio: 16 / 6;
       background:#ddd;
       overflow:hidden;
     }
@@ -98,12 +99,14 @@
     }
 
     .section{
-      padding:18px 18px 0;
+      padding:22px 28px 0;
     }
 
     .title-block{
       text-align:center;
-      padding:12px 0 6px;
+      padding:14px 0 8px;
+      max-width:980px;
+      margin:0 auto;
     }
 
     .main-title{
@@ -124,12 +127,12 @@
 
     .headline{
       text-align:center;
-      font-size:clamp(2rem,4vw,3.25rem);
-      line-height:1.25;
+      font-size:clamp(2.2rem,4.2vw,4.2rem);
+      line-height:1.2;
       font-weight:800;
       color:#202633;
       margin:0 auto 16px;
-      max-width:760px;
+      max-width:980px;
     }
 
     .lead-red{
@@ -185,12 +188,14 @@
     .divider{
       height:1px;
       background:var(--line);
-      margin:18px 0;
+      margin:20px 0;
     }
 
     .statement{
       text-align:center;
-      padding:2px 0 4px;
+      padding:4px 0 6px;
+      max-width:980px;
+      margin:0 auto;
     }
 
     .statement-strong{
@@ -216,13 +221,16 @@
 
     .service-list{
       display:grid;
-      gap:12px;
-      margin-top:10px;
+      gap:14px;
+      margin-top:14px;
+      max-width:1080px;
+      margin-left:auto;
+      margin-right:auto;
     }
 
     .service-row{
       display:grid;
-      grid-template-columns:230px 1fr;
+      grid-template-columns:320px 1fr;
       border:1px solid var(--line);
       background:#fafafa;
       cursor:pointer;
@@ -235,7 +243,7 @@
     }
 
     .service-thumb{
-      min-height:122px;
+      min-height:150px;
       background:#ddd;
     }
 
@@ -246,14 +254,14 @@
     }
 
     .service-copy{
-      padding:16px 18px;
+      padding:20px 22px;
       display:flex;
       flex-direction:column;
       justify-content:center;
     }
 
     .service-name{
-      font-size:clamp(1.35rem,2.4vw,2rem);
+      font-size:clamp(1.55rem,2.4vw,2.2rem);
       font-weight:800;
       line-height:1.2;
       margin-bottom:4px;
@@ -269,7 +277,9 @@
 
     .simple-block{
       text-align:center;
-      padding:6px 0;
+      padding:8px 0;
+      max-width:980px;
+      margin:0 auto;
     }
 
     .simple-title{
@@ -290,6 +300,9 @@
     .gallery-head{
       text-align:center;
       margin-bottom:14px;
+      max-width:980px;
+      margin-left:auto;
+      margin-right:auto;
     }
 
     .gallery-title{
@@ -315,12 +328,12 @@
     .gallery-track{
       display:grid;
       grid-auto-flow:column;
-      grid-auto-columns:260px;
+      grid-auto-columns:300px;
       gap:14px;
       overflow-x:auto;
       scroll-behavior:smooth;
       padding:4px 52px 10px 0;
-      min-height:210px;
+      min-height:230px;
       scrollbar-width:thin;
       scrollbar-color:#1b2c4b transparent;
     }
@@ -332,7 +345,7 @@
     }
 
     .gallery-item{
-      height:200px;
+      height:220px;
       border:1px solid var(--line);
       overflow:hidden;
       cursor:pointer;
@@ -365,12 +378,15 @@
     .gallery-next{right:-2px}
 
     .booking-box{
-      padding-bottom:18px;
+      padding-bottom:22px;
     }
 
     .booking-head{
       text-align:center;
       margin-bottom:16px;
+      max-width:900px;
+      margin-left:auto;
+      margin-right:auto;
     }
 
     .booking-title{
@@ -385,6 +401,11 @@
       color:#4f5865;
       font-size:clamp(1rem,1.8vw,1.15rem);
       line-height:1.5;
+    }
+
+    .booking-inner{
+      max-width:980px;
+      margin:0 auto;
     }
 
     .form-grid{
@@ -438,20 +459,20 @@
     .map-box{
       border:1px solid var(--line);
       overflow:hidden;
-      min-height:300px;
-      margin-top:14px;
+      min-height:320px;
+      margin-top:18px;
     }
 
     .map-box iframe{
       width:100%;
       height:100%;
-      min-height:300px;
+      min-height:320px;
       border:0;
     }
 
     .powered{
       text-align:center;
-      padding:8px 0 24px;
+      padding:8px 0 26px;
     }
 
     .powered-title{
@@ -516,7 +537,7 @@
     }
 
     .lightbox img{
-      max-width:min(1200px,94vw);
+      max-width:min(1280px,94vw);
       max-height:88vh;
       box-shadow:0 20px 60px rgba(0,0,0,.4);
     }
@@ -552,7 +573,7 @@
     }
 
     .service-modal-card{
-      width:min(980px,96vw);
+      width:min(1120px,96vw);
       display:grid;
       grid-template-columns:1fr 1fr;
       background:#fff;
@@ -627,7 +648,7 @@
 
     @media (max-width:900px){
       .service-row{
-        grid-template-columns:180px 1fr;
+        grid-template-columns:220px 1fr;
       }
 
       .service-modal-card{
@@ -835,60 +856,62 @@
           <div class="booking-sub">Send your request directly to us on WhatsApp</div>
         </div>
 
-        <form onsubmit="return false;">
-          <div class="form-grid">
-            <div class="field">
-              <label for="name">Full Name</label>
-              <input id="name" placeholder="Customer full name" required>
+        <div class="booking-inner">
+          <form onsubmit="return false;">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Full Name</label>
+                <input id="name" placeholder="Customer full name" required>
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone Number</label>
+                <input id="phone" placeholder="Customer phone number" required>
+              </div>
+
+              <div class="field">
+                <label for="reg">Vehicle Registration</label>
+                <input id="reg" placeholder="Vehicle registration" required>
+              </div>
+
+              <div class="field">
+                <label for="service">Service</label>
+                <select id="service">
+                  <option>DPF Diagnostics</option>
+                  <option>Walnut Blasting</option>
+                  <option>Automatic Gearbox Service</option>
+                  <option>ECU Remaps & Coding</option>
+                  <option>Liqui Moly Gun DPF Cleaning</option>
+                  <option>Wheel Alignment</option>
+                  <option>Tyres</option>
+                  <option>Air Conditioning</option>
+                  <option>Diagnostics</option>
+                  <option>MOT Preparation</option>
+                  <option>General Repairs</option>
+                  <option>Brakes</option>
+                  <option>Clutch</option>
+                  <option>Electronics</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="message">Extra Message</label>
+                <textarea id="message" placeholder="Add extra information about the vehicle or the job"></textarea>
+              </div>
             </div>
 
-            <div class="field">
-              <label for="phone">Phone Number</label>
-              <input id="phone" placeholder="Customer phone number" required>
+            <div class="booking-actions">
+              <button class="btn btn-yellow" onclick="sendBooking()">Send Booking Request</button>
             </div>
+          </form>
 
-            <div class="field">
-              <label for="reg">Vehicle Registration</label>
-              <input id="reg" placeholder="Vehicle registration" required>
-            </div>
-
-            <div class="field">
-              <label for="service">Service</label>
-              <select id="service">
-                <option>DPF Diagnostics</option>
-                <option>Walnut Blasting</option>
-                <option>Automatic Gearbox Service</option>
-                <option>ECU Remaps & Coding</option>
-                <option>Liqui Moly Gun DPF Cleaning</option>
-                <option>Wheel Alignment</option>
-                <option>Tyres</option>
-                <option>Air Conditioning</option>
-                <option>Diagnostics</option>
-                <option>MOT Preparation</option>
-                <option>General Repairs</option>
-                <option>Brakes</option>
-                <option>Clutch</option>
-                <option>Electronics</option>
-              </select>
-            </div>
-
-            <div class="field full">
-              <label for="message">Extra Message</label>
-              <textarea id="message" placeholder="Add extra information about the vehicle or the job"></textarea>
-            </div>
+          <div class="map-box">
+            <iframe
+              src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%20Tadley&output=embed"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
           </div>
-
-          <div class="booking-actions">
-            <button class="btn btn-yellow" onclick="sendBooking()">Send Booking Request</button>
-          </div>
-        </form>
-
-        <div class="map-box">
-          <iframe
-            src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%20Tadley&output=embed"
-            loading="lazy"
-            allowfullscreen>
-          </iframe>
         </div>
       </section>
 
@@ -910,8 +933,8 @@
   <div class="lightbox" id="lightbox">
     <button class="lb-close" onclick="closeLightbox()" aria-label="Close gallery">×</button>
     <button class="lightbox-btn lb-prev" onclick="changeImage(-1)" aria-label="Previous image">❮</button>
-    <img id="lightboxImg" alt="Garage gallery image">
     <button class="lightbox-btn lb-next" onclick="changeImage(1)" aria-label="Next image">❯</button>
+    <img id="lightboxImg" alt="Garage gallery image">
   </div>
 
   <div class="service-modal" id="serviceModal">
@@ -1027,7 +1050,7 @@
 
     function scrollGallery(direction){
       galleryTrack.scrollBy({
-        left: direction * 320,
+        left: direction * 340,
         behavior: "smooth"
       });
     }
