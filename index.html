@@ -198,6 +198,8 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
+      border:none;
+      cursor:pointer;
     }
 
     .btn-yellow{
@@ -449,6 +451,10 @@
     }
 
     .field.full{grid-column:1 / -1}
+
+    .hidden-field{
+      display:none;
+    }
 
     label{
       font-size:11px;
@@ -751,7 +757,7 @@
 
           <article class="service-card" onclick="openServiceModal('dpfdeep')">
             <div class="service-card-image">
-              <img src="deepclean.jpg" alt="DPF Deep Clean">
+              <img src="dpfdeep.jpg" alt="DPF Deep Clean">
               <div class="service-card-badge">Targeted Treatment</div>
             </div>
             <div class="service-card-body">
@@ -763,6 +769,16 @@
               </div>
             </div>
           </article>
+
+          <div class="simple-card">
+            <div class="simple-card-image">
+              <img src="garage19112.jpg" alt="Wheel Alignment">
+            </div>
+            <div class="simple-card-body">
+              <div class="simple-title">Wheel Alignment</div>
+              <div class="simple-desc">Front and 4 wheel alignment available</div>
+            </div>
+          </div>
 
           <div class="service-card">
             <div class="service-card-image" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fffdf2,#fff7d6);">
@@ -787,16 +803,6 @@
         <div class="divider"></div>
 
         <div class="simple-grid">
-          <div class="simple-card">
-            <div class="simple-card-image">
-              <img src="garage19112.jpg" alt="Wheel Alignment">
-            </div>
-            <div class="simple-card-body">
-              <div class="simple-title">Wheel Alignment</div>
-              <div class="simple-desc">Front and 4 wheel alignment available</div>
-            </div>
-          </div>
-
           <div class="simple-card">
             <div class="simple-card-image">
               <img src="garage221.jpg" alt="Tyres">
@@ -835,7 +841,7 @@
 
               <div class="field">
                 <label for="service">Service</label>
-                <select id="service">
+                <select id="service" onchange="toggleTyreFields()">
                   <option>DPF Diagnostics</option>
                   <option>Walnut Blasting</option>
                   <option>Automatic Gearbox Service</option>
@@ -843,6 +849,44 @@
                   <option>DPF Deep Clean</option>
                   <option>Wheel Alignment</option>
                   <option>Tyres</option>
+                </select>
+              </div>
+
+              <div class="field hidden-field" id="tyreQuantityField">
+                <label for="tyreQuantity">Number of Tyres</label>
+                <select id="tyreQuantity">
+                  <option value="">Select quantity</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+
+              <div class="field hidden-field" id="tyreSizeField">
+                <label for="tyreSize">Tyre Size</label>
+                <input id="tyreSize" placeholder="Example: 225/45 R17">
+              </div>
+
+              <div class="field hidden-field" id="tyreTypeField">
+                <label for="tyreType">Tyre Type</label>
+                <select id="tyreType">
+                  <option value="">Select tyre type</option>
+                  <option>Summer</option>
+                  <option>Winter</option>
+                  <option>All Season</option>
+                  <option>Run Flat</option>
+                  <option>Van Tyres</option>
+                </select>
+              </div>
+
+              <div class="field hidden-field" id="tyreRangeField">
+                <label for="tyreRange">Tyre Range</label>
+                <select id="tyreRange">
+                  <option value="">Select range</option>
+                  <option>Budget</option>
+                  <option>Mid Range</option>
+                  <option>Premium</option>
                 </select>
               </div>
 
@@ -951,7 +995,7 @@
       dpfdeep: {
         kicker: "Targeted specialist treatment",
         title: "DPF Deep Clean",
-        image: "deepclean.jpg",
+        image: "dpfdeep.jpg",
         text: "A targeted DPF deep cleaning process using specialist equipment and products for selected DPF-related issues.",
         bullets: [
           "Deep clean process",
@@ -968,6 +1012,12 @@
     const serviceModalTitle = document.getElementById("serviceModalTitle");
     const serviceModalText = document.getElementById("serviceModalText");
     const serviceModalList = document.getElementById("serviceModalList");
+
+    const serviceSelect = document.getElementById("service");
+    const tyreQuantityField = document.getElementById("tyreQuantityField");
+    const tyreSizeField = document.getElementById("tyreSizeField");
+    const tyreTypeField = document.getElementById("tyreTypeField");
+    const tyreRangeField = document.getElementById("tyreRangeField");
 
     function openServiceModal(key){
       const service = serviceData[key];
@@ -995,6 +1045,20 @@
       document.body.style.overflow = "";
     }
 
+    function toggleTyreFields(){
+      const isTyres = serviceSelect.value === "Tyres";
+
+      tyreQuantityField.style.display = isTyres ? "flex" : "none";
+      tyreSizeField.style.display = isTyres ? "flex" : "none";
+      tyreTypeField.style.display = isTyres ? "flex" : "none";
+      tyreRangeField.style.display = isTyres ? "flex" : "none";
+
+      document.getElementById("tyreQuantity").required = isTyres;
+      document.getElementById("tyreSize").required = isTyres;
+      document.getElementById("tyreType").required = isTyres;
+      document.getElementById("tyreRange").required = isTyres;
+    }
+
     function sendBooking(){
       const name = document.getElementById("name").value.trim();
       const phone = document.getElementById("phone").value.trim();
@@ -1002,18 +1066,37 @@
       const service = document.getElementById("service").value;
       const message = document.getElementById("message").value.trim();
 
+      const tyreQuantity = document.getElementById("tyreQuantity").value;
+      const tyreSize = document.getElementById("tyreSize").value.trim();
+      const tyreType = document.getElementById("tyreType").value;
+      const tyreRange = document.getElementById("tyreRange").value;
+
       if(!name || !phone || !reg){
         alert("Please complete required fields");
         return;
       }
 
-      const text =
+      if(service === "Tyres" && (!tyreQuantity || !tyreSize || !tyreType || !tyreRange)){
+        alert("Please complete all tyre details");
+        return;
+      }
+
+      let text =
         "BOOKING REQUEST\n" +
         "Name: " + name + "\n" +
         "Phone: " + phone + "\n" +
         "Reg: " + reg + "\n" +
-        "Service: " + service + "\n" +
-        "Message: " + message;
+        "Service: " + service + "\n";
+
+      if(service === "Tyres"){
+        text +=
+          "Number of tyres: " + tyreQuantity + "\n" +
+          "Tyre size: " + tyreSize + "\n" +
+          "Tyre type: " + tyreType + "\n" +
+          "Tyre range: " + tyreRange + "\n";
+      }
+
+      text += "Message: " + message;
 
       window.open("https://wa.me/447920778706?text=" + encodeURIComponent(text), "_blank");
     }
@@ -1029,6 +1112,8 @@
         closeServiceModal();
       }
     });
+
+    toggleTyreFields();
   </script>
 </body>
 </html>
