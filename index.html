@@ -462,19 +462,19 @@
     }
 
     .gallery-wrap{
-      max-width:1100px;
+      max-width:1120px;
       margin:0 auto;
     }
 
     .gallery-grid{
       display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
+      grid-template-columns:repeat(4,minmax(0,1fr));
       gap:18px;
     }
 
     .gallery-item{
       position:relative;
-      height:220px;
+      height:210px;
       overflow:hidden;
       border-radius:18px;
       box-shadow:var(--shadow-card);
@@ -497,13 +497,13 @@
     .gallery-item::after{
       content:"Tap to view";
       position:absolute;
-      left:14px;
-      bottom:14px;
+      left:12px;
+      bottom:12px;
       background:rgba(17,25,38,.78);
       color:#fff;
       padding:8px 10px;
       border-radius:999px;
-      font-size:11px;
+      font-size:10px;
       font-weight:800;
       letter-spacing:.12em;
       text-transform:uppercase;
@@ -646,6 +646,7 @@
       max-width:min(1280px,94vw);
       max-height:88vh;
       border-radius:16px;
+      box-shadow:0 20px 40px rgba(0,0,0,.35);
     }
 
     .lb-close,.modal-close,.lightbox-btn{
@@ -749,8 +750,14 @@
       line-height:1;
     }
 
+    @media (max-width:1100px){
+      .gallery-grid{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+      }
+    }
+
     @media (max-width:980px){
-      .service-grid,.secondary-grid,.service-modal-card,.gallery-grid{
+      .service-grid,.secondary-grid,.service-modal-card{
         grid-template-columns:1fr;
       }
 
@@ -765,8 +772,9 @@
       .hero-brand{left:14px;right:14px;bottom:14px;max-width:none}
       .section{padding:20px 14px 0}
       .form-grid{grid-template-columns:1fr}
+      .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .gallery-item{height:170px}
       .lightbox-btn{display:none}
-      .gallery-item{height:200px}
     }
   </style>
 </head>
@@ -929,31 +937,12 @@
 
         <div class="services-head">
           <div class="services-kicker">Workshop Gallery</div>
-          <div class="services-title">Inside AG Auto Tech Tadley</div>
-          <div class="services-sub">A quick look at our workshop, equipment and specialist vehicle services.</div>
+          <div class="services-title">Full Garage Gallery</div>
+          <div class="services-sub">All .jpg images from your folder are included below.</div>
         </div>
 
         <div class="gallery-wrap">
-          <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox(0)">
-              <img src="main.jpg" alt="Garage gallery image 1">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(1)">
-              <img src="garage194.jpg" alt="Garage gallery image 2">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(2)">
-              <img src="walnut.jpg" alt="Garage gallery image 3">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(3)">
-              <img src="liquimoly3.jpg" alt="Garage gallery image 4">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(4)">
-              <img src="garage39.jpg" alt="Garage gallery image 5">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(5)">
-              <img src="dpfdeep.jpg" alt="Garage gallery image 6">
-            </div>
-          </div>
+          <div class="gallery-grid" id="galleryGrid"></div>
         </div>
       </section>
 
@@ -1149,12 +1138,62 @@
     };
 
     const galleryImages = [
-      "main.jpg",
-      "garage194.jpg",
-      "walnut.jpg",
-      "liquimoly3.jpg",
+      "banner.jpg",
+      "dpfdeep.jpg",
+      "garage1.jpg",
+      "garage2.jpg",
+      "garage3.jpg",
+      "garage4.jpg",
+      "garage5.jpg",
+      "garage6.jpg",
+      "garage7.jpg",
+      "garage8.jpg",
+      "garage9.jpg",
+      "garage10.jpg",
+      "garage11.jpg",
+      "garage12.jpg",
+      "garage13.jpg",
+      "garage14.jpg",
+      "garage15.jpg",
+      "garage16.jpg",
+      "garage17.jpg",
+      "garage18.jpg",
+      "garage19.jpg",
+      "garage23.jpg",
+      "garage24.jpg",
+      "garage25.jpg",
+      "garage26.jpg",
+      "garage27.jpg",
+      "garage28.jpg",
+      "garage29.jpg",
+      "garage30.jpg",
+      "garage31.jpg",
+      "garage32.jpg",
+      "garage33.jpg",
+      "garage34.jpg",
+      "garage35.jpg",
+      "garage36.jpg",
+      "garage37.jpg",
+      "garage38.jpg",
       "garage39.jpg",
-      "dpfdeep.jpg"
+      "garage40.jpg",
+      "garage41.jpg",
+      "garage191.jpg",
+      "garage19111.jpg",
+      "garage19112.jpg",
+      "garage192.jpg",
+      "garage193.jpg",
+      "garage194.jpg",
+      "garage201.jpg",
+      "garage202.jpg",
+      "garage203.jpg",
+      "garage204.jpg",
+      "garage211.jpg",
+      "garage221.jpg",
+      "liquimoly.jpg",
+      "liquimoly3.jpg",
+      "main.jpg",
+      "walnut.jpg"
     ];
 
     let currentImageIndex = 0;
@@ -1174,6 +1213,25 @@
     const tyreSizeField = document.getElementById("tyreSizeField");
     const tyreTypeField = document.getElementById("tyreTypeField");
     const tyreRangeField = document.getElementById("tyreRangeField");
+    const galleryGrid = document.getElementById("galleryGrid");
+
+    function buildGallery(){
+      galleryGrid.innerHTML = "";
+
+      galleryImages.forEach((imageName, index) => {
+        const item = document.createElement("div");
+        item.className = "gallery-item";
+        item.onclick = () => openLightbox(index);
+
+        const img = document.createElement("img");
+        img.src = imageName;
+        img.alt = "AG Auto Tech gallery " + (index + 1);
+        img.loading = "lazy";
+
+        item.appendChild(img);
+        galleryGrid.appendChild(item);
+      });
+    }
 
     function openLightbox(index){
       currentImageIndex = index;
@@ -1311,6 +1369,7 @@
       }
     });
 
+    buildGallery();
     toggleTyreFields();
   </script>
 </body>
