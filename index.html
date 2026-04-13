@@ -1,42 +1,185 @@
-<!-- ZMIENIONA TYLKO KLUCZOWA CZĘŚĆ – RESZTA ZOSTAJE JAK MIAŁEŚ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AG AUTO TECH TADLEY</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+body{margin:0;font-family:Inter;background:#f0f0f0}
+.section{padding:30px}
+.simple-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.simple-card,.service-card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+.simple-card img{width:100%;height:200px;object-fit:cover}
+.simple-card-body{padding:20px;text-align:center}
+.simple-title{font-weight:800;font-size:22px}
+.simple-desc{color:#666}
+
+.service-card-image{height:200px;display:flex;align-items:center;justify-content:center}
+.service-card-body{padding:20px}
+.service-name{font-weight:800;font-size:20px}
+.service-desc{color:#666;margin-bottom:10px}
+.service-meta{display:flex;justify-content:space-between}
+.service-chip{background:#fff3c4;padding:6px 12px;border-radius:20px;font-size:12px}
+.service-link{color:red;font-size:12px}
+
+.booking-inner{background:#fff;padding:20px;border-radius:18px}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.field{display:flex;flex-direction:column}
+.hidden{display:none}
+button{padding:12px;border:none;background:#f2c318;font-weight:800;border-radius:30px;margin-top:15px;cursor:pointer}
+</style>
+</head>
+
+<body>
+
+<section class="section">
 
 <div class="simple-grid">
-  <div class="simple-card">
-    <div class="simple-card-image">
-      <img src="garage19112.jpg" alt="Wheel Alignment">
-    </div>
-    <div class="simple-card-body">
-      <div class="simple-title">Wheel Alignment</div>
-      <div class="simple-desc">Front and 4 wheel alignment available</div>
-    </div>
-  </div>
 
-  <div class="simple-card">
-    <div class="simple-card-image">
-      <img src="garage221.jpg" alt="Tyres">
-    </div>
-    <div class="simple-card-body">
-      <div class="simple-title">Tyres</div>
-      <div class="simple-desc">Supply & fitting</div>
-    </div>
-  </div>
-
-  <div class="service-card">
-    <div class="service-card-image" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fffdf2,#fff7d6);">
-      <div style="text-align:center;padding:24px;">
-        <div style="font-family:Oswald,Arial,sans-serif;font-size:clamp(1.7rem,2.4vw,2.4rem);line-height:1;color:#1d2d4d;text-transform:uppercase;margin-bottom:10px;">Need Advice First?</div>
-        <div style="font-size:clamp(1rem,1.2vw,1.08rem);line-height:1.6;color:#4e5663;max-width:340px;">
-          Book a diagnostic or call us directly and we will guide you to the right service.
-        </div>
-      </div>
-    </div>
-    <div class="service-card-body">
-      <div class="service-name">Talk to Us</div>
-      <div class="service-desc">Start with a diagnostic and we will point you in the right direction.</div>
-      <div class="service-meta">
-        <a href="#booking" class="service-chip">Book Now</a>
-        <a href="tel:07920778706" class="service-link">Call Garage</a>
-      </div>
-    </div>
-  </div>
+<div class="simple-card">
+<img src="garage19112.jpg">
+<div class="simple-card-body">
+<div class="simple-title">Wheel Alignment</div>
+<div class="simple-desc">Front and 4 wheel alignment available</div>
 </div>
+</div>
+
+<div class="simple-card">
+<img src="garage221.jpg">
+<div class="simple-card-body">
+<div class="simple-title">Tyres</div>
+<div class="simple-desc">Supply & fitting</div>
+</div>
+</div>
+
+<div class="service-card">
+<div class="service-card-image" style="background:#fff7d6">
+<div>
+<h2>Need Advice First?</h2>
+<p>Book a diagnostic or call us directly and we will guide you.</p>
+</div>
+</div>
+<div class="service-card-body">
+<div class="service-name">Talk to Us</div>
+<div class="service-desc">Start with a diagnostic</div>
+<div class="service-meta">
+<a href="#booking" class="service-chip">Book Now</a>
+<a href="tel:07920778706" class="service-link">Call</a>
+</div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="booking">
+
+<div class="booking-inner">
+<form onsubmit="return false;">
+<div class="form-grid">
+
+<div class="field">
+<label>Name</label>
+<input id="name">
+</div>
+
+<div class="field">
+<label>Phone</label>
+<input id="phone">
+</div>
+
+<div class="field">
+<label>Reg</label>
+<input id="reg">
+</div>
+
+<div class="field">
+<label>Service</label>
+<select id="service" onchange="toggleTyres()">
+<option>DPF Diagnostics</option>
+<option>DPF Deep Clean</option>
+<option>Tyres</option>
+</select>
+</div>
+
+<div class="field hidden" id="qty">
+<label>Qty</label>
+<select id="tyreQty">
+<option>1</option><option>2</option><option>3</option><option>4</option>
+</select>
+</div>
+
+<div class="field hidden" id="size">
+<label>Size</label>
+<input id="tyreSize">
+</div>
+
+<div class="field hidden" id="type">
+<label>Type</label>
+<select id="tyreType">
+<option>Summer</option>
+<option>Winter</option>
+<option>All Season</option>
+</select>
+</div>
+
+<div class="field hidden" id="range">
+<label>Range</label>
+<select id="tyreRange">
+<option>Budget</option>
+<option>Mid Range</option>
+<option>Premium</option>
+</select>
+</div>
+
+</div>
+
+<button onclick="send()">Send Booking</button>
+
+</form>
+</div>
+
+</section>
+
+<script>
+function toggleTyres(){
+let show = document.getElementById("service").value === "Tyres";
+["qty","size","type","range"].forEach(id=>{
+document.getElementById(id).style.display = show ? "flex":"none";
+});
+}
+
+function send(){
+let text =
+"Name: "+name.value+"\n"+
+"Phone: "+phone.value+"\n"+
+"Reg: "+reg.value+"\n"+
+"Service: "+service.value+"\n";
+
+if(service.value==="Tyres"){
+text +=
+"Qty: "+tyreQty.value+"\n"+
+"Size: "+tyreSize.value+"\n"+
+"Type: "+tyreType.value+"\n"+
+"Range: "+tyreRange.value+"\n";
+}
+
+window.open("https://wa.me/447920778706?text="+encodeURIComponent(text));
+}
+</script>
+
+</body>
+</html>
