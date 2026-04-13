@@ -354,11 +354,11 @@
       white-space:nowrap;
     }
 
-    .simple-grid{
+    .secondary-grid{
       max-width:1100px;
       margin:0 auto;
       display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
+      grid-template-columns:repeat(2,minmax(0,1fr));
       gap:22px;
       align-items:stretch;
     }
@@ -701,14 +701,8 @@
       line-height:1;
     }
 
-    @media (max-width:1100px){
-      .simple-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-    }
-
     @media (max-width:980px){
-      .service-grid,.service-modal-card{
+      .service-grid,.secondary-grid,.service-modal-card{
         grid-template-columns:1fr;
       }
 
@@ -724,7 +718,6 @@
       .section{padding:20px 14px 0}
       .form-grid{grid-template-columns:1fr}
       .lightbox-btn{display:none}
-      .simple-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -825,7 +818,11 @@
               </div>
             </div>
           </article>
+        </div>
 
+        <div class="divider"></div>
+
+        <div class="secondary-grid">
           <article class="service-card" onclick="openServiceModal('dpfdeep')">
             <div class="service-card-image">
               <img src="dpfdeep.jpg" alt="DPF Deep Clean">
@@ -840,11 +837,7 @@
               </div>
             </div>
           </article>
-        </div>
 
-        <div class="divider"></div>
-
-        <div class="simple-grid">
           <div class="simple-card">
             <div class="simple-card-image">
               <img src="garage19112.jpg" alt="Wheel Alignment">
