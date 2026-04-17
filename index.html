@@ -676,6 +676,49 @@
       object-fit:contain;
     }
 
+    .map-section{
+      padding:0 34px 34px;
+    }
+
+    .map-card{
+      max-width:1100px;
+      margin:0 auto;
+      border:1px solid #e4e4e4;
+      background:linear-gradient(180deg,#ffffff 0%,#fbfbfb 100%);
+      box-shadow:var(--shadow-card);
+      border-radius:22px;
+      overflow:hidden;
+    }
+
+    .map-head{
+      padding:22px 22px 18px;
+      text-align:center;
+      border-bottom:1px solid #ececec;
+    }
+
+    .map-head h3{
+      margin:0 0 8px;
+      font-family:Oswald,Arial,sans-serif;
+      text-transform:uppercase;
+      font-size:clamp(1.6rem,2.3vw,2.2rem);
+      line-height:1;
+      color:var(--blue-dark);
+    }
+
+    .map-head p{
+      margin:0;
+      color:#5b6572;
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .map-frame{
+      width:100%;
+      height:420px;
+      border:0;
+      display:block;
+    }
+
     footer{
       text-align:center;
       padding:0 18px 24px;
@@ -703,16 +746,13 @@
       box-shadow:0 20px 40px rgba(0,0,0,.35);
     }
 
-    .lb-close,.modal-close,.gallery-modal-close,.lightbox-btn{
-      position:absolute;
+    .lb-close,.modal-close,.gallery-modal-close,.lightbox-btn,.gallery-view-btn{
       border:none;
-      color:#fff;
-      background:rgba(255,255,255,.14);
       cursor:pointer;
-      backdrop-filter:blur(4px);
     }
 
     .lb-close,.modal-close,.gallery-modal-close{
+      position:absolute;
       top:16px;
       right:16px;
       width:50px;
@@ -721,15 +761,22 @@
       font-size:28px;
       line-height:1;
       z-index:3;
+      color:#fff;
+      background:rgba(255,255,255,.14);
+      backdrop-filter:blur(4px);
     }
 
     .lightbox-btn{
+      position:absolute;
       top:50%;
       transform:translateY(-50%);
       width:54px;
       height:54px;
       border-radius:50%;
       font-size:24px;
+      color:#fff;
+      background:rgba(255,255,255,.14);
+      backdrop-filter:blur(4px);
     }
 
     .lb-prev{left:18px}
@@ -858,7 +905,6 @@
       box-shadow:var(--shadow-card);
       border:1px solid #e4e4e4;
       background:#ddd;
-      cursor:pointer;
     }
 
     .gallery-item img{
@@ -872,14 +918,14 @@
       transform:scale(1.05);
     }
 
-    .gallery-item::after{
-      content:"View";
+    .gallery-view-btn{
       position:absolute;
       left:12px;
       bottom:12px;
-      background:rgba(17,25,38,.78);
+      z-index:2;
+      background:rgba(17,25,38,.82);
       color:#fff;
-      padding:8px 10px;
+      padding:9px 12px;
       border-radius:999px;
       font-size:10px;
       font-weight:800;
@@ -908,11 +954,13 @@
       .sheet{border-radius:18px}
       .hero-brand{left:14px;right:14px;bottom:14px;max-width:none}
       .section{padding:20px 14px 0}
+      .map-section{padding:0 14px 22px}
       .form-grid{grid-template-columns:1fr}
       .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
       .gallery-item{height:160px}
       .gallery-card-top{height:210px}
       .lightbox-btn{display:none}
+      .map-frame{height:320px}
     }
   </style>
 </head>
@@ -1193,6 +1241,22 @@
         </div>
       </section>
 
+      <section class="map-section">
+        <div class="map-card">
+          <div class="map-head">
+            <h3>Find Us</h3>
+            <p>Ash Park Business Centre, Little London, Tadley RG26 5FL</p>
+          </div>
+          <iframe
+            class="map-frame"
+            src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%2C%20Little%20London%2C%20Tadley%20RG26%205FL&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </section>
+
       <footer>© AG AUTO TECH TADLEY</footer>
     </div>
   </div>
@@ -1209,7 +1273,7 @@
       <button class="gallery-modal-close" onclick="closeGalleryModal()" aria-label="Close gallery">×</button>
       <div class="gallery-modal-header">
         <h2>Workshop Gallery</h2>
-        <p>Click any image to open it in full size.</p>
+        <p>Click any image or the VIEW button to open it in full size.</p>
       </div>
       <div class="gallery-modal-body">
         <div class="gallery-grid" id="galleryGrid"></div>
@@ -1385,14 +1449,26 @@
       galleryImages.forEach((imageName, index) => {
         const item = document.createElement("div");
         item.className = "gallery-item";
-        item.onclick = () => openLightbox(index);
 
         const img = document.createElement("img");
         img.src = imageName;
         img.alt = "AG Auto Tech gallery " + (index + 1);
         img.loading = "lazy";
+        img.onclick = () => openLightbox(index);
+
+        const btn = document.createElement("button");
+        btn.className = "gallery-view-btn";
+        btn.type = "button";
+        btn.textContent = "View";
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          openLightbox(index);
+        };
+
+        item.onclick = () => openLightbox(index);
 
         item.appendChild(img);
+        item.appendChild(btn);
         galleryGrid.appendChild(item);
       });
     }
