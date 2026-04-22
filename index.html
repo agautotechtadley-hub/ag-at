@@ -12,24 +12,31 @@
 
   <style>
     :root{
-      --bg:#efefef;
+      --bg:#e9ecef;
       --white:#ffffff;
-      --text:#1f2430;
-      --text-soft:#5a6471;
-      --blue-dark:#111926;
-      --blue-soft:#1b2433;
+      --text:#151b24;
+      --text-soft:#5d6674;
+      --blue-dark:#0f1723;
+      --blue-soft:#1a2434;
       --red:#d5332f;
-      --yellow:#e6b800;
-      --yellow-dark:#c99900;
-      --metal:#cfd3d8;
-      --metal-dark:#9aa3ad;
-      --metal-gradient:linear-gradient(145deg,#f7f8f9 0%, #dde2e7 42%, #c7cdd4 100%);
-      --metal-gradient-soft:linear-gradient(180deg,#ffffff 0%, #f4f6f8 45%, #edf1f4 100%);
-      --panel:linear-gradient(180deg,#ffffff 0%, #f6f8fa 58%, #edf1f4 100%);
+      --yellow:#e5b400;
+      --yellow-dark:#bc9300;
+
+      --metal-1:#f8f9fb;
+      --metal-2:#e1e6eb;
+      --metal-3:#c7ced6;
+      --metal-4:#9ca7b2;
+
+      --steel:linear-gradient(135deg,#ffffff 0%, #eef2f5 18%, #dbe1e7 45%, #c0c8d1 68%, #eef2f5 100%);
+      --steel-dark:linear-gradient(135deg,#202833 0%, #3c4652 18%, #9aa4ae 52%, #3b4550 82%, #151c27 100%);
+      --panel:linear-gradient(180deg,#ffffff 0%, #f6f8fa 55%, #edf1f4 100%);
+      --panel-dark:linear-gradient(180deg,#1a2230 0%, #111926 100%);
+
       --shadow:0 18px 45px rgba(0,0,0,.08);
       --shadow-card:0 18px 36px rgba(0,0,0,.08);
-      --shadow-hover:0 26px 60px rgba(10,16,26,.14);
-      --radius:24px;
+      --shadow-hover:0 28px 65px rgba(10,16,26,.18);
+
+      --radius:26px;
     }
 
     *{box-sizing:border-box}
@@ -38,8 +45,9 @@
     body{
       margin:0;
       background:
-        radial-gradient(circle at top right, rgba(201,153,0,.06), transparent 24%),
-        linear-gradient(180deg,#f3f3f3 0%, #ececec 100%);
+        radial-gradient(circle at top right, rgba(197,205,214,.45), transparent 28%),
+        radial-gradient(circle at left top, rgba(229,180,0,.06), transparent 24%),
+        linear-gradient(180deg,#f1f3f5 0%, #e9ecef 100%);
       color:var(--text);
       font-family:Inter,Arial,sans-serif;
       position:relative;
@@ -50,21 +58,11 @@
       position:fixed;
       inset:0;
       background:
-        linear-gradient(to right, rgba(17,25,38,.022) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(17,25,38,.022) 1px, transparent 1px);
-      background-size:40px 40px;
+        linear-gradient(to right, rgba(15,23,35,.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15,23,35,.025) 1px, transparent 1px);
+      background-size:42px 42px;
       pointer-events:none;
       z-index:0;
-    }
-
-    body::after{
-      content:"";
-      position:fixed;
-      inset:0;
-      background:linear-gradient(120deg, rgba(255,255,255,.18), transparent 35%, transparent 65%, rgba(255,255,255,.12));
-      pointer-events:none;
-      z-index:0;
-      mix-blend-mode:soft-light;
     }
 
     img{display:block;max-width:100%}
@@ -83,12 +81,12 @@
       width:100%;
       max-width:1280px;
       margin:0 auto;
-      background:rgba(255,255,255,.92);
-      border:1px solid #dde1e5;
-      border-radius:28px;
-      box-shadow:0 22px 60px rgba(0,0,0,.09);
+      background:rgba(255,255,255,.93);
+      border:1px solid #d9dfe5;
+      border-radius:30px;
+      box-shadow:0 25px 70px rgba(0,0,0,.10);
       overflow:hidden;
-      backdrop-filter:blur(6px);
+      backdrop-filter:blur(8px);
     }
 
     .topbar{
@@ -97,8 +95,8 @@
       justify-content:space-between;
       gap:16px;
       padding:16px 22px;
-      border-bottom:1px solid #ececec;
-      background:linear-gradient(180deg,#ffffff 0%, #f5f7f8 100%);
+      border-bottom:1px solid #e7eaee;
+      background:linear-gradient(180deg,#ffffff 0%, #f3f6f8 100%);
       position:relative;
       flex-wrap:wrap;
     }
@@ -110,17 +108,16 @@
       right:24px;
       bottom:0;
       height:1px;
-      background:linear-gradient(to right, transparent, #cfd5db, transparent);
+      background:linear-gradient(to right, transparent, #cfd6dd, transparent);
     }
 
     .brand{
       font-family:Oswald,Arial,sans-serif;
-      font-size:clamp(1.4rem,2.2vw,1.95rem);
+      font-size:clamp(1.45rem,2.2vw,2rem);
       line-height:1;
       text-transform:uppercase;
       letter-spacing:.05em;
       color:var(--blue-dark);
-      text-shadow:0 1px 0 rgba(255,255,255,.8);
     }
 
     .top-meta{
@@ -134,8 +131,8 @@
       min-height:42px;
       padding:10px 16px;
       border-radius:999px;
-      border:1px solid #d8dde2;
-      background:linear-gradient(180deg,#ffffff 0%, #f5f7f8 100%);
+      border:1px solid #d8dee4;
+      background:linear-gradient(180deg,#ffffff 0%, #f4f7f9 100%);
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -144,7 +141,7 @@
       letter-spacing:.1em;
       text-transform:uppercase;
       color:#283140;
-      box-shadow:0 8px 18px rgba(0,0,0,.04);
+      box-shadow:0 8px 18px rgba(0,0,0,.04), inset 0 1px 0 rgba(255,255,255,.7);
     }
 
     .meta-pill strong{
@@ -156,62 +153,56 @@
     }
 
     .hero{
-      padding:28px;
-      background:linear-gradient(180deg, rgba(255,255,255,.90) 0%, rgba(245,247,249,.88) 100%);
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:minmax(0,1.1fr) minmax(360px,.9fr);
-      gap:22px;
-      align-items:stretch;
-    }
-
-    .hero-visual{
       position:relative;
-      min-height:590px;
-      border-radius:30px;
+      min-height:88vh;
+      background:#111;
       overflow:hidden;
-      background:#ddd;
-      border:1px solid #d9dee3;
-      box-shadow:var(--shadow-card);
     }
 
-    .hero-visual img{
+    .hero img{
+      position:absolute;
+      inset:0;
       width:100%;
       height:100%;
       object-fit:cover;
-      transform:scale(1.01);
+      transform:scale(1.02);
     }
 
-    .hero-visual::after{
+    .hero::after{
       content:"";
       position:absolute;
       inset:0;
       background:
-        linear-gradient(90deg, rgba(8,12,18,.82) 0%, rgba(8,12,18,.52) 45%, rgba(8,12,18,.20) 74%, rgba(8,12,18,.08) 100%),
-        linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.38) 100%);
+        linear-gradient(90deg, rgba(7,10,15,.88) 0%, rgba(7,10,15,.64) 38%, rgba(7,10,15,.22) 72%, rgba(7,10,15,.10) 100%),
+        linear-gradient(180deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.42) 100%);
     }
 
-    .hero-visual::before{
+    .hero::before{
       content:"";
       position:absolute;
       inset:0;
       background:
         linear-gradient(to right, rgba(255,255,255,.04) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255,255,255,.04) 1px, transparent 1px);
-      background-size:34px 34px;
+      background-size:36px 36px;
       z-index:1;
       pointer-events:none;
     }
 
-    .hero-copy{
-      position:absolute;
-      left:30px;
-      right:30px;
-      bottom:30px;
+    .hero-inner{
+      position:relative;
       z-index:2;
-      max-width:690px;
+      min-height:88vh;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:26px;
+      align-items:end;
+      padding:34px;
+    }
+
+    .hero-copy{
+      max-width:700px;
+      padding-bottom:22px;
     }
 
     .hero-kicker{
@@ -226,27 +217,29 @@
       font-weight:800;
       letter-spacing:.16em;
       text-transform:uppercase;
-      margin-bottom:14px;
+      margin-bottom:16px;
       backdrop-filter:blur(8px);
     }
 
     .hero-title{
+      margin:0 0 14px;
       font-family:Oswald,Arial,sans-serif;
-      font-size:clamp(2.15rem,4vw,4.2rem);
-      line-height:1;
+      font-size:clamp(2.7rem,5vw,5.5rem);
+      line-height:.96;
       text-transform:uppercase;
-      letter-spacing:.04em;
+      letter-spacing:.03em;
       color:#fff;
-      margin:0 0 12px;
-      text-shadow:0 10px 26px rgba(0,0,0,.24);
+      text-shadow:0 12px 28px rgba(0,0,0,.26);
     }
 
+    .hero-title .accent{color:#f0c21b}
+
     .hero-subtitle{
-      font-size:clamp(1rem,1.45vw,1.1rem);
-      line-height:1.65;
-      color:#eef2f6;
-      max-width:650px;
-      margin:0 0 22px;
+      margin:0 0 24px;
+      max-width:610px;
+      font-size:clamp(1rem,1.45vw,1.12rem);
+      line-height:1.75;
+      color:#e9eef3;
       font-weight:600;
     }
 
@@ -257,30 +250,35 @@
     }
 
     .hero-panel{
-      border:1px solid #dce1e6;
-      background:var(--panel);
-      box-shadow:var(--shadow-card);
+      justify-self:end;
+      width:min(470px,100%);
+      border:1px solid rgba(255,255,255,.16);
+      background:linear-gradient(180deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,.06) 100%);
+      box-shadow:0 25px 60px rgba(0,0,0,.24);
       border-radius:30px;
       padding:22px;
+      backdrop-filter:blur(14px);
       position:relative;
       overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      gap:18px;
     }
 
     .hero-panel::before{
       content:"";
       position:absolute;
-      top:0;
-      left:0;
-      right:0;
-      height:6px;
-      background:linear-gradient(90deg,var(--yellow),var(--red),var(--blue-dark));
+      inset:0;
+      background:linear-gradient(135deg, rgba(255,255,255,.18), transparent 40%, transparent 65%, rgba(255,255,255,.08));
+      pointer-events:none;
     }
 
-    .panel-badge,
-    .section-badge{
+    .hero-panel::after{
+      content:"";
+      position:absolute;
+      left:0;top:0;bottom:0;
+      width:5px;
+      background:linear-gradient(180deg,var(--yellow),var(--red));
+    }
+
+    .panel-badge,.section-badge{
       display:inline-flex;
       align-items:center;
       width:max-content;
@@ -297,59 +295,54 @@
     }
 
     .hero-panel h2{
-      margin:0;
+      margin:14px 0 10px;
       font-family:Oswald,Arial,sans-serif;
       text-transform:uppercase;
-      font-size:clamp(1.9rem,2.7vw,2.7rem);
+      font-size:clamp(1.9rem,2.7vw,2.75rem);
       line-height:1;
-      color:var(--blue-dark);
+      color:#fff;
     }
 
     .hero-panel p{
-      margin:0;
-      color:var(--text-soft);
+      margin:0 0 18px;
+      color:#e3e8ee;
       font-size:15px;
-      line-height:1.65;
+      line-height:1.7;
     }
 
-    .mini-form{
+    .metal-list{
       display:grid;
       gap:12px;
+      margin-bottom:18px;
     }
 
-    .panel-points{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:12px;
-    }
-
-    .point-card{
-      border:1px solid #dde2e6;
-      background:linear-gradient(180deg,#ffffff 0%, #f7f9fb 100%);
+    .metal-item{
+      border:1px solid rgba(255,255,255,.15);
+      background:linear-gradient(135deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.08) 100%);
       border-radius:18px;
-      padding:16px 14px;
-      box-shadow:0 10px 24px rgba(0,0,0,.05);
+      padding:14px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.12);
     }
 
-    .point-card strong{
+    .metal-item strong{
       display:block;
-      margin-bottom:6px;
-      font-size:13px;
-      color:#1f2430;
+      margin-bottom:5px;
+      font-size:12px;
       text-transform:uppercase;
-      letter-spacing:.08em;
+      letter-spacing:.12em;
+      color:#fff;
     }
 
-    .point-card span{
+    .metal-item span{
       display:block;
-      font-size:13px;
-      color:#5c6673;
-      line-height:1.5;
+      color:#e2e8ee;
+      font-size:14px;
+      line-height:1.55;
       font-weight:600;
     }
 
     .btn{
-      min-height:54px;
+      min-height:56px;
       padding:13px 24px;
       border-radius:999px;
       font-weight:800;
@@ -362,32 +355,34 @@
       transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
     }
 
-    .btn:hover{
-      transform:translateY(-2px);
-      filter:brightness(1.02);
-    }
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.02)}
 
     .btn-yellow{
       background:linear-gradient(180deg,var(--yellow),var(--yellow-dark));
-      color:#1f2430;
-      box-shadow:0 12px 24px rgba(201,153,0,.26);
+      color:#171b21;
+      box-shadow:0 12px 24px rgba(201,153,0,.28);
     }
 
     .btn-dark{
-      background:linear-gradient(180deg,#303a4d,#171f2c);
+      background:linear-gradient(180deg,#2d3747,#111926);
       color:#fff;
-      box-shadow:0 10px 22px rgba(0,0,0,.18);
+      box-shadow:0 12px 24px rgba(0,0,0,.22);
     }
 
-    .btn-outline{
-      background:linear-gradient(180deg,#ffffff 0%, #f5f7f8 100%);
-      color:#1f2430;
-      border:1px solid #d7dde2;
-      box-shadow:0 8px 18px rgba(0,0,0,.06);
+    .btn-steel{
+      background:var(--steel);
+      color:#18202b;
+      border:1px solid #c7ced6;
+      box-shadow:0 12px 22px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.75);
     }
 
-    .section{
-      padding:12px 34px 0;
+    .section{padding:0 34px}
+    .section-block{padding:34px 0 0}
+
+    .divider{
+      height:1px;
+      background:linear-gradient(to right, transparent, #cfd5da, transparent);
+      margin:30px 0;
     }
 
     .section-head{
@@ -399,7 +394,7 @@
     .section-title{
       font-family:Oswald,Arial,sans-serif;
       text-transform:uppercase;
-      font-size:clamp(1.9rem,2.6vw,2.7rem);
+      font-size:clamp(2rem,2.7vw,2.9rem);
       line-height:1;
       color:var(--blue-dark);
       margin:12px 0 10px;
@@ -407,143 +402,51 @@
 
     .section-sub{
       color:#56606d;
-      font-size:clamp(.96rem,1.3vw,1.05rem);
-      line-height:1.65;
-      max-width:770px;
+      font-size:clamp(.96rem,1.3vw,1.06rem);
+      line-height:1.7;
+      max-width:780px;
       margin:0 auto;
     }
 
-    .divider{
-      height:1px;
-      background:linear-gradient(to right, transparent, #d1d5da, transparent);
-      margin:28px 0;
-    }
-
-    .search-row{
-      max-width:1100px;
+    .special-grid{
+      max-width:1140px;
       margin:0 auto;
-      display:grid;
-      grid-template-columns:1.1fr .95fr .95fr auto;
-      gap:14px;
-      padding:18px;
-      border:1px solid #dce0e4;
-      background:var(--panel);
-      box-shadow:var(--shadow-card);
-      border-radius:24px;
-    }
-
-    .quick-links{
-      max-width:1100px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:14px;
-    }
-
-    .quick-link{
-      border:1px solid #dce0e4;
-      background:var(--metal-gradient-soft);
-      border-radius:22px;
-      box-shadow:var(--shadow-card);
-      padding:18px 16px;
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-      min-height:132px;
-      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
-    }
-
-    .quick-link:hover{
-      transform:translateY(-6px);
-      box-shadow:var(--shadow-hover);
-      border-color:#cfd5da;
-    }
-
-    .quick-link-label{
-      display:inline-flex;
-      width:max-content;
-      padding:6px 10px;
-      border-radius:999px;
-      background:linear-gradient(180deg,#ffffff 0%, #eef2f5 100%);
-      border:1px solid #dce0e4;
-      font-size:10px;
-      font-weight:800;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:#56606d;
-    }
-
-    .quick-link h3{
-      margin:0;
-      font-size:1.12rem;
-      line-height:1.2;
-      color:#1e2533;
-    }
-
-    .quick-link p{
-      margin:0;
-      color:#5b6471;
-      font-size:14px;
-      line-height:1.5;
-      font-weight:600;
-    }
-
-    .service-grid{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
       gap:22px;
-      max-width:1100px;
-      margin:0 auto;
     }
 
     .service-card,
-    .simple-card,
-    .advice-card,
+    .feature-card,
     .gallery-card,
     .map-card,
-    .booking-inner,
-    .trust-strip,
-    .why-grid article{
+    .booking-inner{
       transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
     }
 
     .service-card{
-      border:1px solid #dce0e4;
-      background:var(--metal-gradient-soft);
+      border:1px solid #d6dde4;
+      background:linear-gradient(180deg,#ffffff 0%, #f4f7f9 50%, #edf1f4 100%);
       box-shadow:var(--shadow-card);
       overflow:hidden;
-      border-radius:22px;
+      border-radius:26px;
       cursor:pointer;
       position:relative;
-      isolation:isolate;
-    }
-
-    .service-card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(135deg, rgba(255,255,255,.45), transparent 38%, transparent 65%, rgba(255,255,255,.18));
-      opacity:.45;
-      pointer-events:none;
-      z-index:0;
     }
 
     .service-card:hover,
-    .simple-card:hover,
-    .advice-card:hover,
+    .feature-card:hover,
     .gallery-card:hover,
     .map-card:hover,
-    .booking-inner:hover,
-    .trust-strip:hover,
-    .why-grid article:hover{
+    .booking-inner:hover{
       transform:translateY(-6px);
       box-shadow:var(--shadow-hover);
-      border-color:#cfd5da;
+      border-color:#c2cad3;
     }
 
     .service-card-image{
       position:relative;
-      height:250px;
+      height:300px;
       overflow:hidden;
       background:#ddd;
     }
@@ -555,8 +458,13 @@
       transition:transform .45s ease;
     }
 
-    .service-card:hover .service-card-image img{
-      transform:scale(1.05);
+    .service-card:hover .service-card-image img{transform:scale(1.05)}
+
+    .service-card-image::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.34) 100%);
     }
 
     .service-card-badge{
@@ -564,8 +472,8 @@
       top:14px;
       left:14px;
       z-index:2;
-      background:var(--metal-gradient);
-      color:var(--blue-dark);
+      background:var(--steel);
+      color:#111a27;
       padding:8px 11px;
       font-size:11px;
       font-weight:800;
@@ -576,26 +484,22 @@
       box-shadow:0 6px 16px rgba(17,25,38,.12), inset 0 1px 0 rgba(255,255,255,.75);
     }
 
-    .service-card-body{
-      padding:20px 20px 22px;
-      position:relative;
-      z-index:1;
-    }
+    .service-card-body{padding:22px}
 
     .service-name{
-      font-size:clamp(1.3rem,1.8vw,1.7rem);
+      font-size:clamp(1.35rem,1.8vw,1.8rem);
       font-weight:800;
-      line-height:1.2;
+      line-height:1.18;
       margin-bottom:8px;
-      color:#1f2430;
+      color:#18202b;
     }
 
     .service-desc{
-      font-size:clamp(.96rem,1.15vw,1.03rem);
-      line-height:1.6;
-      color:#57606c;
+      font-size:clamp(.98rem,1.15vw,1.04rem);
+      line-height:1.65;
+      color:#586271;
+      margin-bottom:16px;
       font-style:italic;
-      margin-bottom:14px;
     }
 
     .service-meta{
@@ -613,12 +517,11 @@
       font-weight:800;
       letter-spacing:.12em;
       text-transform:uppercase;
-      color:#655003;
+      color:#5f4b02;
       background:linear-gradient(180deg,#fff9dd,#f0e1a0);
       border:1px solid #ead57c;
       padding:7px 11px;
       border-radius:999px;
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.72);
     }
 
     .service-link{
@@ -630,209 +533,185 @@
       white-space:nowrap;
     }
 
-    .secondary-grid{
-      max-width:1100px;
+    .feature-grid{
+      max-width:1140px;
       margin:0 auto;
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:22px;
-      align-items:stretch;
-    }
-
-    .simple-card{
-      border:1px solid #dce0e4;
-      background:var(--metal-gradient-soft);
-      box-shadow:var(--shadow-card);
-      overflow:hidden;
-      text-align:center;
-      border-radius:22px;
-      height:100%;
-      position:relative;
-    }
-
-    .simple-card-image{
-      height:240px;
-      overflow:hidden;
-      background:#ddd;
-    }
-
-    .simple-card-image img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition:transform .45s ease;
-    }
-
-    .simple-card:hover .simple-card-image img{
-      transform:scale(1.04);
-    }
-
-    .simple-card-body{
-      padding:24px 18px 26px;
-    }
-
-    .simple-title{
-      font-size:clamp(1.35rem,2vw,1.85rem);
-      font-weight:800;
-      line-height:1.2;
-      color:#202633;
-      margin-bottom:8px;
-    }
-
-    .simple-desc{
-      font-size:clamp(.98rem,1.35vw,1.06rem);
-      color:#49515e;
-      line-height:1.5;
-      font-style:italic;
-    }
-
-    .advice-card{
-      border:1px solid #dce0e4;
-      background:var(--metal-gradient-soft);
-      box-shadow:var(--shadow-card);
-      overflow:hidden;
-      border-radius:22px;
-      display:flex;
-      flex-direction:column;
-      height:100%;
-    }
-
-    .advice-card-top{
-      min-height:240px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:linear-gradient(135deg,#fffdf4,#f6f7f8 52%, #eceff2 100%);
-      text-align:center;
-      padding:24px;
-      position:relative;
-    }
-
-    .advice-card-top::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(to right, rgba(17,25,38,.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(17,25,38,.03) 1px, transparent 1px);
-      background-size:30px 30px;
-      pointer-events:none;
-    }
-
-    .advice-card-top h3{
-      font-family:Oswald,Arial,sans-serif;
-      font-size:clamp(1.7rem,2.4vw,2.4rem);
-      line-height:1;
-      color:#1d2d4d;
-      text-transform:uppercase;
-      margin:0 0 10px;
-      position:relative;
-      z-index:1;
-    }
-
-    .advice-card-top p{
-      font-size:clamp(1rem,1.2vw,1.08rem);
-      line-height:1.6;
-      color:#4e5663;
-      max-width:340px;
-      margin:0 auto;
-      position:relative;
-      z-index:1;
-    }
-
-    .advice-card-body{
-      padding:24px 22px 26px;
-      display:flex;
-      flex-direction:column;
-      flex:1;
-    }
-
-    .advice-card-body .service-name{margin-bottom:8px}
-    .advice-card-body .service-desc{margin-bottom:18px}
-    .advice-card-body .service-meta{margin-top:auto}
-
-    .trust-strip{
-      max-width:1100px;
-      margin:0 auto;
-      border:1px solid #dce0e4;
-      background:var(--panel);
-      border-radius:24px;
-      box-shadow:var(--shadow-card);
-      padding:22px;
-    }
-
-    .trust-grid{
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:16px;
-    }
-
-    .trust-item{
-      padding:10px 8px;
-      text-align:center;
-    }
-
-    .trust-item strong{
-      display:block;
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:.09em;
-      margin-bottom:6px;
-      color:#1f2430;
-    }
-
-    .trust-item span{
-      display:block;
-      font-size:14px;
-      line-height:1.55;
-      color:#5b6572;
-      font-weight:600;
-    }
-
-    .why-grid{
-      max-width:1100px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
       gap:18px;
     }
 
-    .why-grid article{
-      border:1px solid #dce0e4;
-      background:var(--metal-gradient-soft);
-      border-radius:22px;
+    .feature-card{
+      border:1px solid #d7dde4;
+      background:var(--steel);
       box-shadow:var(--shadow-card);
-      padding:22px;
+      border-radius:24px;
+      padding:22px 18px;
+      position:relative;
+      overflow:hidden;
     }
 
-    .why-grid h3{
+    .feature-number{
+      font-family:Oswald,Arial,sans-serif;
+      font-size:2.1rem;
+      line-height:1;
+      color:#9aa4af;
+      margin-bottom:14px;
+      letter-spacing:.04em;
+    }
+
+    .feature-card h3{
       margin:0 0 10px;
-      font-size:1.15rem;
-      color:#1f2430;
+      font-size:1.06rem;
+      line-height:1.25;
+      color:#171e28;
+      text-transform:uppercase;
     }
 
-    .why-grid p{
+    .feature-card p{
       margin:0;
-      color:#5b6572;
+      color:#53606e;
       font-size:14px;
       line-height:1.65;
       font-weight:600;
     }
 
-    .gallery-card{
-      max-width:1100px;
-      margin:0 auto;
-      border:1px solid #dce0e4;
-      background:var(--metal-gradient-soft);
+    .booking-wrap{max-width:1140px;margin:0 auto}
+
+    .booking-inner{
+      border:1px solid #d6dde4;
+      background:linear-gradient(180deg,#ffffff 0%, #f6f8fa 50%, #edf1f4 100%);
+      padding:24px;
+      border-radius:28px;
       box-shadow:var(--shadow-card);
-      border-radius:22px;
+    }
+
+    .booking-layout{
+      display:grid;
+      grid-template-columns:.88fr 1.12fr;
+      gap:22px;
+      align-items:start;
+    }
+
+    .booking-side{
+      border:1px solid #d7dde4;
+      background:var(--panel-dark);
+      border-radius:24px;
+      padding:24px;
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .booking-side::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(255,255,255,.10), transparent 44%, transparent 70%, rgba(255,255,255,.06));
+      pointer-events:none;
+    }
+
+    .booking-side h3{
+      margin:14px 0 10px;
+      font-family:Oswald,Arial,sans-serif;
+      text-transform:uppercase;
+      font-size:2rem;
+      line-height:1;
+    }
+
+    .booking-side p{
+      margin:0 0 18px;
+      color:#d7dde4;
+      line-height:1.7;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .booking-side-list{display:grid;gap:12px}
+
+    .booking-side-item{
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:18px;
+      padding:14px;
+      background:rgba(255,255,255,.05);
+    }
+
+    .booking-side-item strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#fff;
+    }
+
+    .booking-side-item span{
+      display:block;
+      color:#dce3ea;
+      font-size:14px;
+      line-height:1.55;
+      font-weight:600;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+
+    .field{display:flex;flex-direction:column;gap:8px}
+    .field.full{grid-column:1 / -1}
+    .hidden-field{display:none}
+
+    label{
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#697382;
+    }
+
+    input,select,textarea{
+      width:100%;
+      padding:14px 15px;
+      border:1px solid #d5dce3;
+      background:linear-gradient(180deg,#ffffff 0%, #f8fafb 100%);
+      color:var(--text);
+      font:inherit;
+      outline:none;
+      border-radius:12px;
+      transition:border-color .22s ease, box-shadow .22s ease, transform .18s ease;
+    }
+
+    input:focus,select:focus,textarea:focus{
+      border-color:#b9c3cd;
+      box-shadow:0 0 0 4px rgba(201,153,0,.10);
+      transform:translateY(-1px);
+    }
+
+    textarea{min-height:120px;resize:vertical}
+    .booking-actions{display:flex;justify-content:center;margin-top:18px}
+
+    .powered{text-align:center;padding:8px 0 28px}
+    .powered-title{font-size:clamp(1.1rem,1.6vw,1.35rem);font-weight:800;color:#2a3140;margin-bottom:8px}
+    .powered-sub{font-size:clamp(.96rem,1.2vw,1.02rem);color:#444c58;margin-bottom:10px}
+    .liqui-inline{display:flex;align-items:center;justify-content:center}
+    .liqui-inline img{width:96px;height:auto;object-fit:contain;filter:drop-shadow(0 8px 16px rgba(0,0,0,.08))}
+
+    .gallery-card{
+      max-width:1140px;
+      margin:0 auto;
+      border:1px solid #d6dde4;
+      background:linear-gradient(180deg,#ffffff 0%, #f4f6f8 50%, #edf1f4 100%);
+      box-shadow:var(--shadow-card);
+      border-radius:28px;
       overflow:hidden;
       cursor:pointer;
     }
 
     .gallery-card-top{
       position:relative;
-      height:280px;
+      height:320px;
       overflow:hidden;
       background:#ddd;
     }
@@ -850,22 +729,22 @@
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(180deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.56) 100%);
+      background:linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.60) 100%);
     }
 
     .gallery-card-label{
       position:absolute;
-      left:24px;
-      bottom:24px;
+      left:26px;
+      bottom:26px;
       z-index:2;
       background:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.09));
       border:1px solid rgba(255,255,255,.25);
       color:#fff;
-      padding:16px 18px;
-      border-radius:16px;
+      padding:18px 20px;
+      border-radius:18px;
       backdrop-filter:blur(8px);
       border-left:5px solid var(--yellow);
-      max-width:calc(100% - 48px);
+      max-width:calc(100% - 52px);
       box-shadow:0 10px 26px rgba(0,0,0,.18);
     }
 
@@ -873,9 +752,8 @@
       margin:0 0 6px;
       font-family:Oswald,Arial,sans-serif;
       text-transform:uppercase;
-      font-size:clamp(1.6rem,2.6vw,2.35rem);
+      font-size:clamp(1.7rem,2.6vw,2.5rem);
       line-height:1;
-      letter-spacing:.04em;
     }
 
     .gallery-card-label p{
@@ -898,7 +776,7 @@
     .gallery-card-text{
       color:#55606d;
       font-size:clamp(.96rem,1.25vw,1.05rem);
-      line-height:1.6;
+      line-height:1.7;
       max-width:760px;
     }
 
@@ -909,201 +787,31 @@
       min-height:48px;
       padding:12px 18px;
       border-radius:999px;
-      background:linear-gradient(180deg,var(--yellow),var(--yellow-dark));
-      color:#1f2430;
+      background:var(--steel);
+      color:#19212c;
       font-weight:800;
       font-size:13px;
       letter-spacing:.12em;
       text-transform:uppercase;
       white-space:nowrap;
-      box-shadow:0 10px 22px rgba(201,153,0,.24);
-    }
-
-    .booking-box{padding-bottom:28px}
-
-    .booking-head{
-      text-align:center;
-      margin-bottom:18px;
-      max-width:900px;
-      margin-left:auto;
-      margin-right:auto;
-    }
-
-    .booking-title{
-      font-family:Oswald,Arial,sans-serif;
-      text-transform:uppercase;
-      font-size:clamp(1.9rem,2.7vw,2.55rem);
-      line-height:1;
-      margin-bottom:8px;
-      color:var(--blue-dark);
-    }
-
-    .booking-sub{
-      color:#57606d;
-      font-size:clamp(.96rem,1.3vw,1.05rem);
-      line-height:1.6;
-    }
-
-    .booking-inner{
-      max-width:1100px;
-      margin:0 auto;
-      background:var(--panel);
-      border:1px solid #dde2e6;
-      padding:22px;
-      border-radius:22px;
-      box-shadow:var(--shadow-card);
-    }
-
-    .booking-layout{
-      display:grid;
-      grid-template-columns:.92fr 1.08fr;
-      gap:18px;
-      align-items:start;
-    }
-
-    .booking-info{
-      border:1px solid #dde2e6;
-      border-radius:22px;
-      background:linear-gradient(180deg,#ffffff 0%, #f5f7f9 100%);
-      padding:22px;
-      box-shadow:0 10px 24px rgba(0,0,0,.05);
-    }
-
-    .booking-info h3{
-      margin:0 0 10px;
-      font-family:Oswald,Arial,sans-serif;
-      text-transform:uppercase;
-      font-size:1.75rem;
-      line-height:1;
-      color:var(--blue-dark);
-    }
-
-    .booking-info p{
-      margin:0 0 18px;
-      color:#586271;
-      line-height:1.65;
-      font-size:14px;
-      font-weight:600;
-    }
-
-    .booking-info-list{
-      display:grid;
-      gap:12px;
-    }
-
-    .booking-info-list div{
-      border:1px solid #e0e5ea;
-      border-radius:16px;
-      padding:14px;
-      background:#fff;
-    }
-
-    .booking-info-list strong{
-      display:block;
-      margin-bottom:4px;
-      font-size:12px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:#293140;
-    }
-
-    .booking-info-list span{
-      display:block;
-      color:#5e6774;
-      font-size:14px;
-      line-height:1.5;
-      font-weight:600;
-    }
-
-    .form-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px;
-    }
-
-    .field{display:flex;flex-direction:column;gap:8px}
-    .field.full{grid-column:1 / -1}
-    .hidden-field{display:none}
-
-    label{
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:#6a7483;
-    }
-
-    input,select,textarea{
-      width:100%;
-      padding:14px 15px;
-      border:1px solid #d7dde2;
-      background:linear-gradient(180deg,#ffffff 0%, #f8fafb 100%);
-      color:var(--text);
-      font:inherit;
-      outline:none;
-      border-radius:12px;
-      transition:border-color .22s ease, box-shadow .22s ease, transform .18s ease;
-    }
-
-    input:focus,select:focus,textarea:focus{
-      border-color:#bec7d0;
-      box-shadow:0 0 0 4px rgba(201,153,0,.10);
-      transform:translateY(-1px);
-    }
-
-    textarea{min-height:110px;resize:vertical}
-
-    .booking-actions{
-      display:flex;
-      justify-content:center;
-      margin-top:18px;
-    }
-
-    .powered{
-      text-align:center;
-      padding:8px 0 28px;
-    }
-
-    .powered-title{
-      font-size:clamp(1.1rem,1.6vw,1.35rem);
-      font-weight:800;
-      color:#2a3140;
-      margin-bottom:8px;
-    }
-
-    .powered-sub{
-      font-size:clamp(.96rem,1.2vw,1.02rem);
-      color:#444c58;
-      margin-bottom:10px;
-    }
-
-    .liqui-inline{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .liqui-inline img{
-      width:96px;
-      height:auto;
-      object-fit:contain;
-      filter:drop-shadow(0 8px 16px rgba(0,0,0,.08));
+      border:1px solid #c7ced6;
+      box-shadow:0 10px 22px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.7);
     }
 
     .map-section{padding:0 34px 34px}
 
     .map-card{
-      max-width:1100px;
+      max-width:1140px;
       margin:0 auto;
-      border:1px solid #dce0e4;
+      border:1px solid #d6dde4;
       background:linear-gradient(180deg,#ffffff 0%, #f4f6f8 55%, #edf1f4 100%);
       box-shadow:var(--shadow-card);
-      border-radius:22px;
+      border-radius:28px;
       overflow:hidden;
     }
 
     .map-head{
-      padding:22px 22px 18px;
+      padding:24px 22px 18px;
       text-align:center;
       border-bottom:1px solid #ececec;
       background:linear-gradient(180deg,#ffffff 0%, #f5f7f8 100%);
@@ -1113,43 +821,17 @@
       margin:0 0 8px;
       font-family:Oswald,Arial,sans-serif;
       text-transform:uppercase;
-      font-size:clamp(1.6rem,2.3vw,2.2rem);
+      font-size:clamp(1.7rem,2.3vw,2.3rem);
       line-height:1;
       color:var(--blue-dark);
     }
 
-    .map-head p{
-      margin:0;
-      color:#5b6572;
-      font-size:14px;
-      line-height:1.6;
-    }
+    .map-head p{margin:0;color:#5b6572;font-size:14px;line-height:1.6}
+    .map-frame{width:100%;height:430px;border:0;display:block;filter:grayscale(.08) contrast(1.03)}
+    .map-action{text-align:center;padding:16px 20px 20px;background:linear-gradient(180deg,#f7f8fa 0%, #eef2f5 100%);border-top:1px solid #e5e8ec}
+    footer{text-align:center;padding:0 18px 24px;font-size:13px;color:#6b7380}
 
-    .map-frame{
-      width:100%;
-      height:420px;
-      border:0;
-      display:block;
-      filter:grayscale(.08) contrast(1.03);
-    }
-
-    .map-action{
-      text-align:center;
-      padding:16px 20px 20px;
-      background:linear-gradient(180deg,#f7f8fa 0%, #eef2f5 100%);
-      border-top:1px solid #e5e8ec;
-    }
-
-    footer{
-      text-align:center;
-      padding:0 18px 24px;
-      font-size:13px;
-      color:#6b7380;
-    }
-
-    .lightbox,
-    .service-modal,
-    .gallery-modal{
+    .lightbox,.service-modal,.gallery-modal{
       display:none;
       position:fixed;
       inset:0;
@@ -1167,10 +849,7 @@
       box-shadow:0 20px 40px rgba(0,0,0,.35);
     }
 
-    .lb-close,.modal-close,.gallery-modal-close,.lightbox-btn,.gallery-view-btn{
-      border:none;
-      cursor:pointer;
-    }
+    .lb-close,.modal-close,.gallery-modal-close,.lightbox-btn,.gallery-view-btn{border:none;cursor:pointer}
 
     .lb-close,.modal-close,.gallery-modal-close{
       position:absolute;
@@ -1375,52 +1054,39 @@
     }
 
     @media (max-width:1160px){
-      .hero-grid,
+      .hero-inner,
       .booking-layout,
-      .search-row{
+      .special-grid{
         grid-template-columns:1fr;
       }
 
-      .panel-points,
-      .quick-links,
-      .trust-grid,
-      .why-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-
+      .hero{min-height:auto}
+      .hero-inner{min-height:auto;align-items:end}
+      .hero-panel{justify-self:stretch;width:100%}
+      .feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
       .gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-    }
-
-    @media (max-width:980px){
-      .service-grid,.secondary-grid,.service-modal-card{grid-template-columns:1fr}
-      .service-modal-image img{min-height:260px}
     }
 
     @media (max-width:760px){
       .page{padding:10px 8px 22px}
-      .sheet{border-radius:18px}
+      .sheet{border-radius:20px}
       .topbar{padding:14px}
-      .hero{padding:14px}
-      .hero-visual{min-height:430px;border-radius:22px}
-      .hero-copy{left:16px;right:16px;bottom:16px}
-      .section{padding:20px 14px 0}
-      .map-section{padding:0 14px 22px}
-      .form-grid{grid-template-columns:1fr}
-      .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .gallery-item{height:160px}
-      .gallery-card-top{height:220px}
-      .lightbox-btn{display:none}
+      .hero-inner{padding:16px}
+      .hero-copy{padding-bottom:0}
+      .section,.map-section{padding-left:14px;padding-right:14px}
+      .feature-grid,.form-grid,.gallery-grid{grid-template-columns:1fr}
+      .gallery-card-top{height:240px}
       .map-frame{height:320px}
-      .panel-points,
-      .quick-links,
-      .trust-grid,
-      .why-grid{grid-template-columns:1fr}
+      .lightbox-btn{display:none}
+      .service-modal-card{grid-template-columns:1fr}
+      .service-modal-image img{min-height:260px}
     }
   </style>
 </head>
 <body>
   <div class="page">
     <div class="sheet">
+
       <header class="topbar">
         <div class="brand">AG AUTO TECH TADLEY</div>
         <div class="top-meta">
@@ -1430,142 +1096,59 @@
       </header>
 
       <section class="hero">
-        <div class="hero-grid">
-          <div class="hero-visual">
-            <img src="main.jpg" alt="AG Auto Tech Tadley workshop">
-            <div class="hero-copy">
-              <div class="hero-kicker">Specialist Vehicle Services</div>
-              <h1 class="hero-title">Premium Workshop Feel. Straightforward Booking. Specialist Results.</h1>
-              <p class="hero-subtitle">
-                DPF diagnostics, walnut blasting, automatic gearbox service, ECU remaps & coding, tyres and wheel alignment — all presented in a cleaner, more modern garage website built to convert local drivers into real bookings.
-              </p>
-              <div class="hero-buttons">
-                <a href="#booking" class="btn btn-yellow">Book Service</a>
-                <a href="tel:07920778706" class="btn btn-dark">Call Now</a>
-                <a href="#gallery" class="btn btn-outline">View Gallery</a>
-              </div>
+        <img src="main.jpg" alt="AG Auto Tech Tadley workshop">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <div class="hero-kicker">Specialist Vehicle Services</div>
+            <h1 class="hero-title">Precision. <span class="accent">Power.</span> Proper Diagnostic Work.</h1>
+            <p class="hero-subtitle">
+              A more aggressive premium workshop look built around what actually makes your garage stand out:
+              specialist DPF work, gearbox service, diagnostics, coding and a cleaner booking journey that feels sharper,
+              stronger and more expensive.
+            </p>
+            <div class="hero-buttons">
+              <a href="#booking" class="btn btn-yellow">Book Service</a>
+              <a href="tel:07920778706" class="btn btn-dark">Call Garage</a>
+              <a href="#gallery" class="btn btn-steel">View Workshop</a>
             </div>
           </div>
 
           <aside class="hero-panel">
-            <div class="panel-badge">Quick Booking</div>
-            <h2>Get Started In Seconds</h2>
-            <p>Enter the vehicle registration, choose the service and continue straight to the booking form. Fast, clean and easy — exactly how a modern garage website should work.</p>
-
-            <div class="mini-form">
-              <div class="field">
-                <label for="heroReg">Vehicle Registration</label>
-                <input id="heroReg" placeholder="Enter registration">
+            <div class="panel-badge">Why This Works</div>
+            <h2>One Strong Journey</h2>
+            <p>
+              No repeated booking boxes. No filler. One stronger page flow that starts with brand impact and pushes
+              the customer naturally toward a single booking section.
+            </p>
+            <div class="metal-list">
+              <div class="metal-item">
+                <strong>Performance-led feel</strong>
+                <span>More like a specialist automotive workshop brand, less like a template garage page.</span>
               </div>
-
-              <div class="field">
-                <label for="heroService">Service Needed</label>
-                <select id="heroService">
-                  <option>DPF Diagnostics</option>
-                  <option>Walnut Blasting</option>
-                  <option>Automatic Gearbox Service</option>
-                  <option>ECU Remaps & Coding</option>
-                  <option>DPF Deep Clean</option>
-                  <option>Wheel Alignment</option>
-                  <option>Tyres</option>
-                </select>
+              <div class="metal-item">
+                <strong>Metallic styling</strong>
+                <span>Steel gradients and machined-style surfaces give the page more depth and edge.</span>
               </div>
-
-              <button type="button" class="btn btn-yellow" onclick="goToBooking()">Continue To Booking</button>
-            </div>
-
-            <div class="panel-points">
-              <div class="point-card">
-                <strong>Specialist</strong>
-                <span>DPF and automatic gearbox focused services</span>
-              </div>
-              <div class="point-card">
-                <strong>Equipment</strong>
-                <span>Professional diagnostics and premium workshop tools</span>
-              </div>
-              <div class="point-card">
-                <strong>Location</strong>
-                <span>Ash Park Business Centre, Tadley RG26 5FL</span>
-              </div>
-              <div class="point-card">
-                <strong>Fast Contact</strong>
-                <span>WhatsApp booking request sent directly to the garage</span>
+              <div class="metal-item">
+                <strong>Higher contrast</strong>
+                <span>Stronger hero, bolder typography and cleaner visual hierarchy.</span>
               </div>
             </div>
+            <a href="#booking" class="btn btn-yellow" style="width:100%;">Go To Booking</a>
           </aside>
         </div>
       </section>
 
-      <section class="section">
-        <div class="search-row">
-          <div class="field">
-            <label for="searchReg">Vehicle Registration</label>
-            <input id="searchReg" placeholder="Enter registration">
-          </div>
-          <div class="field">
-            <label for="searchService">Select Service</label>
-            <select id="searchService">
-              <option>DPF Diagnostics</option>
-              <option>Walnut Blasting</option>
-              <option>Automatic Gearbox Service</option>
-              <option>ECU Remaps & Coding</option>
-              <option>DPF Deep Clean</option>
-              <option>Wheel Alignment</option>
-              <option>Tyres</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="searchLocation">Service Area</label>
-            <input id="searchLocation" value="Tadley / Reading / Basingstoke" readonly>
-          </div>
-          <button type="button" class="btn btn-yellow" onclick="quickStartBooking()">Start Booking</button>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="divider"></div>
+      <section class="section section-block">
         <div class="section-head">
-          <div class="section-badge">Quick Service Access</div>
-          <div class="section-title">Choose The Right Service Fast</div>
-          <div class="section-sub">A stronger booking-first structure inspired by high-converting service websites, while keeping your existing brand colours, workshop images, map and service theme.</div>
+          <div class="section-badge">Core Services</div>
+          <div class="section-title">What We Actually Specialise In</div>
+          <div class="section-sub">
+            Bigger, stronger service panels focused on your specialist work — not a cluttered list of random garage jobs.
+          </div>
         </div>
 
-        <div class="quick-links">
-          <a href="#booking" class="quick-link" onclick="setServiceAndScroll('DPF Diagnostics')">
-            <span class="quick-link-label">Popular</span>
-            <h3>DPF Diagnostics</h3>
-            <p>Find the real cause of DPF problems before replacing parts unnecessarily.</p>
-          </a>
-
-          <a href="#booking" class="quick-link" onclick="setServiceAndScroll('Automatic Gearbox Service')">
-            <span class="quick-link-label">Specialist</span>
-            <h3>Gearbox Service</h3>
-            <p>Book smoother, cleaner automatic gearbox servicing with the right process.</p>
-          </a>
-
-          <a href="#booking" class="quick-link" onclick="setServiceAndScroll('Wheel Alignment')">
-            <span class="quick-link-label">Workshop</span>
-            <h3>Wheel Alignment</h3>
-            <p>Front and 4 wheel alignment available for better handling and tyre life.</p>
-          </a>
-
-          <a href="#booking" class="quick-link" onclick="setServiceAndScroll('Tyres')">
-            <span class="quick-link-label">Supply & Fit</span>
-            <h3>Tyres</h3>
-            <p>Choose quantity, size, tyre type and preferred budget range in one flow.</p>
-          </a>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="divider"></div>
-        <div class="section-head">
-          <div class="section-badge">Specialist Services</div>
-          <div class="section-title">Focused Services That Solve The Real Problem</div>
-          <div class="section-sub">Your original service descriptions are preserved, but the layout is cleaner, stronger and more premium across desktop and mobile.</div>
-        </div>
-
-        <div class="service-grid">
+        <div class="special-grid">
           <article class="service-card" onclick="openServiceModal('dpf')">
             <div class="service-card-image">
               <img src="garage194.jpg" alt="DPF Diagnostics">
@@ -1581,55 +1164,6 @@
             </div>
           </article>
 
-          <article class="service-card" onclick="openServiceModal('walnut')">
-            <div class="service-card-image">
-              <img src="walnut.jpg" alt="Walnut Blasting">
-              <div class="service-card-badge">Carbon Removal</div>
-            </div>
-            <div class="service-card-body">
-              <div class="service-name">Walnut Blasting</div>
-              <div class="service-desc">Specialist carbon cleaning process designed to restore airflow.</div>
-              <div class="service-meta">
-                <div class="service-chip">Engine Intake Care</div>
-                <div class="service-link">Tap to view</div>
-              </div>
-            </div>
-          </article>
-
-          <article class="service-card" onclick="openServiceModal('gearbox')">
-            <div class="service-card-image">
-              <img src="liquimoly3.jpg" alt="Automatic Gearbox">
-              <div class="service-card-badge">Dynamic Oil Change</div>
-            </div>
-            <div class="service-card-body">
-              <div class="service-name">Automatic Gearbox</div>
-              <div class="service-desc">Service-led gearbox care focused on smoother shifting and reliability.</div>
-              <div class="service-meta">
-                <div class="service-chip">Transmission Systems</div>
-                <div class="service-link">Tap to view</div>
-              </div>
-            </div>
-          </article>
-
-          <article class="service-card" onclick="openServiceModal('remap')">
-            <div class="service-card-image">
-              <img src="garage39.jpg" alt="ECU Remaps and Coding">
-              <div class="service-card-badge">Electronic Control</div>
-            </div>
-            <div class="service-card-body">
-              <div class="service-name">ECU Remaps & Coding</div>
-              <div class="service-desc">Advanced diagnostics, coding and electronic control support.</div>
-              <div class="service-meta">
-                <div class="service-chip">Advanced Diagnostics</div>
-                <div class="service-link">Tap to view</div>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="secondary-grid">
           <article class="service-card" onclick="openServiceModal('dpfdeep')">
             <div class="service-card-image">
               <img src="dpfdeep.jpg" alt="DPF Deep Clean">
@@ -1645,229 +1179,198 @@
             </div>
           </article>
 
-          <div class="simple-card">
-            <div class="simple-card-image">
-              <img src="garage19112.jpg" alt="Wheel Alignment">
+          <article class="service-card" onclick="openServiceModal('gearbox')">
+            <div class="service-card-image">
+              <img src="liquimoly3.jpg" alt="Automatic Gearbox Service">
+              <div class="service-card-badge">Dynamic Oil Change</div>
             </div>
-            <div class="simple-card-body">
-              <div class="simple-title">Wheel Alignment</div>
-              <div class="simple-desc">Front and 4 wheel alignment available</div>
-            </div>
-          </div>
-
-          <div class="simple-card">
-            <div class="simple-card-image">
-              <img src="garage221.jpg" alt="Tyres">
-            </div>
-            <div class="simple-card-body">
-              <div class="simple-title">Tyres</div>
-              <div class="simple-desc">Supply & fitting</div>
-            </div>
-          </div>
-
-          <div class="advice-card">
-            <div class="advice-card-top">
-              <div>
-                <h3>Need Advice First?</h3>
-                <p>Book a diagnostic or call us directly and we will guide you to the right service.</p>
-              </div>
-            </div>
-            <div class="advice-card-body">
-              <div class="service-name">Talk to Us</div>
-              <div class="service-desc">Start with a diagnostic and we will point you in the right direction.</div>
+            <div class="service-card-body">
+              <div class="service-name">Automatic Gearbox Service</div>
+              <div class="service-desc">Service-led gearbox care focused on smoother shifting and long-term reliability.</div>
               <div class="service-meta">
-                <a href="#booking" class="service-chip">Book Now</a>
-                <a href="tel:07920778706" class="service-link">Call Garage</a>
+                <div class="service-chip">Transmission Systems</div>
+                <div class="service-link">Tap to view</div>
               </div>
             </div>
-          </div>
+          </article>
+
+          <article class="service-card" onclick="openServiceModal('remap')">
+            <div class="service-card-image">
+              <img src="garage39.jpg" alt="ECU Coding and Diagnostics">
+              <div class="service-card-badge">Electronic Control</div>
+            </div>
+            <div class="service-card-body">
+              <div class="service-name">ECU Coding & Diagnostics</div>
+              <div class="service-desc">Advanced diagnostics, coding and electronic control support using modern workshop equipment.</div>
+              <div class="service-meta">
+                <div class="service-chip">Advanced Diagnostics</div>
+                <div class="service-link">Tap to view</div>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
-      <section class="section">
-        <div class="divider"></div>
-        <div class="trust-strip">
-          <div class="trust-grid">
-            <div class="trust-item">
-              <strong>DPF Specialists</strong>
-              <span>Diagnosis-led service rather than guessing and replacing parts.</span>
-            </div>
-            <div class="trust-item">
-              <strong>Gearbox Support</strong>
-              <span>Professional process-led automatic gearbox servicing.</span>
-            </div>
-            <div class="trust-item">
-              <strong>Advanced Diagnostics</strong>
-              <span>Coding, scanning and deeper electronic fault tracing.</span>
-            </div>
-            <div class="trust-item">
-              <strong>Local Coverage</strong>
-              <span>Serving Tadley, Reading and Basingstoke from one workshop base.</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
+      <section class="section section-block">
         <div class="divider"></div>
         <div class="section-head">
-          <div class="section-badge">Why Drivers Choose Us</div>
-          <div class="section-title">Built To Look Better And Convert Better</div>
-          <div class="section-sub">This section gives the site more authority, more trust and a stronger premium garage feel without changing the brand identity you already built.</div>
+          <div class="section-badge">Why Drivers Come To Us</div>
+          <div class="section-title">Built With More Bite</div>
+          <div class="section-sub">
+            This is where the site becomes more than a garage page — it starts feeling like a specialist brand.
+          </div>
         </div>
 
-        <div class="why-grid">
-          <article>
-            <h3>Cleaner Premium Layout</h3>
-            <p>Sharper spacing, better visual hierarchy and a more modern workshop presentation that feels more expensive and more trustworthy.</p>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-number">01</div>
+            <h3>Advanced Diagnostic Approach</h3>
+            <p>Focused on identifying the real problem properly instead of guessing or replacing parts blindly.</p>
           </article>
-          <article>
-            <h3>Faster Booking Journey</h3>
-            <p>Customers can start in the hero, the quick booking strip or the full booking section without getting lost.</p>
+
+          <article class="feature-card">
+            <div class="feature-number">02</div>
+            <h3>Premium Products & Machines</h3>
+            <p>Liqui Moly-supported workflows and specialist equipment that help reinforce trust and quality.</p>
           </article>
-          <article>
-            <h3>Service-Led Structure</h3>
-            <p>The page now guides people naturally from problem to service to trust to contact, which is how higher-converting garage sites behave.</p>
+
+          <article class="feature-card">
+            <div class="feature-number">03</div>
+            <h3>Sharper Workshop Presentation</h3>
+            <p>More metallic, industrial and performance-inspired styling to make the business feel more premium.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-number">04</div>
+            <h3>Local Specialist Coverage</h3>
+            <p>Tadley, Reading and Basingstoke — one workshop base with a more focused, specialist identity.</p>
           </article>
         </div>
       </section>
 
-      <section class="section" id="gallery">
+      <section class="section section-block" id="booking">
         <div class="divider"></div>
         <div class="section-head">
-          <div class="section-badge">Workshop Gallery</div>
-          <div class="section-title">See More From Our Garage</div>
-          <div class="section-sub">Your gallery stays, but it now sits in a stronger position and feels more like part of a premium garage brand.</div>
-        </div>
-
-        <div class="gallery-card" onclick="openGalleryModal()">
-          <div class="gallery-card-top">
-            <img src="main.jpg" alt="AG Auto Tech gallery cover">
-            <div class="gallery-card-label">
-              <h3>Gallery</h3>
-              <p>Open the full workshop photo gallery</p>
-            </div>
-          </div>
-          <div class="gallery-card-body">
-            <div class="gallery-card-text">
-              View all uploaded garage photos in one clean popup gallery without wasting too much page space.
-            </div>
-            <div class="gallery-card-cta">Open Gallery</div>
+          <div class="section-badge">Single Booking Section</div>
+          <div class="section-title">Book A Diagnostic Or Service</div>
+          <div class="section-sub">
+            One clear place to book. No repetition. No clutter. Just a stronger flow into WhatsApp.
           </div>
         </div>
-      </section>
 
-      <section class="section booking-box" id="booking">
-        <div class="divider"></div>
-        <div class="booking-head">
-          <div class="section-badge">Booking Section</div>
-          <div class="booking-title">Book a Diagnostic or Service</div>
-          <div class="booking-sub">Send your request directly to us on WhatsApp with all the key vehicle details included.</div>
-        </div>
+        <div class="booking-wrap">
+          <div class="booking-inner">
+            <div class="booking-layout">
+              <div class="booking-side">
+                <div class="panel-badge">Booking Info</div>
+                <h3>Start The Right Way</h3>
+                <p>
+                  Complete the form as accurately as possible so we can reply faster and guide you to the correct service.
+                  If you are not fully sure what is wrong, start with diagnostics.
+                </p>
 
-        <div class="booking-inner">
-          <div class="booking-layout">
-            <div class="booking-info">
-              <h3>Before You Submit</h3>
-              <p>Complete the details as accurately as possible so we can respond faster and guide you to the correct service.</p>
-              <div class="booking-info-list">
-                <div>
-                  <strong>Vehicle registration</strong>
-                  <span>This helps us understand what you are booking in.</span>
-                </div>
-                <div>
-                  <strong>Select the main service</strong>
-                  <span>Choose diagnostics first if you are unsure what the actual problem is.</span>
-                </div>
-                <div>
-                  <strong>Tyre options included</strong>
-                  <span>Quantity, size, type and budget range appear automatically when Tyres is selected.</span>
-                </div>
-                <div>
-                  <strong>Direct WhatsApp request</strong>
-                  <span>Your completed booking request opens directly in WhatsApp ready to send.</span>
+                <div class="booking-side-list">
+                  <div class="booking-side-item">
+                    <strong>Vehicle registration</strong>
+                    <span>This helps us understand what vehicle you are booking in.</span>
+                  </div>
+
+                  <div class="booking-side-item">
+                    <strong>Choose the main service</strong>
+                    <span>Diagnostics first is the best route if the root cause is still unknown.</span>
+                  </div>
+
+                  <div class="booking-side-item">
+                    <strong>Tyre options included</strong>
+                    <span>Quantity, size, tyre type and budget range appear automatically if Tyres is selected.</span>
+                  </div>
+
+                  <div class="booking-side-item">
+                    <strong>Direct WhatsApp request</strong>
+                    <span>Your booking request opens directly in WhatsApp ready to send.</span>
+                  </div>
                 </div>
               </div>
+
+              <form onsubmit="return false;">
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="name">Full Name</label>
+                    <input id="name" placeholder="Customer full name" required>
+                  </div>
+
+                  <div class="field">
+                    <label for="phone">Phone Number</label>
+                    <input id="phone" placeholder="Customer phone number" required>
+                  </div>
+
+                  <div class="field">
+                    <label for="reg">Vehicle Registration</label>
+                    <input id="reg" placeholder="Vehicle registration" required>
+                  </div>
+
+                  <div class="field">
+                    <label for="service">Service</label>
+                    <select id="service" onchange="toggleTyreFields()">
+                      <option>DPF Diagnostics</option>
+                      <option>Walnut Blasting</option>
+                      <option>Automatic Gearbox Service</option>
+                      <option>ECU Remaps & Coding</option>
+                      <option>DPF Deep Clean</option>
+                      <option>Wheel Alignment</option>
+                      <option>Tyres</option>
+                    </select>
+                  </div>
+
+                  <div class="field hidden-field" id="tyreQuantityField">
+                    <label for="tyreQuantity">Number of Tyres</label>
+                    <select id="tyreQuantity">
+                      <option value="">Select quantity</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                    </select>
+                  </div>
+
+                  <div class="field hidden-field" id="tyreSizeField">
+                    <label for="tyreSize">Tyre Size</label>
+                    <input id="tyreSize" placeholder="Example: 225/45 R17">
+                  </div>
+
+                  <div class="field hidden-field" id="tyreTypeField">
+                    <label for="tyreType">Tyre Type</label>
+                    <select id="tyreType">
+                      <option value="">Select tyre type</option>
+                      <option>Summer</option>
+                      <option>Winter</option>
+                      <option>All Season</option>
+                      <option>Run Flat</option>
+                      <option>Van Tyres</option>
+                    </select>
+                  </div>
+
+                  <div class="field hidden-field" id="tyreRangeField">
+                    <label for="tyreRange">Tyre Range</label>
+                    <select id="tyreRange">
+                      <option value="">Select range</option>
+                      <option>Budget</option>
+                      <option>Mid Range</option>
+                      <option>Premium</option>
+                    </select>
+                  </div>
+
+                  <div class="field full">
+                    <label for="message">Extra Message</label>
+                    <textarea id="message" placeholder="Add extra information about the vehicle or the job"></textarea>
+                  </div>
+                </div>
+
+                <div class="booking-actions">
+                  <button type="button" class="btn btn-yellow" onclick="sendBooking()">Send Booking Request</button>
+                </div>
+              </form>
             </div>
-
-            <form onsubmit="return false;">
-              <div class="form-grid">
-                <div class="field">
-                  <label for="name">Full Name</label>
-                  <input id="name" placeholder="Customer full name" required>
-                </div>
-
-                <div class="field">
-                  <label for="phone">Phone Number</label>
-                  <input id="phone" placeholder="Customer phone number" required>
-                </div>
-
-                <div class="field">
-                  <label for="reg">Vehicle Registration</label>
-                  <input id="reg" placeholder="Vehicle registration" required>
-                </div>
-
-                <div class="field">
-                  <label for="service">Service</label>
-                  <select id="service" onchange="toggleTyreFields()">
-                    <option>DPF Diagnostics</option>
-                    <option>Walnut Blasting</option>
-                    <option>Automatic Gearbox Service</option>
-                    <option>ECU Remaps & Coding</option>
-                    <option>DPF Deep Clean</option>
-                    <option>Wheel Alignment</option>
-                    <option>Tyres</option>
-                  </select>
-                </div>
-
-                <div class="field hidden-field" id="tyreQuantityField">
-                  <label for="tyreQuantity">Number of Tyres</label>
-                  <select id="tyreQuantity">
-                    <option value="">Select quantity</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                  </select>
-                </div>
-
-                <div class="field hidden-field" id="tyreSizeField">
-                  <label for="tyreSize">Tyre Size</label>
-                  <input id="tyreSize" placeholder="Example: 225/45 R17">
-                </div>
-
-                <div class="field hidden-field" id="tyreTypeField">
-                  <label for="tyreType">Tyre Type</label>
-                  <select id="tyreType">
-                    <option value="">Select tyre type</option>
-                    <option>Summer</option>
-                    <option>Winter</option>
-                    <option>All Season</option>
-                    <option>Run Flat</option>
-                    <option>Van Tyres</option>
-                  </select>
-                </div>
-
-                <div class="field hidden-field" id="tyreRangeField">
-                  <label for="tyreRange">Tyre Range</label>
-                  <select id="tyreRange">
-                    <option value="">Select range</option>
-                    <option>Budget</option>
-                    <option>Mid Range</option>
-                    <option>Premium</option>
-                  </select>
-                </div>
-
-                <div class="field full">
-                  <label for="message">Extra Message</label>
-                  <textarea id="message" placeholder="Add extra information about the vehicle or the job"></textarea>
-                </div>
-              </div>
-
-              <div class="booking-actions">
-                <button type="button" class="btn btn-yellow" onclick="sendBooking()">Send Booking Request</button>
-              </div>
-            </form>
           </div>
         </div>
       </section>
@@ -1881,7 +1384,35 @@
         </div>
       </section>
 
+      <section class="section section-block" id="gallery">
+        <div class="divider"></div>
+        <div class="section-head">
+          <div class="section-badge">Inside The Workshop</div>
+          <div class="section-title">See More From Our Garage</div>
+          <div class="section-sub">
+            Your gallery stays, but now it feels more like a premium workshop showcase.
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="openGalleryModal()">
+          <div class="gallery-card-top">
+            <img src="main.jpg" alt="AG Auto Tech gallery cover">
+            <div class="gallery-card-label">
+              <h3>Workshop Gallery</h3>
+              <p>Open the full photo gallery and view more from inside the garage</p>
+            </div>
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-card-text">
+              Browse all uploaded workshop images in one clean popup gallery without overcrowding the page.
+            </div>
+            <div class="gallery-card-cta">Open Gallery</div>
+          </div>
+        </div>
+      </section>
+
       <section class="map-section">
+        <div class="divider"></div>
         <div class="map-card">
           <div class="map-head">
             <h3>Find Us</h3>
@@ -2196,32 +1727,6 @@
       document.getElementById("tyreSize").required = isTyres;
       document.getElementById("tyreType").required = isTyres;
       document.getElementById("tyreRange").required = isTyres;
-    }
-
-    function setServiceAndScroll(serviceName){
-      document.getElementById("service").value = serviceName;
-      toggleTyreFields();
-      document.getElementById("booking").scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
-    function goToBooking(){
-      const heroReg = document.getElementById("heroReg").value.trim();
-      const heroService = document.getElementById("heroService").value;
-
-      document.getElementById("reg").value = heroReg;
-      document.getElementById("service").value = heroService;
-      toggleTyreFields();
-
-      document.getElementById("booking").scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
-    function quickStartBooking(){
-      const reg = document.getElementById("searchReg").value.trim();
-      const service = document.getElementById("searchService").value;
-      document.getElementById("reg").value = reg;
-      document.getElementById("service").value = service;
-      toggleTyreFields();
-      document.getElementById("booking").scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     function sendBooking(){
