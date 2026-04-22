@@ -90,11 +90,13 @@
     .topbar{
       display:flex;
       align-items:center;
-      justify-content:center;
-      padding:18px 20px;
+      justify-content:space-between;
+      gap:16px;
+      padding:16px 22px;
       border-bottom:1px solid #ececec;
       background:linear-gradient(180deg,#ffffff 0%, #f5f7f8 100%);
       position:relative;
+      flex-wrap:wrap;
     }
 
     .topbar::after{
@@ -109,40 +111,86 @@
 
     .brand{
       font-family:Oswald,Arial,sans-serif;
-      font-size:clamp(1.45rem,2.3vw,2rem);
+      font-size:clamp(1.35rem,2.2vw,1.9rem);
       line-height:1;
       text-transform:uppercase;
       letter-spacing:.05em;
       color:var(--blue-dark);
-      text-align:center;
       text-shadow:0 1px 0 rgba(255,255,255,.8);
+    }
+
+    .top-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .mini-chip{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      border:1px solid #d8dde2;
+      background:linear-gradient(180deg,#ffffff 0%, #f5f7f8 100%);
+      color:#283140;
+    }
+
+    .mini-chip strong{
+      color:var(--red);
+      margin-left:6px;
+      letter-spacing:0;
+      text-transform:none;
+      font-size:13px;
     }
 
     .hero{
       position:relative;
-      width:100%;
-      aspect-ratio:16 / 6.2;
-      overflow:hidden;
-      background:#ddd;
+      padding:28px 28px 16px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.85) 0%, rgba(245,247,249,.86) 100%);
     }
 
-    .hero img{
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .hero-visual{
+      position:relative;
+      min-height:520px;
+      border-radius:28px;
+      overflow:hidden;
+      background:#ddd;
+      border:1px solid #d9dee3;
+      box-shadow:var(--shadow-card);
+    }
+
+    .hero-visual img{
       width:100%;
       height:100%;
       object-fit:cover;
       transform:scale(1.01);
     }
 
-    .hero::after{
+    .hero-visual::after{
       content:"";
       position:absolute;
       inset:0;
       background:
-        linear-gradient(90deg, rgba(8,12,18,.70) 0%, rgba(8,12,18,.36) 38%, rgba(8,12,18,.14) 70%, rgba(8,12,18,.10) 100%),
+        linear-gradient(90deg, rgba(8,12,18,.78) 0%, rgba(8,12,18,.42) 45%, rgba(8,12,18,.18) 74%, rgba(8,12,18,.08) 100%),
         linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.34) 100%);
     }
 
-    .hero::before{
+    .hero-visual::before{
       content:"";
       position:absolute;
       inset:0;
@@ -154,151 +202,159 @@
       pointer-events:none;
     }
 
-    .hero-brand{
+    .hero-copy{
       position:absolute;
-      left:32px;
-      bottom:30px;
+      left:28px;
+      right:28px;
+      bottom:28px;
       z-index:2;
-      padding:20px 24px;
-      background:linear-gradient(180deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,.08) 100%);
-      border:1px solid rgba(255,255,255,.24);
-      border-left:5px solid var(--yellow);
-      box-shadow:0 18px 38px rgba(0,0,0,.28);
-      backdrop-filter:blur(12px);
-      border-radius:18px;
-      max-width:min(560px, calc(100% - 64px));
+      max-width:620px;
     }
 
-    .hero-brand::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      border-radius:18px;
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.24);
-      pointer-events:none;
-    }
-
-    .hero-brand-title{
-      font-family:Oswald,Arial,sans-serif;
-      font-size:clamp(1.6rem,2.8vw,2.55rem);
-      line-height:1;
-      text-transform:uppercase;
-      letter-spacing:.05em;
+    .hero-kicker{
+      display:inline-flex;
+      align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.22);
       color:#fff;
-      margin-bottom:8px;
-    }
-
-    .hero-brand-sub{
-      font-size:clamp(.88rem,1.3vw,1rem);
-      font-weight:700;
-      color:#f3f5f8;
+      font-size:11px;
+      font-weight:800;
       letter-spacing:.16em;
       text-transform:uppercase;
+      margin-bottom:14px;
+      backdrop-filter:blur(8px);
     }
 
-    .section{
-      padding:30px 34px 0;
-    }
-
-    .title-block{
-      text-align:center;
-      max-width:980px;
-      margin:0 auto;
-    }
-
-    .main-title{
+    .hero-title{
       font-family:Oswald,Arial,sans-serif;
-      text-transform:uppercase;
-      font-size:clamp(2rem,3vw,2.95rem);
+      font-size:clamp(2.1rem,4vw,4rem);
       line-height:1;
-      color:var(--blue-dark);
-      margin-bottom:10px;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      color:#fff;
+      margin:0 0 12px;
+      text-shadow:0 10px 26px rgba(0,0,0,.24);
     }
 
-    .sub-locations{
-      font-size:clamp(1rem,1.45vw,1.16rem);
-      color:#4b5260;
-      line-height:1.4;
-      margin-bottom:18px;
+    .hero-subtitle{
+      font-size:clamp(1rem,1.45vw,1.1rem);
+      line-height:1.6;
+      color:#eef2f6;
+      max-width:640px;
+      margin:0 0 20px;
       font-weight:600;
     }
 
-    .headline{
-      text-align:center;
-      font-size:clamp(2rem,3.4vw,3.7rem);
-      line-height:1.12;
-      font-weight:800;
-      color:#1b2230;
-      margin:0 auto 14px;
-      max-width:1020px;
-      letter-spacing:-.02em;
-    }
-
-    .lead-red{
-      text-align:center;
-      color:var(--red);
-      font-size:clamp(1.18rem,2.1vw,1.75rem);
-      font-weight:800;
-      margin-bottom:8px;
-    }
-
-    .lead-note{
-      text-align:center;
-      color:#596170;
-      font-style:italic;
-      font-size:clamp(.98rem,1.45vw,1.1rem);
-      line-height:1.5;
-      margin-bottom:20px;
-    }
-
-    .cta-row{
+    .hero-cta-row{
       display:flex;
       gap:12px;
-      justify-content:center;
       flex-wrap:wrap;
-      margin-bottom:18px;
     }
 
-    .btn{
-      min-height:54px;
-      padding:13px 24px;
-      border-radius:999px;
-      font-weight:800;
-      font-size:clamp(.98rem,1.4vw,1.06rem);
+    .hero-booking{
+      border:1px solid #dce1e6;
+      background:linear-gradient(180deg,#ffffff 0%, #f5f7f9 55%, #edf1f4 100%);
+      box-shadow:var(--shadow-card);
+      border-radius:28px;
+      padding:22px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-booking::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:6px;
+      background:linear-gradient(90deg,var(--yellow),var(--red),var(--blue-dark));
+    }
+
+    .booking-badge{
       display:inline-flex;
       align-items:center;
-      justify-content:center;
-      border:none;
-      cursor:pointer;
-      transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
+      padding:7px 12px;
+      border-radius:999px;
+      background:linear-gradient(180deg,#fff8da,#f3e7af);
+      border:1px solid #e7d581;
+      color:#6f5903;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      margin-bottom:12px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.7);
     }
 
-    .btn:hover{
-      transform:translateY(-2px);
-      filter:brightness(1.02);
+    .hero-booking h2{
+      margin:0 0 8px;
+      font-family:Oswald,Arial,sans-serif;
+      text-transform:uppercase;
+      font-size:clamp(1.8rem,2.6vw,2.5rem);
+      line-height:1;
+      color:var(--blue-dark);
     }
 
-    .btn-yellow{
-      background:linear-gradient(180deg,var(--yellow),var(--yellow-dark));
-      color:#1f2430;
-      box-shadow:0 12px 24px rgba(201,153,0,.26);
+    .hero-booking p{
+      margin:0 0 18px;
+      color:#57606d;
+      font-size:15px;
+      line-height:1.6;
     }
 
-    .btn-dark{
-      background:linear-gradient(180deg,#303a4d,#171f2c);
-      color:#fff;
-      box-shadow:0 10px 22px rgba(0,0,0,.18);
+    .quick-form{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
     }
 
-    .divider{
-      height:1px;
-      background:linear-gradient(to right, transparent, #d1d5da, transparent);
-      margin:26px 0;
+    .quick-form .btn{
+      width:100%;
+    }
+
+    .hero-trust{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .trust-box{
+      border:1px solid #dce1e6;
+      border-radius:18px;
+      background:linear-gradient(180deg,#ffffff 0%, #f7f9fb 100%);
+      padding:16px 14px;
+      text-align:center;
+      box-shadow:0 10px 24px rgba(0,0,0,.05);
+    }
+
+    .trust-box strong{
+      display:block;
+      font-size:13px;
+      color:#212837;
+      margin-bottom:6px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .trust-box span{
+      display:block;
+      font-size:13px;
+      line-height:1.5;
+      color:#5c6673;
+      font-weight:600;
+    }
+
+    .section{
+      padding:22px 34px 0;
     }
 
     .services-head{
       max-width:1080px;
-      margin:22px auto 18px;
+      margin:8px auto 18px;
       text-align:center;
     }
 
@@ -332,6 +388,68 @@
       line-height:1.6;
       max-width:760px;
       margin:0 auto;
+    }
+
+    .divider{
+      height:1px;
+      background:linear-gradient(to right, transparent, #d1d5da, transparent);
+      margin:28px 0;
+    }
+
+    .quick-links{
+      max-width:1100px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .quick-link{
+      border:1px solid #dce0e4;
+      background:var(--metal-gradient-soft);
+      border-radius:20px;
+      box-shadow:var(--shadow-card);
+      padding:18px 16px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      min-height:128px;
+      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+
+    .quick-link:hover{
+      transform:translateY(-6px);
+      box-shadow:var(--shadow-hover);
+      border-color:#cfd5da;
+    }
+
+    .quick-link-label{
+      display:inline-flex;
+      width:max-content;
+      padding:6px 10px;
+      border-radius:999px;
+      background:linear-gradient(180deg,#ffffff 0%, #eef2f5 100%);
+      border:1px solid #dce0e4;
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#56606d;
+    }
+
+    .quick-link h3{
+      margin:0;
+      font-size:1.12rem;
+      line-height:1.2;
+      color:#1e2533;
+    }
+
+    .quick-link p{
+      margin:0;
+      color:#5b6471;
+      font-size:14px;
+      line-height:1.5;
+      font-weight:600;
     }
 
     .service-grid{
@@ -754,10 +872,7 @@
     }
 
     .field.full{grid-column:1 / -1}
-
-    .hidden-field{
-      display:none;
-    }
+    .hidden-field{display:none}
 
     label{
       font-size:11px;
@@ -794,6 +909,37 @@
       display:flex;
       justify-content:center;
       margin-top:18px;
+    }
+
+    .btn{
+      min-height:54px;
+      padding:13px 24px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:clamp(.98rem,1.4vw,1.06rem);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:none;
+      cursor:pointer;
+      transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      filter:brightness(1.02);
+    }
+
+    .btn-yellow{
+      background:linear-gradient(180deg,var(--yellow),var(--yellow-dark));
+      color:#1f2430;
+      box-shadow:0 12px 24px rgba(201,153,0,.26);
+    }
+
+    .btn-dark{
+      background:linear-gradient(180deg,#303a4d,#171f2c);
+      color:#fff;
+      box-shadow:0 10px 22px rgba(0,0,0,.18);
     }
 
     .powered{
@@ -1119,8 +1265,16 @@
     }
 
     @media (max-width:1100px){
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+
       .gallery-grid{
         grid-template-columns:repeat(3,minmax(0,1fr));
+      }
+
+      .quick-links{
+        grid-template-columns:repeat(2,minmax(0,1fr));
       }
     }
 
@@ -1137,7 +1291,10 @@
     @media (max-width:760px){
       .page{padding:10px 8px 22px}
       .sheet{border-radius:18px}
-      .hero-brand{left:14px;right:14px;bottom:14px;max-width:none}
+      .topbar{padding:14px}
+      .hero{padding:14px 14px 8px}
+      .hero-visual{min-height:420px;border-radius:22px}
+      .hero-copy{left:16px;right:16px;bottom:16px}
       .section{padding:20px 14px 0}
       .map-section{padding:0 14px 22px}
       .form-grid{grid-template-columns:1fr}
@@ -1146,6 +1303,8 @@
       .gallery-card-top{height:210px}
       .lightbox-btn{display:none}
       .map-frame{height:320px}
+      .quick-links{grid-template-columns:1fr}
+      .hero-trust{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -1154,28 +1313,107 @@
     <div class="sheet">
       <header class="topbar">
         <div class="brand">AG AUTO TECH TADLEY</div>
+        <div class="top-actions">
+          <div class="mini-chip">Tadley • Reading • Basingstoke</div>
+          <a href="tel:07920778706" class="mini-chip">Call <strong>07920 778706</strong></a>
+        </div>
       </header>
 
-      <div class="hero">
-        <img src="main.jpg" alt="AG Auto Tech Tadley workshop">
-        <div class="hero-brand">
-          <div class="hero-brand-title">AG AUTO TECH TADLEY</div>
-          <div class="hero-brand-sub">Specialist Vehicle Services</div>
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="hero-visual">
+            <img src="main.jpg" alt="AG Auto Tech Tadley workshop">
+            <div class="hero-copy">
+              <div class="hero-kicker">Specialist Vehicle Services</div>
+              <h1 class="hero-title">Book Trusted Vehicle Care With A Specialist Garage</h1>
+              <p class="hero-subtitle">
+                DPF diagnostics, walnut blasting, automatic gearbox service, ECU coding, tyres and wheel alignment —
+                professional workshop support for drivers across Tadley, Reading and Basingstoke.
+              </p>
+              <div class="hero-cta-row">
+                <a href="#booking" class="btn btn-yellow">Book Service</a>
+                <a href="tel:07920778706" class="btn btn-dark">Call Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-booking">
+            <div class="booking-badge">Quick Booking</div>
+            <h2>Get Started In Seconds</h2>
+            <p>Select your service, enter your vehicle details and send your booking request directly to us on WhatsApp.</p>
+
+            <div class="quick-form">
+              <div class="field">
+                <label for="heroReg">Vehicle Registration</label>
+                <input id="heroReg" placeholder="Enter registration">
+              </div>
+
+              <div class="field">
+                <label for="heroService">Service Needed</label>
+                <select id="heroService">
+                  <option>DPF Diagnostics</option>
+                  <option>Walnut Blasting</option>
+                  <option>Automatic Gearbox Service</option>
+                  <option>ECU Remaps & Coding</option>
+                  <option>DPF Deep Clean</option>
+                  <option>Wheel Alignment</option>
+                  <option>Tyres</option>
+                </select>
+              </div>
+
+              <button type="button" class="btn btn-yellow" onclick="goToBooking()">Continue To Booking</button>
+              <a href="tel:07920778706" class="btn btn-dark">Speak To The Garage</a>
+            </div>
+
+            <div class="hero-trust">
+              <div class="trust-box">
+                <strong>Specialist</strong>
+                <span>DPF & gearbox focused services</span>
+              </div>
+              <div class="trust-box">
+                <strong>Workshop</strong>
+                <span>Modern diagnostics and equipment</span>
+              </div>
+              <div class="trust-box">
+                <strong>Location</strong>
+                <span>Ash Park Business Centre, Tadley</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
       <section class="section">
-        <div class="title-block">
-          <div class="main-title">AG AUTO TECH TADLEY</div>
-          <div class="sub-locations">Tadley • Reading • Basingstoke</div>
-          <div class="headline">DPF Diagnostics, Walnut Blasting & Automatic Gearbox Specialists</div>
-          <div class="lead-red">Specialist Diagnostics & Repair</div>
-          <div class="lead-note">Professional inspection, diagnosis and service-led solutions</div>
+        <div class="services-head">
+          <div class="services-kicker">Quick Service Access</div>
+          <div class="services-title">Choose The Right Service Fast</div>
+          <div class="services-sub">A cleaner, faster layout inspired by modern booking websites but matched to your existing brand style.</div>
+        </div>
 
-          <div class="cta-row">
-            <a href="#booking" class="btn btn-yellow">Book Diagnostic</a>
-            <a href="tel:07920778706" class="btn btn-dark">Call Now</a>
-          </div>
+        <div class="quick-links">
+          <a href="#booking" class="quick-link" onclick="setServiceAndScroll('DPF Diagnostics')">
+            <span class="quick-link-label">Popular</span>
+            <h3>DPF Diagnostics</h3>
+            <p>Find the real cause of DPF problems before replacing parts unnecessarily.</p>
+          </a>
+
+          <a href="#booking" class="quick-link" onclick="setServiceAndScroll('Automatic Gearbox Service')">
+            <span class="quick-link-label">Specialist</span>
+            <h3>Gearbox Service</h3>
+            <p>Book smoother, cleaner automatic gearbox servicing with the right process.</p>
+          </a>
+
+          <a href="#booking" class="quick-link" onclick="setServiceAndScroll('Wheel Alignment')">
+            <span class="quick-link-label">Workshop</span>
+            <h3>Wheel Alignment</h3>
+            <p>Front and 4 wheel alignment available for better tyre wear and handling.</p>
+          </a>
+
+          <a href="#booking" class="quick-link" onclick="setServiceAndScroll('Tyres')">
+            <span class="quick-link-label">Supply & Fit</span>
+            <h3>Tyres</h3>
+            <p>Choose quantity, size, tyre type and preferred budget range in one booking flow.</p>
+          </a>
         </div>
 
         <div class="divider"></div>
@@ -1183,7 +1421,7 @@
         <div class="services-head">
           <div class="services-kicker">Specialist Services</div>
           <div class="services-title">Focused Services That Solve the Real Problem</div>
-          <div class="services-sub">A cleaner premium layout with subtle metallic accents and a sharper workshop feel.</div>
+          <div class="services-sub">Your original service descriptions, gallery and map kept in place — with a stronger booking-first structure.</div>
         </div>
 
         <div class="service-grid">
@@ -1480,7 +1718,7 @@
         <h2 id="serviceModalTitle">Service</h2>
         <p id="serviceModalText">Description</p>
         <ul class="modal-list" id="serviceModalList"></ul>
-        <div class="cta-row" style="justify-content:flex-start;margin-bottom:0;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
           <a href="#booking" class="btn btn-yellow" onclick="closeServiceModal()">Book Service</a>
           <a href="tel:07920778706" class="btn btn-dark">Call Now</a>
         </div>
@@ -1741,6 +1979,23 @@
       document.getElementById("tyreSize").required = isTyres;
       document.getElementById("tyreType").required = isTyres;
       document.getElementById("tyreRange").required = isTyres;
+    }
+
+    function setServiceAndScroll(serviceName){
+      document.getElementById("service").value = serviceName;
+      toggleTyreFields();
+      document.getElementById("booking").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function goToBooking(){
+      const heroReg = document.getElementById("heroReg").value.trim();
+      const heroService = document.getElementById("heroService").value;
+
+      document.getElementById("reg").value = heroReg;
+      document.getElementById("service").value = heroService;
+      toggleTyreFields();
+
+      document.getElementById("booking").scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     function sendBooking(){
