@@ -883,13 +883,14 @@
     .lb-next{right:18px}
 
     .service-modal-card{
-      width:min(1140px,96vw);
+      width:min(1160px,96vw);
       display:grid;
       grid-template-columns:1fr 1fr;
       background:#fff;
       overflow:hidden;
       border-radius:24px;
       box-shadow:0 26px 70px rgba(0,0,0,.26);
+      max-height:92vh;
     }
 
     .service-modal-image img{
@@ -902,6 +903,7 @@
     .service-modal-copy{
       padding:32px 28px;
       background:linear-gradient(180deg,#ffffff 0%,#f3f6f8 100%);
+      overflow:auto;
     }
 
     .service-modal-kicker{
@@ -916,7 +918,7 @@
     .service-modal-copy h2{
       font-size:clamp(1.9rem,2.8vw,2.6rem);
       line-height:1.05;
-      margin-bottom:12px;
+      margin:0 0 12px;
       color:var(--blue-dark);
     }
 
@@ -927,10 +929,23 @@
       margin-bottom:18px;
     }
 
+    .modal-extra-block{
+      margin:0 0 20px;
+    }
+
+    .modal-extra-block h3{
+      margin:0 0 10px;
+      font-size:15px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#1f2430;
+    }
+
     .modal-list{
       list-style:none;
       padding:0;
-      margin:0 0 22px;
+      margin:0 0 18px;
       display:grid;
       gap:10px;
     }
@@ -1465,7 +1480,22 @@
         <div class="service-modal-kicker" id="serviceModalKicker">Service details</div>
         <h2 id="serviceModalTitle">Service</h2>
         <p id="serviceModalText">Description</p>
-        <ul class="modal-list" id="serviceModalList"></ul>
+
+        <div class="modal-extra-block">
+          <h3>What This Service Covers</h3>
+          <ul class="modal-list" id="serviceModalList"></ul>
+        </div>
+
+        <div class="modal-extra-block">
+          <h3>Common Symptoms</h3>
+          <ul class="modal-list" id="serviceModalSymptoms"></ul>
+        </div>
+
+        <div class="modal-extra-block">
+          <h3>Risk of Ignoring It</h3>
+          <ul class="modal-list" id="serviceModalRisks"></ul>
+        </div>
+
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
           <a href="#booking" class="btn btn-yellow" onclick="closeServiceModal()">Book Service</a>
           <a href="tel:07920778706" class="btn btn-dark">Call Now</a>
@@ -1486,8 +1516,22 @@
           "Regeneration behaviour reviewed",
           "Related systems inspected",
           "Designed to identify the true cause of failure"
+        ],
+        symptoms: [
+          "DPF warning light on dashboard",
+          "Loss of power or limp mode",
+          "Frequent regenerations",
+          "Poor fuel economy",
+          "Smoke or rough running"
+        ],
+        risks: [
+          "Blocked DPF can become more serious and more expensive to resolve",
+          "Ignoring the issue may affect turbo and engine performance",
+          "Vehicle may go into limp mode more often",
+          "Long-term neglect can lead to costly component damage"
         ]
       },
+
       walnut: {
         kicker: "Carbon removal",
         title: "Walnut Blasting",
@@ -1498,8 +1542,22 @@
           "Cleaner intake pathway",
           "Helps improve airflow",
           "More specialist cleaning approach"
+        ],
+        symptoms: [
+          "Poor engine response",
+          "Rough idle",
+          "Loss of performance",
+          "Reduced fuel efficiency",
+          "Misfire-like behaviour in some cases"
+        ],
+        risks: [
+          "Carbon build-up can continue restricting airflow",
+          "Reduced performance may become more noticeable over time",
+          "Engine efficiency can drop further",
+          "Ignoring symptoms may lead to more severe drivability problems"
         ]
       },
+
       gearbox: {
         kicker: "Diagnostics and service",
         title: "Automatic Gearbox Service",
@@ -1510,8 +1568,22 @@
           "Smoother shifting feel",
           "Supports gearbox reliability",
           "Process-led specialist service"
+        ],
+        symptoms: [
+          "Hard or delayed gear changes",
+          "Jerking during shifting",
+          "Gear slipping",
+          "Noise from gearbox",
+          "Poor driving smoothness"
+        ],
+        risks: [
+          "Old fluid can reduce lubrication quality",
+          "Gearbox wear may increase over time",
+          "Ignoring service needs can lead to very expensive repairs",
+          "Shift quality and gearbox reliability may continue to worsen"
         ]
       },
+
       remap: {
         kicker: "Electronic control",
         title: "ECU Remaps & Coding",
@@ -1522,8 +1594,21 @@
           "Coding support",
           "Sharper fault tracing",
           "Modern control workflow"
+        ],
+        symptoms: [
+          "Warning lights on dashboard",
+          "Electronic faults or coding issues",
+          "Modules not communicating properly",
+          "Vehicle functions not operating correctly"
+        ],
+        risks: [
+          "Unresolved electronic faults can affect multiple systems",
+          "Small coding issues may develop into larger diagnostic problems",
+          "Vehicle convenience and performance functions may stop working correctly",
+          "Ignoring faults can make diagnosis more complex later"
         ]
       },
+
       dpfdeep: {
         kicker: "Targeted specialist treatment",
         title: "DPF Deep Clean",
@@ -1534,6 +1619,19 @@
           "Targeted treatment",
           "Professional method",
           "Used when required"
+        ],
+        symptoms: [
+          "Heavy soot loading",
+          "Repeated DPF issues",
+          "Restricted exhaust flow",
+          "Poor performance",
+          "Warning lights related to DPF system"
+        ],
+        risks: [
+          "Ignoring DPF contamination may worsen blockage",
+          "Performance and fuel economy may continue to drop",
+          "The vehicle may enter limp mode",
+          "Further neglect could lead to replacement instead of cleaning"
         ]
       }
     };
@@ -1610,6 +1708,8 @@
     const serviceModalTitle = document.getElementById("serviceModalTitle");
     const serviceModalText = document.getElementById("serviceModalText");
     const serviceModalList = document.getElementById("serviceModalList");
+    const serviceModalSymptoms = document.getElementById("serviceModalSymptoms");
+    const serviceModalRisks = document.getElementById("serviceModalRisks");
 
     const serviceSelect = document.getElementById("service");
     const tyreQuantityField = document.getElementById("tyreQuantityField");
@@ -1698,10 +1798,25 @@
       serviceModalText.textContent = service.text;
 
       serviceModalList.innerHTML = "";
+      serviceModalSymptoms.innerHTML = "";
+      serviceModalRisks.innerHTML = "";
+
       service.bullets.forEach(item => {
         const li = document.createElement("li");
         li.textContent = item;
         serviceModalList.appendChild(li);
+      });
+
+      service.symptoms.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        serviceModalSymptoms.appendChild(li);
+      });
+
+      service.risks.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        serviceModalRisks.appendChild(li);
       });
 
       serviceModal.style.display = "flex";
