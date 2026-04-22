@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AG AUTO TECH TADLEY</title>
-  <meta name="description" content="AG Auto Tech Tadley - DPF diagnostics, walnut blasting, automatic gearbox service, remaps and coding.">
+  <meta name="description" content="AG Auto Tech Tadley - DPF diagnostics, walnut blasting, automatic gearbox service, wheel alignment, tyres, remaps and coding.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1117,9 +1117,9 @@
             <div class="hero-kicker">Specialist Vehicle Services</div>
             <h1 class="hero-title">Precision. <span class="accent">Power.</span> Proper Diagnostic Work.</h1>
             <p class="hero-subtitle">
-              A more aggressive premium workshop look built around what actually makes your garage stand out:
-              specialist DPF work, gearbox service, diagnostics, coding and a cleaner booking journey that feels sharper,
-              stronger and more expensive.
+              A stronger premium workshop feel built around what really matters: specialist DPF work, gearbox service,
+              wheel alignment, tyres, diagnostics, coding and a cleaner booking journey that feels sharper, more technical
+              and more professional.
             </p>
             <div class="hero-buttons">
               <a href="#booking" class="btn btn-yellow">Book Service</a>
@@ -1137,16 +1137,16 @@
             </p>
             <div class="metal-list">
               <div class="metal-item">
-                <strong>Performance-led feel</strong>
-                <span>More like a specialist automotive workshop brand, less like a template garage page.</span>
+                <strong>Specialist workshop image</strong>
+                <span>More like a serious automotive workshop brand, less like a basic garage template.</span>
+              </div>
+              <div class="metal-item">
+                <strong>Professional people & process</strong>
+                <span>Built to reflect skilled hands, correct diagnostics and a proper workshop approach.</span>
               </div>
               <div class="metal-item">
                 <strong>Metallic styling</strong>
                 <span>Steel gradients and machined-style surfaces give the page more depth and edge.</span>
-              </div>
-              <div class="metal-item">
-                <strong>Higher contrast</strong>
-                <span>Stronger hero, bolder typography and cleaner visual hierarchy.</span>
               </div>
             </div>
             <a href="#booking" class="btn btn-yellow" style="width:100%;">Go To Booking</a>
@@ -1159,7 +1159,7 @@
           <div class="section-badge">Core Services</div>
           <div class="section-title">What We Actually Specialise In</div>
           <div class="section-sub">
-            Bigger, stronger service panels focused on your specialist work — not a cluttered list of random garage jobs.
+            Bigger, stronger service panels focused on real workshop work, specialist diagnostics and the services drivers actually need.
           </div>
         </div>
 
@@ -1223,6 +1223,36 @@
               </div>
             </div>
           </article>
+
+          <article class="service-card" onclick="openServiceModal('alignment')">
+            <div class="service-card-image">
+              <img src="garage19112.jpg" alt="Wheel Alignment">
+              <div class="service-card-badge">Precision Geometry</div>
+            </div>
+            <div class="service-card-body">
+              <div class="service-name">Wheel Alignment</div>
+              <div class="service-desc">Front and 4 wheel alignment available for better handling, tyre life and driving stability.</div>
+              <div class="service-meta">
+                <div class="service-chip">Workshop Setup</div>
+                <div class="service-link">Tap to view</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card" onclick="openServiceModal('tyres')">
+            <div class="service-card-image">
+              <img src="garage221.jpg" alt="Tyres">
+              <div class="service-card-badge">Supply & Fitting</div>
+            </div>
+            <div class="service-card-body">
+              <div class="service-name">Tyres</div>
+              <div class="service-desc">Tyre supply and fitting with options for quantity, size, type and preferred budget range.</div>
+              <div class="service-meta">
+                <div class="service-chip">Safety & Grip</div>
+                <div class="service-link">Tap to view</div>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -1232,7 +1262,7 @@
           <div class="section-badge">Why Drivers Come To Us</div>
           <div class="section-title">Built With More Bite</div>
           <div class="section-sub">
-            This is where the site becomes more than a garage page — it starts feeling like a specialist brand.
+            This is where the site feels more like a real specialist garage brand — skilled people, proper equipment and a more serious workshop identity.
           </div>
         </div>
 
@@ -1251,8 +1281,8 @@
 
           <article class="feature-card">
             <div class="feature-number">03</div>
-            <h3>Sharper Workshop Presentation</h3>
-            <p>More metallic, industrial and performance-inspired styling to make the business feel more premium.</p>
+            <h3>Professional Workshop People</h3>
+            <p>Built around skilled hands, correct process, clean workmanship and a more professional garage presentation.</p>
           </article>
 
           <article class="feature-card">
@@ -1632,6 +1662,58 @@
           "Performance and fuel economy may continue to drop",
           "The vehicle may enter limp mode",
           "Further neglect could lead to replacement instead of cleaning"
+        ]
+      },
+
+      alignment: {
+        kicker: "Precision geometry",
+        title: "Wheel Alignment",
+        image: "garage19112.jpg",
+        text: "Wheel alignment is used to correct wheel angles and improve straight-line stability, tyre wear and overall handling.",
+        bullets: [
+          "Front and 4 wheel alignment available",
+          "Improves straight driving feel",
+          "Helps reduce uneven tyre wear",
+          "Supports better handling and stability"
+        ],
+        symptoms: [
+          "Vehicle pulling left or right",
+          "Steering wheel not straight",
+          "Uneven tyre wear",
+          "Poor handling or unstable feel",
+          "Recent suspension or steering work"
+        ],
+        risks: [
+          "Tyres may wear out much faster",
+          "Handling and stability can continue to worsen",
+          "Fuel efficiency may be affected",
+          "Ignoring alignment issues can increase overall running costs"
+        ]
+      },
+
+      tyres: {
+        kicker: "Supply and fitting",
+        title: "Tyres",
+        image: "garage221.jpg",
+        text: "Tyre supply and fitting service with options for tyre size, tyre type, quantity and budget range depending on your needs.",
+        bullets: [
+          "Tyre supply and fitting",
+          "Summer, winter, all season, run flat and van tyre options",
+          "Budget, mid range and premium choices",
+          "Supports safety, grip and daily driving confidence"
+        ],
+        symptoms: [
+          "Low tread depth",
+          "Cracks, cuts or visible tyre damage",
+          "Poor grip in wet conditions",
+          "Vibration while driving",
+          "Frequent pressure loss"
+        ],
+        risks: [
+          "Worn tyres reduce braking and grip",
+          "Damaged tyres increase the risk of failure",
+          "Poor condition tyres can affect safety in wet weather",
+          "Ignoring tyre wear may lead to more expensive issues later"
         ]
       }
     };
