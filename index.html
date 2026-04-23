@@ -1078,4 +1078,928 @@
       .hero{min-height:auto}
       .hero-inner{min-height:auto;align-items:end}
       .hero-panel{justify-self:stretch;width:100%}
-      .feature-grid{grid-template-columns:repeat(2,minmax(0,
+      .feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+
+    @media (max-width:760px){
+      .page{padding:10px 8px 22px}
+      .sheet{border-radius:20px}
+      .topbar{padding:14px}
+      .hero-inner{padding:16px}
+      .hero-copy{padding-bottom:0}
+      .section,.map-section{padding-left:14px;padding-right:14px}
+      .feature-grid,.form-grid,.gallery-grid{grid-template-columns:1fr}
+      .gallery-card-top{height:240px}
+      .map-frame{height:320px}
+      .lightbox-btn{display:none}
+      .service-modal-card{grid-template-columns:1fr}
+      .service-modal-image img{min-height:260px}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="sheet">
+
+      <header class="topbar">
+        <div class="brand">AG AUTO TECH TADLEY</div>
+        <div class="top-meta">
+          <div class="meta-pill">Tadley • Reading • Basingstoke</div>
+          <a href="tel:07920778706" class="meta-pill">Call <strong>07920 778706</strong></a>
+        </div>
+      </header>
+
+      <section class="hero">
+        <img src="main.jpg" alt="AG Auto Tech Tadley workshop">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <div class="hero-kicker">Specialist Vehicle Services</div>
+            <h1 class="hero-title">Precision. <span class="accent">Power.</span> Proper Diagnostic Work.</h1>
+            <p class="hero-subtitle">
+              A stronger premium workshop feel built around what really matters: specialist DPF work, gearbox service,
+              wheel alignment, tyres, diagnostics, coding and a cleaner booking journey that feels sharper, more technical
+              and more professional.
+            </p>
+            <div class="hero-buttons">
+              <a href="#booking" class="btn btn-yellow">Book Service</a>
+              <a href="tel:07920778706" class="btn btn-dark">Call Garage</a>
+              <a href="#gallery" class="btn btn-steel">View Workshop</a>
+            </div>
+          </div>
+
+          <aside class="hero-panel">
+            <div class="panel-badge">Why Choose Us</div>
+            <h2>Trusted Local Garage</h2>
+            <p>
+              We aim to deliver the best workshop experience in the area with honest pricing, skilled mechanics
+              and the right approach to diagnostics, servicing and repair.
+            </p>
+            <div class="metal-list">
+              <div class="metal-item">
+                <strong>Best garage in the area</strong>
+                <span>Trusted by local drivers looking for reliable service and proper workshop standards.</span>
+              </div>
+              <div class="metal-item">
+                <strong>Experienced mechanics</strong>
+                <span>Years of hands-on knowledge, workshop skill and real problem-solving experience.</span>
+              </div>
+              <div class="metal-item">
+                <strong>Good prices, strong value</strong>
+                <span>Professional service, fair pricing and quality work without unnecessary extras.</span>
+              </div>
+            </div>
+            <a href="#booking" class="btn btn-yellow" style="width:100%;">Go To Booking</a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-block">
+        <div class="section-head">
+          <div class="section-badge">Core Services</div>
+          <div class="section-title">What We Actually Specialise In</div>
+          <div class="section-sub">
+            Bigger, stronger service panels focused on real workshop work, specialist diagnostics and the services drivers actually need.
+          </div>
+        </div>
+
+        <div class="special-grid">
+          <article class="service-card" onclick="openServiceModal('dpf')">
+            <div class="service-card-image">
+              <img src="garage194.jpg" alt="DPF Direct Injection Clean">
+              <div class="service-card-badge">Root Cause Analysis</div>
+            </div>
+            <div class="service-card-body">
+              <div class="service-name">DPF Direct Injection Clean</div>
+              <div class="service-desc">A professional on-car DPF cleaning process using direct injection method without removing the DPF.</div>
+              <div class="service-meta">
+                <div class="service-chip">Specialist Service</div>
+                <div class="service-link">Tap to view</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card" onclick="openServiceModal('dpfdeep')">
+            <div class="service-card-image">
+              <img src="dpfdeep.jpg" alt="DPF Deep Clean">
+              <div class="service-card-badge">Targeted Treatment</div>
+            </div>
+            <div class="service-card-body">
+              <div class="service-name">DPF Deep Clean</div>
+              <div class="service-desc">A targeted specialist DPF cleaning process using specialist equipment and products.</div>
+              <div class="service-meta">
+                <div class="service-chip">Deep Clean Process</div>
+                <div class="service-link">Tap to view</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card" onclick="openServiceModal('gearbox')">
+            <div class="service-card-image">
+              <img src="liquimoly3.jpg" alt="Automatic Gearbox Service">
+              <div class="service-card-badge">Dynamic Oil Change</div>
+            </div>
+            <div class="service-card-body">
+              <div class="service-name">Automatic Gearbox Service</div>
+              <div class="service-desc">Service-led gearbox care focused on smoother shifting and long-term reliability.</div>
+              <div class="service-meta">
+                <div class="service-chip">Transmission Systems</div>
+                <div class="service-link">Tap to view</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card" onclick="openServiceModal('remap')">
+            <div class="service-card-image">
+              <img src="garage39.jpg" alt="ECU Coding and Diagnostics">
+              <div class="service-card-badge">Electronic Control</div>
+            </div>
+            <div class="service-card-body">
+              <div class="service-name">ECU Coding & Diagnostics</div>
+              <div class="service-desc">Advanced diagnostics, coding and electronic control support using modern workshop equipment.</div>
+              <div class="service-meta">
+                <div class="service-chip">Advanced Diagnostics</div>
+                <div class="service-link">Tap to view</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card" onclick="openServiceModal('alignment')">
+            <div class="service-card-image">
+              <img src="garage19112.jpg" alt="Wheel Alignment">
+              <div class="service-card-badge">Precision Geometry</div>
+            </div>
+            <div class="service-card-body">
+              <div class="service-name">Wheel Alignment</div>
+              <div class="service-desc">Front and 4 wheel alignment available for better handling, tyre life and driving stability.</div>
+              <div class="service-meta">
+                <div class="service-chip">Workshop Setup</div>
+                <div class="service-link">Tap to view</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card" onclick="openServiceModal('tyres')">
+            <div class="service-card-image">
+              <img src="garage221.jpg" alt="Tyres">
+              <div class="service-card-badge">Supply & Fitting</div>
+            </div>
+            <div class="service-card-body">
+              <div class="service-name">Tyres</div>
+              <div class="service-desc">Tyre supply and fitting with options for quantity, size, type and preferred budget range.</div>
+              <div class="service-meta">
+                <div class="service-chip">Safety & Grip</div>
+                <div class="service-link">Tap to view</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-block">
+        <div class="divider"></div>
+        <div class="section-head">
+          <div class="section-badge">Why Drivers Come To Us</div>
+          <div class="section-title">Built With More Bite</div>
+          <div class="section-sub">
+            This is where the site feels more like a real specialist garage brand — skilled people, proper equipment and a more serious workshop identity.
+          </div>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-number">01</div>
+            <h3>Advanced Diagnostic Approach</h3>
+            <p>Focused on identifying the real problem properly instead of guessing or replacing parts blindly.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-number">02</div>
+            <h3>Premium Products & Machines</h3>
+            <p>Liqui Moly-supported workflows and specialist equipment that help reinforce trust and quality.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-number">03</div>
+            <h3>Experienced Mechanics</h3>
+            <p>Skilled hands, workshop knowledge and proper mechanical experience behind every job.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-number">04</div>
+            <h3>Fair Prices, Strong Value</h3>
+            <p>Good local pricing, honest advice and quality work that gives drivers real value.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-block" id="booking">
+        <div class="divider"></div>
+        <div class="section-head">
+          <div class="section-badge">Single Booking Section</div>
+          <div class="section-title">Book A Diagnostic Or Service</div>
+          <div class="section-sub">
+            One clear place to book. No repetition. No clutter. Just a stronger flow into WhatsApp.
+          </div>
+        </div>
+
+        <div class="booking-wrap">
+          <div class="booking-inner">
+            <div class="booking-layout">
+              <div class="booking-side">
+                <div class="panel-badge">Booking Info</div>
+                <h3>Start The Right Way</h3>
+                <p>
+                  Complete the form as accurately as possible so we can reply faster and guide you to the correct service.
+                  If you are not fully sure what is wrong, start with diagnostics.
+                </p>
+
+                <div class="booking-side-list">
+                  <div class="booking-side-item">
+                    <strong>Vehicle registration</strong>
+                    <span>This helps us understand what vehicle you are booking in.</span>
+                  </div>
+
+                  <div class="booking-side-item">
+                    <strong>Choose the main service</strong>
+                    <span>Diagnostics first is the best route if the root cause is still unknown.</span>
+                  </div>
+
+                  <div class="booking-side-item">
+                    <strong>Tyre options included</strong>
+                    <span>Quantity, size, tyre type and budget range appear automatically if Tyres is selected.</span>
+                  </div>
+
+                  <div class="booking-side-item">
+                    <strong>Direct WhatsApp request</strong>
+                    <span>Your booking request opens directly in WhatsApp ready to send.</span>
+                  </div>
+                </div>
+              </div>
+
+              <form onsubmit="return false;">
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="name">Full Name</label>
+                    <input id="name" placeholder="Customer full name" required>
+                  </div>
+
+                  <div class="field">
+                    <label for="phone">Phone Number</label>
+                    <input id="phone" placeholder="Customer phone number" required>
+                  </div>
+
+                  <div class="field">
+                    <label for="reg">Vehicle Registration</label>
+                    <input id="reg" placeholder="Vehicle registration" required>
+                  </div>
+
+                  <div class="field">
+                    <label for="service">Service</label>
+                    <select id="service" onchange="toggleTyreFields()">
+                      <option>DPF Direct Injection Clean</option>
+                      <option>Walnut Blasting</option>
+                      <option>Automatic Gearbox Service</option>
+                      <option>ECU Remaps & Coding</option>
+                      <option>DPF Deep Clean</option>
+                      <option>Wheel Alignment</option>
+                      <option>Tyres</option>
+                    </select>
+                  </div>
+
+                  <div class="field hidden-field" id="tyreQuantityField">
+                    <label for="tyreQuantity">Number of Tyres</label>
+                    <select id="tyreQuantity">
+                      <option value="">Select quantity</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                    </select>
+                  </div>
+
+                  <div class="field hidden-field" id="tyreSizeField">
+                    <label for="tyreSize">Tyre Size</label>
+                    <input id="tyreSize" placeholder="Example: 225/45 R17">
+                  </div>
+
+                  <div class="field hidden-field" id="tyreTypeField">
+                    <label for="tyreType">Tyre Type</label>
+                    <select id="tyreType">
+                      <option value="">Select tyre type</option>
+                      <option>Summer</option>
+                      <option>Winter</option>
+                      <option>All Season</option>
+                      <option>Run Flat</option>
+                      <option>Van Tyres</option>
+                    </select>
+                  </div>
+
+                  <div class="field hidden-field" id="tyreRangeField">
+                    <label for="tyreRange">Tyre Range</label>
+                    <select id="tyreRange">
+                      <option value="">Select range</option>
+                      <option>Budget</option>
+                      <option>Mid Range</option>
+                      <option>Premium</option>
+                    </select>
+                  </div>
+
+                  <div class="field full">
+                    <label for="message">Extra Message</label>
+                    <textarea id="message" placeholder="Add extra information about the vehicle or the job"></textarea>
+                  </div>
+                </div>
+
+                <div class="booking-actions">
+                  <button type="button" class="btn btn-yellow" onclick="sendBooking()">Send Booking Request</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section powered">
+        <div class="divider"></div>
+        <div class="powered-title">DPF & Automatic Gearbox Specialists</div>
+        <div class="powered-sub">Powered by</div>
+        <div class="liqui-inline">
+          <img src="liquimoly.jpg" alt="Liqui Moly">
+        </div>
+      </section>
+
+      <section class="section section-block" id="gallery">
+        <div class="divider"></div>
+        <div class="section-head">
+          <div class="section-badge">Inside The Workshop</div>
+          <div class="section-title">See More From Our Garage</div>
+          <div class="section-sub">
+            Your gallery stays, but now it feels more like a premium workshop showcase.
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="openGalleryModal()">
+          <div class="gallery-card-top">
+            <img src="main.jpg" alt="AG Auto Tech gallery cover">
+            <div class="gallery-card-label">
+              <h3>Workshop Gallery</h3>
+              <p>Open the full photo gallery and view more from inside the garage</p>
+            </div>
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-card-text">
+              Browse all uploaded workshop images in one clean popup gallery without overcrowding the page.
+            </div>
+            <div class="gallery-card-cta">Open Gallery</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="map-section">
+        <div class="divider"></div>
+        <div class="map-card">
+          <div class="map-head">
+            <h3>Find Us</h3>
+            <p>Ash Park Business Centre, Little London, Tadley RG26 5FL</p>
+          </div>
+          <iframe
+            class="map-frame"
+            src="https://www.google.com/maps?q=Ash%20Park%20Business%20Centre%2C%20Little%20London%2C%20Tadley%20RG26%205FL&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+          <div class="map-action">
+            <a href="https://maps.google.com?q=Ash%20Park%20Business%20Centre%2C%20Little%20London%2C%20Tadley%20RG26%205FL" target="_blank" class="btn btn-dark">Open in Google Maps</a>
+          </div>
+        </div>
+      </section>
+
+      <footer>© AG AUTO TECH TADLEY</footer>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" onclick="closeLightbox()" aria-label="Close image">×</button>
+    <button class="lightbox-btn lb-prev" onclick="changeImage(-1)" aria-label="Previous image">❮</button>
+    <button class="lightbox-btn lb-next" onclick="changeImage(1)" aria-label="Next image">❯</button>
+    <img id="lightboxImg" alt="Garage gallery image">
+  </div>
+
+  <div class="gallery-modal" id="galleryModal">
+    <div class="gallery-modal-content">
+      <button class="gallery-modal-close" onclick="closeGalleryModal()" aria-label="Close gallery">×</button>
+      <div class="gallery-modal-header">
+        <h2>Workshop Gallery</h2>
+        <p>Click any image or the VIEW button to open it in full size.</p>
+      </div>
+      <div class="gallery-modal-body">
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-modal" id="serviceModal">
+    <button class="modal-close" onclick="closeServiceModal()" aria-label="Close service popup">×</button>
+    <div class="service-modal-card">
+      <div class="service-modal-image">
+        <img id="serviceModalImg" src="" alt="Service image">
+      </div>
+      <div class="service-modal-copy">
+        <div class="service-modal-kicker" id="serviceModalKicker">Service details</div>
+        <h2 id="serviceModalTitle">Service</h2>
+        <p id="serviceModalText">Description</p>
+
+        <div class="modal-extra-block">
+          <h3>What This Service Covers</h3>
+          <ul class="modal-list" id="serviceModalList"></ul>
+        </div>
+
+        <div class="modal-extra-block">
+          <h3>Common Symptoms</h3>
+          <ul class="modal-list" id="serviceModalSymptoms"></ul>
+        </div>
+
+        <div class="modal-extra-block">
+          <h3>Risk of Ignoring It</h3>
+          <ul class="modal-list" id="serviceModalRisks"></ul>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="#booking" class="btn btn-yellow" onclick="closeServiceModal()">Book Service</a>
+          <a href="tel:07920778706" class="btn btn-dark">Call Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const serviceData = {
+      dpf: {
+        kicker: "Root cause analysis",
+        title: "DPF Direct Injection Clean",
+        image: "garage194.jpg",
+        text: "A professional on-car DPF cleaning process using direct injection method without removing the DPF.",
+        bullets: [
+          "Direct injection cleaning method",
+          "No DPF removal required",
+          "Professional on-car treatment",
+          "Designed to target soot build-up inside the filter"
+        ],
+        symptoms: [
+          "DPF warning light on dashboard",
+          "Loss of power or limp mode",
+          "Frequent regenerations",
+          "Poor fuel economy",
+          "Smoke or rough running"
+        ],
+        risks: [
+          "Blocked DPF can become more serious and more expensive to resolve",
+          "Ignoring the issue may affect turbo and engine performance",
+          "Vehicle may go into limp mode more often",
+          "Long-term neglect can lead to costly component damage"
+        ]
+      },
+
+      walnut: {
+        kicker: "Carbon removal",
+        title: "Walnut Blasting",
+        image: "walnut.jpg",
+        text: "Walnut blasting is used to remove carbon build-up in intake-related areas, helping restore airflow and improve engine response.",
+        bullets: [
+          "Carbon build-up removal",
+          "Cleaner intake pathway",
+          "Helps improve airflow",
+          "More specialist cleaning approach"
+        ],
+        symptoms: [
+          "Poor engine response",
+          "Rough idle",
+          "Loss of performance",
+          "Reduced fuel efficiency",
+          "Misfire-like behaviour in some cases"
+        ],
+        risks: [
+          "Carbon build-up can continue restricting airflow",
+          "Reduced performance may become more noticeable over time",
+          "Engine efficiency can drop further",
+          "Ignoring symptoms may lead to more severe drivability problems"
+        ]
+      },
+
+      gearbox: {
+        kicker: "Diagnostics and service",
+        title: "Automatic Gearbox Service",
+        image: "liquimoly3.jpg",
+        text: "Automatic gearbox service is aimed at improving shift quality and supporting the long-term condition of the gearbox.",
+        bullets: [
+          "Dynamic oil change process",
+          "Smoother shifting feel",
+          "Supports gearbox reliability",
+          "Process-led specialist service"
+        ],
+        symptoms: [
+          "Hard or delayed gear changes",
+          "Jerking during shifting",
+          "Gear slipping",
+          "Noise from gearbox",
+          "Poor driving smoothness"
+        ],
+        risks: [
+          "Old fluid can reduce lubrication quality",
+          "Gearbox wear may increase over time",
+          "Ignoring service needs can lead to very expensive repairs",
+          "Shift quality and gearbox reliability may continue to worsen"
+        ]
+      },
+
+      remap: {
+        kicker: "Electronic control",
+        title: "ECU Remaps & Coding",
+        image: "garage39.jpg",
+        text: "Advanced remap and coding support using modern workshop equipment.",
+        bullets: [
+          "Electronic diagnostics",
+          "Coding support",
+          "Sharper fault tracing",
+          "Modern control workflow"
+        ],
+        symptoms: [
+          "Warning lights on dashboard",
+          "Electronic faults or coding issues",
+          "Modules not communicating properly",
+          "Vehicle functions not operating correctly"
+        ],
+        risks: [
+          "Unresolved electronic faults can affect multiple systems",
+          "Small coding issues may develop into larger diagnostic problems",
+          "Vehicle convenience and performance functions may stop working correctly",
+          "Ignoring faults can make diagnosis more complex later"
+        ]
+      },
+
+      dpfdeep: {
+        kicker: "Targeted specialist treatment",
+        title: "DPF Deep Clean",
+        image: "dpfdeep.jpg",
+        text: "A targeted DPF deep cleaning process using specialist equipment and products for selected DPF-related issues.",
+        bullets: [
+          "Deep clean process",
+          "Targeted treatment",
+          "Professional method",
+          "Used when required"
+        ],
+        symptoms: [
+          "Heavy soot loading",
+          "Repeated DPF issues",
+          "Restricted exhaust flow",
+          "Poor performance",
+          "Warning lights related to DPF system"
+        ],
+        risks: [
+          "Ignoring DPF contamination may worsen blockage",
+          "Performance and fuel economy may continue to drop",
+          "The vehicle may enter limp mode",
+          "Further neglect could lead to replacement instead of cleaning"
+        ]
+      },
+
+      alignment: {
+        kicker: "Precision geometry",
+        title: "Wheel Alignment",
+        image: "garage19112.jpg",
+        text: "Wheel alignment is used to correct wheel angles and improve straight-line stability, tyre wear and overall handling.",
+        bullets: [
+          "Front and 4 wheel alignment available",
+          "Improves straight driving feel",
+          "Helps reduce uneven tyre wear",
+          "Supports better handling and stability"
+        ],
+        symptoms: [
+          "Vehicle pulling left or right",
+          "Steering wheel not straight",
+          "Uneven tyre wear",
+          "Poor handling or unstable feel",
+          "Recent suspension or steering work"
+        ],
+        risks: [
+          "Tyres may wear out much faster",
+          "Handling and stability can continue to worsen",
+          "Fuel efficiency may be affected",
+          "Ignoring alignment issues can increase overall running costs"
+        ]
+      },
+
+      tyres: {
+        kicker: "Supply and fitting",
+        title: "Tyres",
+        image: "garage221.jpg",
+        text: "Tyre supply and fitting service with options for tyre size, tyre type, quantity and budget range depending on your needs.",
+        bullets: [
+          "Tyre supply and fitting",
+          "Summer, winter, all season, run flat and van tyre options",
+          "Budget, mid range and premium choices",
+          "Supports safety, grip and daily driving confidence"
+        ],
+        symptoms: [
+          "Low tread depth",
+          "Cracks, cuts or visible tyre damage",
+          "Poor grip in wet conditions",
+          "Vibration while driving",
+          "Frequent pressure loss"
+        ],
+        risks: [
+          "Worn tyres reduce braking and grip",
+          "Damaged tyres increase the risk of failure",
+          "Poor condition tyres can affect safety in wet weather",
+          "Ignoring tyre wear may lead to more expensive issues later"
+        ]
+      }
+    };
+
+    const galleryImages = [
+      "banner.jpg",
+      "dpfdeep.jpg",
+      "garage1.jpg",
+      "garage2.jpg",
+      "garage3.jpg",
+      "garage4.jpg",
+      "garage5.jpg",
+      "garage6.jpg",
+      "garage7.jpg",
+      "garage8.jpg",
+      "garage9.jpg",
+      "garage10.jpg",
+      "garage11.jpg",
+      "garage12.jpg",
+      "garage13.jpg",
+      "garage14.jpg",
+      "garage15.jpg",
+      "garage16.jpg",
+      "garage17.jpg",
+      "garage18.jpg",
+      "garage19.jpg",
+      "garage23.jpg",
+      "garage24.jpg",
+      "garage25.jpg",
+      "garage26.jpg",
+      "garage27.jpg",
+      "garage28.jpg",
+      "garage29.jpg",
+      "garage30.jpg",
+      "garage31.jpg",
+      "garage32.jpg",
+      "garage33.jpg",
+      "garage34.jpg",
+      "garage35.jpg",
+      "garage36.jpg",
+      "garage37.jpg",
+      "garage38.jpg",
+      "garage39.jpg",
+      "garage40.jpg",
+      "garage41.jpg",
+      "garage191.jpg",
+      "garage19111.jpg",
+      "garage19112.jpg",
+      "garage192.jpg",
+      "garage193.jpg",
+      "garage194.jpg",
+      "garage201.jpg",
+      "garage202.jpg",
+      "garage203.jpg",
+      "garage204.jpg",
+      "garage211.jpg",
+      "garage221.jpg",
+      "liquimoly.jpg",
+      "liquimoly3.jpg",
+      "main.jpg",
+      "walnut.jpg"
+    ];
+
+    let currentImageIndex = 0;
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const galleryModal = document.getElementById("galleryModal");
+    const galleryGrid = document.getElementById("galleryGrid");
+
+    const serviceModal = document.getElementById("serviceModal");
+    const serviceModalImg = document.getElementById("serviceModalImg");
+    const serviceModalKicker = document.getElementById("serviceModalKicker");
+    const serviceModalTitle = document.getElementById("serviceModalTitle");
+    const serviceModalText = document.getElementById("serviceModalText");
+    const serviceModalList = document.getElementById("serviceModalList");
+    const serviceModalSymptoms = document.getElementById("serviceModalSymptoms");
+    const serviceModalRisks = document.getElementById("serviceModalRisks");
+
+    const serviceSelect = document.getElementById("service");
+    const tyreQuantityField = document.getElementById("tyreQuantityField");
+    const tyreSizeField = document.getElementById("tyreSizeField");
+    const tyreTypeField = document.getElementById("tyreTypeField");
+    const tyreRangeField = document.getElementById("tyreRangeField");
+
+    function buildGallery(){
+      galleryGrid.innerHTML = "";
+
+      galleryImages.forEach((imageName, index) => {
+        const item = document.createElement("div");
+        item.className = "gallery-item";
+
+        const img = document.createElement("img");
+        img.src = imageName;
+        img.alt = "AG Auto Tech gallery " + (index + 1);
+        img.loading = "lazy";
+        img.onclick = () => openLightbox(index);
+
+        const btn = document.createElement("button");
+        btn.className = "gallery-view-btn";
+        btn.type = "button";
+        btn.textContent = "View";
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          openLightbox(index);
+        };
+
+        item.onclick = () => openLightbox(index);
+
+        item.appendChild(img);
+        item.appendChild(btn);
+        galleryGrid.appendChild(item);
+      });
+    }
+
+    function openGalleryModal(){
+      galleryModal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeGalleryModal(){
+      galleryModal.style.display = "none";
+      if(lightbox.style.display !== "flex" && serviceModal.style.display !== "flex"){
+        document.body.style.overflow = "";
+      }
+    }
+
+    function openLightbox(index){
+      currentImageIndex = index;
+      lightboxImg.src = galleryImages[currentImageIndex];
+      lightbox.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox(){
+      lightbox.style.display = "none";
+      if(galleryModal.style.display !== "flex" && serviceModal.style.display !== "flex"){
+        document.body.style.overflow = "";
+      }
+    }
+
+    function changeImage(direction){
+      currentImageIndex += direction;
+
+      if(currentImageIndex < 0){
+        currentImageIndex = galleryImages.length - 1;
+      }
+
+      if(currentImageIndex >= galleryImages.length){
+        currentImageIndex = 0;
+      }
+
+      lightboxImg.src = galleryImages[currentImageIndex];
+    }
+
+    function openServiceModal(key){
+      const service = serviceData[key];
+      if(!service) return;
+
+      serviceModalKicker.textContent = service.kicker;
+      serviceModalTitle.textContent = service.title;
+      serviceModalImg.src = service.image;
+      serviceModalImg.alt = service.title;
+      serviceModalText.textContent = service.text;
+
+      serviceModalList.innerHTML = "";
+      serviceModalSymptoms.innerHTML = "";
+      serviceModalRisks.innerHTML = "";
+
+      service.bullets.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        serviceModalList.appendChild(li);
+      });
+
+      service.symptoms.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        serviceModalSymptoms.appendChild(li);
+      });
+
+      service.risks.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        serviceModalRisks.appendChild(li);
+      });
+
+      serviceModal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeServiceModal(){
+      serviceModal.style.display = "none";
+      if(lightbox.style.display !== "flex" && galleryModal.style.display !== "flex"){
+        document.body.style.overflow = "";
+      }
+    }
+
+    function toggleTyreFields(){
+      const isTyres = serviceSelect.value === "Tyres";
+
+      tyreQuantityField.style.display = isTyres ? "flex" : "none";
+      tyreSizeField.style.display = isTyres ? "flex" : "none";
+      tyreTypeField.style.display = isTyres ? "flex" : "none";
+      tyreRangeField.style.display = isTyres ? "flex" : "none";
+
+      document.getElementById("tyreQuantity").required = isTyres;
+      document.getElementById("tyreSize").required = isTyres;
+      document.getElementById("tyreType").required = isTyres;
+      document.getElementById("tyreRange").required = isTyres;
+    }
+
+    function sendBooking(){
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const reg = document.getElementById("reg").value.trim();
+      const service = document.getElementById("service").value;
+      const message = document.getElementById("message").value.trim();
+
+      const tyreQuantity = document.getElementById("tyreQuantity").value;
+      const tyreSize = document.getElementById("tyreSize").value.trim();
+      const tyreType = document.getElementById("tyreType").value;
+      const tyreRange = document.getElementById("tyreRange").value;
+
+      if(!name || !phone || !reg){
+        alert("Please complete required fields");
+        return;
+      }
+
+      if(service === "Tyres" && (!tyreQuantity || !tyreSize || !tyreType || !tyreRange)){
+        alert("Please complete all tyre details");
+        return;
+      }
+
+      let text =
+        "BOOKING REQUEST\n" +
+        "Name: " + name + "\n" +
+        "Phone: " + phone + "\n" +
+        "Reg: " + reg + "\n" +
+        "Service: " + service + "\n";
+
+      if(service === "Tyres"){
+        text +=
+          "Number of tyres: " + tyreQuantity + "\n" +
+          "Tyre size: " + tyreSize + "\n" +
+          "Tyre type: " + tyreType + "\n" +
+          "Tyre range: " + tyreRange + "\n";
+      }
+
+      text += "Message: " + message;
+
+      window.open("https://wa.me/447920778706?text=" + encodeURIComponent(text), "_blank");
+    }
+
+    serviceModal.addEventListener("click", function(e){
+      if(e.target === serviceModal){
+        closeServiceModal();
+      }
+    });
+
+    galleryModal.addEventListener("click", function(e){
+      if(e.target === galleryModal){
+        closeGalleryModal();
+      }
+    });
+
+    lightbox.addEventListener("click", function(e){
+      if(e.target === lightbox){
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", function(e){
+      if(lightbox.style.display === "flex"){
+        if(e.key === "Escape") closeLightbox();
+        if(e.key === "ArrowRight") changeImage(1);
+        if(e.key === "ArrowLeft") changeImage(-1);
+      } else if(galleryModal.style.display === "flex" && e.key === "Escape"){
+        closeGalleryModal();
+      } else if(serviceModal.style.display === "flex" && e.key === "Escape"){
+        closeServiceModal();
+      }
+    });
+
+    buildGallery();
+    toggleTyreFields();
+  </script>
+</body>
+</html>
