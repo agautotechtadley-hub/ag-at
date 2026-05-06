@@ -17,3 +17,11 @@ function sendBooking(serviceName,isTyres){
   text+="Message: "+message;
   window.open("https://wa.me/447920778706?text="+encodeURIComponent(text),"_blank");
 }
+document.addEventListener("DOMContentLoaded",function(){
+  document.querySelectorAll("section").forEach(function(section){
+    const text=(section.innerText||"").toLowerCase();
+    if(text.includes("more services at ag auto tech tadley") || text.includes("other services") || text.includes("all services available")){
+      section.remove();
+    }
+  });
+});
