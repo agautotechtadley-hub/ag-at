@@ -1,4 +1,23 @@
 
+function removeLegacyServiceBlocks(){
+  document.querySelectorAll("section").forEach(function(section){
+    var text=(section.innerText||"").toLowerCase();
+    if(
+      text.includes("more services at ag auto tech tadley") ||
+      text.includes("other services") ||
+      text.includes("all services available") ||
+      text.includes("our services")
+    ){
+      section.remove();
+    }
+  });
+}
+removeLegacyServiceBlocks();
+document.addEventListener("DOMContentLoaded", removeLegacyServiceBlocks);
+setTimeout(removeLegacyServiceBlocks,300);
+setTimeout(removeLegacyServiceBlocks,1000);
+
+
 function sendBooking(serviceName,isTyres){
   const name=document.getElementById("name").value.trim();
   const phone=document.getElementById("phone").value.trim();
