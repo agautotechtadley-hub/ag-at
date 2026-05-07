@@ -10,10 +10,4 @@
   <url><loc>https://agautotechtadley.co.uk/tyres.html</loc></url>
   <url><loc>https://agautotechtadley.co.uk/workshop-gallery.html</loc></url>
   <url><loc>https://agautotechtadley.co.uk/google-ads-landing.html</loc></url>
-
-  <url>
-    <loc>https://agautotechtadley.co.uk/automatic-gearbox-service-explained.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-</urlset>
+<url><loc>https://agautotechtadley.co.uk/automatic-gearbox-service-explained.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url><url><loc>https://agautotechtadley.co.uk/monthly-offers.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url></urlset>
