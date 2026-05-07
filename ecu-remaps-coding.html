@@ -30,119 +30,176 @@
   setTimeout(removeBadSections, 1000);
 })();
 </script>
-
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TMCWWSJZNV"></script>
-<script>
-  gtag('config', 'G-TMCWWSJZNV');
-</script>
-
-
-<style>
-.promo-popup-overlay{
-position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;
-align-items:center;justify-content:center;z-index:99999;
-backdrop-filter:blur(4px);
-}
-.promo-popup{
-background:#fff;
-max-width:420px;
-width:92%;
-padding:30px;
-border-radius:24px;
-text-align:center;
-box-shadow:0 20px 60px rgba(0,0,0,.35);
-font-family:Inter,sans-serif;
-animation:popupFade .4s ease;
-position:relative;
-}
-.promo-popup h2{
-font-size:32px;
-margin-bottom:10px;
-color:#111;
-}
-.promo-popup p{
-font-size:16px;
-color:#555;
-line-height:1.6;
-margin-bottom:20px;
-}
-.promo-offer{
-font-size:20px;
-font-weight:700;
-margin-bottom:20px;
-color:#0f1723;
-}
-.promo-buttons{
-display:flex;
-gap:12px;
-justify-content:center;
-flex-wrap:wrap;
-}
-.promo-buttons a{
-padding:12px 18px;
-border-radius:12px;
-text-decoration:none;
-font-weight:700;
-transition:.3s;
-}
-.promo-book{
-background:#0f1723;
-color:#fff;
-}
-.promo-call{
-background:#dce3ea;
-color:#111;
-}
-.promo-close{
-position:absolute;
-top:12px;
-right:16px;
-font-size:28px;
-cursor:pointer;
-color:#777;
-}
-@keyframes popupFade{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
-}
-</style>
-
 </head><body class="service-page"><p>Redirecting to <a href="ecu-diagnostic-coding.html">ECU Diagnostic &amp; Coding</a></p>
-<div class="promo-popup-overlay" id="promoPopup" style="display:none;">
-  <div class="promo-popup">
-    <div class="promo-close" onclick="closePromoPopup()">&times;</div>
-    <h2>LIMITED OFFER</h2>
-    <p>Professional vehicle services at AG Auto-Tech Tadley.</p>
-    <div class="promo-offer">
-      DPF Cleaning & Diagnostics Special Offer Available Now
+<!-- MONTHLY OFFERS -->
+<div class="monthly-offers-trigger" onclick="openOffersPopup()">
+  <div class="offer-badge">LIMITED</div>
+  <h3>Monthly Offers</h3>
+  <p>Exclusive savings on selected services</p>
+</div>
+
+<div id="offersPopup" class="offers-popup-overlay">
+  <div class="offers-popup-box">
+    <button class="offers-close" onclick="closeOffersPopup()">×</button>
+
+    <div class="offers-header">
+      <span>AG AUTO-TECH TADLEY</span>
+      <h2>Monthly Offers</h2>
+      <p>Premium deals available for a limited time</p>
     </div>
-    <div class="promo-buttons">
-      <a href="booking.html" class="promo-book">Book Now</a>
-      <a href="tel:07920778706" class="promo-call">Call Us</a>
+
+    <div class="offers-grid">
+      <div class="offer-card">
+        <h3>DPF Direct Injection Clean</h3>
+        <p>Restore performance and reduce blockage risk.</p>
+        <strong>From £149</strong>
+      </div>
+
+      <div class="offer-card">
+        <h3>Air Conditioning Service</h3>
+        <p>Full system refresh and performance check.</p>
+        <strong>Spring Offer</strong>
+      </div>
+
+      <div class="offer-card">
+        <h3>Wheel Alignment</h3>
+        <p>Improve tyre life and driving comfort.</p>
+        <strong>Save 15%</strong>
+      </div>
+    </div>
+
+    <div class="offers-buttons">
+      <a href="tel:07920778706" class="offers-btn dark-btn">Call Now</a>
+      <a href="#booking" class="offers-btn gold-btn">Book Service</a>
     </div>
   </div>
 </div>
 
-<script>
-function closePromoPopup(){
-  document.getElementById('promoPopup').style.display='none';
-  localStorage.setItem('promoPopupClosed', Date.now());
+<style>
+.monthly-offers-trigger{
+  position:fixed;
+  bottom:110px;
+  right:25px;
+  background:#ffffff;
+  width:260px;
+  padding:22px;
+  border-radius:24px;
+  box-shadow:0 10px 35px rgba(0,0,0,0.12);
+  z-index:999;
+  cursor:pointer;
+  transition:0.35s ease;
+  border:1px solid rgba(0,0,0,0.06);
 }
-
-window.addEventListener('load', function(){
-  const closedTime = localStorage.getItem('promoPopupClosed');
-  const twoWeeks = 14 * 24 * 60 * 60 * 1000;
-
-  if(!closedTime || (Date.now() - closedTime > twoWeeks)){
-    setTimeout(function(){
-      const popup = document.getElementById('promoPopup');
-      if(popup){
-        popup.style.display='flex';
-      }
-    }, 3500);
+.monthly-offers-trigger:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 45px rgba(0,0,0,0.18);
+}
+.offer-badge{
+  display:inline-block;
+  background:#111827;
+  color:#fff;
+  font-size:11px;
+  padding:5px 12px;
+  border-radius:30px;
+  margin-bottom:12px;
+}
+.monthly-offers-trigger h3{
+  font-size:28px;
+  margin-bottom:8px;
+  color:#111827;
+}
+.monthly-offers-trigger p{
+  color:#6b7280;
+  line-height:1.5;
+}
+.offers-popup-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.65);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  padding:20px;
+}
+.offers-popup-box{
+  background:#fff;
+  width:100%;
+  max-width:850px;
+  border-radius:30px;
+  padding:45px;
+  position:relative;
+}
+.offers-close{
+  position:absolute;
+  top:18px;
+  right:18px;
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:#f3f4f6;
+  font-size:24px;
+  cursor:pointer;
+}
+.offers-header h2{
+  font-size:48px;
+  margin:12px 0;
+}
+.offers-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.offer-card{
+  background:#f8fafc;
+  border-radius:22px;
+  padding:28px;
+  transition:0.3s ease;
+}
+.offer-card:hover{
+  transform:translateY(-5px);
+  background:#111827;
+  color:#fff;
+}
+.offers-buttons{
+  display:flex;
+  gap:15px;
+  margin-top:35px;
+}
+.offers-btn{
+  padding:14px 28px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:700;
+}
+.dark-btn{
+  background:#111827;
+  color:#fff;
+}
+.gold-btn{
+  background:#d4af37;
+  color:#111827;
+}
+@media(max-width:768px){
+  .monthly-offers-trigger{
+    width:calc(100% - 40px);
+    right:20px;
+    bottom:90px;
   }
-});
+}
+</style>
+
+<script>
+function openOffersPopup(){
+  document.getElementById('offersPopup').style.display='flex';
+}
+function closeOffersPopup(){
+  document.getElementById('offersPopup').style.display='none';
+}
+setTimeout(() => {
+  document.getElementById('offersPopup').style.display='flex';
+}, 4500);
 </script>
 
 </body></html>
