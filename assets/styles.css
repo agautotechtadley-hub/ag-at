@@ -12,39 +12,65 @@
 }
 
 
-/* === FIX v10: booking widget + monthly offers === */
+/* === FINAL REQUEST FIX: hero bottom booking + monthly offers images === */
+
+/* Put hero text and BookMyGarage widget at the very bottom of the main image */
 .hero-copy{
-  bottom:auto !important;
-  top:34% !important;
-  transform:translateY(-22%) !important;
+  top:auto !important;
+  bottom:22px !important;
+  transform:none !important;
 }
-.hero .cta-row{display:none !important;}
+
+/* Smaller transparent BookMyGarage iframe inside hero */
 .hero-booking-widget{
-  margin-top:18px !important;
-  width:520px !important;
-  max-width:100% !important;
+  margin-top:16px !important;
+  width:min(520px, 100%) !important;
+  max-width:520px !important;
   transform:scale(.72) !important;
   transform-origin:left top !important;
   background:transparent !important;
-  border:0 !important;
+  border:none !important;
   box-shadow:none !important;
   border-radius:0 !important;
+  padding:0 !important;
 }
-.hero-booking-widget iframe{display:block;background:transparent !important;border:0 !important;}
-.monthly-offers-home{padding-top:26px !important;padding-bottom:6px !important;}
-.monthly-offers-home .services-title{display:block !important;visibility:visible !important;opacity:1 !important;}
-.monthly-offer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
-.monthly-offer-card{display:block;overflow:hidden;border-radius:24px;background:#fff;border:1px solid #dce0e4;box-shadow:var(--shadow-card);transition:transform .28s ease,box-shadow .28s ease;}
-.monthly-offer-card:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(10,16,26,.16);}
-.monthly-offer-image{height:210px;overflow:hidden;background:#e5e7eb;}
-.monthly-offer-image img{width:100%;height:100%;object-fit:cover;display:block;}
-.monthly-offer-body{padding:20px;min-height:170px;}
-.monthly-offer-body h3{font-family:Oswald,Arial,sans-serif;text-transform:uppercase;font-size:1.65rem;line-height:1;margin:0 0 10px;color:#111827;}
-.monthly-offer-body p{color:#56606d;line-height:1.55;margin:0 0 14px;}
-.monthly-offer-body span{display:inline-flex;align-items:center;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#655003;background:linear-gradient(180deg,#fff9dd,#f0e1a0);border:1px solid #e8d682;border-radius:999px;padding:9px 12px;}
-.offer-img{width:100%;height:190px;object-fit:cover;border-radius:20px;display:block;margin-bottom:16px;}
+.hero-booking-widget iframe{
+  display:block !important;
+  background:transparent !important;
+  border:none !important;
+}
+
+/* Remove old yellow/grey hero buttons if still present anywhere */
+.cta-row,
+.fast-booking,
+.call-now{
+  display:none !important;
+}
+
+/* Monthly offers subpage images */
+.offers-grid .offer-card{
+  overflow:hidden;
+}
+.offers-grid .offer-card .offer-img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+  border-radius:20px;
+  margin-bottom:18px;
+  background:#e5e7eb;
+}
+.offers-grid .offer-card h2{
+  margin-top:0 !important;
+}
+
 @media(max-width:900px){
- .hero-copy{top:auto !important;bottom:18px !important;transform:none !important;}
- .hero-booking-widget{width:620px !important;max-width:135% !important;transform:scale(.64) !important;}
- .monthly-offer-grid{grid-template-columns:1fr;}
+  .hero-copy{
+    bottom:16px !important;
+  }
+  .hero-booking-widget{
+    transform:scale(.64) !important;
+    width:650px !important;
+    max-width:145% !important;
+  }
 }
