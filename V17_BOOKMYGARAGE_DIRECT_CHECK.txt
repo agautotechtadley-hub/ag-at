@@ -1,0 +1,1 @@
+V17: Direct BookMyGarage redirect forced from main page. Search index.html for V17_BOOKMYGARAGE_DIRECT_FORCE.
