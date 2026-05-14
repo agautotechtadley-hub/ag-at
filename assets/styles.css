@@ -127,3 +127,56 @@
     gap:14px;
   }
 }
+
+
+/* === v13 local SEO pages + clean transparent booking === */
+.clean-booking-widget{
+  width:min(560px,100%) !important;
+  max-width:560px !important;
+  margin-top:18px !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  transform:none !important;
+}
+.clean-booking-title{
+  color:rgba(255,255,255,.88);
+  font-size:20px;
+  font-weight:600;
+  text-shadow:0 2px 14px rgba(0,0,0,.65);
+  margin:0 0 9px;
+}
+.clean-booking-form{display:grid;gap:12px;max-width:520px;}
+.clean-reg-input{
+  height:48px;
+  border-radius:8px;
+  border:1px solid rgba(255,216,0,.9);
+  background:linear-gradient(90deg,#ffd700 0%,#ffe545 100%) !important;
+  color:#10213a;
+  font-weight:900;
+  letter-spacing:.04em;
+  box-shadow:0 0 28px rgba(255,216,0,.32);
+}
+.clean-reg-input::placeholder{color:#1f3b63;opacity:.9;}
+.clean-price-btn{
+  height:52px;
+  border:0;
+  border-radius:8px;
+  background:linear-gradient(180deg,#c82516,#a91b10);
+  color:#fff;
+  font:900 18px Inter,Arial,sans-serif;
+  cursor:pointer;
+  box-shadow:0 0 30px rgba(198,37,22,.28);
+}
+.clean-price-btn:hover{transform:translateY(-2px);filter:brightness(1.04);}
+.local-seo-section{padding-bottom:24px;}
+.local-link-groups{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.local-link-group{border:1px solid #dce1e6;border-radius:20px;background:linear-gradient(180deg,#fff,#f7f9fb);padding:18px;box-shadow:0 10px 24px rgba(0,0,0,.05);}
+.local-link-group h3{margin:0 0 12px;font-family:Oswald,Arial,sans-serif;text-transform:uppercase;color:#111926;font-size:22px;}
+.local-links{display:flex;flex-wrap:wrap;gap:8px;}
+.local-links a{display:inline-flex;padding:8px 10px;border-radius:999px;background:#eef2f6;color:#1d2838;font-size:12px;font-weight:800;text-decoration:none;border:1px solid #dce1e6;}
+.local-links a:hover{background:#ffd84d;color:#111926;}
+.local-page .service-copy h1{font-size:clamp(2rem,3.8vw,3.7rem);}
+@media(max-width:980px){.local-link-groups{grid-template-columns:1fr 1fr;}}
+@media(max-width:760px){.clean-booking-title{font-size:15px}.clean-reg-input,.clean-price-btn{height:44px}.local-link-groups{grid-template-columns:1fr}.local-link-group{padding:14px}.clean-booking-widget{max-width:100%!important;}.hero-booking-widget{width:100%!important;}}

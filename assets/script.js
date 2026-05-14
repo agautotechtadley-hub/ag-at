@@ -44,3 +44,13 @@ document.addEventListener("DOMContentLoaded",function(){
     }
   });
 });
+
+
+function openBmgFromHero(event){
+  if(event){ event.preventDefault(); }
+  var reg = document.getElementById('heroReg') ? document.getElementById('heroReg').value.trim() : '';
+  var url = 'https://bookmygarage.com/widget/473c5745332afb4233bda6cbdc51f5d8/';
+  if(reg){ url += '?vrm=' + encodeURIComponent(reg); }
+  window.open(url, '_blank', 'noopener');
+  return false;
+}
