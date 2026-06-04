@@ -189,3 +189,8 @@
 
 .single-feature-grid{grid-template-columns:minmax(0,560px);justify-content:center}
 .single-feature-grid .service-card-image{height:260px}
+
+/* June updates */
+.trust-grid{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1100px){.trust-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.trust-grid{grid-template-columns:1fr}}
