@@ -194,3 +194,18 @@
 .trust-grid{grid-template-columns:repeat(4,1fr)}
 @media(max-width:1100px){.trust-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.trust-grid{grid-template-columns:1fr}}
+
+
+/* Service Packages comparison table */
+.service-packages-section{background:#fff;border:1px solid #e5e7eb;border-radius:28px;padding:34px 24px;margin-top:30px;box-shadow:0 18px 45px rgba(15,23,42,.08);}
+.packages-table-wrap{overflow-x:auto;margin-top:20px;border-radius:18px;border:1px solid #e5e7eb;background:#fff;}
+.packages-table{width:100%;border-collapse:collapse;min-width:850px;font-family:Inter,Arial,sans-serif;}
+.packages-table th,.packages-table td{padding:13px 14px;border-bottom:1px solid #e5e7eb;text-align:center;}
+.packages-table th:first-child,.packages-table td:first-child{text-align:left;}
+.packages-table thead th{background:#f8fafc;color:#111827;font-weight:900;text-transform:uppercase;letter-spacing:.03em;}
+.packages-table thead th:first-child{background:#d71920;color:#fff;}
+.packages-table .bronze{color:#9a5a22}.packages-table .silver{color:#6b7280}.packages-table .gold{color:#b8860b}.packages-table .platinum{color:#111827}
+.packages-table .check{color:#16a34a;font-size:22px;font-weight:900;}
+.packages-note{font-size:13px;color:#64748b;margin-top:12px;}
+.package-cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px;}
+@media(max-width:850px){.service-packages-section{padding:24px 14px}.packages-table{min-width:760px}.packages-table th,.packages-table td{padding:10px 10px;font-size:13px}}
