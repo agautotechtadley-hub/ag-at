@@ -34,68 +34,6 @@
   background:transparent !important;
 }
 
-/* Small Google Reviews badge on hero image */
-.hero-google-badge{
-  position:absolute;
-  right:34px;
-  bottom:34px;
-  z-index:3;
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  padding:10px 13px;
-  border-radius:16px;
-  background:rgba(255,255,255,.92);
-  border:1px solid rgba(255,255,255,.72);
-  box-shadow:0 14px 36px rgba(0,0,0,.28);
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-  color:#111827;
-  transition:transform .22s ease, box-shadow .22s ease, background .22s ease;
-}
-.hero-google-badge:hover{
-  transform:translateY(-2px);
-  background:#fff;
-  box-shadow:0 18px 42px rgba(0,0,0,.34);
-}
-.google-g{
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:900;
-  font-size:26px;
-  line-height:1;
-  font-family:Inter,Arial,sans-serif;
-  background:#fff;
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);
-}
-.badge-text{
-  display:flex;
-  flex-direction:column;
-  line-height:1.05;
-}
-.badge-text strong{
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.01em;
-}
-.badge-text small{
-  font-size:11px;
-  font-weight:800;
-  color:#d71920;
-  letter-spacing:.02em;
-}
-.g-blue{color:#4285f4}.g-red{color:#ea4335}.g-yellow{color:#fbbc05}.g-green{color:#34a853}
-@media(max-width:760px){
-  .hero-google-badge{right:16px;bottom:16px;padding:8px 10px;border-radius:14px;gap:7px;}
-  .google-g{width:28px;height:28px;font-size:21px;}
-  .badge-text strong{font-size:11px;}
-  .badge-text small{font-size:10px;}
-}
-
 .hero .cta-row{display:none !important;}
 @media(max-width:760px){
   .hero-copy{bottom:14px !important;}
@@ -274,3 +212,35 @@
 @media(max-width:850px){.service-packages-section{padding:24px 14px}.packages-table{min-width:760px}.packages-table th,.packages-table td{padding:10px 10px;font-size:13px}}
 
 
+
+
+/* AG Auto-Tech small Google Reviews badge on hero image */
+.hero-google-badge{
+  position:absolute !important;
+  right:64px !important;
+  bottom:128px !important;
+  z-index:10 !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  padding:9px 13px !important;
+  border-radius:16px !important;
+  background:rgba(255,255,255,.94) !important;
+  border:1px solid rgba(255,255,255,.85) !important;
+  box-shadow:0 16px 34px rgba(0,0,0,.34) !important;
+  color:#111926 !important;
+  backdrop-filter:blur(8px) !important;
+  -webkit-backdrop-filter:blur(8px) !important;
+  transition:transform .22s ease, box-shadow .22s ease !important;
+}
+.hero-google-badge:hover{transform:translateY(-2px) !important;box-shadow:0 20px 42px rgba(0,0,0,.4) !important;}
+.google-icon{
+  width:34px !important;height:34px !important;border-radius:50% !important;
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  font:900 25px/1 Inter,Arial,sans-serif !important;background:#fff !important;
+  color:#4285f4 !important;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08) !important;
+}
+.google-badge-copy{display:flex !important;flex-direction:column !important;line-height:1.05 !important;}
+.google-badge-copy strong{font-size:12px !important;font-weight:900 !important;color:#111926 !important;}
+.google-badge-copy small{font-size:11px !important;font-weight:900 !important;color:#d5332f !important;letter-spacing:.03em !important;}
+@media(max-width:760px){.hero-google-badge{right:18px !important;bottom:112px !important;padding:8px 10px !important;}.google-icon{width:30px !important;height:30px !important;font-size:22px !important;}.google-badge-copy strong{font-size:11px !important;}.google-badge-copy small{font-size:10px !important;}}
