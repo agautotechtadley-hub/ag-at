@@ -210,86 +210,101 @@
 .package-cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px;}
 @media(max-width:850px){.service-packages-section{padding:24px 14px}.packages-table{min-width:760px}.packages-table th,.packages-table td{padding:10px 10px;font-size:13px}}
 
-/* AG hero trust badges: Google Reviews + Courtesy Cars */
-.hero-badge-stack{
-  position:absolute;
-  right:26px;
-  bottom:26px;
-  z-index:5;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  width:min(310px, calc(100% - 52px));
-  color:#111926;
+
+/* AG hero Google reviews + courtesy car badges */
+.hero-trust-badges{
+  position:absolute !important;
+  right:52px !important;
+  bottom:96px !important;
+  z-index:6 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:12px !important;
+  align-items:flex-end !important;
 }
-.hero-badge{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:13px 15px;
-  border-radius:16px;
-  background:rgba(255,255,255,.94);
-  border:1px solid rgba(255,255,255,.75);
-  border-left:5px solid var(--red);
-  box-shadow:0 16px 36px rgba(0,0,0,.24);
+.hero-trust-badge{
+  display:flex !important;
+  align-items:center !important;
+  gap:12px !important;
+  min-width:166px !important;
+  padding:12px 16px !important;
+  border-radius:18px !important;
+  background:rgba(255,255,255,.94) !important;
+  color:#101827 !important;
+  text-decoration:none !important;
+  box-shadow:0 14px 35px rgba(0,0,0,.28) !important;
+  border:1px solid rgba(255,255,255,.8) !important;
   backdrop-filter:blur(8px);
-  transition:transform .22s ease, box-shadow .22s ease;
 }
-.hero-badge-stack:hover .hero-badge{
-  transform:translateY(-2px);
-  box-shadow:0 20px 44px rgba(0,0,0,.3);
+.hero-trust-badge strong{
+  display:block !important;
+  font-size:14px !important;
+  line-height:1.05 !important;
+  font-weight:900 !important;
+  letter-spacing:.01em !important;
 }
-.hero-badge strong{
-  display:block;
-  font-size:13px;
-  line-height:1.15;
-  font-weight:900;
-  letter-spacing:.03em;
-  text-transform:uppercase;
+.hero-trust-badge em{
+  display:block !important;
+  font-style:normal !important;
+  font-size:13px !important;
+  line-height:1.05 !important;
+  color:#d71920 !important;
+  font-weight:900 !important;
 }
-.hero-badge em{
-  display:block;
-  margin-top:3px;
-  font-size:12px;
-  line-height:1.15;
-  font-style:normal;
-  font-weight:800;
-  color:#5b6572;
+.google-g{
+  width:38px !important;
+  height:38px !important;
+  border-radius:50% !important;
+  background:#fff !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  font-size:28px !important;
+  font-weight:900 !important;
+  color:#4285f4 !important;
+  font-family:Arial, sans-serif !important;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.08) !important;
 }
-.google-mark,.badge-icon{
-  flex:0 0 38px;
-  width:38px;
-  height:38px;
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#fff;
-  border:1px solid #e2e6ea;
-  font-size:22px;
-  font-weight:900;
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.02);
+.car-icon{
+  width:38px !important;
+  height:38px !important;
+  border-radius:50% !important;
+  background:#d71920 !important;
+  color:#fff !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  font-size:20px !important;
 }
-.google-mark .g-blue{
-  font-family:Arial,sans-serif;
-  color:#4285F4;
+.hero-trust-badge:hover{
+  transform:translateY(-2px) !important;
+  box-shadow:0 18px 42px rgba(0,0,0,.34) !important;
 }
-.hero-courtesy-badge{
-  border-left-color:var(--yellow-dark);
-}
-@media(max-width:760px){
-  .hero-badge-stack{
-    left:16px;
-    right:16px;
-    bottom:calc(100% - 405px);
-    width:auto;
-    gap:8px;
+@media (max-width:900px){
+  .hero-trust-badges{
+    right:18px !important;
+    bottom:18px !important;
+    gap:8px !important;
   }
-  .hero-badge{
-    padding:10px 12px;
-    border-radius:14px;
+  .hero-trust-badge{
+    min-width:138px !important;
+    padding:10px 12px !important;
+    border-radius:14px !important;
   }
-  .hero-badge strong{font-size:11px;}
-  .hero-badge em{font-size:10px;}
-  .google-mark,.badge-icon{width:32px;height:32px;flex-basis:32px;font-size:18px;}
+  .hero-trust-badge strong{font-size:12px !important;}
+  .hero-trust-badge em{font-size:12px !important;}
+  .google-g,.car-icon{width:32px !important;height:32px !important;font-size:22px !important;}
+}
+@media (max-width:560px){
+  .hero-trust-badges{
+    position:relative !important;
+    right:auto !important;
+    bottom:auto !important;
+    z-index:7 !important;
+    margin:14px 18px 0 auto !important;
+    align-items:flex-end !important;
+  }
+  .hero-trust-badge{
+    min-width:148px !important;
+  }
 }
