@@ -308,3 +308,30 @@
     min-width:148px !important;
   }
 }
+
+
+/* AG Auto-Tech small safe update: bigger animated phone number */
+.phone-chip{
+  font-size:13px!important;
+  padding:12px 20px!important;
+  min-height:48px!important;
+  border-width:2px!important;
+  animation: agPhoneColourCycle 3.2s ease-in-out infinite!important;
+}
+.phone-chip strong{
+  font-size:20px!important;
+  margin-left:8px!important;
+  letter-spacing:.04em!important;
+}
+@keyframes agPhoneColourCycle{
+  0%,100%{background:#111926!important;color:#fff!important;border-color:#d5332f!important;box-shadow:0 0 0 rgba(213,51,47,0)}
+  33%{background:#d5332f!important;color:#fff!important;border-color:#d5332f!important;box-shadow:0 0 18px rgba(213,51,47,.45)}
+  66%{background:#fff!important;color:#111926!important;border-color:#111926!important;box-shadow:0 0 14px rgba(17,25,38,.25)}
+}
+.phone-chip:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.05);
+}
+@media(max-width:760px){
+  .phone-chip strong{font-size:17px!important;}
+}
