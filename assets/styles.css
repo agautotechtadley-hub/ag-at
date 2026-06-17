@@ -281,3 +281,16 @@
 @media(max-width:760px){
   .phone-chip strong{font-size:17px!important;}
 }
+
+
+/* Premium header logo update */
+.premium-topbar{padding:18px 24px;background:linear-gradient(180deg,#ffffff 0%,#f3f5f7 100%);align-items:center;}
+.premium-brand{display:flex;align-items:center;gap:16px;color:var(--blue-dark);}
+.brand-logo{width:68px;height:68px;object-fit:contain;filter:drop-shadow(0 8px 14px rgba(0,0,0,.12));transition:transform .25s ease,filter .25s ease;}
+.premium-brand:hover .brand-logo{transform:scale(1.04) rotate(-2deg);filter:drop-shadow(0 10px 18px rgba(213,51,47,.22));}
+.brand-text{display:flex;flex-direction:column;gap:5px;line-height:1;}
+.brand-name{font-family:Oswald,Arial,sans-serif;font-size:clamp(2.05rem,3.15vw,3.2rem);font-weight:800;letter-spacing:.055em;text-transform:uppercase;color:#111926;text-shadow:0 2px 0 rgba(255,255,255,.9);position:relative;}
+.brand-name::after{content:"";display:block;width:118px;height:5px;margin-top:7px;border-radius:999px;background:linear-gradient(90deg,#d71920 0%,#111926 60%,#d71920 100%);}
+.brand-tagline{font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#d71920;}
+.premium-topbar .top-actions{margin-left:auto;}
+@media(max-width:760px){.premium-topbar{justify-content:center;text-align:center}.premium-brand{width:100%;justify-content:center}.brand-logo{width:54px;height:54px}.brand-name{font-size:clamp(1.45rem,8vw,2.15rem)}.brand-name::after{margin-left:auto;margin-right:auto}.premium-topbar .top-actions{margin-left:0;justify-content:center;width:100%}}
