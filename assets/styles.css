@@ -211,104 +211,49 @@
 @media(max-width:850px){.service-packages-section{padding:24px 14px}.packages-table{min-width:760px}.packages-table th,.packages-table td{padding:10px 10px;font-size:13px}}
 
 
-/* AG hero Google reviews + courtesy car badges */
-.hero-trust-badges{
-  position:absolute !important;
-  right:52px !important;
-  bottom:96px !important;
-  z-index:6 !important;
-  display:flex !important;
-  flex-direction:column !important;
-  gap:12px !important;
-  align-items:flex-end !important;
+/* AG Google reviews + courtesy car mini cards beside service title */
+.ag-service-head-row{
+  display:grid !important;
+  grid-template-columns:minmax(180px,220px) 1fr minmax(190px,240px) !important;
+  gap:16px !important;
+  align-items:center !important;
+  margin-bottom:26px !important;
 }
-.hero-trust-badge{
+.ag-services-head-main{margin:0 !important;}
+.ag-mini-proof-card{
+  min-height:82px !important;
   display:flex !important;
   align-items:center !important;
-  gap:12px !important;
-  min-width:166px !important;
-  padding:12px 16px !important;
+  gap:10px !important;
+  padding:12px 14px !important;
   border-radius:18px !important;
-  background:rgba(255,255,255,.94) !important;
+  background:#fff !important;
   color:#101827 !important;
   text-decoration:none !important;
-  box-shadow:0 14px 35px rgba(0,0,0,.28) !important;
-  border:1px solid rgba(255,255,255,.8) !important;
-  backdrop-filter:blur(8px);
+  border:1px solid rgba(15,23,42,.08) !important;
+  box-shadow:0 12px 28px rgba(15,23,42,.12) !important;
+  transition:transform .18s ease, box-shadow .18s ease !important;
 }
-.hero-trust-badge strong{
-  display:block !important;
-  font-size:14px !important;
-  line-height:1.05 !important;
-  font-weight:900 !important;
-  letter-spacing:.01em !important;
-}
-.hero-trust-badge em{
-  display:block !important;
-  font-style:normal !important;
-  font-size:13px !important;
-  line-height:1.05 !important;
-  color:#d71920 !important;
-  font-weight:900 !important;
-}
-.google-g{
+.ag-mini-proof-card:hover{transform:translateY(-2px) !important;box-shadow:0 18px 36px rgba(15,23,42,.18) !important;}
+.ag-google-logo,.ag-car-logo{
   width:38px !important;
   height:38px !important;
+  min-width:38px !important;
   border-radius:50% !important;
-  background:#fff !important;
   display:flex !important;
   align-items:center !important;
   justify-content:center !important;
-  font-size:28px !important;
   font-weight:900 !important;
-  color:#4285f4 !important;
   font-family:Arial, sans-serif !important;
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.08) !important;
 }
-.car-icon{
-  width:38px !important;
-  height:38px !important;
-  border-radius:50% !important;
-  background:#d71920 !important;
-  color:#fff !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  font-size:20px !important;
+.ag-google-logo{background:#fff !important;color:#4285f4 !important;font-size:28px !important;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12) !important;}
+.ag-car-logo{background:#d71920 !important;color:#fff !important;font-size:19px !important;}
+.ag-proof-text strong{display:block !important;font-size:14px !important;line-height:1.1 !important;font-weight:900 !important;color:#111827 !important;}
+.ag-proof-text em{display:block !important;margin-top:4px !important;font-size:12px !important;line-height:1.2 !important;font-style:normal !important;font-weight:900 !important;color:#d71920 !important;}
+@media(max-width:980px){
+  .ag-service-head-row{grid-template-columns:1fr !important;gap:12px !important;}
+  .ag-mini-proof-card{max-width:280px !important;margin:0 auto !important;min-height:74px !important;}
 }
-.hero-trust-badge:hover{
-  transform:translateY(-2px) !important;
-  box-shadow:0 18px 42px rgba(0,0,0,.34) !important;
-}
-@media (max-width:900px){
-  .hero-trust-badges{
-    right:18px !important;
-    bottom:18px !important;
-    gap:8px !important;
-  }
-  .hero-trust-badge{
-    min-width:138px !important;
-    padding:10px 12px !important;
-    border-radius:14px !important;
-  }
-  .hero-trust-badge strong{font-size:12px !important;}
-  .hero-trust-badge em{font-size:12px !important;}
-  .google-g,.car-icon{width:32px !important;height:32px !important;font-size:22px !important;}
-}
-@media (max-width:560px){
-  .hero-trust-badges{
-    position:relative !important;
-    right:auto !important;
-    bottom:auto !important;
-    z-index:7 !important;
-    margin:14px 18px 0 auto !important;
-    align-items:flex-end !important;
-  }
-  .hero-trust-badge{
-    min-width:148px !important;
-  }
-}
-
 
 /* AG Auto-Tech small safe update: bigger animated phone number */
 .phone-chip{
