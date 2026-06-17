@@ -368,3 +368,127 @@ body{background:#f3f1ec!important}
 .topbar{
 border-radius:24px 24px 0 0;
 }
+
+
+/* V20 CLEAN PREMIUM HEADER - Marek final cleanup */
+body{
+  background:#f5f3ef!important;
+}
+body::before{
+  display:none!important;
+}
+.page{
+  max-width:1680px!important;
+  padding:22px 18px 44px!important;
+}
+.sheet{
+  max-width:1540px!important;
+  border-radius:26px!important;
+  background:rgba(255,255,255,.97)!important;
+  box-shadow:0 24px 70px rgba(12,18,30,.10)!important;
+}
+.premium-topbar,
+.topbar{
+  padding:26px 30px 22px!important;
+  display:grid!important;
+  grid-template-columns:1fr auto!important;
+  grid-template-areas:"brand actions"!important;
+  gap:18px 24px!important;
+  align-items:center!important;
+  background:linear-gradient(180deg,#ffffff 0%,#f7f8fa 58%,#eef1f4 100%)!important;
+}
+.premium-brand,
+.brand{
+  grid-area:brand!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:20px!important;
+  min-width:0!important;
+}
+.brand:before{
+  display:none!important;
+  content:none!important;
+}
+.brand-logo,
+.premium-brand .brand-logo{
+  width:94px!important;
+  height:94px!important;
+  border-radius:50%!important;
+  object-fit:cover!important;
+  background:transparent!important;
+  box-shadow:0 14px 34px rgba(0,0,0,.16),0 0 0 4px rgba(255,255,255,.9),0 0 0 6px rgba(215,25,32,.12)!important;
+  filter:none!important;
+  flex:0 0 auto!important;
+}
+.brand-text{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:7px!important;
+}
+.brand-name{
+  font-size:clamp(2.85rem,4.2vw,4.45rem)!important;
+  line-height:.92!important;
+  letter-spacing:.075em!important;
+  color:#101722!important;
+  text-shadow:0 2px 0 rgba(255,255,255,.9)!important;
+  white-space:nowrap!important;
+}
+.brand-name::after{
+  width:150px!important;
+  height:6px!important;
+  margin-top:10px!important;
+  background:linear-gradient(90deg,#d71920 0%,#d71920 70%,#101722 70%,#101722 100%)!important;
+}
+.brand-tagline{
+  font-size:14px!important;
+  letter-spacing:.21em!important;
+  color:#d71920!important;
+  font-weight:900!important;
+}
+.premium-topbar .top-actions,
+.top-actions{
+  grid-area:actions!important;
+  margin-left:0!important;
+  justify-self:end!important;
+  align-self:end!important;
+  display:flex!important;
+  gap:12px!important;
+}
+.mini-chip{
+  min-height:48px!important;
+  padding:12px 20px!important;
+  border-radius:999px!important;
+  background:#fff!important;
+  box-shadow:0 8px 22px rgba(16,23,34,.06)!important;
+}
+.phone-chip{
+  background:linear-gradient(180deg,#ffd941 0%,#e1b100 100%)!important;
+  box-shadow:0 10px 25px rgba(221,173,0,.30)!important;
+}
+.phone-chip strong{font-size:20px!important;letter-spacing:.04em!important;}
+.hero{padding:30px!important;}
+.hero-visual{
+  min-height:610px!important;
+  border-radius:30px!important;
+}
+.hero-logo-mark{
+  display:none!important;
+}
+@media(max-width:1100px){
+  .premium-topbar,.topbar{grid-template-columns:1fr!important;grid-template-areas:"brand" "actions"!important;text-align:center!important;}
+  .premium-brand,.brand{justify-content:center!important;}
+  .premium-topbar .top-actions,.top-actions{justify-self:center!important;align-self:center!important;}
+  .brand-name{white-space:normal!important;font-size:clamp(2.1rem,7vw,3.3rem)!important;}
+  .brand-name::after{margin-left:auto!important;margin-right:auto!important;}
+}
+@media(max-width:760px){
+  .page{padding:10px 8px 84px!important;}
+  .premium-topbar,.topbar{padding:18px 14px!important;}
+  .brand-logo,.premium-brand .brand-logo{width:68px!important;height:68px!important;}
+  .brand-name{font-size:clamp(1.8rem,8.7vw,2.45rem)!important;}
+  .brand-tagline{font-size:11px!important;letter-spacing:.15em!important;}
+  .top-actions{width:100%!important;justify-content:center!important;}
+  .mini-chip{font-size:10px!important;padding:10px 13px!important;}
+  .hero{padding:14px!important;}
+  .hero-visual{min-height:430px!important;border-radius:22px!important;}
+}
