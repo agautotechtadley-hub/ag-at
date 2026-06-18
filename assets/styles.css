@@ -824,3 +824,59 @@ body::before{opacity:.28!important;}
     padding:10px 12px calc(10px + env(safe-area-inset-bottom))!important;
   }
 }
+
+/* === V26: proof cards back beside Choose The Service, not on hero === */
+.hero > .hero-visual > .hero-proof-cards{display:none!important;}
+.services-choice-section .ag-service-head-row-clean{
+  display:grid!important;
+  grid-template-columns:minmax(190px,260px) minmax(0,1fr) minmax(190px,260px)!important;
+  gap:18px!important;
+  align-items:center!important;
+  max-width:1120px!important;
+  margin:0 auto 28px!important;
+}
+.services-choice-section .ag-service-head-row-clean > .hero-proof-cards{
+  display:contents!important;
+  position:static!important;
+  margin:0!important;
+}
+.services-choice-section .ag-service-head-row-clean > .hero-proof-cards .ag-mini-proof-card{
+  position:static!important;
+  width:100%!important;
+  max-width:none!important;
+  min-height:86px!important;
+  padding:14px 16px!important;
+  border-radius:18px!important;
+  background:#fff!important;
+  border:1px solid rgba(15,23,42,.09)!important;
+  box-shadow:0 14px 34px rgba(15,23,42,.11)!important;
+  backdrop-filter:none!important;
+}
+.services-choice-section .ag-service-head-row-clean > .hero-proof-cards .ag-google-card{grid-column:1!important;}
+.services-choice-section .ag-service-head-row-clean > .hero-proof-cards .ag-courtesy-card{grid-column:3!important;}
+.services-choice-section .ag-service-head-row-clean > .ag-services-head-main{grid-column:2!important;grid-row:1!important;}
+
+@media(max-width:760px){
+  .services-choice-section .ag-service-head-row-clean{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:12px!important;
+    max-width:100%!important;
+    margin:0 auto 18px!important;
+  }
+  .services-choice-section .ag-service-head-row-clean > .ag-services-head-main{order:1!important;grid-column:auto!important;}
+  .services-choice-section .ag-service-head-row-clean > .hero-proof-cards{
+    order:2!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:8px!important;
+    width:100%!important;
+    position:static!important;
+    margin:0!important;
+  }
+  .services-choice-section .ag-service-head-row-clean > .hero-proof-cards .ag-mini-proof-card{
+    min-height:60px!important;
+    padding:10px 12px!important;
+    border-radius:16px!important;
+  }
+}
