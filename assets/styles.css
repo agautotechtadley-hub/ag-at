@@ -910,3 +910,33 @@ body::before{opacity:.28!important;}
   .gallery-page .gallery-item{height:145px!important;border-radius:16px!important}
   .gallery-page .gallery-item span{font-size:9px;padding:6px 8px;letter-spacing:.08em;}
 }
+
+/* === BookMyGarage Reviews Card === */
+.ag-bmg-logo{
+  width:38px!important;
+  height:38px!important;
+  min-width:38px!important;
+  border-radius:50%!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  background:#111926!important;
+  color:#fff!important;
+  font-size:10px!important;
+  font-weight:900!important;
+  font-family:Arial,sans-serif!important;
+}
+
+.services-choice-section .ag-service-head-row-clean > .hero-proof-cards .ag-bookmygarage-card{
+  grid-column:1!important;
+  grid-row:2!important;
+  margin-top:10px!important;
+}
+
+@media(max-width:760px){
+  .services-choice-section .ag-service-head-row-clean > .hero-proof-cards .ag-bookmygarage-card{
+    grid-column:auto!important;
+    grid-row:auto!important;
+    margin-top:0!important;
+  }
+}
