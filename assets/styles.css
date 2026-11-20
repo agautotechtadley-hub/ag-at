@@ -943,3 +943,6 @@ body::before{opacity:.28!important;}
 
 /* MOT station announcement – November 2026 */
 .mot-triangles{width:48px;height:45px;flex:none;display:inline-block}.mot-station-banner{display:flex;align-items:center;gap:18px;padding:18px 24px;margin:18px 0;border:2px solid #1763b1;border-radius:14px;background:#eef6ff;color:#14283c}.mot-station-banner strong{display:block;font-size:clamp(18px,2.5vw,26px);font-weight:800}.mot-station-banner p{margin:5px 0 0;line-height:1.5}.mot-station-banner a{color:#1259a4;font-weight:800}.mot-card-station{display:flex;align-items:center;gap:9px;margin:9px 0;font-weight:800;color:#1763b1;font-size:13px}.mot-card-station .mot-triangles{width:28px;height:26px}.mot-page-banner{max-width:1000px;margin:18px auto}.mot-page-banner .mot-triangles{width:62px;height:58px}@media(max-width:600px){.mot-station-banner{padding:14px;gap:12px;align-items:flex-start}.mot-station-banner .mot-triangles{width:38px;height:36px}}
+
+/* MOT logo and discreet hero integration */
+.mot-official-logo{width:34px;height:30px;object-fit:contain;display:inline-block;vertical-align:middle;flex:none}.mot-hero-kicker{display:inline-flex;align-items:center;gap:9px}.mot-hero-kicker .mot-official-logo{width:28px;height:25px}.mot-card-station .mot-official-logo{width:30px;height:27px}.mot-page-banner .mot-official-logo{width:55px;height:49px}
